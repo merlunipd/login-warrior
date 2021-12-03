@@ -1,0 +1,128 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.11.25)  3 DEC 2021 17:19
+entering extended mode
+**"c:/Users/Ricky/OneDrive - Università degli Studi di Padova/SWEProject/login-warrior/src/documenti/verbali/2021_12_03/2021_12_03.tex"
+(c:/Users/Ricky/OneDrive - Università degli Studi di Padova/SWEProject/login-warrior/src/documenti/verbali/2021_12_03/2021_12_03.tex
+LaTeX2e <2021-11-15>
+L3 programming layer <2021-11-22> (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count183
+\c@section=\count184
+\c@subsection=\count185
+\c@subsubsection=\count186
+\c@paragraph=\count187
+\c@subparagraph=\count188
+\c@figure=\count189
+\c@table=\count190
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+) (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+) (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+ (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+) (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count191
+\l__pdf_internal_box=\box50
+) (2021_12_03.aux)
+\openout1 = `2021_12_03.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+ (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count192
+\scratchdimen=\dimen141
+\scratchbox=\box51
+\nofMPsegments=\count193
+\nofMParguments=\count194
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count195
+\MPscratchDim=\dimen142
+\MPnumerator=\count196
+\makeMPintoPDFobject=\count197
+\everyMPtoPDFconversion=\toks18
+) (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\Ricky\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)) (contenuti/intestazione.tex
+<../shared/immagini//logo_uni.png, id=1, 943.525pt x 949.5475pt>
+File: ../shared/immagini//logo_uni.png Graphic file (type png)
+<use ../shared/immagini//logo_uni.png>
+Package pdftex.def Info: ../shared/immagini//logo_uni.png  used on input line 2.
+(pdftex.def)             Requested size: 93.6013pt x 94.1924pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 3.
+<../shared/immagini//logo_merl.png, id=2, 146.89024pt x 146.89024pt>
+File: ../shared/immagini//logo_merl.png Graphic file (type png)
+<use ../shared/immagini//logo_merl.png>
+Package pdftex.def Info: ../shared/immagini//logo_merl.png  used on input line 16.
+(pdftex.def)             Requested size: 93.6013pt x 93.60373pt.
+) (contenuti/titolo.tex) [1
+
+{C:/Users/Ricky/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <../shared/immagini//logo_uni.png> <../shared/immagini//logo_merl.png>] (contenuti/informazioni.tex) [2] (contenuti/diario.tex) [3] (contenuti/todo.tex) [4] (2021_12_03.aux) ) 
+Here is how much of TeX's memory you used:
+ 1835 strings out of 478681
+ 30121 string characters out of 2846534
+ 330341 words of memory out of 3000000
+ 19945 multiletter control sequences out of 15000+600000
+ 409144 words of font info for 46 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 55i,8n,62p,326b,225s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\Ricky\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/Ricky/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Ricky/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Ricky/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Ricky/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on 2021_12_03.pdf (4 pages, 206341 bytes).
+PDF statistics:
+ 45 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+
