@@ -1,0 +1,31 @@
+% Configurazione
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\graphicspath{ {immagini/} {../shared/immagini/} }
+\definecolor{RossoUnipd}{HTML}{B5121B}
+
+
+
+% Variabili
+\newcommand{\data}{07  Dicembre 2021}
+
+
+
+% Struttura
+\begin{document}
+% Parte costante
+\input{contenuti/intestazione}
+\input{contenuti/titolo}
+\newpage
+
+% Parte Variabile
+\input{contenuti/modifiche}
+\input{contenuti/informazioni}
+\newpage
+\input{contenuti/diario}
+\newpage
+\input{contenuti/todo}
+\end{document}
