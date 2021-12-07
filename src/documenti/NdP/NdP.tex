@@ -1,0 +1,31 @@
+% Configurazione
+\documentclass[12pt, a4paper]{report}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\graphicspath{ {immagini/} }
+\definecolor{RossoUnipd}{HTML}{B5121B}
+\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\textbf}
+\renewcommand{\contentsname}{Indice}
+
+% Variabili
+\newcommand{\titolo}{Norme di Progetto}
+
+
+
+% Struttura
+\begin{document}
+  \input{contenuti/intestazione}
+  \input{contenuti/titolo}
+  \newpage
+  \input{contenuti/modifiche}
+  \tableofcontents
+
+  % Capitoli
+  \input{contenuti/introduzione}
+  \input{contenuti/processi_primari}
+  \input{contenuti/processi_supporto}
+  \input{contenuti/processi_organizzativi}
+\end{document}
