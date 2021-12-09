@@ -1,0 +1,32 @@
+% Configurazione
+\documentclass[12pt, a4paper]{report}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\graphicspath{ {immagini/} }
+\definecolor{RossoUnipd}{HTML}{B5121B}
+\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\textbf}
+\renewcommand{\contentsname}{Indice}
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+
+% Variabili
+\newcommand{\titolo}{Piano di Qualifica}
+
+% Struttura
+\begin{document}
+  \input{contenuti/intestazione}
+  \input{contenuti/titolo}
+  \newpage
+  \input{contenuti/modifiche}
+  \tableofcontents
+
+  % Capitoli
+  \input{contenuti/introduzione}
+  \input{contenuti/qualita_di_processo.tex}
+  \input{contenuti/qualita_di_prodotto.tex}
+  \input{contenuti/testing.tex}
+  \input{contenuti/resoconto.tex}
+  \input{contenuti/retrospettive.tex}
+\end{document}
