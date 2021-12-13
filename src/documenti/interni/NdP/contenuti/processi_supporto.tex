@@ -1,0 +1,64 @@
+\chapter{Processi di Supporto}
+\section{Documentazione}
+
+\section{Gestione della Configurazione}
+\subsection{Scopo}
+    Lo scopo di questa sezione è quello di espilicitare come il gruppo intende gestire la produzione di 
+    risorse durante l'intero sviluppo del progetto.
+ \subsection{Aspettative}
+    Le attese che il gruppo MERL si pone sono:
+    \begin{itemize}
+        \item Semplificare l'individuazione di conflitti ed errori
+        \item Uniformare gli strumenti utilizzati
+        \item Tracciare le modifiche e avere sempre a disposizione una versione precedente per ogni file
+    \end{itemize}
+ \subsection{Descrizione}
+    Il processo di gestione della configurazione ha lo scopo di creare un ambiente in cui la produzione di 
+    documentazione e di codice avviene in maniera sistematica, ordinata e standardizzata. Ciò è permesso 
+    raggruppando ed organizzando tutti gli strumenti e le regole adoperati.  
+ \subsection{Versionamento}
+   \subsubsection{Codice di versione}
+   La storia di una risorsa deve sempre poter essere ricostrubibile in quanto nel suo arco di vita essa subisce
+   svariate modifiche. A tal scopo è fondamentale l'introduzione di un sistema di identificazione della 
+   versione: 
+   \begin{center}
+       \textbf{[X].[Y].[Z]}
+   \end{center}
+   Dove:
+   \begin{itemize}
+       \item \textbf{X} indica la versione stabile, quella approvata dal responsabile del documento
+       \item \textbf{Y} indica la versione controllata, quella controllata dal verificatore del documento
+       \item \textbf{Z} indica la versione modificata, quella sottoposta a modifica da parte di un redattore
+   \end{itemize}
+
+
+ \subsection{Sistemi software utilizzati}
+ Per la gestione delle differenti versioni è stato deciso di utilizzare il sistema
+ di versionamento distribuito Git; utilizzando il servizio GitHub per gestire la repository.\\
+ Per la suddivisione e la gestione dei lavori da svolgere il nostro gruppo ha deciso di appoggiarsi
+ al servizio web Trello.\\
+
+ \subsection{Struttura repository}
+  \subsubsection{Repository utilizzata}
+  Il repository in cui tutti i documeti vengono caricati è pubblico e si trova al seguente indirizzo: 
+  \url{https://github.com/merlunipd/login-warrior}.
+    
+  \subsubsection{Organizzazione del repository}
+  L'organizzazione del repository è riassunta di seguito:
+  \begin{itemize}
+      \item Ramo principale \textbf{Main} in cui è presente la documentazione, o le parti dei documenti, approvate da almeno un verificatore e dal responsabile
+      \item Rami secondari utilizzati per redarre i vari paragrafi della documentazione che, una volta unititi al ramo principale attraverso l'attività di merging, vengono eliminati per evitare di ostruire il repository.
+  \end{itemize}
+  Nel ramo Main i documenti si trovano all'interno della cartella "documenti", all'interno della quale possiamo trovare:
+  \begin{itemize}
+      \item La cartella "candidatura" che contiene i documenti inerenti alla candidatura al capitolato C5
+      \item La cartella "interni" che contiene i documenti utili al gruppo
+      \item La cartella "esterni" contenente i documenti da fornire ai committenti e al proponente.
+  \end{itemize}
+  Sempre nel Main possiamo trovare il file ".gitignore" necessario ad evitare il tracciamento dei file \LaTeX{} non necessari ai fini del progetto.
+
+ 
+  
+\section{Gestione della Qualità}
+\section{Verifica}
+\section{Validazione}
