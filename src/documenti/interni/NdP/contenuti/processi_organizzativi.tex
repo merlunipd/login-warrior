@@ -1,6 +1,107 @@
 \chapter{Processi Organizzativi}
 
 \section{Gestione di Processo}
+
 \section{Infrastruttura}
+Fanno parte dell'infrastruttura organizzativa tutti gli strumenti che permettono al gruppo di attuare in modo efficace ed efficiente i processi organizzativi. In particolare tali strumenti permettono la \textbf{comunicazione}, il \textbf{coordinamento} e la \textbf{pianificazione}.
+
+\subsection{Strumenti}
+\subsubsection{Trello}
+Principale strumento di project management utilizzato come \textbf{Kanban}. 
+
+La \textbf{board principale} è divisa nelle seguenti liste:
+\begin{itemize}
+  \item \textbf{Backlog}: contiene task da fare in un momento non specificato. Questa lista viene esaminata nel momento di definizione di una milestone come integrazione per assicurarsi di non dimenticare obiettivi fondamentali;
+  \item \textbf{Todo}: contiene task da fare il prima possibile. Se una task non è assegnata a nessuno, qualsiasi membro del gruppo può autonomamente prenderla in carico e portare avanti il suo ciclo di vita. L'unico che può inserire nuove task in questa lista è il \textbf{Responsabile di Progetto};
+  \item \textbf{Doing}: contiene task in corso. Da questo punto del ciclo di vita, qualsiasi task ha almeno un membro associato a essa, non possono esserci task "orfane". Questo permette di coordinarsi per essere sicuri che i membri del gruppo non stiano lavorando asincronamente a una stessa task;
+  \item \textbf{Verify}: contiene task completate che necessitano di verifica. Qualsiasi membro del gruppo può autonomamente diventare verificatore di una task aggiungendosi a essa, con la precondizione che non sia la stessa persona che l'ha svolta. In caso di problemi può nascere una conversazione nella sezione "Commenti" tra l'esecutore e il verificatore, con possibile ritorno della task nella lista "Doing". Quando il verificatore conferma l'idoneità, può segnalare la sua approvazione con il corrispettivo tag "Approved". Sarà poi compito del \textbf{Responsabile di Progetto} accettare la fine della task e spostarla in "Done";
+  \item \textbf{Done}: contiene task completate, verificate e accettate. Utile principalmente come traccia storica dei compiti svolti (chi, cosa, quando, problemi).
+\end{itemize}
+
+Ciascuna \textbf{task} è costituita da:
+\begin{itemize}
+  \item \textbf{titolo} sintetico nella seguente forma generale: \textit{[categoria] - [breve titolo significativo]} (e.g. \texttt{documentazione - verbale meeting interno 23/11/2021});
+  \item \textbf{descrizione} opzionale e breve per dettagli importanti;
+  \item \textbf{membro/i} del gruppo coinvolti nella task;
+  \item \textbf{tag} per segnalare particolarità della task. Le etichette principali definite sono:
+  \begin{itemize}
+    \item \texttt{Importante}: segnala una task con alto livello di priorità;
+    \item \texttt{Team}: segnala una task che necessita del coinvolgimento dell'intero team. Rimane comunque che ci deve essere un membro incaricato responsabile per quella determinata task;
+    \item \texttt{Approved}: segnala una task in "Verify" che è stata verificata e può essere spostata (dal Responsabile di Progetto) in "Done".
+  \end{itemize}
+  \item \textbf{commenti} per discutere (soprattutto asincronamente) sulla specifica task. 
+\end{itemize}
+Le task inserite nel sistema non vengono \underline{mai cancellate} ma solo spostate tra le liste presenti. Solo in casi eccezionali le task possono essere archiviate ma anche in questo caso di loro e della loro storia resta traccia.
+
+Per navigare più facilmente nella bacheca è possibile impostare dei \textbf{filtri}, ad esempio per membro o tag.
+
+\subsubsection{GitHub}
+È il principale servizio di hosting della repository di gruppo e di controllo della versione distribuito. 
+
+Generalmente il workflow adottato dal gruppo è il GitHub Flow, che sinteticamente segue il seguente schema:
+\begin{itemize}
+  \item riallineamento della repository locale con quella remota;
+  \item creazione di un branch locale su cui effettuare le modifiche;
+  \item push del branch locale verso repository remota;
+  \item creazione di una pull request;
+  \item verifica e successivo merge del branch con le modifiche;
+  \item eliminazione del branch utilizzato dalla repository remota.
+\end{itemize}
+Per i dettagli consultare la documentazione ufficiale: 
+\begin{itemize}
+  \item \underline{https://docs.github.com/en/get-started/quickstart/github-flow}
+\end{itemize}
+
+GitHub offre un sistema di "Issue" e "Milestone" per pianificare e coordinare le attività da svolgere. Tipicamente sarà compito del \textbf{Responsabile di Progetto} predisporre le issue relative a una particolare milestone in modo che il resto del team possa avere più autonomia, potendo autoassegnarsi issue ancora aperte. Idealmente le issue saranno collegate con una o più pull request.
+
+\todo{il sistema di Issue e Milestone di GitHub deve ancora essere utilizzato e approfondito}
+
+\subsubsection{Discord}
+Principale strumento di \textbf{comunicazione interna sincrona} e \textbf{asincrona}. Vengono utilizzati 3 categorie di canali:
+\begin{itemize}
+  \item \textbf{Canali Risorse}: condivisione di risorse, creazione di sondaggi per effettuare decisione problematiche, integrazione con strumenti esterni per permettere notifiche (e.g. GitHub);
+  \item \textbf{Canali Testuali}: comunicazioni testuali sincrone e asincrone tra i membri del gruppo;
+  \item \textbf{Canali Vocali}: comunicazioni vocali tra i membri del gruppo, con possibilità di condividere lo schermo se necessario.
+\end{itemize}
+Ciascuna categoria può contenere un numero variabile di canali, a seconda delle necessità del periodo.
+
+\subsubsection{WhatsApp}
+Principale strumento di \textbf{comunicazione interna testuale asincrona}. Viene utilizzato in due modalità:
+\begin{itemize}
+  \item \textbf{Gruppo}: chat condivisa utilizzata, con parsimonia, per comunicazioni rivolte a tutti i membri;
+  \item \textbf{Individuale}: ogni membro del gruppo può essere contattato singolarmente.
+\end{itemize}
+
+\subsubsection{Google Calendar}
+Calendario condiviso del gruppo utilizzato per comunicare e ricordare:
+\begin{itemize}
+  \item \textbf{Meeting Interni}: di cui saranno specificati:
+  \begin{itemize}
+    \item orario di inizio;
+    \item moderatore;
+    \item scriba (redazione verbale);
+    \item argomenti: specifiche idee da trattare durante una riunione del gruppo.
+  \end{itemize}
+  \item \textbf{Meeting Esterni}: con proponente o committente;
+  \item \textbf{Scadenze Interne};
+  \item \textbf{Scadenze Esterne};
+  \item qualsiasi altra attività o evento che può essere collocato in un tempo specifico.
+\end{itemize}
+Mantenere il calendario aggiornato è compito del Responsabile di Progetto.
+
+\subsubsection{Google Drive}
+Strumento utilizzato come:
+\begin{itemize}
+  \item \textbf{directory condivisa} dai membri del gruppo per documenti temporanei o non ufficiali;
+  \item accesso alla \textbf{suite Google}: Docs, Sheets, Slides.
+\end{itemize}
+
+\subsubsection{Zoom}
+Strumento di videochiamata utilizzato principalmente per la comunicazione esterna con committente e proponente.
+
+\subsubsection{Google Mail}
+Utilizzo dell'indirizzo e-mail condiviso \texttt{merlunipd@gmail.com} per le \textbf{comunicazione esterna} come gruppo con i proponenti e il committente.
+
 \section{Miglioramento}
+
 \section{Formazione}

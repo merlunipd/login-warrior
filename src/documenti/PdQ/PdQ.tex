@@ -4,7 +4,6 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{titlesec}
-\usepackage{hyperref}
 
 \graphicspath{ {immagini/} }
 \definecolor{RossoUnipd}{HTML}{B5121B}
@@ -13,9 +12,7 @@
 \newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
 
 % Variabili
-\newcommand{\titolo}{Norme di Progetto}
-
-
+\newcommand{\titolo}{Piano di Qualifica}
 
 % Struttura
 \begin{document}
@@ -27,7 +24,9 @@
 
   % Capitoli
   \input{contenuti/introduzione}
-  \input{contenuti/processi_primari}
-  \input{contenuti/processi_supporto}
-  \input{contenuti/processi_organizzativi}
+  \input{contenuti/qualita_di_processo.tex}
+  \input{contenuti/qualita_di_prodotto.tex}
+  \input{contenuti/testing.tex}
+  \input{contenuti/resoconto.tex}
+  \input{contenuti/retrospettive.tex}
 \end{document}
