@@ -8,7 +8,7 @@ Questa sezione contiene tutte le norme per la corretta stesura e verifica dei do
 \subsection{Aspettative}
 Le aspettative di questo processo sono:
 \begin{itemize}
-    \item avere una struttura comune e chiara per i documenti nell'arco del ciclo di vita del sofware;
+    \item avere una struttura comune e chiara per i documenti nell'arco del ciclo di vita del software;
     \item avere delle norme e convenzioni ben precise che coprono tutti gli aspetti della stesura di un
 documento, in modo da poter lavorare autonomamente.
 \end{itemize}
@@ -30,7 +30,7 @@ I documenti prodotti saranno di due tipi:
     Le caratteristiche di questi documenti sono:
     \begin{itemize}
         \item Storicizzazione delle versioni del documento prodotte durante la sua stesura;
-        \item Nomi univoci ad ogni versione;
+        \item Nomi univoci a ogni versione;
         \item Approvazione della versione definitiva da parte del responsabile di progetto.
     \end{itemize}
     Se un documento formale ha più versioni, si considera come valida sempre la più recente tra quelle approvate dal responsabile.
@@ -55,22 +55,22 @@ I documenti prodotti saranno di due tipi:
     \end{itemize}
     I documenti che appartengono alla seconda categoria sono i \textbf{verbali}, che possono essere:
     \begin{itemize}
-        \item \textbf{Interni:} resoconti sintetici e ad elenco puntato di ciò che è emerso durante gli incontri tra i membri del gruppo,contengono gli argomenti affrontati e le cose da fare nell'immediato futuro;
+        \item \textbf{Interni:} resoconti sintetici e a elenco puntato di ciò che è emerso durante gli incontri tra i membri del gruppo, contengono gli argomenti affrontati e le cose da fare nell'immediato futuro;
         \item \textbf{Esterni:} rapporti degli incontri del gruppo coi committenti e/o col proponente, strutturati secondo lo schema domanda-risposta.
     \end{itemize}
 \end{itemize}
 \subsection{Struttura del documento}
 Ogni documento è formato da diverse sezioni, ognuna definita dal proprio file LaTeX. La parte principale è chiamata \texttt{"nomedoc.tex"} (dove \texttt{nomedoc} indica la sigla di quel documento, vedi \ref{sigle}) e contiene le seguenti componenti:
 \begin{itemize}
-    \item I file LaTeX delle sezioni con il contenuto vero e proprio del documento. Queste sezioni vengono decise da tutti i componenti quando viene creato il documento;
-    \item Il registro delle modifiche, che permette di tenere tracciabili i cambiamenti a quel documento;
     \item La prima pagina che specifica il nome del documento.
+    \item Il registro delle modifiche, che permette di tenere tracciabili i cambiamenti a quel documento;
+    \item I file LaTeX delle sezioni con il contenuto vero e proprio del documento. Queste sezioni vengono decise da tutti i componenti del gruppo quando viene creato il documento;
 \end{itemize}
 \subsection{Prima pagina}
 La prima pagina di un documento è formata da:
 \begin{itemize}
     \item Logo dell'Università di Padova con le informazioni del corso;
-    \item Logo del gruppo con relativa e-mail;
+    \item Logo del gruppo con relativa email;
     \item Nome del documento.
 \end{itemize}
 \subsection{Registro delle modifiche}
@@ -78,7 +78,7 @@ Ogni documento presenta un registro delle modifiche sotto forma di tabella che t
 \begin{itemize}
     \item La versione del documento dopo la modifica;
     \item La data in cui è stata apportata tale modifica;
-    \item Il nome dell'autore della modifica;
+    \item Il nome dell'autore e del verificatore della modifica;
     \item Una sintetica descrizione della modifica apportata.
 \end{itemize}
 \subsection{Indice}
@@ -106,7 +106,7 @@ I Verbali contengono la prima pagina come gli altri documenti ma non viene messo
     Tabella che riassume le cose da fare (task) nell'immediato periodo. Viene anche specificato a chi è assegnata una determinata task.
 \end{itemize}
 \subsection{Nome dei file}
-Il nome dei file e delle cartelle specifici di un singolo documento si chiamano con la sigla di quel documento. Tutti i file LaTeX che rappresentano le sezioni di un documento vanno scritti in minuscolo e separati da \texttt{"\textunderscore"} se presentano più di una parola. I \textit{Verbali} invece vengono salvati usando la data in cui è stata effuttuata la riunione nel formato \texttt{aaaa.mm.gg}.
+Il nome dei file e delle cartelle specifici di un singolo documento si chiamano con la sigla di quel documento. Tutti i file LaTeX che contengono le sezioni di un documento vanno scritti in minuscolo e separati da \texttt{"\textunderscore"} se presentano più di una parola. I \textit{Verbali} invece vengono salvati usando la data in cui è stata effettuata la riunione nel formato \texttt{aaaa.mm.gg}.
 \subsection{Stile di testo}
 Gli stili di testo adottati nei documenti sono:
 \begin{itemize}
@@ -150,7 +150,7 @@ Ogni tabella è contrassegnata da una didascalia descrittiva del contenuto, post
 \begin{center}
     \textbf{Tabella [X]}
 \end{center}
-dove \textbf{[X]} indica il numero assoluto della tabella all’interno del documento. Le tabelle delle modifiche invece non seguono questa regola perchè non hanno didascalia.
+dove \textbf{[X]} indica il numero assoluto della tabella all’interno del documento. Le tabelle delle modifiche invece non seguono questa regola perché non hanno didascalia.
 \subsection{Immagini}
 Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} contenuta nella cartella del documento a cui si riferiscono. Verranno poi richiamate dentro i file LaTex ove servono. Sia i diagrammi UML che i diagrammi di Gantt vengono riportati come immagini.
 \section{Gestione della Configurazione}
