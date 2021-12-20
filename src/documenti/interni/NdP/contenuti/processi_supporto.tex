@@ -1,9 +1,161 @@
 \chapter{Processi di Supporto}
 
 \section{Documentazione}
+\subsection{Scopo}
+Tutti i processi e le attività di sviluppo devono essere documentate al fine di poter tenere traccia in modo più veloce e chiaro per tutti ciò che è stato fatto. La presente sezione ha l'obiettivo di annotare tutte le norme che regoleranno il processo di documentazione durante l'intero ciclo di vita del software, in modo che tutti i prodotti documentali risultino validi e coerenti dal punto di vista formale e tipografico.
+\subsection{Descrizione}
+Questa sezione contiene tutte le norme per la corretta stesura e verifica dei documenti prodotti dai membri del gruppo. Ogni membro durante la redazione dei documenti è tenuto a seguire le regole presentate nella presente sezione.
+\subsection{Aspettative}
+Le aspettative di questo processo sono:
+\begin{itemize}
+    \item avere una struttura comune e chiara per i documenti nell'arco del ciclo di vita del software;
+    \item avere delle norme e convenzioni ben precise che coprono tutti gli aspetti della stesura di un
+documento, in modo da poter lavorare autonomamente.
+\end{itemize}
+\subsection{Ciclo di vita di un documento}
+\begin{itemize}
+    \item \textbf{Pianificazione:} il documento viene pensato e vengono organizzate le varie parti. Questo accade soprattutto quando le informazioni sono numerose e complesse;
+    \item \textbf{Impostazione:} viene creata la struttura con intestazione, header e footer;
+    \item \textbf{Realizzazione:} i membri assegnati a quel documento autonomamente scelgono una sezione e dopo averlo comunicato su Trello cominciano la stesura dei relativi contenuti;
+    \item \textbf{Verifica:} ogni sezione viene verificata da un componente che non sia il redattore;
+    \item \textbf{Approvazione:} terminata la verifica di tutte le sezioni il responsabile rilegge il documento e decide se approvarlo o meno; se approvato viene pubblicato nella repository altrimenti si torna alla fase di verifica.
+\end{itemize}
+\subsection{Template in \LaTeX}
+Il gruppo ha deciso di adottare il linguaggio \LaTeX, grazie al quale viene standardizzata
+la struttura dei documenti. L’uso di un template comune per la strutturazione dei documenti permette al gruppo di concentrarsi sulla stesura dei soli contenuti che verranno poi integrati facilmente grazie all'uso di questo linguaggio.
+\subsection{Documenti prodotti}
+I documenti prodotti saranno di due tipi:
+\begin{itemize}
+    \item \textbf{Formali:} sono i documenti che regolano l'operato del gruppo e gli esiti delle attività dello stesso durante tutto il ciclo di vita del software.
+    Le caratteristiche di questi documenti sono:
+    \begin{itemize}
+        \item Storicizzazione delle versioni del documento prodotte durante la sua stesura;
+        \item Nomi univoci a ogni versione;
+        \item Approvazione della versione definitiva da parte del responsabile di progetto.
+    \end{itemize}
+    Se un documento formale ha più versioni, si considera come valida sempre la più recente tra quelle approvate dal responsabile.
+
+    I documenti possono essere:
+    \begin{itemize}
+        \item \textbf{Interni:} riguardano le dinamiche interne al gruppo di lavoro, poco utili a committente e proponente;
+        \item \textbf{Esterni:} interessano committente e proponente e verranno loro consegnati nell'ultima versione approvata.
+    \end{itemize}
+    Sono documenti formali:
+    \begin{itemize}
+        \item \textbf{Norme di Progetto:} contiene le norme e le regole, stabilite dai membri del gruppo, alle quali ci si dovrà attenere durante l’intera durata del lavoro di progetto. Documento interno;
+        \item \textbf{Glossario:} elenco ordinato di tutti i termini usati nella documentazione che il gruppo ritiene necessitino di una definizione esplicita, al fine di rimuovere ogni possibile ambiguità. Documento esterno;
+        \item \textbf{Piano di Progetto:} espone la pianificazione di tutte le attività di progetto previste, presentando una previsione dell’impegno orario e un preventivo delle spese. Documento esterno;
+        \item \textbf{Piano di Qualifica:} espone e descrive i criteri di valutazione della qualità adottati dal gruppo. Documento esterno;
+        \item \textbf{Analisi dei Requisiti:} espone tutti i requisiti e le caratteristiche che il prodotto finale dovrà avere. Documento esterno.
+    \end{itemize}
+    \item \textbf{Informali:} caratteristiche di questi documenti:
+    \begin{itemize}
+        \item Non ancora approvati dal responsabile di progetto;
+        \item Non soggetto a versionamento.
+    \end{itemize}
+    I documenti che appartengono alla seconda categoria sono i \textbf{verbali}, che possono essere:
+    \begin{itemize}
+        \item \textbf{Interni:} resoconti sintetici e a elenco puntato di ciò che è emerso durante gli incontri tra i membri del gruppo, contengono gli argomenti affrontati e le cose da fare nell'immediato futuro;
+        \item \textbf{Esterni:} rapporti degli incontri del gruppo coi committenti e/o col proponente, strutturati secondo lo schema domanda-risposta.
+    \end{itemize}
+\end{itemize}
+\subsection{Struttura del documento}
+Ogni documento è formato da diverse sezioni, ognuna definita dal proprio file LaTeX. La parte principale è chiamata \texttt{"nomedoc.tex"} (dove \texttt{nomedoc} indica la sigla di quel documento, vedi \ref{sigle}) e contiene le seguenti componenti:
+\begin{itemize}
+    \item La prima pagina che specifica il nome del documento.
+    \item Il registro delle modifiche, che permette di tenere tracciabili i cambiamenti a quel documento;
+    \item I file LaTeX delle sezioni con il contenuto vero e proprio del documento. Queste sezioni vengono decise da tutti i componenti del gruppo quando viene creato il documento;
+\end{itemize}
+\subsection{Prima pagina}
+La prima pagina di un documento è formata da:
+\begin{itemize}
+    \item Logo dell'Università di Padova con le informazioni del corso;
+    \item Logo del gruppo con relativa email;
+    \item Nome del documento.
+\end{itemize}
+\subsection{Registro delle modifiche}
+Ogni documento presenta un registro delle modifiche sotto forma di tabella che tiene traccia dei cambiamenti significativi dello stesso durante il suo ciclo di vita. Ogni voce della tabella riporta:
+\begin{itemize}
+    \item La versione del documento dopo la modifica;
+    \item La data in cui è stata apportata tale modifica;
+    \item Il nome dell'autore e del verificatore della modifica;
+    \item Una sintetica descrizione della modifica apportata.
+\end{itemize}
+\subsection{Indice}
+Ogni documento presenta un indice dei contenuti, subito dopo il registro delle modifiche. Dove necessario, sono presenti anche un indice delle illustrazioni e uno delle tabelle presenti nel documento.
+\subsection{Struttura delle pagine}
+La singola pagina del documento ha la seguente struttura: \todo{decidere insieme la struttura}
+\subsection{Verbali}
+I Verbali contengono la prima pagina come gli altri documenti ma non viene messo l'indice data la brevità di questi documenti. Il contenuto di un Verbale è così organizzato:
+\begin{itemize}
+    \item \textbf{informazioni generali}
+    \begin{itemize}
+        \item Tipo di riunione, può essere interna o esterna;
+        \item Luogo;
+        \item Data;
+        \item Ora di inizio;
+        \item Ora di fine;
+        \item Moderatore;
+        \item Scriba;
+        \item Verificatore;
+        \item Partecipanti.
+    \end{itemize}
+    \item \textbf{diario della riunione}\\
+    Riporta gli argomenti trattati durante la riunione: sotto forma di elenco puntato per i Verbali interni, secondo lo schema domanda-risposta per i verbali esterni.
+    \item \textbf{todo}\\
+    Tabella che riassume le cose da fare (task) nell'immediato periodo. Viene anche specificato a chi è assegnata una determinata task.
+\end{itemize}
+\subsection{Nome dei file}
+Il nome dei file e delle cartelle specifici di un singolo documento si chiamano con la sigla di quel documento. Tutti i file LaTeX che contengono le sezioni di un documento vanno scritti in minuscolo e separati da \texttt{"\textunderscore"} se presentano più di una parola. I \textit{Verbali} invece vengono salvati usando la data in cui è stata effettuata la riunione nel formato \texttt{aaaa.mm.gg}.
+\subsection{Stile di testo}
+Gli stili di testo adottati nei documenti sono:
+\begin{itemize}
+    \item \textbf{Grassetto:} questo stile viene applicato ai termini di un elenco puntato e per le parole ritenute particolarmente importanti;
+    \item \textbf{Corsivo:} questo stile viene applicato per i nomi propri, i nomi dei ruoli, il nome del progetto e per il nome dei documenti;
+    \item \textbf{Monospace:} questo stile viene applicato per snippet di codice.
+\end{itemize}
+\subsection{Norme tipografiche}
+\begin{itemize}
+    \item Gli elenchi puntati iniziano sempre con la lettera maiuscola;
+    \item Gli elementi di un elenco finiscono sempre con \texttt{";"} tranne l'ultimo che finisce con \texttt{"."};
+    \item Il nome dei ruoli sempre scritti per esteso (in corsivo);
+    \item Il nome dei documenti sempre in sigla (in corsivo);
+    \item Il nome delle section sempre con tutte le iniziali maiuscole a parte gli articoli;
+    \item Il nome delle subsection e inferiori solo la prima lettera maiuscola.
+\end{itemize}
+\subsection{Glossario}
+\todo{aspetto che prima lo facciamo e decidiamo come impostarlo}
+\subsection{Sigle}
+\label{sigle}
+\begin{itemize}
+    \item Sigle relative ai nomi dei documenti:
+    \begin{itemize}
+        \item \textbf{Analisi dei Requisiti:} AdR;
+        \item \textbf{Piano di Progetto:} PdP;
+        \item \textbf{Piano di Qualifica:} PdQ;
+        \item \textbf{Norme di Progetto:} NdP;
+        \item \textbf{Glossario:} G;
+        \item \textbf{Verbali Interni:} VI;
+        \item \textbf{Verbali Esterni:} VE;
+    \end{itemize}
+    \item Sigle relative alle revisioni:
+    \begin{itemize}
+        \item \textbf{Requirements and Technology Baseline:} RTB;
+        \item \textbf{Product Baseline:} PB;
+        \item \textbf{Customer Acceptance:} CA;
+    \end{itemize}
+\end{itemize}
+\subsection{Tabelle}
+Ogni tabella è contrassegnata da una didascalia descrittiva del contenuto, posta sotto di essa centrata rispetto alla pagina.  Nella didascalia di ogni tabella viene indicato l’identificativo
+\begin{center}
+    \textbf{Tabella [X]}
+\end{center}
+dove \textbf{[X]} indica il numero assoluto della tabella all’interno del documento. Le tabelle delle modifiche invece non seguono questa regola perché non hanno didascalia.
+\subsection{Immagini}
+Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} contenuta nella cartella del documento a cui si riferiscono. Verranno poi richiamate dentro i file LaTex ove servono. Sia i diagrammi UML che i diagrammi di Gantt vengono riportati come immagini.
 \section{Gestione della Configurazione}
 \subsection{Scopo}
-    Lo scopo di questa sezione è quello di espilicitare come il gruppo intende gestire la produzione di 
+    Lo scopo di questa sezione è quello di espilicitare come il gruppo intende gestire la produzione di
     risorse durante l'intero sviluppo del progetto.
  \subsection{Aspettative}
     Le attese che il gruppo MERL si pone sono:
@@ -13,14 +165,14 @@
         \item Tracciare le modifiche e avere sempre a disposizione una versione precedente per ogni file
     \end{itemize}
  \subsection{Descrizione}
-    Il processo di gestione della configurazione ha lo scopo di creare un ambiente in cui la produzione di 
-    documentazione e di codice avviene in maniera sistematica, ordinata e standardizzata. Ciò è permesso 
-    raggruppando ed organizzando tutti gli strumenti e le regole adoperati.  
+    Il processo di gestione della configurazione ha lo scopo di creare un ambiente in cui la produzione di
+    documentazione e di codice avviene in maniera sistematica, ordinata e standardizzata. Ciò è permesso
+    raggruppando ed organizzando tutti gli strumenti e le regole adoperati.
  \subsection{Versionamento}
    \subsubsection{Codice di versione}
    La storia di una risorsa deve sempre poter essere ricostrubibile in quanto nel suo arco di vita essa subisce
-   svariate modifiche. A tal scopo è fondamentale l'introduzione di un sistema di identificazione della 
-   versione: 
+   svariate modifiche. A tal scopo è fondamentale l'introduzione di un sistema di identificazione della
+   versione:
    \begin{center}
        \textbf{[X].[Y].[Z]}
    \end{center}
@@ -40,7 +192,7 @@
 
  \subsection{Struttura repository}
   \subsubsection{Repository utilizzata}
-  Il repository in cui tutti i documeti vengono caricati è pubblico e si trova al seguente indirizzo: 
+  Il repository in cui tutti i documeti vengono caricati è pubblico e si trova al seguente indirizzo:
   \url{https://github.com/merlunipd/login-warrior}.
 
   \subsubsection{Organizzazione del repository}
@@ -66,7 +218,7 @@
   \newline
   Vogliamo, inoltre, poter ottenere un miglioramento continuo della nostra
   qualità, osservando il nostro andamento e tramite verifiche retrospettive.
-  
+
   \subsection{Piano di Qualifica}
   Per coprire gli obiettivi di questo processo utilizziamo il Piano Di
   Qualifica, cioè un documento nel quale:
@@ -79,10 +231,10 @@
       \item Discutiamo dei vari incontri con una verifica delle retrospettive;
       \item Proponiamo idee di auto-miglioramento.
   \end{itemize}
-  
+
   \subsection{Testing}
   \todo{Capire meglio i test da inserire}
-  
+
   \subsection{Aspettative}
   Con questo processo ci poniamo le seguenti aspettative:
   \begin{itemize}
@@ -134,9 +286,9 @@ con l'avanzamento dell'attività di progetto e quindi con il ripetersi del proce
 
 \section{Validazione}
 \subsection{Descrizione}
-Con Validazione si intende l'incontro con il committente in cui si presenta il proprio lavoro, in particolare il 
+Con Validazione si intende l'incontro con il committente in cui si presenta il proprio lavoro, in particolare il
 prodotto finale, ottenendo così l'approvazione o meno sull'operato. \newline
-Lo scopo è quello di accertarsi di aver conseguito i requisiti obbligatori minimi, imposti dal committente e 
+Lo scopo è quello di accertarsi di aver conseguito i requisiti obbligatori minimi, imposti dal committente e
 in modo efficace ed efficiente. Per verificare il tutto si eseguirà un collaudo con il committente, che sarà composto
 da diversi test, che ne verifichino le qualità, e inoltre dovranno già essere eseguiti in precedenza ed essere
 predicibili, cioè senza risultati o comportamenti inattesi.
