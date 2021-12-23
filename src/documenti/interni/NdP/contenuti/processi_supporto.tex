@@ -15,10 +15,10 @@ documento, in modo da poter lavorare autonomamente.
 \subsection{Ciclo di vita di un documento}
 \begin{itemize}
     \item \textbf{Pianificazione:} il documento viene pensato e vengono organizzate le varie parti. Questo accade soprattutto quando le informazioni sono numerose e complesse;
-    \item \textbf{Impostazione:} viene creata la struttura con intestazione, header e footer;
-    \item \textbf{Realizzazione:} i membri assegnati a quel documento autonomamente scelgono una sezione e dopo averlo comunicato su Trello cominciano la stesura dei relativi contenuti;
+    \item \textbf{Impostazione:} viene creata la struttura con intestazione, header e footer. Il Responsabile quindi crea delle issue su GitHub che rappresentano ciascuna sezione del documento;
+    \item \textbf{Realizzazione:} i membri assegnati a quel documento autonomamente scelgono una sezione tramite le issue di GitHub e i membri cominciano la stesura dei relativi contenuti;
     \item \textbf{Verifica:} ogni sezione viene verificata da un componente che non sia il redattore;
-    \item \textbf{Approvazione:} terminata la verifica di tutte le sezioni il responsabile rilegge il documento e decide se approvarlo o meno; se approvato viene pubblicato nella repository altrimenti si torna alla fase di verifica.
+    \item \textbf{Approvazione:} terminata la verifica di tutte le sezioni il Responsabile rilegge il documento e decide se approvarlo o meno; se approvato viene pubblicato nella repository altrimenti si torna alla fase di verifica.
 \end{itemize}
 \subsection{Template in \LaTeX}
 Il gruppo ha deciso di adottare il linguaggio \LaTeX, grazie al quale viene standardizzata
@@ -31,9 +31,9 @@ I documenti prodotti saranno di due tipi:
     \begin{itemize}
         \item Storicizzazione delle versioni del documento prodotte durante la sua stesura;
         \item Nomi univoci a ogni versione;
-        \item Approvazione della versione definitiva da parte del responsabile di progetto.
+        \item Approvazione della versione definitiva da parte del Responsabile di progetto.
     \end{itemize}
-    Se un documento formale ha più versioni, si considera come valida sempre la più recente tra quelle approvate dal responsabile.
+    Se un documento formale ha più versioni, si considera come valida sempre la più recente tra quelle approvate dal Responsabile.
 
     I documenti possono essere:
     \begin{itemize}
@@ -47,17 +47,15 @@ I documenti prodotti saranno di due tipi:
         \item \textbf{Piano di Progetto:} espone la pianificazione di tutte le attività di progetto previste, presentando una previsione dell’impegno orario e un preventivo delle spese. Documento esterno;
         \item \textbf{Piano di Qualifica:} espone e descrive i criteri di valutazione della qualità adottati dal gruppo. Documento esterno;
         \item \textbf{Analisi dei Requisiti:} espone tutti i requisiti e le caratteristiche che il prodotto finale dovrà avere. Documento esterno.
+        \item \textbf{Manuale Utente:} guida l’utente finale durante l’installazione e l’utilizzo delle funzionalità del prodotto. Documento esterno.
     \end{itemize}
     \item \textbf{Informali:} caratteristiche di questi documenti:
     \begin{itemize}
-        \item Non ancora approvati dal responsabile di progetto;
+        \item Non ancora approvati dal Responsabile di progetto;
         \item Non soggetto a versionamento.
     \end{itemize}
-    I documenti che appartengono alla seconda categoria sono i \textbf{verbali}, che possono essere:
-    \begin{itemize}
-        \item \textbf{Interni:} resoconti sintetici e a elenco puntato di ciò che è emerso durante gli incontri tra i membri del gruppo, contengono gli argomenti affrontati e le cose da fare nell'immediato futuro;
-        \item \textbf{Esterni:} rapporti degli incontri del gruppo coi committenti e/o col proponente, strutturati secondo lo schema domanda-risposta.
-    \end{itemize}
+    I documenti che appartengono alla seconda categoria sono i documenti presenti nel\textbf{ Google Drive} condiviso.
+
 \end{itemize}
 \subsection{Struttura del documento}
 Ogni documento è formato da diverse sezioni, ognuna definita dal proprio file LaTeX. La parte principale è chiamata \texttt{"nomedoc.tex"} (dove \texttt{nomedoc} indica la sigla di quel documento, vedi \ref{sigle}) e contiene le seguenti componenti:
@@ -78,7 +76,7 @@ Ogni documento presenta un registro delle modifiche sotto forma di tabella che t
 \begin{itemize}
     \item La versione del documento dopo la modifica;
     \item La data in cui è stata apportata tale modifica;
-    \item Il nome dell'autore e del verificatore della modifica;
+    \item Il nome dell'autore e del Verificatore della modifica;
     \item Una sintetica descrizione della modifica apportata.
 \end{itemize}
 \subsection{Indice}
@@ -110,7 +108,7 @@ Il nome dei file e delle cartelle specifici di un singolo documento si chiamano 
 \subsection{Stile di testo}
 Gli stili di testo adottati nei documenti sono:
 \begin{itemize}
-    \item \textbf{Grassetto:} questo stile viene applicato ai termini di un elenco puntato e per le parole ritenute particolarmente importanti;
+    \item \textbf{Grassetto:} questo stile viene applicato per le parole ritenute particolarmente importanti;
     \item \textbf{Corsivo:} questo stile viene applicato per i nomi propri, i nomi dei ruoli, il nome del progetto e per il nome dei documenti;
     \item \textbf{Monospace:} questo stile viene applicato per snippet di codice.
 \end{itemize}
@@ -118,6 +116,7 @@ Gli stili di testo adottati nei documenti sono:
 \begin{itemize}
     \item Gli elenchi puntati iniziano sempre con la lettera maiuscola;
     \item Gli elementi di un elenco finiscono sempre con \texttt{";"} tranne l'ultimo che finisce con \texttt{"."};
+    \item La parola preceduta da \texttt{":"} deve sempre avere la prima lettera minuscola;
     \item Il nome dei ruoli sempre scritti per esteso (in corsivo);
     \item Il nome dei documenti sempre in sigla (in corsivo);
     \item Il nome delle section sempre con tutte le iniziali maiuscole a parte gli articoli;
@@ -130,13 +129,13 @@ Gli stili di testo adottati nei documenti sono:
 \begin{itemize}
     \item Sigle relative ai nomi dei documenti:
     \begin{itemize}
-        \item \textbf{Analisi dei Requisiti:} AdR;
-        \item \textbf{Piano di Progetto:} PdP;
-        \item \textbf{Piano di Qualifica:} PdQ;
-        \item \textbf{Norme di Progetto:} NdP;
-        \item \textbf{Glossario:} G;
-        \item \textbf{Verbali Interni:} VI;
-        \item \textbf{Verbali Esterni:} VE;
+        \item \textit{\textbf{Analisi dei Requisiti:} AdR};
+        \item \textit{\textbf{Piano di Progetto:} PdP};
+        \item \textit{\textbf{Piano di Qualifica:} PdQ};
+        \item \textit{\textbf{Norme di Progetto:} NdP};
+        \item \textit{\textbf{Glossario:} G};
+        \item \textit{\textbf{Verbali Interni:} VI};
+        \item \textit{\textbf{Verbali Esterni:} VE};
     \end{itemize}
     \item Sigle relative alle revisioni:
     \begin{itemize}
@@ -178,8 +177,8 @@ Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} con
    \end{center}
    Dove:
    \begin{itemize}
-       \item \textbf{X} indica la versione stabile, quella approvata dal responsabile del documento;
-       \item \textbf{Y} indica la versione controllata, quella controllata dal verificatore del documento;
+       \item \textbf{X} indica la versione stabile, quella approvata dal Responsabile del documento;
+       \item \textbf{Y} indica la versione controllata, quella controllata dal Verificatore del documento;
        \item \textbf{Z} indica la versione modificata, quella sottoposta a modifica da parte di un redattore.
    \end{itemize}
 
@@ -198,7 +197,7 @@ Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} con
   \subsubsection{Organizzazione del repository}
   L'organizzazione del repository è riassunta di seguito:
   \begin{itemize}
-      \item Ramo principale \textbf{Main} in cui è presente la documentazione, o le parti dei documenti, approvate da almeno un verificatore e dal responsabile;
+      \item Ramo principale \textbf{Main} in cui è presente la documentazione, o le parti dei documenti, approvate da almeno un Verificatore e dal Responsabile;
       \item Rami secondari utilizzati per redarre i vari paragrafi della documentazione che, una volta unititi al ramo principale attraverso l'attività di merging, vengono eliminati per evitare di ostruire il repository.
   \end{itemize}
   Nel ramo Main i documenti si trovano all'interno della cartella "documenti", all'interno della quale possiamo trovare:
@@ -278,8 +277,8 @@ Il processo di verifica per quanto riguarda la documentazione può essere riassu
 \subsubsection{Attività di analisi statica}
 Questa tipologia di analisi risulta molto utile per la verifica di un documento. Si divide in:
 \begin{itemize}
-  \item \textbf{Walkthrough}: Tecnica dove il verificatore va alla ricerca di eventuali errori attraverso una lettura ad ampio spettro.
-  \item \textbf{Inspection}: Tecnica dove il verificatore va alla ricerca di specifici errori attraverso letture mirate.
+  \item \textbf{Walkthrough}: Tecnica dove il Verificatore va alla ricerca di eventuali errori attraverso una lettura ad ampio spettro;
+  \item \textbf{Inspection}: Tecnica dove il Verificatore va alla ricerca di specifici errori attraverso letture mirate.
 \end{itemize}
 Inizialmente l'attività di Walkthrough sarà prevalente rispetto a Inspection ma
 con l'avanzamento dell'attività di progetto e quindi con il ripetersi del processo di Verifica sulla documentazione, si riuscirà a sviluppare una lista degli errori più comuni detta \textbf{Lista di Controllo} consentendo l'utilizzo più massivo della tecnica \textbf{Inspection} che risulta essere più efficiente.
