@@ -60,7 +60,7 @@ I documenti prodotti saranno di due tipi:
 \subsection{Struttura del documento}
 Ogni documento è formato da diverse sezioni, ognuna definita dal proprio file LaTeX. La parte principale è chiamata \texttt{"nomedoc.tex"} (dove \texttt{nomedoc} indica la sigla di quel documento, vedi \ref{sigle}) e contiene le seguenti componenti:
 \begin{itemize}
-    \item La prima pagina che specifica il nome del documento.
+    \item La prima pagina che specifica il nome del documento;
     \item Il registro delle modifiche, che permette di tenere tracciabili i cambiamenti a quel documento;
     \item I file LaTeX delle sezioni con il contenuto vero e proprio del documento. Queste sezioni vengono decise da tutti i componenti del gruppo quando viene creato il documento;
 \end{itemize}
@@ -118,7 +118,7 @@ Gli stili di testo adottati nei documenti sono:
     \item Gli elementi di un elenco finiscono sempre con \texttt{";"} tranne l'ultimo che finisce con \texttt{"."};
     \item La parola preceduta da \texttt{":"} deve sempre avere la prima lettera minuscola;
     \item Il nome dei ruoli sempre scritti per esteso (in corsivo);
-    \item Il nome dei documenti sempre in sigla (in corsivo);
+    \item Il nome dei documenti scritti con la maiuscola e per esteso a meno di ripetizioni (in tal caso si utilizza la sigla, e.g "\textit{NdP}");
     \item Il nome delle section sempre con tutte le iniziali maiuscole a parte gli articoli;
     \item Il nome delle subsection e inferiori solo la prima lettera maiuscola.
 \end{itemize}
@@ -139,9 +139,9 @@ Gli stili di testo adottati nei documenti sono:
     \end{itemize}
     \item Sigle relative alle revisioni:
     \begin{itemize}
-        \item \textbf{Requirements and Technology Baseline:} RTB;
-        \item \textbf{Product Baseline:} PB;
-        \item \textbf{Customer Acceptance:} CA;
+        \item \textit{\textbf{Requirements and Technology Baseline:} RTB};
+        \item \textit{\textbf{Product Baseline:} PB};
+        \item \textit{\textbf{Customer Acceptance:} CA};
     \end{itemize}
 \end{itemize}
 \subsection{Tabelle}
@@ -177,9 +177,9 @@ Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} con
    \end{center}
    Dove:
    \begin{itemize}
-       \item \textbf{X} indica la versione stabile, quella approvata dal Responsabile del documento;
-       \item \textbf{Y} indica la versione controllata, quella controllata dal Verificatore del documento;
-       \item \textbf{Z} indica la versione modificata, quella sottoposta a modifica da parte di un redattore.
+       \item \textbf{X} Versione di produzione;
+       \item \textbf{Y} Integrazione di piccoli incrementi;
+       \item \textbf{Z} Incremento di piccole dimensioni verificato dai verificatori e dal responsabile.
    \end{itemize}
 
 
@@ -195,10 +195,10 @@ Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} con
   \url{https://github.com/merlunipd/login-warrior}.
 
   \subsubsection{Organizzazione del repository}
-  L'organizzazione del repository è riassunta di seguito:
+  L'organizzazione del repository è ispirata a GitHub Flow ed è riassunta di seguito:
   \begin{itemize}
       \item Ramo principale \textbf{Main} in cui è presente la documentazione, o le parti dei documenti, approvate da almeno un Verificatore e dal Responsabile;
-      \item Rami secondari utilizzati per redarre i vari paragrafi della documentazione che, una volta unititi al ramo principale attraverso l'attività di merging, vengono eliminati per evitare di ostruire il repository.
+      \item Rami secondari utilizzati per redarre i vari paragrafi della documentazione che, una volta uniti al ramo principale attraverso l'attività di merging, vengono eliminati per evitare di ostruire il repository.
   \end{itemize}
   Nel ramo Main i documenti si trovano all'interno della cartella "documenti", all'interno della quale possiamo trovare:
   \begin{itemize}
@@ -270,7 +270,7 @@ Una volta terminata la fase di verifica, rispettando i punti appena citati si pu
 Il processo di verifica per quanto riguarda la documentazione può essere riassunto in queste attività:
 \begin{itemize}
   \item Controllo dell'ortografia e della sintassi;
-  \item Controllo della stesura del documento;
+  \item Controllo dell'aderenza alle convenzioni tipografiche e di stile adottate;
   \item Controllo della pertinenza e della correttezza dei contenuti del documento.
 \end{itemize}
 
