@@ -1,6 +1,7 @@
-""" Script per compilare i documenti LaTex in PDF
+"""
+Script per compilare i documenti LaTex in PDF ed aggiornare il sito.
 
-Dipendenze: python, latexmk
+Dipendenze: python, latexmk.
 
 Per funzionare correttamente lo script deve essere utilizzato nel seguente modo:
 - Esecuzione: richiamare lo script dal terminale con il comando "python";
@@ -38,6 +39,7 @@ NAME_OUTPUT_DIRECTORY = "output_documenti"
 
 # Configurazione di default
 NAME_BASE_DIRECTORY = "login-warrior"   # Nome directory radice del progetto
+PATH_WEBSITE_DIRECTORY = os.path.join("automazione", "script", "update_documents")
 PATH_BASE_DIRECTORY = ""  # Inizializzato in "set_path_base_directory"
 PATH_OUTPUT = ""          # Inizializzato in "set_path_base_directory"
 PATH_OUTPUT_TEMP = ""     # Inizializzato in "set_path_base_directory"
@@ -66,9 +68,67 @@ def compile_latex_and_move_pdf(name_file, path_directory):
   shutil.move(output_file_name, os.path.join(output_file_path, output_file_name))
   os.chdir(PATH_BASE_DIRECTORY)
 
+def get_website_html():
+  try:
+    file = open(os.path.join(PATH_WEBSITE_DIRECTORY, "index.html"), "r")
+    file_content = file.read()
+    return file_content
+  finally:
+    file.close()
+
+def parse_month(number_month):
+  months_map = {
+    "01": "Gennaio",
+    "02": "Febbraio",
+    "03": "Marzo",
+    "04": "Aprile",
+    "05": "Maggio",
+    "06": "Giugno",
+    "07": "Luglio",
+    "08": "Agosto",
+    "09": "Settembre",
+    "10": "Ottobre",
+    "11": "Novembre",
+    "12": "Dicembre",
+  }
+  if number_month in months_map:
+    return months_map[number_month]
+
+def parse_verbale_title(file_name):
+  file_name_no_extension = os.path.splitext(file_name)[0]
+  file_name_components = file_name_no_extension.split("_")
+  year = file_name_components[0]
+  month = parse_month(file_name_components[1])
+  day = file_name_components[2]
+  return day + " " + month + " " + year
+
+def update_verbali(file_content):
+  html_verbali = ""
+  try:
+    file = open(os.path.join(PATH_WEBSITE_DIRECTORY, "partials", "verbale.html"), "r")
+    html_template_verbale = file.read()
+    file_verbali_list = os.listdir(os.path.join("output_documenti", "interni", "verbali"))
+    for file_verbale in file_verbali_list:
+      html_verbali += html_template_verbale.replace(
+        "<placeholder_link_verbale/>", "output_documenti/interni/verbali/" + file_verbale
+      ).replace(
+        "<placeholder_titolo_verbale/>", parse_verbale_title(file_verbale)
+      ) + "\n"
+    return file_content.replace("<placeholder_verbali/>", html_verbali)
+  finally:
+    file.close()
+
 # --- Funzioni Primarie ---
 
 def set_path_base_directory():
+  """
+  Termina la configurazione di: 
+  - PATH_BASE_DIRECTORY: percorso della directory principale, specificata in NAME_BASE_DIRECTORY; 
+  - PATH_OUTPUT: percorso della directory di output dei PDF;
+  - PATH_OUTPUT_TEMP: percorso della directory di output dei PDF temporanea.
+  Inoltre imposta la directory corrente a PATH_BASE_DIRECTORY, per permettere consistenza
+  con i comandi invocati successivamente.
+  """
   file_path = os.path.realpath(__file__)
   file_path_list = file_path.split(os.sep)
   found_path = False
@@ -83,7 +143,19 @@ def set_path_base_directory():
   PATH_OUTPUT_TEMP = os.path.join(PATH_BASE_DIRECTORY, "temp_" + NAME_OUTPUT_DIRECTORY)
   os.chdir(PATH_BASE_DIRECTORY)
 
+def clean_start():
+  """
+  Rimuove, se esistenti, i file relativi al sito: 'index.html', 'website/'
+  """
+  if os.path.exists("index.html"):
+    os.remove("index.html")
+  if os.path.exists("website"):
+    shutil.rmtree("website")
+
 def create_new_output_directory():
+  """
+  Crea una directory temporane in cui mettere i PDF generati.
+  """
   if not os.path.exists(PATH_OUTPUT_TEMP):
     os.mkdir(PATH_OUTPUT_TEMP)
     os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "candidatura"))
@@ -91,12 +163,10 @@ def create_new_output_directory():
     os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "interni"))
     os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "interni", "verbali"))
 
-def replace_old_output_directory():
-  if os.path.exists(PATH_OUTPUT):
-    shutil.rmtree(PATH_OUTPUT)
-  os.rename(PATH_OUTPUT_TEMP, PATH_OUTPUT)
-
 def latex_to_pdf():
+  """
+  Compila i documenti latex e li sposta nella directory di output.
+  """
   for path_file in PATH_DOCUMENTI:
     if os.path.exists(path_file):
       path_directory, name_file = os.path.split(path_file)
@@ -109,16 +179,45 @@ def latex_to_pdf():
       name_file = directory_verbale + ".tex"
       compile_latex_and_move_pdf(name_file, path_directory)
 
+def replace_old_output_directory():
+  """
+  Sostituisce la directory con i file PDF generati recentemente con quella già esistente, 
+  se presente.
+  """
+  if os.path.exists(PATH_OUTPUT):
+    shutil.rmtree(PATH_OUTPUT)
+  os.rename(PATH_OUTPUT_TEMP, PATH_OUTPUT)
+
+def generate_website():
+  """
+  Genera il sito, aggiornando la sezione verbali
+  """
+  html_template_website = get_website_html()
+  html_updated_website = update_verbali(html_template_website)
+  try:
+    file = open("index.html", "w")
+    file.write(html_updated_website)
+    shutil.copytree(os.path.join(PATH_WEBSITE_DIRECTORY, "website"), "website")
+  finally:
+    file.close()
+
 def ok_message():
-  print("[" + os.path.basename(__file__) + "] OK")
+  """
+  Stampa un messaggio per segnalare la corretta terminazione dello script.
+  """
+  print("\n[" + os.path.basename(__file__) + "] OK\n")
 
 # --- Main ---
 
 def main():
   set_path_base_directory()
+  clean_start()
+
   create_new_output_directory()
   latex_to_pdf()
   replace_old_output_directory()
+  generate_website()
+
   ok_message()
 
 if __name__ == '__main__':
