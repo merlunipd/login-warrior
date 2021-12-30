@@ -54,6 +54,12 @@ section h1 {
   color: #B5121B;
 }
 
+#last-update {
+  text-align: center;
+  font-size: 0.7em;
+  color: gray;
+}
+
 @media (max-width: 600px) {
   nav {
     flex-direction: column;

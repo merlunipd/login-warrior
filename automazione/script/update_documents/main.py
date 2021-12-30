@@ -18,11 +18,11 @@ del progetto.
 
 I percorsi sono composti utilizzando la funzione "os.path.join" per permettere 
 l'esecuzione dello script su diversi sistemi operativi.
-
 """
 
 import os
 import shutil
+from time import gmtime, strftime
 
 # --- Configurazione ---
 
@@ -119,6 +119,10 @@ def update_verbali(file_content):
   finally:
     file.close()
 
+def update_last_update_date(html_website):
+  time_string = strftime("%Y/%m/%d %H:%M", gmtime())
+  return html_website.replace("<placeholder_last_update/>", time_string)
+
 # --- Funzioni Primarie ---
 
 def set_path_base_directory():
@@ -191,10 +195,11 @@ def replace_old_output_directory():
 
 def generate_website():
   """
-  Genera il sito, aggiornando la sezione verbali
+  Genera il sito, aggiornando la sezione verbali e aggiornando la data di "last update".
   """
   html_template_website = get_website_html()
   html_updated_website = update_verbali(html_template_website)
+  html_updated_website = update_last_update_date(html_updated_website)
   try:
     file = open("index.html", "w")
     file.write(html_updated_website)
