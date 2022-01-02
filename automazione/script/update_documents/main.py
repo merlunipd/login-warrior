@@ -3,20 +3,30 @@ Script per compilare i documenti LaTex in PDF ed aggiornare il sito.
 
 Dipendenze: python, latexmk.
 
+Output:
+- "index.html": pagina principale del sito;
+- "website": directory contenente file utili al sito (e.g. css, immagini);
+- "output_documenti": directory contenente i PDF compilati dai file latex tracciati.
+
 Per funzionare correttamente lo script deve essere utilizzato nel seguente modo:
 - Esecuzione: richiamare lo script dal terminale con il comando "python";
 - Lo script deve essere contenuto in una directory del progetto;
+- I file latex deveno essere compilabili in PDF;
 - Lo script termina con un OK finale (come ultimo messaggio), se non è così
 potrebbero esserci stati dei problemi durante l'esecuzione.
 
 È possibile utilizzare la sezione "MOD" per modificare la configurazione, in particolare:
 - "PATH_DOCUMENTI: lista documenti tracciati;
 - "PATH_VERBALI: directory dei verbali (vengono automaticamente compilati 
-tutti i verbali presenti nella cartella);
-- "NAME_OUTPUT_DIRECTORY": nome della directory di output, creata nella directory radice 
-del progetto.
+tutti i verbali presenti nella cartella).
 
-I percorsi sono composti utilizzando la funzione "os.path.join" per permettere 
+In caso di errore o interruzione dell'esecuzione, lo script potrebbe lasciare dei 
+file temporanei relativi alla compilazione dei file latex.
+
+
+
+Note:
+- I percorsi sono composti utilizzando la funzione "os.path.join" per permettere 
 l'esecuzione dello script su diversi sistemi operativi.
 """
 
@@ -36,9 +46,9 @@ PATH_DOCUMENTI = [
   os.path.join("src", "documenti", "interni", "NdP", "NdP.tex")
 ]
 PATH_VERBALI = os.path.join("src", "documenti", "interni", "verbali")
-NAME_OUTPUT_DIRECTORY = "output_documenti"
 
 # Configurazione di default
+NAME_OUTPUT_DIRECTORY = "output_documenti"
 NAME_BASE_DIRECTORY = "login-warrior"   # Nome directory radice del progetto
 PATH_WEBSITE_DIRECTORY = os.path.join("automazione", "script", "update_documents")
 PATH_BASE_DIRECTORY = ""  # Inizializzato in "set_path_base_directory"
