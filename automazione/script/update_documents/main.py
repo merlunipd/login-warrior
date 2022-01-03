@@ -20,14 +20,14 @@ potrebbero esserci stati dei problemi durante l'esecuzione.
 - "PATH_VERBALI: directory dei verbali (vengono automaticamente compilati 
 tutti i verbali presenti nella cartella).
 
-In caso di errore o interruzione dell'esecuzione, lo script potrebbe lasciare dei 
-file temporanei relativi alla compilazione dei file latex.
-
-
-
 Note:
 - I percorsi sono composti utilizzando la funzione "os.path.join" per permettere 
 l'esecuzione dello script su diversi sistemi operativi.
+
+Problemi noti:
+- In caso di errore o interruzione dell'esecuzione, lo script potrebbe lasciare dei 
+file temporanei relativi alla compilazione dei file latex;
+- [Windows] Lo script potrebbe fallire in caso di mancati permessi nella gestione dei file.
 """
 
 import os
@@ -73,6 +73,9 @@ def compile_latex_and_move_pdf(name_file, path_directory):
   os.chdir(PATH_BASE_DIRECTORY)
   os.chdir(path_directory)
   os.system("latexmk -pdf " + name_file)
+  # Ritorno alla cartella in caso di pacchetti latex mancanti
+  os.chdir(PATH_BASE_DIRECTORY)
+  os.chdir(path_directory)
   os.system("latexmk -c ")
   output_file_name = os.path.splitext(name_file)[0] + ".pdf"
   output_file_path = get_output_file_path(path_directory)
