@@ -172,7 +172,7 @@ def clean_start():
 
 def create_new_output_directory():
   """
-  Crea una directory temporane in cui mettere i PDF generati.
+  Crea una directory temporanea in cui mettere i PDF generati.
   """
   if not os.path.exists(PATH_OUTPUT_TEMP):
     os.mkdir(PATH_OUTPUT_TEMP)
