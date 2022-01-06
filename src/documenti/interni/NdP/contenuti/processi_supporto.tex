@@ -245,6 +245,75 @@ Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} con
       \item Soddisfare al meglio le aspettative del committente.
   \end{itemize}
 
+\section{Automazione}
+\subsection{Descrizione}
+Uno degli strumenti più potenti a disposizione di un informatico è l'automazione. Applicabile a operazioni ripetitive, tediose, sensibili, semplici o complesse, l'automazione delle operazioni può portare grandi vantaggi, tra cui:
+\begin{itemize}
+    \item Riduzione delle risorse utilizzate (in particolare, nel nostro caso, tempo);
+    \item Riduzione di errori umani.
+\end{itemize}
+I costi di automazione possono però essere molto elevati e non è possibile automatizzare tutti i processi. Risulta quindi importante selezionare con cura le attività da automatizzare o semi-automatizzare, in modo da mantenere ridotti i costi (in termini di ore investite) e ottenere dei benefici.
+
+\subsection{Scopo}
+Tenere traccia delle attività automatizzate e fornire documentazione sull'utilizzo degli strumenti.
+
+\subsection{Script}
+Lo "scripting" è l'attività di scrittura di codice utilizzata al fine di automatizzare l'esecuzione di attività. Rispetto all'utilizzo di strumenti preesistenti ha il vantaggio di essere estremamente più flessibile. Inoltre per un gruppo di studenti di informatica, il costo iniziale di apprendimento è relativamente basso per attività semplici e chiare.
+
+Il gruppo non impone particolari limitazioni sui linguaggi utilizzabili, ricordando però:
+\begin{itemize}
+    \item Il codice è soggetto a versionamento ed è posto nel repository;
+    \item Il codice scritto va adeguatamente documentato, sia con annotazioni nello script (dettagli implementativi), sia in questo documento (descrizione ed utilizzo);
+    \item Uno script ha dimensioni estremamente ridotte (tipicamente qualche decina di righe di codice, occasionalmente qualche centinaio).
+\end{itemize}
+
+
+\subsubsection{\texttt{update\_documents}}
+\begin{itemize}
+    \item \textbf{Descrizione}: script per compilare i documenti LaTeX in PDF e aggiornare il sito che gli espone;
+    \item \textbf{Utilizzo}:
+    \begin{itemize}
+        \item \textbf{Collettivo}: utilizzato per aggiornare il repository condiviso, tipicamente utilizzato nel seguente modo:
+\begin{Verbatim}[fontsize=\small]
+# Riallineamento del repository locale e remoto
+git checkout main
+git pull
+
+# Esecuzione dello script, supponendo di 
+# trovarsi nella directory radice del repository
+python ./automazione/script/update_documents/main.py
+# Se non ci sono errori durante l'esecuzione, procedere
+
+# Aggiornamento del repository locale e remoto
+git add -A
+git commit -m "Aggiornamento dei documenti PDF e sito"
+git push origin main
+\end{Verbatim}
+
+        NB 1: non andando a modificare file sorgenti, il seguente commit è accettato nel repository locale senza bisogno di pull request.
+        
+        NB 2: tipicamente sarà compito del responsabile di progetto tenere il sito e i documenti esposti sufficientemente aggiornati.
+
+        \item \textbf{Personale}: se un membro del gruppo desidera avere una versione di tutti i documenti più aggiornati rispetto a quelli esposti dal repository condiviso, può creare un \textbf{branch locale ad utilizzo personale} dove tenere documenti e sito aggiornati. Tale operazione può essere effettuate come segue:
+\begin{Verbatim}[fontsize=\small]
+# Checkout al branch locale personale
+git checkout <nome_branch_locale_personale>
+# Aggiornamento del branch rispetto al main
+git merge main
+
+# Esecuzione dello script, supponendo di 
+# trovarsi nella directory radice del repository
+python ./automazione/script/update_documents/main.py
+# Se non ci sono errori durante l'esecuzione, procedere
+
+# Aggiornamento del repository locale (non remoto)
+git add -A
+git commit -m "Aggiornamento locale dei documenti PDF e sito"
+\end{Verbatim}
+    \end{itemize}
+\end{itemize}
+
+
 \section{Verifica}
 \subsection{Scopo}
 La verifica ha come obiettivo il controllo che un prodotto sia corretto e completo.
