@@ -152,6 +152,41 @@ Ogni tabella è contrassegnata da una didascalia descrittiva del contenuto, post
 dove \textbf{[X]} indica il numero assoluto della tabella all’interno del documento. Le tabelle delle modifiche invece non seguono questa regola perché non hanno didascalia.
 \subsection{Immagini}
 Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} contenuta nella cartella del documento a cui si riferiscono. Verranno poi richiamate dentro i file LaTex ove servono. Sia i diagrammi UML che i diagrammi di Gantt vengono riportati come immagini.
+\subsection{Preventivo}
+Questa è una sezione molto importante del \textit{Piano di Progetto}.
+Per ogni periodo che si pianifica si vuole indicare:
+\begin{itemize}
+    \item i ruoli che opereranno;
+    \item Preventivo orario:
+        \begin{itemize}
+            \item Tabella con una riga per membro e una colonna per ruolo che rappresenta la distribuzione delle ore;
+            \item Istogramma che rappresenta graficamente ciò che esprime la tabella precedente;
+            \item Un grafico a torta che presenta le percentuali di lavoro per ogni ruolo.
+        \end{itemize}
+    \item Preventivo economico:
+        \begin{itemize}
+            \item Tabella con una riga per ruolo, una colonna con le ore per ruolo e il costo complessivo di ogni ruolo;
+            \item Un grafico a torta che presenta le percentuali di costo per ogni ruolo.
+        \end{itemize}
+\end{itemize}
+
+\subsection{Consuntivo}
+Questa è una sezione molto importante del \textit{Piano di Progetto}.
+Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indicare:
+\begin{itemize}
+    \item Consuntivo orario:
+        \begin{itemize}
+            \item Tabella con la struttura identica a quella del preventivo orario dove si indica tra parentesi tonde la differenza tra le ore consuntivate e quelle preventivate;
+            \item Tabella con la struttura identica a quella del preventivo orario dove si indicano le ore rimaste per ruolo e per persona.
+        \end{itemize}
+    \item Consuntivo economico:
+        \begin{itemize}
+            \item Tabella con la struttura identica a quella del preventivo economico dove si indica tra parentesi tonde la differenza tra ore consuntivate e preventivate, con la conseguente differenza, sempre tra parentesi tonde, tra i costi consuntivati e quelli preventivati.
+        \end{itemize}
+    \item Conclusioni: alla luce delle differenza tra preventivo e consuntivo si analizza quelli che possono essere i problemi o i punti di forza del periodo appena concluso.
+\end{itemize}
+
+
 \section{Gestione della Configurazione}
 \subsection{Scopo}
     Lo scopo di questa sezione è quello di espilicitare come il gruppo intende gestire la produzione di
