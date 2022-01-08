@@ -1,23 +1,53 @@
-\chapter{Qualità di prodotto}%vedi CodeBuster
-%piccola introduzione come in CodeBuster
-\section{Documenti}
-%dire che si usa indice di Gulpease, il calcolo è nel capitolo resoconto
-\section{Software}
-\subsection{Funzionalità}
-\subsubsection{Obiettivi}
-\subsubsection{Metriche}
-\subsection{Affidabilità}
-\subsubsection{Obiettivi}
-\subsubsection{Metriche}
-\subsection{Efficienza}
-\subsubsection{Obiettivi}
-\subsubsection{Metriche}
-\subsection{Usabilità}
-\subsubsection{Obiettivi}
-\subsubsection{Metriche}
-\subsection{Manutenibilità}
-\subsubsection{Obiettivi}
-\subsubsection{Metriche}
-\subsection{Portabilità}
-\subsubsection{Obiettivi}
-\subsubsection{Metriche}
+\chapter{Qualità di prodotto}
+Dopo aver individuato i fattori di qualità necessari per il ciclo di vita del nostro prodotto, abbiamo trovato i seguenti prodotti: la documentazione
+e il software, dei quali impostiamo delle metriche, per definirne dei valori da rispettare e fissarci così degli obiettivi.
+\section{Obiettivi}
+\subsubsection{Documenti}
+\begin{center}
+  \begin{tabular}{|p{2.5cm}|p{8cm}|p{1.5cm}|} \hline
+    \textbf{Obiettivo} & \textbf{Descrizione} & \textbf{Metrica}  \\ \hline
+    Comprensione & I documento sono una parte fondamentale del nostro prodotto, è quindi importante che siano comprensibili e leggibili, prestando molta attenzione
+    a errori lessicali, ortografici e grammaticali.  & MPD1 \newline MPD2       \\ \hline
+  \end{tabular}
+\end{center}
+
+\subsubsection{Software}
+\begin{center}
+  \begin{tabular}{|p{2.5cm}|p{8cm}|p{1.5cm}|} \hline
+    \textbf{Obiettivo} & \textbf{Descrizione} & \textbf{Metrica}  \\ \hline
+    Funzionalità & Essere in grado di soddisfare tutti i requisiti trovati nell'\textit{Analisi dei Requisiti}  & MPD3       \\ \hline
+    Efficienza & Essere in grado di svolgere il valoro nel minor tempo possibile e utilizzando poche risorse   & MPD4       \\ \hline
+    Usabilità & Essere di semplice e veloce apprendimento, che comporti pochi errori da pate dell'utente e che sia facile all'uso  & MPD5 \newline MPD6 \newline MPD7    \\ \hline
+    Affidabilità & Essere in grado di funzionare anche in presenza di errori, evitandone la visualizzazione  & MPD8 \newline MPD9       \\ \hline
+    Manutenibilità & Permettere di essere facilmente modificabile, di ricercare errori e aggiungere parti senza compromettere l'intero sofware  & MPD10       \\ \hline
+    Portabilità & Essere in grado di funzionare in diversi ambienti di sviluppo, perciò essendo adattabilie & MPD8 \newline MPD11 \newline MPD12       \\ \hline
+  \end{tabular}
+\end{center}
+
+
+\subsection{Metriche}
+\subsubsection{Documenti}
+\begin{center}
+  \begin{tabular}{|p{2cm}|p{4cm}|p{4cm}|p{3.5cm}|} \hline
+    \textbf{Metrica} & \textbf{Nome} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale}    \\ \hline
+      MPD1 & Errori Ortografici    & $0\%$      & $0\%$        \\ \hline
+      MPD2 & Indice di Gulpease    & $\geq60$   & $\geq80$     \\ \hline
+  \end{tabular}
+\end{center}
+\subsubsection{Software}
+\begin{center}
+  \begin{tabular}{|p{2cm}|p{4cm}|p{4cm}|p{3.5cm}|} \hline
+    \textbf{Metrica} & \textbf{Nome} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale}    \\ \hline
+      MPD3 & Copertura dei requisiti & $100\%$ & $100\%$  \\ \hline
+      MPD4 & Tempo di risposta medio    &  4 secondi  &  2 secondi   \\ \hline
+      MPD5 & Tempo apprendimento    & 10 minuti  & 5 minuti       \\ \hline
+      MPD6 & Raggiunta dell'obiettivo    & 8 click   & 5 click     \\ \hline
+      MPD7 & Errori dell'utente    & $2$      & $0$        \\ \hline
+      MPD8 & Maturità dei test    & $85\%$ &  $100\%$    \\ \hline
+      MPD9 & Gestione degli errori    & $60\%$ & $80\%$     \\ \hline
+      MPD10 & Comprensibilità del codice    & $20$-$35\%$ & $30$-$45\%$     \\ \hline
+      MPD11 & OS supportati    & $100\%$ & $100\%$     \\ \hline
+      MPD12 & Broser supportati    & $80\%$ & $100\%$     \\ \hline
+  \end{tabular}
+\end{center}
+
