@@ -266,6 +266,107 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
       \item Proponiamo idee di auto-miglioramento.
   \end{itemize}
 
+  \subsection{Metriche}
+  All'interno del \textit{Piano di Qualifica} vengono utilizzate diverse metriche, di seguito viene spiegato come capirle e come utilizzarle per
+  eseguire i test di qualità.
+  \subsubsection{Codifica}
+  \begin{center}
+      \textbf{M[Tipologia][Id numerico]}
+  \end{center}
+  Dove:
+    \begin{itemize}
+        \item \textbf{Tipologia} indica il tipo della metrica e può essere: 
+                \begin{itemize}
+                    \item \textbf{PC} per processo;
+                    \item \textbf{PD} per prodotto.
+                \end{itemize}
+        \item \textbf{Id numerico} indica un numero univoco incrementale separato per le due tipologie
+    \end{itemize}
+   \subsubsection{Descrizione}
+   Troviamo di seguito per ogni obiettivo di qualità la descrizione delle sue metriche:
+    \begin{itemize}
+        \item \textbf{Comprensione},
+            \begin{itemize}
+                \item $E_o$, numero errori ortografici;
+                \item $N_p$, numero di parole;
+                \item $N_f$, numero di frasi;
+                \item $N_l$, numero di lettere.
+            \end{itemize}
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                    MPD1 & Errori Ortografici    & Percentuale di errori ortografici e grammaticali in un documento      & $\frac{E_o}{N_p}*100$        \\ \hline
+                    MPD2 & Indice di Gulpease    & Indice di leggibilità di un testo in base all'istruzione ottenuta   & $89+\frac{300*N_f-10*N_l}{N_p}$     \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Funzionalità},
+            \begin{itemize}
+                \item $R_s$, numero requisiti soddisfatti;
+                \item $R_t$, numero requisiti totali.
+            \end{itemize}
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                    MPD3 & Copertura dei requisiti & Percentuale di requisiti trovati nell'\textit{Analisi dei Requisiti} coperti dal software  & $\frac{R_s}{R_t}*100$  \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Efficienza},
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                    MPD4 & Tempo di risposta medio & Tempo medio impiegato dal software per rispondere ad un'azione dell'utente & -  \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Usabilità},
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                  MPD5 & Tempo apprendimento & Tempo impiegato dall'utente per imparare ad usare il software & -  \\ \hline
+                  MPD6 & Raggiunta dell'obiettivo & Numero di click impiegato dall'utente per raggiungere il suo scopo & -  \\ \hline
+                  MPD7 & Errori dell'utente & Numero di errori fatti dall'utente per raggiungere il suo scopo & -  \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Affidabilità},
+            \begin{itemize}
+                \item $T_b$, numero test andati a buon fine;
+                \item $T_t$, numero test totali;
+                \item $E_b$, numero test con errore andati a buon fine;
+                \item $E_t$, numero test con errore totali.
+            \end{itemize}
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                  MPD8 & Maturità dei test & Test andati a buon fine su tutti i test eseguiti(per ogni obiettivo) & $\frac{T_b}{T_t}*100$  \\ \hline
+                  MPD9 & Gestione degli errori & Test eseguiti con errori andati comunque a buon fine & $\frac{E_b}{E_t}*100$  \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Manutenibilità},
+            \begin{itemize}
+                \item $R_c$, numero righe di commenti;
+                \item $R_t$, numero righe di codice totali.
+            \end{itemize}
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                  MPD10 & Comprensibilità del codice & Percentuale di righe di commenti sulle righe di codice totali & $\frac{R_c}{R_t}*100$  \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Portabilità},
+            \begin{itemize}
+                \item $O_s$, numero OS supportati;
+                \item $O_t$, numero OS totali;
+                \item $B_s$, numero browser supportati;
+                \item $B_t$, numero browser totali.
+            \end{itemize}
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                  MPD11 & OS supportati & Percentuale di sistemi operativi supportati dal software & $\frac{O_s}{O_t}*100$  \\ \hline
+                  MPD12 & Browser supportati & Percentuale di browser supportati dal software & $\frac{B_s}{B_t}*100$  \\ \hline
+                \end{tabular}
+            \end{center}
+   \end{itemize} 
+
   \subsection{Testing}
   \todo{Capire meglio i test da inserire}
 
