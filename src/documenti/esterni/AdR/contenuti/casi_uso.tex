@@ -85,7 +85,63 @@
      \end{enumerate}
  \end{itemize}
 
-\section{UC4}
+\section{UC4 - Personalizzazione Visualizzazione}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{UC4.png}
+  \caption{UC4 - Personalizzazione Visualizzazione}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di modificare vari aspetti visivi del grafico;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato le dimensioni del grafico [UC3] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: le modifiche apportate al grafico vengono visualizzate;
+  \item \textbf{Scenario principale}: 
+  \begin{itemize}
+    \item L'utente può scegliere le caratteristiche da modificare tra: 
+      \begin{itemize}
+        \item Zoom [UC4.1];
+        \item Filtri sui dati [UC4.2];
+        \item Colori [UC4.3];
+        \item Scala degli assi [UC4.4];
+        \item Attivare/Disattivare le animazioni [UC4.5];
+      \end{itemize}
+    \item Il grafico viene visualizzato con le nuove caratteristiche;
+  \end{itemize}
+  \item \textbf{Estensioni}: 
+    \begin{itemize}
+      \item L'utente inserisce dei filtri non validi [UC 4 + 1];
+      \item L'utente inserisce una scala degli assi non valida [UC4 + 2].
+    \end{itemize}
+\end{itemize}
+
+\section{UC4 + 1 - Errore scelta filtri}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente sceglie dei filtri non validi;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente sceglie dei filtri che non permettono una corretta visualizzazione del grafico;
+  \item \textbf{Postcondizioni}: l'utente visualizza un messaggio di errore;
+  \item \textbf{Scenario principale}: 
+    \begin{itemize}
+      \item L'utente visualizza un messaggio di errore esplicativo;
+      \item L'utente clicca \texttt{Capito} per tornare alla visualizzazione del grafico con la personalizzazione di default.
+    \end{itemize}
+\end{itemize}
+
+\section{UC4 + 2 - Errore scala degli assi}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente scelglie una scala non valida;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente sceglie una scala degli assi che non permette una corretta visualizzazione del grafico;
+  \item \textbf{Postcondizioni}: l'utente visualizza un messaggio di errore;
+  \item \textbf{Scenario principale}:  
+    \begin{itemize}
+      \item L'utente visualizza un messaggio di errore esplicativo;
+      \item L'utente clicca \texttt{Capito} per tornare alla visualizzazione del grafico con la personalizzazione di default.
+    \end{itemize}
+\end{itemize}
 
 \section{UC5 - Accesso al Manuale Utente}
 \begin{figure}[h]
