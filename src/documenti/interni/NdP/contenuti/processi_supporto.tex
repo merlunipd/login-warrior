@@ -152,6 +152,41 @@ Ogni tabella è contrassegnata da una didascalia descrittiva del contenuto, post
 dove \textbf{[X]} indica il numero assoluto della tabella all’interno del documento. Le tabelle delle modifiche invece non seguono questa regola perché non hanno didascalia.
 \subsection{Immagini}
 Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} contenuta nella cartella del documento a cui si riferiscono. Verranno poi richiamate dentro i file LaTex ove servono. Sia i diagrammi UML che i diagrammi di Gantt vengono riportati come immagini.
+\subsection{Preventivo}
+Questa è una sezione molto importante del \textit{Piano di Progetto}.
+Per ogni periodo che si pianifica si vuole indicare:
+\begin{itemize}
+    \item i ruoli che opereranno;
+    \item Preventivo orario:
+        \begin{itemize}
+            \item Tabella con una riga per membro e una colonna per ruolo che rappresenta la distribuzione delle ore;
+            \item Istogramma che rappresenta graficamente ciò che esprime la tabella precedente;
+            \item Un grafico a torta che presenta le percentuali di lavoro per ogni ruolo.
+        \end{itemize}
+    \item Preventivo economico:
+        \begin{itemize}
+            \item Tabella con una riga per ruolo, una colonna con le ore per ruolo e il costo complessivo di ogni ruolo;
+            \item Un grafico a torta che presenta le percentuali di costo per ogni ruolo.
+        \end{itemize}
+\end{itemize}
+
+\subsection{Consuntivo}
+Questa è una sezione molto importante del \textit{Piano di Progetto}.
+Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indicare:
+\begin{itemize}
+    \item Consuntivo orario:
+        \begin{itemize}
+            \item Tabella con la struttura identica a quella del preventivo orario dove si indica tra parentesi tonde la differenza tra le ore consuntivate e quelle preventivate;
+            \item Tabella con la struttura identica a quella del preventivo orario dove si indicano le ore rimaste per ruolo e per persona.
+        \end{itemize}
+    \item Consuntivo economico:
+        \begin{itemize}
+            \item Tabella con la struttura identica a quella del preventivo economico dove si indica tra parentesi tonde la differenza tra ore consuntivate e preventivate, con la conseguente differenza, sempre tra parentesi tonde, tra i costi consuntivati e quelli preventivati.
+        \end{itemize}
+    \item Conclusioni: alla luce delle differenza tra preventivo e consuntivo si analizza quelli che possono essere i problemi o i punti di forza del periodo appena concluso.
+\end{itemize}
+
+
 \section{Gestione della Configurazione}
 \subsection{Scopo}
     Lo scopo di questa sezione è quello di espilicitare come il gruppo intende gestire la produzione di
@@ -231,6 +266,107 @@ Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} con
       \item Proponiamo idee di auto-miglioramento.
   \end{itemize}
 
+  \subsection{Metriche}
+  All'interno del \textit{Piano di Qualifica} vengono utilizzate diverse metriche, di seguito viene spiegato come capirle e come utilizzarle per
+  eseguire i test di qualità.
+  \subsubsection{Codifica}
+  \begin{center}
+      \textbf{M[Tipologia][Id numerico]}
+  \end{center}
+  Dove:
+    \begin{itemize}
+        \item \textbf{Tipologia} indica il tipo della metrica e può essere: 
+                \begin{itemize}
+                    \item \textbf{PC} per processo;
+                    \item \textbf{PD} per prodotto.
+                \end{itemize}
+        \item \textbf{Id numerico} indica un numero univoco incrementale separato per le due tipologie
+    \end{itemize}
+   \subsubsection{Descrizione}
+   Troviamo di seguito per ogni obiettivo di qualità la descrizione delle sue metriche:
+    \begin{itemize}
+        \item \textbf{Comprensione},
+            \begin{itemize}
+                \item $E_o$, numero errori ortografici;
+                \item $N_p$, numero di parole;
+                \item $N_f$, numero di frasi;
+                \item $N_l$, numero di lettere.
+            \end{itemize}
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                    MPD1 & Errori Ortografici    & Percentuale di errori ortografici e grammaticali in un documento      & $\frac{E_o}{N_p}*100$        \\ \hline
+                    MPD2 & Indice di Gulpease    & Indice di leggibilità di un testo in base all'istruzione ottenuta   & $89+\frac{300*N_f-10*N_l}{N_p}$     \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Funzionalità},
+            \begin{itemize}
+                \item $R_s$, numero requisiti soddisfatti;
+                \item $R_t$, numero requisiti totali.
+            \end{itemize}
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                    MPD3 & Copertura dei requisiti & Percentuale di requisiti trovati nell'\textit{Analisi dei Requisiti} coperti dal software  & $\frac{R_s}{R_t}*100$  \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Efficienza},
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                    MPD4 & Tempo di risposta medio & Tempo medio impiegato dal software per rispondere ad un'azione dell'utente & -  \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Usabilità},
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                  MPD5 & Tempo apprendimento & Tempo impiegato dall'utente per imparare ad usare il software & -  \\ \hline
+                  MPD6 & Raggiunta dell'obiettivo & Numero di click impiegato dall'utente per raggiungere il suo scopo & -  \\ \hline
+                  MPD7 & Errori dell'utente & Numero di errori fatti dall'utente per raggiungere il suo scopo & -  \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Affidabilità},
+            \begin{itemize}
+                \item $T_b$, numero test andati a buon fine;
+                \item $T_t$, numero test totali;
+                \item $E_b$, numero test con errore andati a buon fine;
+                \item $E_t$, numero test con errore totali.
+            \end{itemize}
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                  MPD8 & Maturità dei test & Test andati a buon fine su tutti i test eseguiti(per ogni obiettivo) & $\frac{T_b}{T_t}*100$  \\ \hline
+                  MPD9 & Gestione degli errori & Test eseguiti con errori andati comunque a buon fine & $\frac{E_b}{E_t}*100$  \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Manutenibilità},
+            \begin{itemize}
+                \item $R_c$, numero righe di commenti;
+                \item $R_t$, numero righe di codice totali.
+            \end{itemize}
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                  MPD10 & Comprensibilità del codice & Percentuale di righe di commenti sulle righe di codice totali & $\frac{R_c}{R_t}*100$  \\ \hline
+                \end{tabular}
+            \end{center}
+        \item \textbf{Portabilità},
+            \begin{itemize}
+                \item $O_s$, numero OS supportati;
+                \item $O_t$, numero OS totali;
+                \item $B_s$, numero browser supportati;
+                \item $B_t$, numero browser totali.
+            \end{itemize}
+            \begin{center}
+                \begin{tabular}{|p{2cm}|p{3.5cm}|p{5.5cm}|p{3.5cm}|} \hline
+                  \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Formula}    \\ \hline
+                  MPD11 & OS supportati & Percentuale di sistemi operativi supportati dal software & $\frac{O_s}{O_t}*100$  \\ \hline
+                  MPD12 & Browser supportati & Percentuale di browser supportati dal software & $\frac{B_s}{B_t}*100$  \\ \hline
+                \end{tabular}
+            \end{center}
+   \end{itemize} 
+
   \subsection{Testing}
   \todo{Capire meglio i test da inserire}
 
@@ -244,6 +380,75 @@ Le immagini sono contenute nella cartella chiamata appunto \texttt{immagini} con
       \item Poterci migliorare progressivamente per non ripetere gli stessi errori;
       \item Soddisfare al meglio le aspettative del committente.
   \end{itemize}
+
+\section{Automazione}
+\subsection{Descrizione}
+Uno degli strumenti più potenti a disposizione di un informatico è l'automazione. Applicabile a operazioni ripetitive, tediose, sensibili, semplici o complesse, l'automazione delle operazioni può portare grandi vantaggi, tra cui:
+\begin{itemize}
+    \item Riduzione delle risorse utilizzate (in particolare, nel nostro caso, tempo);
+    \item Riduzione di errori umani.
+\end{itemize}
+I costi di automazione possono però essere molto elevati e non è possibile automatizzare tutti i processi. Risulta quindi importante selezionare con cura le attività da automatizzare o semi-automatizzare, in modo da mantenere ridotti i costi (in termini di ore investite) e ottenere dei benefici.
+
+\subsection{Scopo}
+Tenere traccia delle attività automatizzate e fornire documentazione sull'utilizzo degli strumenti.
+
+\subsection{Script}
+Lo "scripting" è l'attività di scrittura di codice utilizzata al fine di automatizzare l'esecuzione di attività. Rispetto all'utilizzo di strumenti preesistenti ha il vantaggio di essere estremamente più flessibile. Inoltre per un gruppo di studenti di informatica, il costo iniziale di apprendimento è relativamente basso per attività semplici e chiare.
+
+Il gruppo non impone particolari limitazioni sui linguaggi utilizzabili, ricordando però:
+\begin{itemize}
+    \item Il codice è soggetto a versionamento ed è posto nel repository;
+    \item Il codice scritto va adeguatamente documentato, sia con annotazioni nello script (dettagli implementativi), sia in questo documento (descrizione ed utilizzo);
+    \item Uno script ha dimensioni estremamente ridotte (tipicamente qualche decina di righe di codice, occasionalmente qualche centinaio).
+\end{itemize}
+
+
+\subsubsection{\texttt{update\_documents}}
+\begin{itemize}
+    \item \textbf{Descrizione}: script per compilare i documenti LaTeX in PDF e aggiornare il sito che gli espone;
+    \item \textbf{Utilizzo}:
+    \begin{itemize}
+        \item \textbf{Collettivo}: utilizzato per aggiornare il repository condiviso, tipicamente utilizzato nel seguente modo:
+\begin{Verbatim}[fontsize=\small]
+# Riallineamento del repository locale e remoto
+git checkout main
+git pull
+
+# Esecuzione dello script, supponendo di 
+# trovarsi nella directory radice del repository
+python ./automazione/script/update_documents/main.py
+# Se non ci sono errori durante l'esecuzione, procedere
+
+# Aggiornamento del repository locale e remoto
+git add -A
+git commit -m "Aggiornamento dei documenti PDF e sito"
+git push origin main
+\end{Verbatim}
+
+        NB 1: non andando a modificare file sorgenti, il seguente commit è accettato nel repository locale senza bisogno di pull request.
+        
+        NB 2: tipicamente sarà compito del responsabile di progetto tenere il sito e i documenti esposti sufficientemente aggiornati.
+
+        \item \textbf{Personale}: se un membro del gruppo desidera avere una versione di tutti i documenti più aggiornati rispetto a quelli esposti dal repository condiviso, può creare un \textbf{branch locale ad utilizzo personale} dove tenere documenti e sito aggiornati. Tale operazione può essere effettuate come segue:
+\begin{Verbatim}[fontsize=\small]
+# Checkout al branch locale personale
+git checkout <nome_branch_locale_personale>
+# Aggiornamento del branch rispetto al main
+git merge main
+
+# Esecuzione dello script, supponendo di 
+# trovarsi nella directory radice del repository
+python ./automazione/script/update_documents/main.py
+# Se non ci sono errori durante l'esecuzione, procedere
+
+# Aggiornamento del repository locale (non remoto)
+git add -A
+git commit -m "Aggiornamento locale dei documenti PDF e sito"
+\end{Verbatim}
+    \end{itemize}
+\end{itemize}
+
 
 \section{Verifica}
 \subsection{Scopo}
