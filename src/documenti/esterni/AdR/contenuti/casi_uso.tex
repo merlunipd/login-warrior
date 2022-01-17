@@ -2,13 +2,12 @@
 
 \todo{rivedere la numerazione dei casi d'uso}
 
-\section{Inizializzazione del sistema}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.6\textwidth]{Iniz_sistema}
+  \includegraphics[width=0.6\textwidth]{UML_general}
   \caption{Inizializzazione del sistema}
 \end{figure}
-\subsection{UC1 - Caricamento dataset}
+\section{UC1 - Caricamento dataset}
 \begin{itemize}
   \item \textbf{Descrizione:} L'utente vuole analizzare un nuovo dataset non presente nel sistema;
   \item \textbf{Attore primario:} Utente;
@@ -24,11 +23,11 @@
     Nel caso in cui il file sia in un formato non valido o i dati non siano validi:
     \begin{enumerate}
       \item Il caricamento non va a buon fine;
-      \item Viene visualizzato un errore esplicativo [UC3].
+      \item Viene visualizzato un errore esplicativo [UC9].
     \end{enumerate}
 \end{itemize}
 
-\subsection{UC2 - Caricamento sessione salvata}
+\section{UC2 - Caricamento sessione salvata}
 \begin{itemize}
   \item \textbf{Descrizione:} L'utente vuole riprendere ad analizzare da dove si era interrotto
   o ha la necessità di visualizzare una sessione precedente;
@@ -46,30 +45,8 @@
   Nel caso in cui il file JSON selezionato non è leggibile per qualche possibile errore di salvataggio:
     \begin{enumerate}
       \item Fallisce il caricamento della sessione precedente;
-      \item Viene visualizzato un errore esplicativo [UC4].
+      \item Viene visualizzato un errore esplicativo [UC9].
     \end{enumerate}
-\end{itemize}
-\subsection{UC3 - Visualizzazione errore inserimento dati}
-\begin{itemize}
-  \item \textbf{Attore Primario:} Utente;
-  \item \textbf{Precondizioni:} L'utente carica nel sistema un file CSV mal formattato o contenente dei dati non validi;
-  \item \textbf{Postcondizioni:} L'utente visualizza un messaggio di errore e non viene caricato nessun file.
-  \item \textbf{Scenario Principale:}
-  \begin{enumerate}
-    \item L'utente visualizza un messaggio di errore esplicativo;
-    \item L'utente clicca \texttt{Capito} per tornare alla schermata iniziale.
-  \end{enumerate}
-\end{itemize}
-\subsection{UC4 - Visualizzazione errore ripristino sessione}
-\begin{itemize}
-  \item \textbf{Attore Primario:} Utente;
-  \item \textbf{Precondizioni:} L'utente ricarica una sessione che presenta un file JSON mal formattato o contenente dei valori per i parametri di configurazione non validi o non corretti;
-  \item \textbf{Postcondizioni:} L'utente visualizza un messaggio di errore e la sessione non viene ricaricata.
-  \item \textbf{Scenario Principale:}
-  \begin{enumerate}
-    \item L'utente visualizza un messaggio di errore esplicativo;
-    \item L'utente clicca \texttt{Capito} per tornare alla schermata iniziale.
-  \end{enumerate}
 \end{itemize}
 
 \section{UC2 - Selezione tipo di grafico}
@@ -149,9 +126,9 @@
   \item \textbf{Attore primario}: utente;
   \item \textbf{Precondizioni}: l'utente ha selezionato le dimensioni del grafico [UC3] e l'applicativo lo ha generato;
   \item \textbf{Postcondizioni}: le modifiche apportate al grafico vengono visualizzate;
-  \item \textbf{Scenario principale}: 
+  \item \textbf{Scenario principale}:
   \begin{itemize}
-    \item L'utente può scegliere le caratteristiche da modificare tra: 
+    \item L'utente può scegliere le caratteristiche da modificare tra:
       \begin{itemize}
         \item Zoom [UC4.1];
         \item Filtri sui dati [UC4.2];
@@ -161,7 +138,7 @@
       \end{itemize}
     \item Il grafico viene visualizzato con le nuove caratteristiche;
   \end{itemize}
-  \item \textbf{Estensioni}: 
+  \item \textbf{Estensioni}:
     \begin{itemize}
       \item L'utente inserisce dei filtri non validi [UC 4 + 1];
       \item L'utente inserisce una scala degli assi non valida [UC4 + 2].
@@ -174,7 +151,7 @@
   \item \textbf{Attore primario}: utente;
   \item \textbf{Precondizioni}: l'utente sceglie dei filtri che non permettono una corretta visualizzazione del grafico;
   \item \textbf{Postcondizioni}: l'utente visualizza un messaggio di errore;
-  \item \textbf{Scenario principale}: 
+  \item \textbf{Scenario principale}:
     \begin{itemize}
       \item L'utente visualizza un messaggio di errore esplicativo;
       \item L'utente clicca \texttt{Capito} per tornare alla visualizzazione del grafico con la personalizzazione di default.
@@ -187,7 +164,7 @@
   \item \textbf{Attore primario}: utente;
   \item \textbf{Precondizioni}: l'utente sceglie una scala degli assi che non permette una corretta visualizzazione del grafico;
   \item \textbf{Postcondizioni}: l'utente visualizza un messaggio di errore;
-  \item \textbf{Scenario principale}:  
+  \item \textbf{Scenario principale}:
     \begin{itemize}
       \item L'utente visualizza un messaggio di errore esplicativo;
       \item L'utente clicca \texttt{Capito} per tornare alla visualizzazione del grafico con la personalizzazione di default.
@@ -207,7 +184,7 @@
   \item \textbf{Attore primario}: utente;
   \item \textbf{Precondizioni}: nessuna, l'opzione di accesso ai manuali deve essere sempre disponibile all'utente;
   \item \textbf{Postcondizioni}: viene visualizzato il manuale utente;
-  \item \textbf{Scenario principale}: 
+  \item \textbf{Scenario principale}:
   \begin{enumerate}
     \item L'utente seleziona il "manuale utente";
     \item Viene visualizzato il manuale utente.
@@ -221,7 +198,7 @@
   \item \textbf{Attore primario}: sviluppatore;
   \item \textbf{Precondizioni}: nessuna, l'opzione di accesso ai manuali deve essere sempre disponibile allo sviluppatore;
   \item \textbf{Postcondizioni}: viene visualizzato il manuale sviluppatore;
-  \item \textbf{Scenario principale}: 
+  \item \textbf{Scenario principale}:
   \begin{enumerate}
     \item Lo sviluppatore seleziona il "manuale sviluppatore";
     \item Viene visualizzato il manuale sviluppatore.
@@ -243,4 +220,13 @@
   \end{enumerate}
 \end{itemize}
 
-\section{UC7}
+\section{UC9- Gestione errore}
+\begin{itemize}
+  \item \textbf{Attore Primario:} Utente;
+  \item \textbf{Precondizioni:} L'utente compie un'azione che fa fallire il corretto funzionamento dell'applicazione;
+  \item \textbf{Postcondizioni:} L'utente visualizza un messaggio di errore e l'azione non va a buon fine.
+  \item \textbf{Scenario Principale:}
+  \begin{enumerate}
+    \item L'utente visualizza un messaggio di errore esplicativo;
+  \end{enumerate}
+\end{itemize}
