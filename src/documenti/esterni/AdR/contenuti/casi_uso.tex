@@ -49,75 +49,49 @@
     \end{enumerate}
 \end{itemize}
 
-\section{UC2 - Selezione tipo di grafico}
+
+\section{UC3 - Selezione dimensioni}
+ \begin{itemize}
+     \item \textbf{Descrizione:} Selezione dimensioni con cui verrà visualizzato il grafico;
+     \item \textbf{Attore primario:} Utente;
+     \item \textbf{Precondizioni:} Il sistema è stato inizializzato [UC1];
+     \item \textbf{Postcondizioni:} Le dimensioni vengono aggiornate nel sistema;
+     \item \textbf{Scenario principale:}
+     \begin{enumerate}
+         \item Vengono mostrate all'utente le dimensioni di default e altre dimensioni tra cui scegliere;
+         \item L'utente seleziona la/e dimensione/i che più ritiene utile/i.
+     \end{enumerate}
+ \end{itemize}
+
+
+\section{UC4 - Selezione tipo di grafico}
 \begin{figure}[H]
- \includegraphics[width=\textwidth]{uc2.png}
+ \includegraphics[width=\textwidth]{uc4.png}
  \vspace{-5mm}
- \caption*{Figura 2: UC2 - Selezione tipo di grafico}
+ \caption*{Figura 2: UC4 - Selezione tipo di grafico}
 \end{figure}
 
  \begin{itemize}
      \item \textbf{Descrizione:} Viene visualizzata la scelta della tipologia di grafico;
      \item \textbf{Attore primario:} Utente;
      \item \textbf{Precondizioni:} Il sistema è stato inizializzato [UC1];
-     \item \textbf{Postcondizioni:} Viene selezionato il grafico desiderato e l'utente può procedere con la scelta delle dimensioni del grafico [UC3];
+     \item \textbf{Postcondizioni:} Viene visualizzato il grafico desiderato;
      \item \textbf{Scenario principale:} L'utente sceglie la visualizzazione più consona tra quelle disponibili;
-     \item \textbf{Generalizzazioni:} L'utente può selezionare una delle seguenti opzioni:
+     \item \textbf{Generalizzazioni:} L'utente può selezionare una tra le possibili opzioni:
      \begin{enumerate}
-         \item \textit{Scatter Plot};
-         \item \textit{Parallel Coordinates};
-         \item \textit{Force Directed Graph};
-         \item \textit{Diagramma di Sankey}.
+         \item \textit{Scatter Plot} [UC4.1];
+         \item \textit{Parallel Coordinates} [UC4.2];
+         \item \textit{Force Directed Graph} [UC4.3];
+         \item \textit{Diagramma di Sankey} [UC4.4].
      \end{enumerate}
  \end{itemize}
 
- \subsection{UC2.1 - Selezionato Scatter Plot}
- \begin{itemize}
-     \item \textbf{Attore Primario:} Utente;
-     \item \textbf{Precondizioni:} Il sistema è stato inizializzato [UC1];
-     \item \textbf{Postcondizioni:} Viene mostrata la scelta delle dimensioni del grafico [UC3];
-     \item \textbf{Scenario principale:} L'utente seleziona la visualizzazione \textit{Scatter Plot} e il sistema ritorna la selezione della dimensione.
- \end{itemize}
-\subsection{UC2.2 - Selezionato Parallel Coordinates}
-\begin{itemize}
-   \item \textbf{Attore Primario:} Utente;
-   \item \textbf{Precondizioni:} Il sistema è stato inizializzato [UC1];
-   \item \textbf{Postcondizioni:} Viene mostrata la scelta delle dimensioni del grafico [UC3];
-   \item \textbf{Scenario principale:} L'utente seleziona la visualizzazione \textit{Parallel Coordinates} e il sistema ritorna la selezione della dimensione.
-\end{itemize}
-\subsection{UC2.3 - Force Directed Graph}
-\begin{itemize}
-   \item \textbf{Attore Primario:} Utente;
-   \item \textbf{Precondizioni:} Il sistema è stato inizializzato [UC1];
-   \item \textbf{Postcondizioni:} Viene mostrata la scelta delle dimensioni del grafico [UC3];
-   \item \textbf{Scenario principale:} L'utente seleziona la visualizzazione \textit{Force Directed Graph} e il sistema ritorna la selezione della dimensione.
-\end{itemize}
-\subsection{UC2.4 - Diagramma di Sankey}
-\begin{itemize}
-   \item \textbf{Attore Primario:} Utente;
-   \item \textbf{Precondizioni:} Il sistema è stato inizializzato [UC1];
-   \item \textbf{Postcondizioni:} Viene mostrata la scelta delle dimensioni del grafico [UC3];
-   \item \textbf{Scenario principale:} L'utente seleziona la visualizzazione \textit{Diagramma di Sankey} e il sistema ritorna la selezione della dimensione.
-\end{itemize}
-\section{UC3 - Selezione dimensioni}
- \begin{itemize}
-     \item \textbf{Descrizione:} Selezione dimensioni con cui verrà visualizzato il grafico;
-     \item \textbf{Attore primario:} Utente;
-     \item \textbf{Precondizioni:} L'utente ha selezionato la tipologia di grafico con cui visualizzare i dati [UC2];
-     \item \textbf{Postcondizioni:} Le dimensioni vengono aggiornate nel sistema e inizia la personalizzazione della visualizzazione [UC4];
-     \item \textbf{Scenario principale:}
-     \begin{enumerate}
-         \item Vengono mostrate all'utente le dimensioni di default e altre dimensioni tra cui scegliere;
-         \item Ogni dimensione presenta un apposito riquadro da selezionare nel caso la si voglia utilizzare;
-         \item L'utente seleziona la/e dimensione/i che più ritiene utile/i.
-     \end{enumerate}
- \end{itemize}
 
 \section{UC4 - Personalizzazione Visualizzazione}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.6\textwidth]{UC4.png}
+  \includegraphics[width=0.6\textwidth]{ucX.png}
   \caption{UC4 - Personalizzazione Visualizzazione}
 \end{figure}
 
