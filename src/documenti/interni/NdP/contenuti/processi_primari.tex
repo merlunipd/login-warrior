@@ -60,10 +60,18 @@ Durante l'intera realizzazione del progetto il gruppo \textit{MERL} intende mant
     \subsubsection{Struttura dei requisiti}
       Il codice identificativo di ciascun requisito è di seguito riportato:
       \begin{center}
-        \textbf{R[Importanza].[Codice]}\\
+        \textbf{R[Tipologia].[Importanza].[Codice]}\\
       \end{center}
       con:
       \begin{itemize}
+        \item Tipologia:
+        \begin{itemize}
+          \item \textbf{V}: requisito di vincolo (vincoli sui servizi offerti dal sistema);
+          \item \textbf{F}: requisito funzionale (servizi e funzioni offerti dal sistema);
+          \item \textbf{P}: requisito prestazionale (vincoli sulle prestazioni da soddisfare);
+          \item \textbf{Q}: requisito di qualità (vincoli di qualità, vedere il \textit{Piano di Qualifica} per i dettagli);
+        \end{itemize}
+
         \item Importanza:
         \begin{itemize}
           \item \textbf{1} requisito obbligatorio;

@@ -1,0 +1,102 @@
+\section{Diario della riunione}
+\begin{itemize}
+  \item Discussione sull'analisi dei requisiti, in particolare sono stati trattati i seguenti argomenti:
+  \begin{itemize}
+    \item Diagrammi UML, utilizzo e convenienza;
+    \item Utilizzo di \textit{include} ed \textit{extend};
+    \item Gestione degli errori come casi d'uso separati;
+    \item Differenza tra \textit{condition} ed \textit{extension point};
+    \item Scelta di utilizzare o meno un framework per la scrittura del codice;
+    \item Requisiti funzionali e di qualità.
+  \end{itemize}
+  \item Discussione sulla gestione della milestone in corso visti i frequenti impegni legati agli esami;
+  \item Risposta ad alcune nostre domande:
+
+  \begin{spacing}{2}
+  \end{spacing}
+
+  \begin{minipage}[b]{0.47\textwidth}
+    \centering
+    \textbf{Domande}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.47\textwidth}
+    \centering
+    \textbf{Risposte}
+  \end{minipage}
+
+  \begin{spacing}{3}
+  \end{spacing}
+
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    Ha senso avere un UML unico o conviene dividerlo in più UML separati?
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    La scelta va fatta in base al vantaggio che porta, se avere un UML unico porta dei vantaggi può essere usato. Attenzione al fatto che un UML unico può essere più complicato da manutenere.
+  \end{minipage}
+
+  \begin{spacing}{3}
+  \end{spacing}
+
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    È possibile utilizzare un UML per spiegare in dettaglio uno UC avendo quindi come confine dell'UML il caso che si vuole analizzare?
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    Assolutamente si, l'importante è mantenere la giusta coerenza.
+  \end{minipage}
+
+  \begin{spacing}{3}
+  \end{spacing}
+
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    È accettabile avere un numero ridotto di UC?
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    Non esiste un numero giusto o sbagliato, l'importante è riuscire ad analizzare bene le funzionalità del prodotto richiesto.
+  \end{minipage}
+
+  \begin{spacing}{3}
+  \end{spacing}
+
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    Come va gestita la visualizzazione dell'errore?
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    Un errore unico e generale non dà alcun dettaglio sull'errore e di conseguenza non risulta utile perché non fornisce un anticipo sull'analisi. Il modo migliore è quello di avere uno UC che gestisce l'errore per ogni caso dato che pre e post condizioni dello UC risultano diversi ogni volta.
+  \end{minipage}
+
+  \begin{spacing}{3}
+  \end{spacing}
+
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    Può risultare conveniente utilizzare un framework per la stesura del codice, in particolare per mantenere il codice manutenibile, testabile e con un certo livello di qualità?
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    Non avendo molta esperienza nel campo un framework può risultare assolutamente conveniente per vari motivi: impone un modo di programmare che solitamente è quello corretto, evita di farci commettere errori che a lungo andare diventano irrisolvibili e permette di avere una struttura del codice più manutenibile.
+  \end{minipage}
+
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    Manuale utente e sviluppatore devono essere inseriti tra i requisiti funzionali o tra i requisiti di qualità?
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.47\textwidth}
+    \centering
+    La scelta corretta è quella di inserirli in entrambe le parti, ma in forme diverse: tra i requisiti funzionali ci sarà la possibilità di accedere ai manuali, tra i requisiti di qualità ci sarà la presenza dei manuali.
+  \end{minipage}
+\end{itemize}
