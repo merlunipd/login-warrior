@@ -1,10 +1,11 @@
 \chapter{Casi d'Uso}
 
 \todo{rivedere la numerazione dei casi d'uso}
+\section*{Inizializzazione sistema}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.6\textwidth]{UML_general}
+  \includegraphics[width=0.6\textwidth]{Iniz_sistema}
   \caption{Inizializzazione del sistema}
 \end{figure}
 \section{UC1 - Caricamento dataset}
@@ -45,7 +46,7 @@
   Nel caso in cui il file JSON selezionato non è leggibile per qualche possibile errore di salvataggio:
     \begin{enumerate}
       \item Fallisce il caricamento della sessione precedente;
-      \item Viene visualizzato un errore esplicativo [UC9].
+      \item Viene visualizzato un errore esplicativo [UC10].
     \end{enumerate}
 \end{itemize}
 
@@ -194,11 +195,24 @@
   \end{enumerate}
 \end{itemize}
 
-\section{UC9- Gestione errore}
+\section{UC9- Visualizzazione errore inserimento dati}
 \begin{itemize}
   \item \textbf{Attore Primario:} Utente;
-  \item \textbf{Precondizioni:} L'utente compie un'azione che fa fallire il corretto funzionamento dell'applicazione;
-  \item \textbf{Postcondizioni:} L'utente visualizza un messaggio di errore e l'azione non va a buon fine.
+  \item \textbf{Precondizioni:} L’utente carica un file CSV contenente i dati da analizzare mal formattato o
+  che presenta dati non validi;
+  \item \textbf{Postcondizioni:} L'utente visualizza un messaggio di errore e i dati non vengono caricati;
+  \item \textbf{Scenario Principale:}
+  \begin{enumerate}
+    \item L'utente visualizza un messaggio di errore esplicativo;
+  \end{enumerate}
+\end{itemize}
+
+\section{UC10- Visualizzazione errore ripristino sessione}
+\begin{itemize}
+  \item \textbf{Attore Primario:} Utente;
+  \item \textbf{Precondizioni:} L’utente carica un file JSON contenente i dati da analizzare mal formattato o
+  che presenta dati non validi o non corretti;
+  \item \textbf{Postcondizioni:} L'utente visualizza un messaggio di errore e i dati non vengono caricati;
   \item \textbf{Scenario Principale:}
   \begin{enumerate}
     \item L'utente visualizza un messaggio di errore esplicativo;
