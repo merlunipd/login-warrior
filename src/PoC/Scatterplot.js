@@ -16,7 +16,7 @@ var svg = d3.select("body")
     .attr("transform", "translate(" + spacing / 2 + "," + spacing / 2 + ")");
 
 var xScale = d3.scaleTime()
-    .domain([new Date("2021-04-20 02:00"), new Date("2021-06-30 02:00")])
+    .domain([d3.min(dati, function (d) { return new Date(d.data); }), d3.max(dati, function (d) { return new Date(d.data); }) ])
     .range([0, width - spacing]);
 
 var yScale = d3.scaleLinear()
