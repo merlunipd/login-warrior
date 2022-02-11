@@ -8,12 +8,30 @@
 \usepackage{amssymb}
 \usepackage{hyperref}
 \usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{geometry}
 
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
     urlcolor=blue,
-    }
+}
+
+\geometry{
+  top=30mm,
+  left=25mm,
+  right=25mm,
+  bottom=30mm,
+}
+
+\pagestyle{fancy}
+\lhead{}
+\lfoot{Piano di Qualifica}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{16pt}
 
 \graphicspath{ {immagini/} }
 \definecolor{RossoUnipd}{HTML}{B5121B}
