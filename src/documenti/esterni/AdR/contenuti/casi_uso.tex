@@ -10,18 +10,17 @@
 \end{figure}
 \section{UC1 - Caricamento dataset}
 \begin{itemize}
-  \item \textbf{Descrizione:} L'utente vuole analizzare un nuovo dataset non presente nel sistema;
-  \item \textbf{Attore primario:} Utente;
-  \item \textbf{Precondizioni:} Il sistema è raggiungibile e funzionante. L’utente ha a disposizione un dataset in formato CSV;
-  \item \textbf{Postcondizioni:} I dati presenti nel file vengono caricati nel sistema. Viene visualizzato un messaggio che indica il corretto caricamento dei dati;
+  \item \textbf{Descrizione:} l'utente vuole analizzare un nuovo dataset non presente nel sistema;
+  \item \textbf{Attore primario:} utente;
+  \item \textbf{Precondizioni:} il sistema è raggiungibile e funzionante. L’utente ha a disposizione un dataset in formato CSV;
+  \item \textbf{Postcondizioni:} i dati presenti nel file vengono caricati nel sistema. Viene visualizzato un messaggio che indica il corretto caricamento dei dati;
   \item \textbf{Scenario principale:}
   \begin{enumerate}
     \item L'utente accede al sistema;
     \item L'utente sceglie un file in formato CSV presente in locale e lo carica nel sistema;
     \item L'utente è pronto ad analizzare i dati.
   \end{enumerate}
-  \item \textbf{Estensioni:}
-    Nel caso in cui il file sia in un formato non valido o i dati non siano validi:
+  \item \textbf{Estensioni:} nel caso in cui il file sia in un formato non valido o i dati non siano validi:
     \begin{enumerate}
       \item Il caricamento non va a buon fine;
       \item Viene visualizzato un errore esplicativo [UC9].
@@ -30,11 +29,11 @@
 
 \section{UC2 - Caricamento sessione salvata}
 \begin{itemize}
-  \item \textbf{Descrizione:} L'utente vuole riprendere ad analizzare da dove si era interrotto
+  \item \textbf{Descrizione:} l'utente vuole riprendere ad analizzare da dove si era interrotto
   o ha la necessità di visualizzare una sessione precedente;
-  \item \textbf{Attore Primario:} Utente;
-  \item \textbf{Precondizioni:} L'utente che avvia l'applicativo ha salvato almeno una sessione di lavoro precedente;
-  \item \textbf{Postcondizioni:} I dati di una sessione precedentemente salvata vengono ricaricati nel sistema. Viene visualizzato un messaggio che indica il corretto caricamento dei dati;
+  \item \textbf{Attore Primario:} utente;
+  \item \textbf{Precondizioni:} l'utente che avvia l'applicativo ha salvato almeno una sessione di lavoro precedente;
+  \item \textbf{Postcondizioni:} i dati di una sessione precedentemente salvata vengono ricaricati nel sistema. Viene visualizzato un messaggio che indica il corretto caricamento dei dati;
   \item \textbf{Scenario Principale:}
   \begin{enumerate}
     \item L'utente accede al sistema;
@@ -42,8 +41,7 @@
     cioè tra le sessioni salvate in precedenza;
     \item L'utente riprende da dove aveva salvato.
   \end{enumerate}
-  \item \textbf{Estensioni:}
-  Nel caso in cui il file JSON selezionato non è leggibile per qualche possibile errore di salvataggio:
+  \item \textbf{Estensioni:} nel caso in cui il file JSON selezionato non sia leggibile per qualche possibile errore di salvataggio:
     \begin{enumerate}
       \item Fallisce il caricamento della sessione precedente;
       \item Viene visualizzato un errore esplicativo [UC10].
@@ -53,14 +51,14 @@
 
 \section{UC3 - Selezione dimensioni}
  \begin{itemize}
-     \item \textbf{Descrizione:} Selezione dimensioni con cui verrà visualizzato il grafico;
-     \item \textbf{Attore primario:} Utente;
-     \item \textbf{Precondizioni:} Il sistema è stato inizializzato [UC1];
-     \item \textbf{Postcondizioni:} Le dimensioni vengono aggiornate nel sistema;
+     \item \textbf{Descrizione:} selezione dimensioni con cui verrà visualizzato il grafico;
+     \item \textbf{Attore primario:} utente;
+     \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
+     \item \textbf{Postcondizioni:} le dimensioni vengono aggiornate nel sistema;
      \item \textbf{Scenario principale:}
      \begin{enumerate}
-         \item Vengono mostrate all'utente le dimensioni di default e altre dimensioni tra cui scegliere;
-         \item L'utente seleziona la/e dimensione/i che più ritiene utile/i.
+         \item vengono mostrate all'utente le dimensioni di default e altre dimensioni tra cui scegliere;
+         \item l'utente seleziona la/e dimensione/i che più ritiene utile/i.
      \end{enumerate}
  \end{itemize}
 
@@ -73,12 +71,12 @@
 \end{figure}
 
  \begin{itemize}
-     \item \textbf{Descrizione:} Viene visualizzata la scelta della tipologia di grafico;
-     \item \textbf{Attore primario:} Utente;
-     \item \textbf{Precondizioni:} Il sistema è stato inizializzato [UC1];
-     \item \textbf{Postcondizioni:} Viene visualizzato il grafico desiderato;
-     \item \textbf{Scenario principale:} L'utente sceglie la visualizzazione più consona tra quelle disponibili;
-     \item \textbf{Generalizzazioni:} L'utente può selezionare una tra le possibili opzioni:
+     \item \textbf{Descrizione:} viene visualizzata la scelta della tipologia di grafico;
+     \item \textbf{Attore primario:} utente;
+     \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
+     \item \textbf{Postcondizioni:} viene visualizzato il grafico desiderato;
+     \item \textbf{Scenario principale:} l'utente sceglie la visualizzazione più consona tra quelle disponibili;
+     \item \textbf{Generalizzazioni:} l'utente può selezionare una tra le possibili opzioni:
      \begin{enumerate}
          \item \textit{Scatter Plot} [UC4.1];
          \item \textit{Parallel Coordinates} [UC4.2];
@@ -183,10 +181,10 @@
 \section{UC6 - Salvataggio Sessione}
 
 \begin{itemize}
-  \item \textbf{Descrizione:} L'utente salva la sessione di lavoro;
-  \item \textbf{Attore primario:} Utente;
-  \item \textbf{Precondizioni:} L'utente ha svolto una sessione di lavoro sull'applicazione, in particolare potrebbe aver scelto un grafico specifico, impostato le dimensioni volute e modificato i parametri personalizzando la visualizzazione;
-  \item \textbf{Postcondizioni:} L'utente possiede un file JSON in grado di recuperare grafico, dimensioni e parametri impostati durante la sessione di lavoro;
+  \item \textbf{Descrizione:} l'utente salva la sessione di lavoro;
+  \item \textbf{Attore primario:} utente;
+  \item \textbf{Precondizioni:} l'utente ha svolto una sessione di lavoro sull'applicazione, in particolare potrebbe aver scelto un grafico specifico, impostato le dimensioni volute e modificato i parametri personalizzando la visualizzazione;
+  \item \textbf{Postcondizioni:} l'utente possiede un file JSON in grado di recuperare grafico, dimensioni e parametri impostati durante la sessione di lavoro;
   \item \textbf{Scenario principale:}
   \begin{enumerate}
     \item L'utente sta lavorando sull'applicazione;
@@ -195,24 +193,11 @@
   \end{enumerate}
 \end{itemize}
 
-\section{UC9- Visualizzazione errore inserimento dati}
+\section{UC9- Gestione errore}
 \begin{itemize}
-  \item \textbf{Attore Primario:} Utente;
-  \item \textbf{Precondizioni:} L’utente carica un file CSV contenente i dati da analizzare mal formattato o
-  che presenta dati non validi;
-  \item \textbf{Postcondizioni:} L'utente visualizza un messaggio di errore e i dati non vengono caricati;
-  \item \textbf{Scenario Principale:}
-  \begin{enumerate}
-    \item L'utente visualizza un messaggio di errore esplicativo;
-  \end{enumerate}
-\end{itemize}
-
-\section{UC10- Visualizzazione errore ripristino sessione}
-\begin{itemize}
-  \item \textbf{Attore Primario:} Utente;
-  \item \textbf{Precondizioni:} L’utente carica un file JSON contenente i dati da analizzare mal formattato o
-  che presenta dati non validi o non corretti;
-  \item \textbf{Postcondizioni:} L'utente visualizza un messaggio di errore e i dati non vengono caricati;
+  \item \textbf{Attore Primario:} utente;
+  \item \textbf{Precondizioni:} l'utente compie un'azione che fa fallire il corretto funzionamento dell'applicazione;
+  \item \textbf{Postcondizioni:} l'utente visualizza un messaggio di errore e l'azione non va a buon fine.
   \item \textbf{Scenario Principale:}
   \begin{enumerate}
     \item L'utente visualizza un messaggio di errore esplicativo;
