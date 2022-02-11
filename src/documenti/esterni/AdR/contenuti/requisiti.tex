@@ -2,6 +2,8 @@
 
 \todo{Le tabelle saranno da riadattare, come tutte quelle di ogni file}
 
+\todo{codice finale univoco per tipologia o globale?}
+
 \section{Introduzione}
 \section{Requisiti Funzionali}
 \begin{table}[H]
@@ -11,37 +13,29 @@
     \rowcolor[HTML]{036400}
     {\color[HTML]{FFFFFF} \textbf{Codice}} & {\color[HTML]{FFFFFF} \textbf{Descrizione}} & {\color[HTML]{FFFFFF} \textbf{Classificazione}} & {\color[HTML]{FFFFFF} \textbf{Fonti}} \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    R1.1 & L'utente deve poter caricare i dati tramite un nuovo dataset & Obbligatorio & UC1 \\ \hline
+    RF.1.1 & L'utente deve poter caricare i dati tramite un nuovo dataset & Obbligatorio & UC1 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    R1.2 & L'utente deve poter caricare una sessione precedentemente salvata & Obbligatorio & UC2 \\ \hline
+    RF.1.2 & Visualizzazione messaggio di errore in caso di problemi durante il caricamento dati & Obbligatorio & UC2 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    R1.3 & L'utente deve poter selezionare il grafico da visualizzare & Obbligatorio & UC3 \\ \hline
+    RF.1.3 & L'utente deve poter caricare una sessione precedentemente salvata & Obbligatorio & UC3 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    R1.4 & L'utente deve poter selezionare le dimensioni da visualizzare nel grafico & Obbligatorio & UC4 \\ \hline
+    RF.1.4 & Visualizzazione messaggio di errore in caso di problemi durante il caricamento della sessione & Obbligatorio & UC4 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    R1.5 & L'utente deve poter personalizzare la visualizzazione del grafico & Obbligatorio & UC5 \\ \hline
+    RF.1.5 & L'utente deve poter selezionare le dimensioni da visualizzare nel grafico & Obbligatorio & UC5 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    R1.6 & Visualizzazione mesaggio di errore in caso di filtri scelti in modo scorretto & Obbligatorio & UC6 \\ \hline
+    RF.1.6 & L'utente deve poter selezionare il grafico da visualizzare & Obbligatorio & UC6 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    R1.7 & Visualizzazione mesaggio di errore in caso di scala degli assi scelta in modo scorretto & Obbligatorio & UC7 \\ \hline
+    RF.1.7 & L'utente deve poter personalizzare la visualizzazione del grafico & Obbligatorio & UC7 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    R1.8 & L'utente deve poter accedere al manuale utente & Obbligatorio & ??? \\ \hline
+    RF.1.8 & Visualizzazione messaggio di errore in caso di filtri scelti in modo scorretto & Obbligatorio & UC8 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    R1.9 & L'utente sviluppatore deve poter accedere al manuale sviluppatore & Obbligatorio & ??? \\ \hline
+    RF.1.9 & Visualizzazione messaggio di errore in caso di scala degli assi scelta in modo scorretto & Obbligatorio & UC9 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    R1.10 & L'utente deve poter salvare la sessione in corso & Obbligatorio & UC8 \\ \hline
+    RF.1.10 & L'utente deve poter accedere al manuale utente & Obbligatorio & UC10 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    R1.11 & Visualizzazione messaggio di errore (generico???) & Obbligatorio & UC7 \\ \hline
+    RF.1.? & L'utente sviluppatore deve poter accedere al manuale sviluppatore??? & Obbligatorio & ??? \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    Guardare numerazioni e sistemare &  & Facoltativo &  \\ \hline
-    \rowcolor[HTML]{EFEFEF}
-    RFO3 & Visualizzazione messaggio di errore in caso di problemi durante il caricamento dati & Obbligatorio & UC3 \\ \hline
-    \rowcolor[HTML]{C0C0C0}
-    RFO4 & Visualizzazione messaggio di errore in caso di problemi durante il caricamento della sessione & Obbligatorio & UC4 \\ \hline
-    \rowcolor[HTML]{EFEFEF}
-    RFO9 & Visualizzazione messaggio di errore in caso di problemi durante il salvataggio della sessione & Obbligatorio & UC \\ \hline
-    \rowcolor[HTML]{C0C0C0}
-     &  &  & \\ \hline
+    RF.1.11 & L'utente deve poter salvare la sessione in corso & Obbligatorio & UC11 \\ \hline
   \end{tabular}
   \caption{Tabella dei requisiti funzionali}
 \end{table}
@@ -54,17 +48,17 @@
     \rowcolor[HTML]{036400}
     {\color[HTML]{FFFFFF} \textbf{Codice}} & {\color[HTML]{FFFFFF} \textbf{Descrizione}} & {\color[HTML]{FFFFFF} \textbf{Classificazione}} & {\color[HTML]{FFFFFF} \textbf{Fonti}} \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RQO1 & Deve essere fornito un manuale utente per l'utilizzo & Obbligatorio & Capitolato \\ \hline
+    RQ.1.1 & Deve essere fornito un manuale utente per l'utilizzo & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RQO2 & Deve essere fornito un manuale sviluppatore per la manutenzione ed estensione del prodotto & Obbligatorio & Capitolato \\ \hline
+    RQ.1.2 & Deve essere fornito un manuale sviluppatore per la manutenzione ed estensione del prodotto & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RQO3 & Il prodotto deve essere open source & Obbligatorio & Capitolato \\ \hline
+    RQ.1.3 & Il prodotto deve essere open source & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RQO4 & Il codice sorgente deve essere presente su una repository in \textit{GitHub} o in altri repository pubblici & Obbligatorio & Capitolato \\ \hline
+    RQ.1.4 & Il codice sorgente deve essere presente su una repository in \textit{GitHub} o in altri repository pubblici & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RQO5 & Il prodotto deve essere sviluppato seguendo le Norme di Progetto & Obbligatorio &  \\ \hline
+    RQ.1.5??? & Il prodotto deve essere sviluppato seguendo le Norme di Progetto & Obbligatorio &  \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RQO &  &  &  \\ \hline
+    RQ.1.? &  &  &  \\ \hline
   \end{tabular}
   \caption{Tabella dei requisiti di qualità}
 \end{table}
@@ -77,13 +71,13 @@
     \rowcolor[HTML]{036400}
     {\color[HTML]{FFFFFF} \textbf{Codice}} & {\color[HTML]{FFFFFF} \textbf{Descrizione}} & {\color[HTML]{FFFFFF} \textbf{Classificazione}} & {\color[HTML]{FFFFFF} \textbf{Fonti}} \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RVO1 & L'interfaccia grafica deve essere sviluppata in \textit{HTML}/\textit{CSS} & Obbligatorio & Capitolato \\ \hline
+    RV.1.1 & L'interfaccia grafica deve essere sviluppata in \textit{HTML}/\textit{CSS} & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RVO2 & L'applicazione(?) deve essere sviluppata in \textit{Javascript} & Obbligatorio & Capitolato \\ \hline
+    RV.1.2 & L'applicazione(?) deve essere sviluppata in \textit{Javascript} & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RVO3 & Deve essere utilizzata la libreria \textit{D3.js} & Facoltativo(???) & Capitolato \\ \hline
+    RV.1.3 & Deve essere utilizzata la libreria \textit{D3.js} & Facoltativo(???) & Capitolato \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RVO &  &  &  \\ \hline
+    RV.1.? &  &  &  \\ \hline
   \end{tabular}
   \caption{Tabella dei requisiti di vincolo}
 \end{table}
@@ -96,7 +90,7 @@
     \rowcolor[HTML]{036400}
     {\color[HTML]{FFFFFF} \textbf{Codice}} & {\color[HTML]{FFFFFF} \textbf{Descrizione}} & {\color[HTML]{FFFFFF} \textbf{Classificazione}} & {\color[HTML]{FFFFFF} \textbf{Fonti}} \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    &  &  &  \\ \hline
+    RP.1.? &  &  &  \\ \hline
     \rowcolor[HTML]{C0C0C0}
     &  &  &  \\ \hline
   \end{tabular}
@@ -113,7 +107,7 @@
     \rowcolor[HTML]{036400}
     {\color[HTML]{FFFFFF} Fonte} & {\color[HTML]{FFFFFF} Requisiti} \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    Capitolato & \req{RQO1 \\ RQO2 \\ RQO3 \\ RQO4 \\ RVO1 \\ RVO2 \\ RVO3} \\ \hline
+    Capitolato & \req{RQ.1.1 \\ RQ.1.2 \\ RQ.1.3 \\ RQ.1.4 \\ RQ.1.5??? \\ RV.1.1 \\ RV.1.2 \\ RV.1.3} \\ \hline
     \rowcolor[HTML]{C0C0C0}
     &  \\ \hline
   \end{tabular}
@@ -128,25 +122,43 @@
     \rowcolor[HTML]{036400}
     {\color[HTML]{FFFFFF} Requisito} & {\color[HTML]{FFFFFF} Fonte} \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RFO1 & UC1 \\ \hline
+    RF.1.1 & UC1 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RFO2 & UC2 \\ \hline
+    RF.1.2 & UC2 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RFO3 & UC3 \\ \hline
+    RF.1.3 & UC3 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RFO4 & UC4 \\ \hline
+    RF.1.4 & UC4 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RFO5 & UC5 \\ \hline
+    RF.1.5 & UC5 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RFO6 & UC6 \\ \hline
+    RF.1.6 & UC6 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RFO7 & UC7 \\ \hline
+    RF.1.7 & UC7 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RFO8 & UC8 \\ \hline
+    RF.1.8 & UC8 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    &  \\ \hline
+    RF.1.9 & UC9 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    &  \\ \hline
+    RF.1.10 & UC10 \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RF.1.11 & UC11 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RQ.1.1 & Capitolato \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RQ.1.2 & Capitolato \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RQ.1.3 & Capitolato \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RQ.1.4 & Capitolato \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RQ.1.5??? & Capitolato \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RV.1.1 & Capitolato \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RV.1.2 & Capitolato \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RV.1.3 & Capitolato \\ \hline
   \end{tabular}
   \caption{Tabella di tracciamento requisito-fonti}
 \end{table}
