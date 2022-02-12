@@ -10,13 +10,32 @@
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{geometry}
 \usepackage[italian]{babel}
 
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
     urlcolor=blue,
-    }
+}
+
+\geometry{
+  top=30mm,
+  bottom=30mm,
+  left=30mm,
+  right=30mm,
+}
+
+\pagestyle{fancy}
+\lhead{}
+\lfoot{Analisi dei requisiti}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{16pt}
+    
 \graphicspath{ {immagini/} }
 \definecolor{RossoUnipd}{HTML}{B5121B}
 \titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\textbf}

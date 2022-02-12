@@ -7,6 +7,8 @@
 \usepackage{hyperref}
 \usepackage{fancyvrb}
 \usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{fancyhdr}
 \usepackage[italian]{babel}
 
 \hypersetup{
@@ -14,6 +16,23 @@
     linkcolor=black,
     urlcolor=blue,
     }
+
+    \geometry{
+      top=30mm,
+      bottom=30mm,
+      left=30mm,
+      right=30mm,
+    }
+    
+    \pagestyle{fancy}
+    \lhead{}
+    \lfoot{Norme di Progetto}
+    \cfoot{}
+    \rfoot{\thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+    \setlength{\headheight}{16pt}
+
 \graphicspath{ {immagini/} }
 \definecolor{RossoUnipd}{HTML}{B5121B}
 \titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\textbf}
