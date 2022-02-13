@@ -35,6 +35,13 @@
 \renewcommand{\footrulewidth}{0.4pt}
 \setlength{\headheight}{16pt}
 
+\fancypagestyle{firstpage}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \lfoot{}
+  \rfoot{}
+}
+
 \graphicspath{ {immagini/} }
 \definecolor{RossoUnipd}{HTML}{B5121B}
 \titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\textbf}
@@ -45,6 +52,7 @@
 
 % Struttura
 \begin{document}
+  \thispagestyle{firstpage}
   \input{contenuti/intestazione}
   \input{contenuti/titolo}
   \newpage
