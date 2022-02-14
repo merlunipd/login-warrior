@@ -30,7 +30,7 @@ var xScale = d3.scaleTime()
     .range([0, width - spacing]);
 
 var yScale = d3.scaleLinear()
-    .domain([0,24])
+    .domain([0, 24])
     .range([height - spacing, 0]);
 /*
 var yScale = d3.scalePoint()
@@ -58,24 +58,24 @@ var dots = svg.append("g")
 
 dots.enter().append("circle")
     .attr("cx", function (d) { return xScale(new Date(d.data)); })
-    .attr("cy", function (d) { return yScale( (new Date(d.data)).getHours() ); })
-        /*
-        switch (d.tipoEvento) {
-            case 1:
-                return yScale("login");
-                break;
-            case 2:
-                return yScale("errore");
-                break;
-            case 3:
-                return yScale("logout");
-                break;
-        }
-        */
-    
+    .attr("cy", function (d) { return yScale((new Date(d.data)).getHours()); })
+    /*
+    switch (d.tipoEvento) {
+        case 1:
+            return yScale("login");
+            break;
+        case 2:
+            return yScale("errore");
+            break;
+        case 3:
+            return yScale("logout");
+            break;
+    }
+    */
+
     .attr("r", 5)
-    .style("fill", function (d) { 
-        
+    .style("fill", function (d) {
+
         switch (d.tipoEvento) {
             case 1:
                 return "green";
@@ -87,13 +87,13 @@ dots.enter().append("circle")
                 return "grey";
                 break;
         }
-        
+
     });
 dots.enter().append("text")
-    .attr("x", function (d) { return xScale(new Date(d.data)); } )
-    .attr("y", function (d) { return yScale( (new Date(d.data)).getHours() ) - 10 ; } )
+    .attr("x", function (d) { return xScale(new Date(d.data)); })
+    .attr("y", function (d) { return yScale((new Date(d.data)).getHours()) - 10; })
     .attr("dy", ".35em")
-    .text(function(d) { return ( d.utente +" / "+d.ip ); });
+    .text(function (d) { return (d.utente + " / " + d.ip); });
 
 //Nome degli assi
 svg.append("text")
@@ -107,8 +107,8 @@ svg.append("text")
 svg.append("text")
     .attr("class", "x label")
     .attr("text-anchor", "end")
-    .attr("y", height -spacing + 10)
-    .attr("x", width - spacing + 30 )
+    .attr("y", height - spacing + 10)
+    .attr("x", width - spacing + 30)
     .attr("dx", ".75em")
     .text("Data");
 
@@ -174,39 +174,39 @@ dots.enter().append("circle")
                 break;
         }
         */
-       /*
-    })
-    .attr("r", 5)
-    .style("fill", function (d) { 
-        
-        switch (d.tipoEvento) {
-            case 1:
-                return "green";
-                break;
-            case 2:
-                return "red";
-                break;
-            case 3:
-                return "grey";
-                break;
-        }
-        
-    });
+/*
+})
+.attr("r", 5)
+.style("fill", function (d) { 
+ 
+ switch (d.tipoEvento) {
+     case 1:
+         return "green";
+         break;
+     case 2:
+         return "red";
+         break;
+     case 3:
+         return "grey";
+         break;
+ }
+ 
+});
 
 //Nome degli assi
 svg.append("text")
-    .attr("class", "y label")
-    .attr("text-anchor", "end")
-    .attr("y", -30)
-    .attr("x", 50)
-    .attr("dy", ".75em")
-    .text("Applicazione");
+.attr("class", "y label")
+.attr("text-anchor", "end")
+.attr("y", -30)
+.attr("x", 50)
+.attr("dy", ".75em")
+.text("Applicazione");
 
 svg.append("text")
-    .attr("class", "x label")
-    .attr("text-anchor", "end")
-    .attr("y", height -spacing + 10)
-    .attr("x", width - spacing + 30 )
-    .attr("dx", ".75em")
-    .text("Data");
+.attr("class", "x label")
+.attr("text-anchor", "end")
+.attr("y", height -spacing + 10)
+.attr("x", width - spacing + 30 )
+.attr("dx", ".75em")
+.text("Data");
 */
