@@ -4,18 +4,20 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage[italian]{babel}
 
 \usepackage{hyperref}
 \hypersetup{
     colorlinks,
     linkcolor=black,
-    urlcolor=blue   
+    urlcolor=blue
 }
 
 \graphicspath{ {immagini/} }
 \definecolor{RossoUnipd}{HTML}{B5121B}
 \titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\textbf}
-\renewcommand{\contentsname}{Indice}
 
 % Variabili
 \newcommand{\titolo}{Piano di Progetto}
@@ -32,7 +34,7 @@
 
   % Capitoli
   \input{contenuti/introduzione}
-  \input{contenuti/modello_di_sviluppo.tex}
+  \input{contenuti/modello_di_sviluppo}
   \input{contenuti/analisi_dei_rischi}
   \input{contenuti/pianificazione}
   \input{contenuti/preventivo}

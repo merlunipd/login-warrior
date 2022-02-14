@@ -81,8 +81,6 @@ Ogni documento presenta un registro delle modifiche sotto forma di tabella che t
 \end{itemize}
 \subsection{Indice}
 Ogni documento presenta un indice dei contenuti, subito dopo il registro delle modifiche. Dove necessario, sono presenti anche un indice delle illustrazioni e uno delle tabelle presenti nel documento.
-\subsection{Struttura delle pagine}
-La singola pagina del documento ha la seguente struttura: \todo{decidere insieme la struttura}
 \subsection{Verbali}
 I Verbali contengono la prima pagina come gli altri documenti ma non viene messo l'indice data la brevità di questi documenti. Il contenuto di un Verbale è così organizzato:
 \begin{itemize}
@@ -123,7 +121,10 @@ Gli stili di testo adottati nei documenti sono:
     \item Il nome delle subsection e inferiori solo la prima lettera maiuscola.
 \end{itemize}
 \subsection{Glossario}
-\todo{aspetto che prima lo facciamo e decidiamo come impostarlo}
+Il \textit{Glossario} è un documento contenente vocaboli tecnici o ambigui per cui il gruppo sente la necessità di definire una descrizione comune per poter comunicare in modo più conciso ed efficiente.
+
+Il \textit{Glossario} è un documento condiviso su Google Drive a cui hanno accesso in lettura e scrittura tutti i membri del gruppo. Se durante il progetto didattico si incontra qualche termine particolarmente significativo, qualsiasi membro del gruppo può inserirlo insieme alla relativa definizione all'interno del \textit{Glossario}, verificando che esso non sia già presente.
+
 \subsection{Sigle}
 \label{sigle}
 \begin{itemize}
@@ -201,10 +202,10 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
  \subsection{Descrizione}
     Il processo di gestione della configurazione ha lo scopo di creare un ambiente in cui la produzione di
     documentazione e di codice avviene in maniera sistematica, ordinata e standardizzata. Ciò è permesso
-    raggruppando ed organizzando tutti gli strumenti e le regole adoperati.
+    raggruppando ed organizzando tutte le regole e gli strumenti adoperati.
  \subsection{Versionamento}
    \subsubsection{Codice di versione}
-   La storia di una risorsa deve sempre poter essere ricostrubibile in quanto nel suo arco di vita essa subisce
+   La storia di una risorsa deve sempre poter essere ricostruibile in quanto nel suo arco di vita essa subisce
    svariate modifiche. A tal scopo è fondamentale l'introduzione di un sistema di identificazione della
    versione:
    \begin{center}
@@ -221,8 +222,7 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
  \subsection{Sistemi software utilizzati}
  Per la gestione delle differenti versioni è stato deciso di utilizzare il sistema
  di versionamento distribuito Git; utilizzando il servizio GitHub per gestire la repository.\\
- Per la suddivisione e la gestione dei lavori da svolgere il nostro gruppo ha deciso di appoggiarsi
- al servizio web Trello.\\
+ Per la suddivisione e la gestione dei lavori da svolgere il nostro gruppo utilizza il sistema di Issue e Pull Request di GitHub.\\
 
  \subsection{Struttura repository}
   \subsubsection{Repository utilizzata}
@@ -266,7 +266,20 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
       \item Proponiamo idee di auto-miglioramento.
   \end{itemize}
 
-  \subsection{Metriche}
+  \subsection{Testing}
+  All'interno del \textit{Piano di Qualifica} troviamo gli obiettivi di qualità del processo e del prodotto, con le relative metriche per verificarne l'accettabilità, successivamente abbiamo dei test che garantiscono la qualità generale del nostro software, che appartengono alle seguenti categorie:
+  \begin{itemize}
+      \item Test di accettazione;
+      \item Test di unità;
+      \item Test d'integrazione;
+      \item Test di sistema.
+  \end{itemize}
+  Per questi ultimi test verrà indicato se sono stati implementati o meno.
+  \newline
+  Infine troviamo un resoconto che contiene i risultati dei test della qualità di processo, della qualità di prodotto e del software, in cui, grazie a opportuni grafici, abbiamo una rappresentazione dei vari indici nel corso del tempo. Per svolgere al meglio questo lavoro è possibile affidarsi alla sottosezione \textit{\ref{sec:metriche} Metriche}, in cui è presente la descrizione e le formule delle varie metriche.
+
+
+  \subsection{Metriche}\label{sec:metriche}
   All'interno del \textit{Piano di Qualifica} vengono utilizzate diverse metriche, di seguito viene spiegato come capirle e come utilizzarle per
   eseguire i test di qualità.
   \subsubsection{Codifica}
@@ -280,7 +293,7 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
                     \item \textbf{PC} per processo;
                     \item \textbf{PD} per prodotto.
                 \end{itemize}
-        \item \textbf{Id numerico} indica un numero univoco incrementale separato per le due tipologie
+        \item \textbf{Id numerico} indica un numero univoco incrementale separato per le due tipologie.
     \end{itemize}
    \subsubsection{Descrizione}
    Troviamo di seguito per ogni obiettivo di qualità la descrizione delle sue metriche:
@@ -299,6 +312,9 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
                     MPD2 & Indice di Gulpease    & Indice di leggibilità di un testo in base all'istruzione ottenuta   & $89+\frac{300*N_f-10*N_l}{N_p}$     \\ \hline
                 \end{tabular}
             \end{center}
+            \begin{itemize}
+                \item Per facilitare il calcolo dell'indice di Gulpease è possibile affidarsi a questo calcolatore online \url{https://www.andreapacchiarotti.it/archivio/gulpease-indice.html}.
+            \end{itemize}
         \item \textbf{Funzionalità},
             \begin{itemize}
                 \item $R_s$, numero requisiti soddisfatti;
@@ -366,9 +382,6 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
                 \end{tabular}
             \end{center}
    \end{itemize} 
-
-  \subsection{Testing}
-  \todo{Capire meglio i test da inserire}
 
   \subsection{Aspettative}
   Con questo processo ci poniamo le seguenti aspettative:
