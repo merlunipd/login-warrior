@@ -18,6 +18,7 @@ const setupDOM = () => {
     const file = csvInput.files[0];
     // eslint-disable-next-line no-unused-vars
     const data = await loadCsv(file);
+    drawScatterplot(data);
   });
 };
 
