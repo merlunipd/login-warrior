@@ -12,6 +12,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'import/extensions': 'off'
+    'import/extensions': 'off',
+    'linebreak-style': 'off'
   },
 };
