@@ -1,0 +1,85 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+a{
+    color: black;
+    text-decoration: underline;
+}
+
+nav{
+    padding: 1%;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+
+#logo{
+    width: 5em;
+    align-items: left;
+}
+
+#navigation{
+    display: flex;
+}
+
+#navigation p {
+    padding: 1em;
+}
+  
+section{
+    max-width: 80%;
+    margin: auto;
+}
+
+section h1{
+    text-align: center;
+    border-radius: 1em;
+    color: white;
+    background-color: black;
+}
+
+button{
+
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    border-radius: 1em;
+    font-weight: bold;
+    height: 2em;
+    width: auto;
+}
+
+
+#Button1{
+    font-size: .85em;
+}
+
+#D3.js{
+    display: inline-block;
+}
+
+#spazio_grafico{
+    margin: 3%;
+    width: 800px;
+    height: 800px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+}
+
+.spazio_bottoni{
+    margin: 3%;
+    width: 250px;
+    height: 800px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+}
