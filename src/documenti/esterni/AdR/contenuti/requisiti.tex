@@ -1,19 +1,19 @@
 \chapter{Requisiti}
 
-\todo{Le tabelle saranno da riadattare, come tutte quelle di ogni file}
-
-\todo{codice finale univoco per tipologia o globale?}
+\renewcommand\arraystretch{1,5}
 
 \section{Introduzione}
 \section{Requisiti Funzionali}
-\begin{table}[H]
+
+\begin{center}
   \centering
-  \begin{tabular}{|p{1,5cm}|p{6cm}|p{3cm}|p{2cm}|}
+  \begin{longtable}{|L{1,5cm}|C{5,5cm}|C{3cm}|C{2cm}|}
     \hline
     \rowcolor[HTML]{036400}
-    {\color[HTML]{FFFFFF} \textbf{Codice}} & {\color[HTML]{FFFFFF} \textbf{Descrizione}} & {\color[HTML]{FFFFFF} \textbf{Classificazione}} & {\color[HTML]{FFFFFF} \textbf{Fonti}} \\ \hline
+    \textcolor[HTML]{FFFFFF}{\textbf{Codice}} & \textcolor[HTML]{FFFFFF}{\textbf{Descrizione}} & \textcolor[HTML]{FFFFFF}{\textbf{Classificazione}} & \textcolor[HTML]{FFFFFF}{\textbf{Fonti}}
+    \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RF.1.1 & L'utente deve poter caricare i dati tramite un nuovo dataset & Obbligatorio & Capitolato, UC1 \\ \hline
+    RF.1.1 & L'utente deve poter caricare i dati tramite un nuovo dataset & Obbligatorio & Capitolato - UC1 \\ \hline
     \rowcolor[HTML]{C0C0C0}
     RF.1.2 & Visualizzazione messaggio di errore in caso di problemi durante il caricamento dati & Obbligatorio & UC2 \\ \hline
     \rowcolor[HTML]{EFEFEF}
@@ -23,15 +23,15 @@
     \rowcolor[HTML]{EFEFEF}
     RF.1.5 & L'utente deve poter selezionare le dimensioni da visualizzare nel grafico & Obbligatorio & UC5 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RF.1.6 & L'utente deve poter selezionare il grafico da visualizzare & Obbligatorio & Capitolato, UC6 \\ \hline
+    RF.1.6 & L'utente deve poter selezionare il grafico da visualizzare & Obbligatorio & Capitolato - UC6 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RF.1.6.1 & L'utente deve poter selezionare il grafico \textit{Scatter Plot} & Obbligatorio & Capitolato, UC6.1 \\ \hline
+    RF.1.6.1 & L'utente deve poter selezionare il grafico \textit{Scatter Plot} & Obbligatorio & Capitolato - UC6.1 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RF.1.6.2 & L'utente deve poter selezionare il grafico \textit{Parallel Coordinates} & Obbligatorio & Capitolato, UC6.2 \\ \hline
+    RF.1.6.2 & L'utente deve poter selezionare il grafico \textit{Parallel Coordinates} & Obbligatorio & Capitolato - UC6.2 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RF.1.6.3 & L'utente deve poter selezionare il grafico \textit{Force Direct Graph} & Obbligatorio & Capitolato, UC6.3 \\ \hline
+    RF.1.6.3 & L'utente deve poter selezionare il grafico \textit{Force-Direct Graph} & Obbligatorio & Capitolato - UC6.3 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RF.1.6.4 & L'utente deve poter selezionare il grafico \textit{Diagramma di Sankey} & Obbligatorio & Capitolato, UC6.4 \\ \hline
+    RF.1.6.4 & L'utente deve poter selezionare il grafico \textit{Sankey Diagram} & Obbligatorio & Capitolato - UC6.4 \\ \hline
     \rowcolor[HTML]{EFEFEF}
     RF.2.7 & L'utente deve poter personalizzare la visualizzazione del grafico & Desiderabile & UC7 \\ \hline
     \rowcolor[HTML]{C0C0C0}
@@ -41,20 +41,20 @@
     \rowcolor[HTML]{C0C0C0}
     RF.2.10 & L'utente deve poter accedere al manuale utente & Desiderabile & UC10 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RF.2.? & L'utente sviluppatore deve poter accedere al manuale sviluppatore??? & Desiderabile & ??? \\ \hline
-    \rowcolor[HTML]{C0C0C0}
     RF.2.11 & L'utente deve poter salvare la sessione in corso & Desiderabile & UC11 \\ \hline
-  \end{tabular}
-  \caption{Tabella dei requisiti funzionali}
-\end{table}
+
+    \caption{Tabella dei requisiti funzionali}
+  \end{longtable}
+\end{center}
 
 \section{Requisiti di Qualità}
-\begin{table}[H]
+\begin{center}
   \centering
-  \begin{tabular}{|p{1,5cm}|p{6cm}|p{3cm}|p{2cm}|}
+  \begin{longtable}{|L{1,5cm}|C{5,5cm}|C{3cm}|C{2cm}|}
     \hline
     \rowcolor[HTML]{036400}
-    {\color[HTML]{FFFFFF} \textbf{Codice}} & {\color[HTML]{FFFFFF} \textbf{Descrizione}} & {\color[HTML]{FFFFFF} \textbf{Classificazione}} & {\color[HTML]{FFFFFF} \textbf{Fonti}} \\ \hline
+    \textcolor[HTML]{FFFFFF}{\textbf{Codice}} & \textcolor[HTML]{FFFFFF}{\textbf{Descrizione}} & \textcolor[HTML]{FFFFFF}{\textbf{Classificazione}} & \textcolor[HTML]{FFFFFF}{\textbf{Fonti}}
+    \\ \hline
     \rowcolor[HTML]{EFEFEF}
     RQ.1.1 & Deve essere fornito un manuale utente per l'utilizzo & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{C0C0C0}
@@ -65,17 +65,19 @@
     RQ.1.4 & Il codice sorgente deve essere presente su una repository in \textit{GitHub} o in altri repository pubblici & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{EFEFEF}
     RQ.1.5??? & Il prodotto deve essere sviluppato seguendo le \textit{Norme di Progetto} & Obbligatorio & ??? \\ \hline
-  \end{tabular}
-  \caption{Tabella dei requisiti di qualità}
-\end{table}
+
+    \caption{Tabella dei requisiti di qualità}
+  \end{longtable}
+\end{center}
 
 \section{Requisiti di Vincolo}
-\begin{table}[H]
+\begin{center}
   \centering
-  \begin{tabular}{|p{1,5cm}|p{6cm}|p{3cm}|p{2cm}|}
+  \begin{longtable}{|L{1,5cm}|C{5,5cm}|C{3cm}|C{2cm}|}
     \hline
     \rowcolor[HTML]{036400}
-    {\color[HTML]{FFFFFF} \textbf{Codice}} & {\color[HTML]{FFFFFF} \textbf{Descrizione}} & {\color[HTML]{FFFFFF} \textbf{Classificazione}} & {\color[HTML]{FFFFFF} \textbf{Fonti}} \\ \hline
+    \textcolor[HTML]{FFFFFF}{\textbf{Codice}} & \textcolor[HTML]{FFFFFF}{\textbf{Descrizione}} & \textcolor[HTML]{FFFFFF}{\textbf{Classificazione}} & \textcolor[HTML]{FFFFFF}{\textbf{Fonti}}
+    \\ \hline
     \rowcolor[HTML]{EFEFEF}
     RV.1.1 & L'interfaccia grafica deve essere sviluppata in \textit{HTML}/\textit{CSS} & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{C0C0C0}
@@ -84,9 +86,10 @@
     RV.1.3 & Il prodotto finale deve essere in grado di analizzare file \textit{CSV} & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{C0C0C0}
     RV.3.4??? & Deve essere utilizzata la libreria \textit{D3.js} & Opzionale(???) & Capitolato \\ \hline
-  \end{tabular}
-  \caption{Tabella dei requisiti di vincolo}
-\end{table}
+
+    \caption{Tabella dei requisiti di vincolo}
+  \end{longtable}
+\end{center}
 
 \section{Requisiti Prestazionali}
 Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante l'analisi del capitolato e delle richieste del proponente.
@@ -95,14 +98,14 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
 \section{Tracciamento}
 
 \subsection{Fonte - Requisiti}
-\begin{table}[H]
+\begin{center}
   \centering
-  \begin{tabular}{|c|c|}
+  \begin{longtable}{|C{6cm}|C{6cm}|}
     \hline
     \rowcolor[HTML]{036400}
-    {\color[HTML]{FFFFFF} Fonte} & {\color[HTML]{FFFFFF} Requisiti} \\ \hline
+    \textcolor[HTML]{FFFFFF}{\textbf{Fonte}} & \textcolor[HTML]{FFFFFF}{\textbf{Requisiti}} \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    Capitolato & \req{RF.1.1 \\ RF.1.6 \\ RF.1.6.1 \\ RF.1.6.2 \\ RF.1.6.3 \\ RF.1.6.4 \\ RQ.1.1 \\ RQ.1.2 \\ RQ.1.3 \\ RQ.1.4 \\ RQ.1.5??? \\ RV.1.1 \\ RV.1.2 \\ RV.1.3 \\ RV.1.4} \\ \hline
+    Capitolato & RF.1.1 - RF.1.6 - RF.1.6.1 - RF.1.6.2 - RF.1.6.3 - RF.1.6.4 - RQ.1.1 - RQ.1.2 - RQ.1.3 - RQ.1.4 - RQ.1.5??? - RV.1.1 - RV.1.2 - RV.1.3 - RV.3.4??? \\ \hline
     \rowcolor[HTML]{C0C0C0}
     UC1 & RF.1.1 \\ \hline
     \rowcolor[HTML]{EFEFEF}
@@ -133,19 +136,20 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
     UC10 & RF.2.10 \\ \hline
     \rowcolor[HTML]{C0C0C0}
     UC11 & RF.2.11 \\ \hline
-  \end{tabular}
-  \caption{Tabella di tracciamento fonte-requisiti}
-\end{table}
+
+    \caption{Tabella di tracciamento fonte-requisiti}
+  \end{longtable}
+\end{center}
 
 \subsection{Requisito - Fonti}
-\begin{table}[H]
+\begin{center}
   \centering
-  \begin{tabular}{|c|c|}
+  \begin{longtable}{|C{6cm}|C{6cm}|}
     \hline
     \rowcolor[HTML]{036400}
-    {\color[HTML]{FFFFFF} Requisito} & {\color[HTML]{FFFFFF} Fonti} \\ \hline
+    \textcolor[HTML]{FFFFFF}{\textbf{Requisito}} & \textcolor[HTML]{FFFFFF}{\textbf{Fonti}} \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RF.1.1 & \req{Capitolato \\ UC1} \\ \hline
+    RF.1.1 & Capitolato - UC1 \\ \hline
     \rowcolor[HTML]{C0C0C0}
     RF.1.2 & UC2 \\ \hline
     \rowcolor[HTML]{EFEFEF}
@@ -155,15 +159,15 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
     \rowcolor[HTML]{EFEFEF}
     RF.1.5 & UC5 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RF.1.6 & \req{Capitolato \\ UC6} \\ \hline
+    RF.1.6 & Capitolato - UC6 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RF.1.6.1 & \req{Capitolato \\ UC6.1} \\ \hline
+    RF.1.6.1 & Capitolato - UC6.1 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RF.1.6.2 & \req{Capitolato \\ UC6.2} \\ \hline
+    RF.1.6.2 & Capitolato - UC6.2 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RF.1.6.3 & \req{Capitolato \\ UC6.3} \\ \hline
+    RF.1.6.3 & Capitolato - UC6.3 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RF.1.6.4 & \req{Capitolato \\ UC6.4} \\ \hline
+    RF.1.6.4 & Capitolato - UC6.4 \\ \hline
     \rowcolor[HTML]{EFEFEF}
     RF.2.7 & UC7 \\ \hline
     \rowcolor[HTML]{C0C0C0}
@@ -192,16 +196,17 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
     RV.1.3 & Capitolato \\ \hline
     \rowcolor[HTML]{C0C0C0}
     RV.3.4??? & Capitolato \\ \hline
-  \end{tabular}
-  \caption{Tabella di tracciamento requisito-fonti}
-\end{table}
+
+    \caption{Tabella di tracciamento requisito-fonti}
+  \end{longtable}
+\end{center}
 
 
 \section{Riepilogo}
 
-\begin{table}[H]
+\begin{center}
   \centering
-  \begin{tabular}{|c|c|c|c|c|}
+  \begin{longtable}{|c|c|c|c|c|}
     \hline
     \rowcolor[HTML]{036400}
     {\color[HTML]{FFFFFF} \textbf{Tipologia}} & {\color[HTML]{FFFFFF} \textbf{Obbligatorio}} & {\color[HTML]{FFFFFF} \textbf{Desiderabile}} & {\color[HTML]{FFFFFF} \textbf{Opzionale}}  & {\color[HTML]{FFFFFF} \textbf{Totale}} \\ \hline
@@ -213,6 +218,7 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
     Di Vincolo & 3 & 0 & 1 & 4 \\ \hline
     \rowcolor[HTML]{C0C0C0}
     Prestazionale & 0 & 0 & 0 & 0 \\ \hline
-  \end{tabular}
-  \caption{Tabella del riepilogo totale}
-\end{table}
+
+    \caption{Tabella del riepilogo totale}
+  \end{longtable}
+\end{center}
