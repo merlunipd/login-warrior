@@ -1,6 +1,4 @@
 \chapter{Casi d'Uso}
-
-\todo{rivedere la numerazione dei casi d'uso}
 \section*{Inizializzazione sistema}
 
 \begin{figure}[h]
@@ -27,14 +25,15 @@
     \end{enumerate}
 \end{itemize}
 
-\section{UC2 - Gestione errore caricamento dataset}
+\section{UC2 - Visualizzazione errore inserimento dati}
 \begin{itemize}
   \item \textbf{Attore Primario:} utente;
-  \item \textbf{Precondizioni:} l'utente carica un file dataset dove i dati non sono validi o il formato del file non è corretto;
-  \item \textbf{Postcondizioni:} l'utente visualizza un messaggio di errore.
+  \item \textbf{Precondizioni:} l’utente carica un file CSV contenente i dati da analizzare mal formattato o
+  che presenta dati non validi;
+  \item \textbf{Postcondizioni:} l'utente visualizza un messaggio di errore e i dati non vengono caricati;
   \item \textbf{Scenario Principale:}
   \begin{enumerate}
-    \item L'utente visualizza un messaggio di errore esplicativo.
+    \item l'utente visualizza un messaggio di errore esplicativo;
   \end{enumerate}
 \end{itemize}
 
@@ -59,14 +58,15 @@
     \end{enumerate}
 \end{itemize}
 
-\section{UC4 - Gestione errore ripristino sessione}
+\section{UC4 - Visualizzazione errore ripristino sessione}
 \begin{itemize}
   \item \textbf{Attore Primario:} utente;
-  \item \textbf{Precondizioni:} l'utente carica un file di sessione non valido o con un formato non valido;
-  \item \textbf{Postcondizioni:} l'utente visualizza un messaggio di errore.
+  \item \textbf{Precondizioni:} l’utente carica un file JSON contenente i dati da analizzare mal formattato o
+  che presenta dati non validi o non corretti;
+  \item \textbf{Postcondizioni:} l'utente visualizza un messaggio di errore e i dati non vengono caricati;
   \item \textbf{Scenario Principale:}
   \begin{enumerate}
-    \item L'utente visualizza un messaggio di errore esplicativo.
+    \item l'utente visualizza un messaggio di errore esplicativo;
   \end{enumerate}
 \end{itemize}
 
@@ -107,12 +107,12 @@
  \end{itemize}
 
 
-\section{UC7 - Personalizzazione Visualizzazione}
+\section{UC7 - Personalizzazione visualizzazione}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{uc7.png}
-  \caption{UC7 - Personalizzazione Visualizzazione}
+  \caption{UC7 - Personalizzazione visualizzazione}
 \end{figure}
 
 \begin{itemize}
@@ -139,7 +139,7 @@
     \end{itemize}
 \end{itemize}
 
-\section{UC8 - Errore scelta filtri}
+\section{UC8 - Visualizzazione errore scelta filtri}
 \begin{itemize}
   \item \textbf{Descrizione}: l'utente sceglie dei filtri non validi;
   \item \textbf{Attore primario}: utente;
@@ -151,7 +151,7 @@
     \end{itemize}
 \end{itemize}
 
-\section{UC9 - Errore scala degli assi}
+\section{UC9 - Visualizzazione errore scala degli assi}
 \begin{itemize}
   \item \textbf{Descrizione}: l'utente sceglie una scala non valida;
   \item \textbf{Attore primario}: utente;
@@ -163,16 +163,7 @@
     \end{itemize}
 \end{itemize}
 
-\iffalse
-\section{Accesso ai manuali}
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.6\textwidth]{UC_manuali}
-  \caption{UC6 UC7 - Accesso ai manuali utente e sviluppatore}
-\end{figure}
-\fi
-
-\section{UC10 - Accesso al Manuale Utente}
+\section{UC10 - Accesso al manuale utente}
 \begin{itemize}
   \item \textbf{Descrizione}: l'utente che ha un dubbio o vuole più informazioni sull'utilizzo dell'applicazione, deve avere accesso rapido al manuale utente;
   \item \textbf{Attore primario}: utente;
@@ -185,23 +176,7 @@
   \end{enumerate}
 \end{itemize}
 
-\iffalse
-\section{UC - Accesso al Manuale Sviluppatore}
-\begin{itemize}
-  \item \textbf{Descrizione}: essendo Login Warrior un progetto open source, un qualsiasi sviluppatore deve avere accesso ad un manuale sviluppatore (sia per manutenzione, sia per estendere il software);
-  \item \textbf{Attore primario}: sviluppatore;
-  \item \textbf{Precondizioni}: nessuna, l'opzione di accesso ai manuali deve essere sempre disponibile allo sviluppatore;
-  \item \textbf{Postcondizioni}: viene visualizzato il manuale sviluppatore;
-  \item \textbf{Scenario principale}:
-  \begin{enumerate}
-    \item Lo sviluppatore seleziona il "manuale sviluppatore";
-    \item Viene visualizzato il manuale sviluppatore.
-  \end{enumerate}
-\end{itemize}
-\fi
-
-\section{UC11 - Salvataggio Sessione}
-
+\section{UC11 - Salvataggio sessione}
 \begin{itemize}
   \item \textbf{Descrizione:} l'utente salva la sessione di lavoro;
   \item \textbf{Attore primario:} utente;
@@ -210,7 +185,7 @@
   \item \textbf{Scenario principale:}
   \begin{enumerate}
     \item L'utente sta lavorando sull'applicazione;
-    \item L'utente seleziona la funzionalità ``Salvataggio Sessione'';
+    \item L'utente seleziona la funzionalità ``Salvataggio sessione'';
     \item L'utente salva la sessione corrente.
   \end{enumerate}
 \end{itemize}
