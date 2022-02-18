@@ -1,5 +1,27 @@
-function readDB() {
-
+async function readDB() {
+  return new Promise((resolve, reject) => {
+    let db = null;
+    const request = indexedDB.open("Login-Warrior");
+    request.onsuccess = e => {
+      db = e.target.result;
+      try {
+        const tx = db.transaction("Data", "readonly");
+        const pNotes = tx.objectStore("Data");
+        const request = pNotes.openCursor();
+        request.onsuccess = e => {
+          const cursor = e.target.result;
+          if (cursor) {
+            resolve(cursor.value.text);
+          }
+        };
+      } catch (error) {
+        resolve(null);
+      }
+    };
+    request.onerror = e => {
+      alert("Errore nell'estrazione dei dati");
+    };
+  });
 }
 
 function updateDB(variabile) {

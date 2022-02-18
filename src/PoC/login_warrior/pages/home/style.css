@@ -1,3 +1,7 @@
 .input-hide {
   display: none;
 }
+
+#plot-list {
+  display: none;
+}
