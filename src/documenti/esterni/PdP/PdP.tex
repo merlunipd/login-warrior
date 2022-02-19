@@ -2,7 +2,8 @@
 \documentclass[12pt, a4paper]{report}
 
 \usepackage{graphicx}
-\usepackage{xcolor}
+\usepackage[table,xcdraw]{xcolor}
+%\usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{siunitx}
 \usepackage{float}
@@ -10,6 +11,11 @@
 \usepackage{fancyhdr}
 \usepackage{longtable}
 \usepackage[italian]{babel}
+\usepackage{longtable}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 
 \usepackage{hyperref}
 \hypersetup{
