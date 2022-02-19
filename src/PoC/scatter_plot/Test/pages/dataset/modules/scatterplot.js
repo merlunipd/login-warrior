@@ -9,7 +9,14 @@ const drawScatterplot = (dati) => {
 
     //Test Asse x: utente  asse y: ora[ oppure data]  colore: tipologia, no logout   opacità[solo ore]: rosso meglio,verde meno
 
+    function getOraGiorno(dato) {
+        let data = new Date(dato.data);
+        data.setFullYear(0,0,0);
+        return data;
 
+        //console.log(dato.data + " " + new Date(dato.data).getHours() + (new Date(dato.data)).getMinutes() / 60);
+        //return new Date(dato.data).getHours() + (new Date(dato.data)).getMinutes() / 60;
+    }
     //creazione spazio di disegno nel body
     var svg2 = d3.select("div")
         .append("svg")
@@ -18,15 +25,14 @@ const drawScatterplot = (dati) => {
         .append("g")
         .attr("transform", "translate(" + spacing / 2 + "," + spacing / 2 + ")");
     //creazione scale di misura
-    var yScale = d3.scaleLinear()
-        .domain([0, 24])
-        .range([height - spacing, 0]);
 
     var xScale = d3.scalePoint()
         .domain(dati.map((d) => d.utente))
         .range([0, width - spacing]);
 
-
+    var yScale = d3.scaleTime()
+        .domain(d3.extent(dati,getOraGiorno))
+        .range([height - spacing, 0]);
 
     //creazione assi e disegno degli assi
     var xAxis = d3.axisBottom(xScale);
@@ -44,7 +50,7 @@ const drawScatterplot = (dati) => {
 
     dots.enter().append("circle")
         .attr("cx", function (d) { return xScale(d.utente); })
-        .attr("cy", function (d) { return yScale((new Date(d.data)).getHours() + (new Date(d.data)).getMinutes()/60); })
+        .attr("cy", function (d) { return yScale(getOraGiorno(d)); })
         .attr("r", function (d) {
             if (d.tipoEvento == "3") {
                 return 0;
