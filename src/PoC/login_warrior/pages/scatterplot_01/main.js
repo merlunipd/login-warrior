@@ -1,28 +1,15 @@
 import { drawScatterPlot, updateScatterPlot } from "./modules/scatterplot.js";
-import { createDB, deleteDB, readDB, updateDB } from '../../shared/modules/indexdDB.js';
+import { readDB } from '../../shared/modules/indexdDB.js';
 
-let sessionData = await readDB();
+let data = await readDB();
 
-// TODO: ho bisogno che le funzioni del db siano sincrone
-if (!sessionData.plotName) {
-  sessionData = {
-    plotName: "scatterplot_01",
-    plotConfiguragione: {},
-    data: sessionData.data
-  };
-
-  await deleteDB();
-  await createDB();
-  await updateDB(sessionData);
-}
-
-drawScatterPlot(sessionData.data)
+drawScatterPlot(data)
 
 document.querySelector("#filtro-evento").addEventListener("input", (event) => {
   const filtroEvento = (event.target.value).toString(10);
   if (filtroEvento) {
-    updateScatterPlot(sessionData.data, sessionData.data.filter(d => d.tipoEvento === filtroEvento));
+    updateScatterPlot(data, data.filter(d => d.tipoEvento === filtroEvento));
   } else {
-    updateScatterPlot(sessionData.data, sessionData.data);
+    updateScatterPlot(data, data);
   }
 });
