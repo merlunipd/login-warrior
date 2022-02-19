@@ -1,5 +1,12 @@
 \chapter{Consuntivo}
 
+Nel consuntivo, vengono riprese le tabelle del preventivo. Al posto dei valori inseriti nel preventivo, si inserisce:
+\begin{itemize}
+    \item Valore effettivo consuntivato;
+    \item Se il valore precedente è diverso da quello del preventivo, due parentesi tonde con all'interno
+        la differenza tra valore di consuntivo e valore di preventivo.
+\end{itemize}
+
 \section{Verso la RTB}
 
 \subsection{Primo periodo}
@@ -10,14 +17,14 @@
     \begin{tabular}{|l|c|c|c|c|c|c|c|}
     \hline
     \textbf{Membro} & \multicolumn{1}{c|}{\textbf{RE}} & \multicolumn{1}{c|}{\textbf{AM}} & \multicolumn{1}{c|}{\textbf{AN}} & \multicolumn{1}{c|}{\textbf{PT}} & \multicolumn{1}{c|}{\textbf{PR}} & \multicolumn{1}{c|}{\textbf{VE}} & \multicolumn{1}{c|}{\textbf{Totale ore persona}} \\ \hline
-    \textit{Marco Mazzucato}  & 2 (+1) & 3        & - & - & - & 1        & 6 (+1)   \\ \hline
-    \textit{Marco Mamprin}    & -      & 3 (-1)   & - & - & - & 1 (+0.5) & 4 (-0.5) \\ \hline
-    \textit{Marko Vukovic}    & 2      & 3        & - & - & - & 1        & 6        \\ \hline
-    \textit{Mattia Zanellato} & -      & 3 (-1.5) & - & - & - & 1 (+1.5) & 4        \\ \hline
-    \textit{Emanuele Pase}    & -      & 3 (-0.5) & - & - & - & 1        & 4 (-0.5) \\ \hline
-    \textit{Riccardo Contin}  & -      & 3        & - & - & - & 1        & 4        \\ \hline
-    \textit{Lorenzo Onelia}   & -      & 3 (-0.5) & - & - & - & 1 (+1)   & 4 (+0.5) \\ \hline
-    \textbf{Totale ore ruolo} & 4 (+1) & 21 (-3.5)& - & - & - & 7 (+3)   & 32 (+0.5)\\ \hline
+    \textit{Marco Mazzucato}  & 3 (+1) & 3          & - & - & - & 1         & 7 (+1)   \\ \hline
+    \textit{Marco Mamprin}    & -      & 2 (-1)     & - & - & - & 1.5 (+0.5)& 3.5 (-0.5) \\ \hline
+    \textit{Marko Vukovic}    & 2      & 3          & - & - & - & 1         & 6        \\ \hline
+    \textit{Mattia Zanellato} & -      & 1.5 (-1.5) & - & - & - & 2.5 (+1.5)& 4        \\ \hline
+    \textit{Emanuele Pase}    & -      & 2.5 (-0.5) & - & - & - & 1         & 3.5 (-0.5) \\ \hline
+    \textit{Riccardo Contin}  & -      & 3          & - & - & - & 1         & 4        \\ \hline
+    \textit{Lorenzo Onelia}   & -      & 2.5 (-0.5) & - & - & - & 2 (+1)    & 4.5 (+0.5) \\ \hline
+    \textbf{Totale ore ruolo} & 5 (+1) & 17.5 (-3.5)& - & - & - & 10 (+3)   & 32.5 (+0.5)\\ \hline
     \end{tabular}
     \caption{Distribuzione delle ore per la prima milestone}
 \end{table}
@@ -46,12 +53,12 @@
     \begin{tabular}{|l|c|c|}
     \hline
     \textbf{Ruolo} & \multicolumn{1}{l|}{\textbf{Ore}} & \multicolumn{1}{l|}{\textbf{Costo (€)}} \\ \hline
-    \textit{Responsabile}      & 4 (+1)    & 120 (+30) \\ \hline
-    \textit{Amministratore}    & 21 (-3.5) & 420 (-70) \\ \hline
+    \textit{Responsabile}      & 5 (+1)    & 150 (+30) \\ \hline
+    \textit{Amministratore}    & 17.5 (-3.5) & 350 (-70) \\ \hline
     \textit{Analista}          & -         & -         \\ \hline
     \textit{Progettista}       & -         & -         \\ \hline
     \textit{Programmatore}     & -         & -         \\ \hline
-    \textit{Verificatore}      & 7 (+3)    & 105 (+45) \\ \hline
+    \textit{Verificatore}      & 10 (+3)    & 150 (+45) \\ \hline
     \textbf{Totale Preventivo} & 32        & 645       \\ \hline
     \textbf{Totale Consuntivo} & 32.5      & 650       \\ \hline
     \textbf{Differenza}        & +0.5      & +5       \\ \hline
@@ -71,24 +78,24 @@ In conclusione il budget rimanente è di \num{12510}€.
 \subsection{Secondo periodo}
 
 \subsubsection{Consuntivo orario}
-\begin{table}[!ht]
+\begin{table}[H]
     \centering
     \begin{tabular}{|l|c|c|c|c|c|c|c|}
     \hline
     \textbf{Membro} & \multicolumn{1}{c|}{\textbf{RE}} & \multicolumn{1}{c|}{\textbf{AM}} & \multicolumn{1}{c|}{\textbf{AN}} & \multicolumn{1}{c|}{\textbf{PT}} & \multicolumn{1}{c|}{\textbf{PR}} & \multicolumn{1}{c|}{\textbf{VE}} & \multicolumn{1}{c|}{\textbf{Totale ore persona}} \\ \hline
-    \textit{Marco Mazzucato}  & -      & 2            & 2          & - & - & 2 (-1)        & 6 (-1)         \\ \hline
-    \textit{Marco Mamprin}    & -      & 2            & 1 (-0.5)   & - & - & 2 (-1)        & 5 (-1.5)       \\ \hline
-    \textit{Marko Vukovic}    & -      & 1.5          & 3 (-1)     & - & - & 3             & 7.5 (-1)       \\ \hline
-    \textit{Mattia Zanellato} & -      & -            & 3          & - & - & 3 (-0.5)      & 6 (-0.5)       \\ \hline
-    \textit{Emanuele Pase}    & -      & -            & 3          & - & - & 3 (-0.5)      & 6 (-0.5)       \\ \hline
-    \textit{Riccardo Contin}  & 4      & -            & 3 (-1)     & - & - & 1 (+0.5)      & 8 (-0.5)       \\ \hline
-    \textit{Lorenzo Onelia}   & -      & 2 (-2)       & 2 (-1)     & - & - & 3 (+0.5)      & 7 (-2.5)       \\ \hline
-    \textbf{Totale ore ruolo} & 4      & 7.5 (-2)     & 17 (-3.5)  & - & - & 17 (-2)       & 45.5 (-7.5)    \\ \hline
+    \textit{Marco Mazzucato}  & -      & 2            & 2          & - & - & 1 (-1)        & 5 (-1)         \\ \hline
+    \textit{Marco Mamprin}    & -      & 2            & 0.5 (-0.5)   & - & - & 1 (-1)        & 3.5 (-1.5)       \\ \hline
+    \textit{Marko Vukovic}    & -      & 1.5          & 2 (-1)     & - & - & 3             & 6.5 (-1)       \\ \hline
+    \textit{Mattia Zanellato} & -      & -            & 3          & - & - & 2.5 (-0.5)      & 5.5 (-0.5)       \\ \hline
+    \textit{Emanuele Pase}    & -      & -            & 3          & - & - & 2.5 (-0.5)      & 5.5 (-0.5)       \\ \hline
+    \textit{Riccardo Contin}  & 4      & -            & 2 (-1)     & - & - & 1.5 (+0.5)      & 7.5 (-0.5)       \\ \hline
+    \textit{Lorenzo Onelia}   & -      & 0 (-2)       & 1 (-1)     & - & - & 3.5 (+0.5)      & 4.5 (-2.5)       \\ \hline
+    \textbf{Totale ore ruolo} & 4      & 5.5 (-2)     & 13.5 (-3.5)  & - & - & 15 (-2)       & 38 (-7.5)    \\ \hline
     \end{tabular}
     \caption{Distribuzione delle ore per la seconda milestone}
 \end{table}
 
-\begin{table}[!ht]
+\begin{table}[H]
     \centering
     \begin{tabular}{|l|c|c|c|c|c|c|c|}
     \hline
@@ -107,17 +114,17 @@ In conclusione il budget rimanente è di \num{12510}€.
 
 \subsubsection{Consuntivo economico}
 
-\begin{table}[!ht]
+\begin{table}[H]
     \centering
     \begin{tabular}{|l|c|c|}
     \hline
     \textbf{Ruolo} & \multicolumn{1}{l|}{\textbf{Ore}} & \multicolumn{1}{l|}{\textbf{Costo (€)}} \\ \hline
     \textit{Responsabile}      & 4         & 120         \\ \hline
-    \textit{Amministratore}    & 7.5 (-2)  & 150 (-40)   \\ \hline
-    \textit{Analista}          & 17(-3.5)  & 425 (-87.5) \\ \hline
+    \textit{Amministratore}    & 5.5 (-2)  & 110 (-40)   \\ \hline
+    \textit{Analista}          & 13.5(-3.5)  & 337.5 (-87.5) \\ \hline
     \textit{Progettista}       & -         & -           \\ \hline
     \textit{Programmatore}     & -         & -           \\ \hline
-    \textit{Verificatore}      & 17 (-2)   & 255 (-30)   \\ \hline
+    \textit{Verificatore}      & 15 (-2)   & 225 (-30)   \\ \hline
     \textbf{Totale Preventivo} & 45.5      & 950         \\ \hline
     \textbf{Totale Consuntivo} & 38        & 792.5       \\ \hline
     \textbf{Differenza}        & -7.5      & -157.5      \\ \hline
@@ -143,24 +150,24 @@ preferendo comunque aggiungere ore al consuntivo invece che toglierle.
 \subsection{Terzo periodo}
 
 \subsubsection{Consuntivo orario}
-\begin{table}[!ht]
+\begin{table}[H]
     \centering
     \begin{tabular}{|l|c|c|c|c|c|c|c|}
     \hline
     \textbf{Membro} & \multicolumn{1}{c|}{\textbf{RE}} & \multicolumn{1}{c|}{\textbf{AM}} & \multicolumn{1}{c|}{\textbf{AN}} & \multicolumn{1}{c|}{\textbf{PT}} & \multicolumn{1}{c|}{\textbf{PR}} & \multicolumn{1}{c|}{\textbf{VE}} & \multicolumn{1}{c|}{\textbf{Totale ore persona}} \\ \hline
-    \textit{Marco Mazzucato}  & -    & 1 (-0.5)     & 1.5 (-0.5)  & 2 (-1.5)   & - & 2 (-1)        & 6.5 (-3.5)       \\ \hline
-    \textit{Marco Mamprin}    & -    & 1            & 2 (-1.5)    & 2 (-1.5)   & - & 2             & 7 (-3)           \\ \hline
+    \textit{Marco Mazzucato}  & -    & 0.5 (-0.5)     & 1 (-0.5)  & 0.5 (-1.5)   & - & 1 (-1)        & 3 (-3.5)       \\ \hline
+    \textit{Marco Mamprin}    & -    & 1            & 0.5 (-1.5)    & 0.5 (-1.5)   & - & 2             & 4 (-3)           \\ \hline
     \textit{Marko Vukovic}    & -    & 1.5          & 2           & 2          & - & 2             & 7.5              \\ \hline
-    \textit{Mattia Zanellato} & -    & 1 (-0.5)     & 2 (-1.5)    & 2 (-0.5)   & - & 2 (-0.5)      & 7 (-3)           \\ \hline
-    \textit{Emanuele Pase}    & 4    & 1            & 0.5         & 2          & - & 1 (-0.5)      & 8.5 (-0.5)       \\ \hline
-    \textit{Riccardo Contin}  & -    & 1            & 1.5 (-0.5)  & 2          & - & 2.5 (-0.5)    & 7 (-1)           \\ \hline
-    \textit{Lorenzo Onelia}   & -    & 1            & 1.5 (-1.5)  & 2 (-1)     & - & 2 (-1)        & 6.5 (-3.5)       \\ \hline
-    \textbf{Totale ore ruolo} & 4    & 7.5 (-1)     & 11 (-5.5)   & 14 (-4.5)  & - & 13.5 (-3.5)   & 50 (-14.5)       \\ \hline
+    \textit{Mattia Zanellato} & -    & 0.5 (-0.5)     & 0.5 (-1.5)    & 1.5 (-0.5)   & - & 1.5 (-0.5)      & 4 (-3)           \\ \hline
+    \textit{Emanuele Pase}    & 4    & 1            & 0.5         & 2          & - & 0.5 (-0.5)      & 8 (-0.5)       \\ \hline
+    \textit{Riccardo Contin}  & -    & 1            & 1 (-0.5)  & 2          & - & 2 (-0.5)    & 6 (-1)           \\ \hline
+    \textit{Lorenzo Onelia}   & -    & 1            & 0 (-1.5)  & 1 (-1)     & - & 1 (-1)        & 3 (-3.5)       \\ \hline
+    \textbf{Totale ore ruolo} & 4    & 6.5 (-1)     & 5.5 (-5.5)   & 9.5 (-4.5)  & - & 10 (-3.5)   & 35.5 (-14.5)       \\ \hline
     \end{tabular}
   \caption{Distribuzione delle ore per la terza milestone}
 \end{table}
 
-\begin{table}[!ht]
+\begin{table}[H]
     \centering
     \begin{tabular}{|l|c|c|c|c|c|c|c|}
     \hline
@@ -185,11 +192,11 @@ preferendo comunque aggiungere ore al consuntivo invece che toglierle.
     \hline
     \textbf{Ruolo} & \multicolumn{1}{l|}{\textbf{Ore}} & \multicolumn{1}{l|}{\textbf{Costo (€)}} \\ \hline
     \textit{Responsabile}      & 4           & 120            \\ \hline
-    \textit{Amministratore}    & 7.5 (-1)    & 150 (-20)      \\ \hline
-    \textit{Analista}          & 11 (-5.5)   & 275 (-137.5)   \\ \hline
-    \textit{Progettista}       & 14 (-4.5)   & 350 (-112.5)   \\ \hline
+    \textit{Amministratore}    & 6.5 (-1)    & 130 (-20)      \\ \hline
+    \textit{Analista}          & 5.5 (-5.5)   & 137.5 (-137.5)   \\ \hline
+    \textit{Progettista}       & 9.5 (-4.5)   & 237.5 (-112.5)   \\ \hline
     \textit{Programmatore}     & -           & -              \\ \hline
-    \textit{Verificatore}      & 13.5 (-3.5) & 202.5 (-52.5)  \\ \hline
+    \textit{Verificatore}      & 10 (-3.5) & 150 (-52.5)  \\ \hline
     \textbf{Totale Preventivo} & 50          & 1097.5         \\ \hline
     \textbf{Totale Consuntivo} & 35.5        & 775            \\ \hline
     \textbf{Differenza}        & -14.5       & -322.5         \\ \hline
