@@ -13,9 +13,15 @@ datasetInput.addEventListener('change', async () => {
   const file = datasetInput.files[0];
   if (file !== undefined) {
     const data = await loadDataset(file);
-    deleteDB();
-    createDB();
-    updateDB(data);
+    const sessionData = {
+      plotName: undefined,
+      plotConfiguragione: undefined,
+      data: data
+    };
+
+    await deleteDB();
+    await createDB();
+    await updateDB(sessionData);
 
     plotList.style.display = "block";
   } else {
@@ -24,8 +30,8 @@ datasetInput.addEventListener('change', async () => {
 });
 
 const dataDB = await readDB();
-if(dataDB) {
+if(dataDB.plotName) {
   if(confirm("Ripristinare sessione esistente?")) {
-    console.log(dataDB)
+    window.location.href = `../${dataDB.plotName}` ;
   }
 }

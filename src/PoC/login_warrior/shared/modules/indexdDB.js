@@ -20,46 +20,59 @@ async function readDB() {
     };
     request.onerror = e => {
       alert("Errore nell'estrazione dei dati");
+      reject()
     };
   });
 }
 
-function updateDB(variabile) {
-  let db = null;
-  const request = indexedDB.open("Login-Warrior");
-  request.onupgradeneeded = e => { }
-  request.onsuccess = e => {
-    const note = {
-      title: "Data",
-      text: variabile
+async function updateDB(variabile) {
+  return new Promise((resolve, reject) => {
+    let db = null;
+    const request = indexedDB.open("Login-Warrior");
+    request.onupgradeneeded = e => { }
+    request.onsuccess = e => {
+      const note = {
+        title: "Data",
+        text: variabile
+      }
+      db = e.target.result;
+      const tx = db.transaction("Data", "readwrite");
+      const pNotes = tx.objectStore("Data");
+      pNotes.add(note);
+      resolve();
     }
-    db = e.target.result;
-    const tx = db.transaction("Data", "readwrite");
-    const pNotes = tx.objectStore("Data");
-    pNotes.add(note);
-  }
-  request.onerror = e => {
-    alert("Errore nell'aggiunta dei dati");
-  }
+    request.onerror = e => {
+      alert("Errore nell'aggiunta dei dati");
+      reject();
+    }
+  });
 }
 
-function createDB() {
-  let db = null;
-  const request = indexedDB.open("Login-Warrior");
-  request.onupgradeneeded = e => {
-    db = e.target.result;
-    const pNotes = db.createObjectStore("Data", { autoIncrement: true });
-  }
-  request.onsuccess = e => {
-    db = e.target.result;
-  }
-  request.onerror = e => {
-    alert("Errore nell'apertura del DB");
-  }
+async function createDB() {
+  return new Promise((resolve, reject) => {
+    let db = null;
+    const request = indexedDB.open("Login-Warrior");
+    request.onupgradeneeded = e => {
+      db = e.target.result;
+      const pNotes = db.createObjectStore("Data", { autoIncrement: true });
+      resolve();
+    }
+    request.onsuccess = e => {
+      db = e.target.result;
+      resolve();
+    }
+    request.onerror = e => {
+      alert("Errore nell'apertura del DB");
+      reject();
+    }
+  });
 }
 
-function deleteDB() {
-  indexedDB.deleteDatabase("Login-Warrior");
+async function deleteDB() {
+  return new Promise((resolve, reject) => {
+    indexedDB.deleteDatabase("Login-Warrior");
+    resolve();
+  });
 }
 
 export { createDB, deleteDB, readDB, updateDB };

@@ -7,16 +7,18 @@
  */
 const parseCsv = (text) => text.split('\n')
   .filter((line) => line !== '')
-  .map((line) => {
+  .map((line, index) => {
     const entryArray = line.split(';');
     const entryObject = {};
     [
+      entryObject.id,
       entryObject.utente,
       entryObject.data,
       entryObject.tipoEvento,
       entryObject.applicazione,
       entryObject.ip,
     ] = [
+      index,
       entryArray[0].trim(),
       entryArray[2].trim(),
       entryArray[3].trim(),

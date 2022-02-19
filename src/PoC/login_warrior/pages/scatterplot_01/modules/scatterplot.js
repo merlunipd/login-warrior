@@ -46,9 +46,10 @@ const drawScatterPlot = (data) => {
     .data(data, d => d.id)
     .enter()
     .append("circle")
-    .attr("cx", width / 2)
-    .attr("cy", height / 2)
-    .attr("r", 10)
+    .attr("cx", function (d) { return xScale(new Date(d.data)); })
+    .attr("cy", function (d) { return yScale((new Date(d.data)).getHours() + (new Date(d.data)).getMinutes() / 60); })
+    .attr("r", 5)
+    .style("opacity", 0.5)
     .style("fill", function (d) {
       switch (d.tipoEvento) {
         case "1":
@@ -58,18 +59,7 @@ const drawScatterPlot = (data) => {
         case "3":
           return "grey";
       }
-    })
-    .transition()
-    .duration(500)
-    .attr("cx", function (d) { return xScale(new Date(d.data)); })
-    .attr("cy", function (d) { return yScale((new Date(d.data)).getHours()); })
-    .attr("r", 10)
-    .transition()
-    .duration(300)
-    .attr("r", 15)
-    .transition()
-    .duration(300)
-    .attr("r", 10);
+    });
 
   d3.select("svg g").selectAll("circle")
     .data(data, d => d.id)
@@ -94,8 +84,9 @@ const updateScatterPlot = (dataInitial, dataUpdated) => {
     .enter()
     .append("circle")
     .attr("cx", function (d) { return xScale(new Date(d.data)); })
-    .attr("cy", function (d) { return yScale((new Date(d.data)).getHours()); })
-    .attr("r", 10)
+    .attr("cy", function (d) { return yScale((new Date(d.data)).getHours() + (new Date(d.data)).getMinutes() / 60); })
+    .attr("r", 5)
+    .style("opacity", 0.5)
     .style("fill", function (d) {
       switch (d.tipoEvento) {
         case "1":
@@ -118,4 +109,4 @@ const updateScatterPlot = (dataInitial, dataUpdated) => {
     .remove();
 };
 
-export {drawScatterPlot, updateScatterPlot};
+export { drawScatterPlot, updateScatterPlot };
