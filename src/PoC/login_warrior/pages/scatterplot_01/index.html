@@ -12,10 +12,29 @@
 <body>
   <div id="scatterplot"></div>
 
-  <label for="filtro-evento">Filtro Evento (1, 2, 3):</label>
-  <input type="text" id="filtro-evento" name="filtro-evento">
+  <div>
+    <span>Evento:</span>
+    <input type="checkbox" id="login-checkbox" name="login-checkbox" checked>
+    <label for="login-checkbox">Login</label>
+    <input type="checkbox" id="error-checkbox" name="error-checkbox" checked>
+    <label for="error-checkbox">Errore</label>
+    <input type="checkbox" id="logout-checkbox" name="logout-checkbox" checked>
+    <label for="logout-checkbox">Logout</label>
+  </div>
 
-  <button id="save-session-button">Salva Sessione</button>
+  <div>
+    <label for="filtro-utente">Utente:</label>
+    <input type="text" id="filtro-utente" name="filtro-utente">
+  </div>
+
+  <div>
+    <label for="filtro-ip">IP:</label>
+    <input type="text" id="filtro-ip" name="filtro-ip">
+  </div>
+
+  <div>
+    <button id="save-session-button">Salva Sessione</button>
+  </div>
 
   <script type="module" src="main.js"></script>
 </body>

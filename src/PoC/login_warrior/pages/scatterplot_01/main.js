@@ -16,14 +16,69 @@ drawScatterPlot(data);
 
 
 
-// Collegare il DOM con gli eventi
-document.querySelector("#filtro-evento").addEventListener("input", (event) => {
-  configuration.filtroEvento = event.target.value;
-  if (configuration.filtroEvento) {
-    updateScatterPlot(data, data.filter(d => d.tipoEvento === configuration.filtroEvento));
+// Funzione filtro per i dati
+const filters = (entry) => {
+  const tipoEvento = entry.tipoEvento === configuration.filterLogins ||
+    entry.tipoEvento === configuration.filterErrors ||
+    entry.tipoEvento === configuration.filterLogouts;
+  const utente = configuration.filtroUtente ?
+    entry.utente === configuration.filtroUtente :
+    true;
+  const ip = configuration.filtroIp ?
+    entry.ip === configuration.filtroIp :
+    true;
+  return tipoEvento && utente && ip;
+};
+
+
+
+// Collega DOM con gli eventi
+const loginCheckbox = document.querySelector("#login-checkbox");
+const errorCheckbox = document.querySelector("#error-checkbox");
+const logoutCheckbox = document.querySelector("#logout-checkbox");
+const filtroUtente = document.querySelector("#filtro-utente");
+const filtroIp = document.querySelector("#filtro-ip");
+
+loginCheckbox.addEventListener("change", () => {
+  if (loginCheckbox.checked) {
+    configuration.filterLogins = "1";
   } else {
-    updateScatterPlot(data, data);
+    configuration.filterLogins = "";
   }
+  updateScatterPlot(data, data.filter(filters));
+});
+
+errorCheckbox.addEventListener("change", () => {
+  if (errorCheckbox.checked) {
+    configuration.filterErrors = "2";
+  } else {
+    configuration.filterErrors = "";
+  }
+  updateScatterPlot(data, data.filter(filters));
+});
+
+logoutCheckbox.addEventListener("change", () => {
+  if (logoutCheckbox.checked) {
+    configuration.filterLogouts = "3";
+  } else {
+    configuration.filterLogouts = "";
+  }
+  updateScatterPlot(data, data.filter(filters));
+});
+
+filtroUtente.addEventListener("input", (event) => {
+  configuration.filtroUtente = event.target.value;
+  updateScatterPlot(data, data.filter(filters));
+});
+
+filtroUtente.addEventListener("input", (event) => {
+  configuration.filtroUtente = event.target.value;
+  updateScatterPlot(data, data.filter(filters));
+});
+
+filtroIp.addEventListener("input", (event) => {
+  configuration.filtroIp = event.target.value;
+  updateScatterPlot(data, data.filter(filters));
 });
 
 document.querySelector("#save-session-button").addEventListener("click", () => {
@@ -34,11 +89,21 @@ document.querySelector("#save-session-button").addEventListener("click", () => {
 
 // Configurazione: ricarica o imposta nuova
 if (configuration) {
-  document.querySelector("#filtro-evento").value = configuration.filtroEvento;
-  document.querySelector("#filtro-evento").dispatchEvent(new Event('input'));
+  loginCheckbox.checked = configuration.filterLogins ? true : false;
+  errorCheckbox.checked = configuration.filterErrors ? true : false;
+  logoutCheckbox.checked = configuration.filterLogouts ? true : false;
+  filtroUtente.value = configuration.filtroUtente;
+  filtroIp.value = configuration.filtroIp;
+
+  // E' sufficiente il trigger di un solo evento per applicare tutti i filtri al grafico
+  filtroUtente.dispatchEvent(new Event('input'));
 } else {
   configuration = {
     pathToPage: window.location.pathname,
-    filtroEvento: ""
+    filterLogins: "1",
+    filterErrors: "2",
+    filterLogouts: "3",
+    filtroUtente: "",
+    filtroIp: ""
   };
 }
