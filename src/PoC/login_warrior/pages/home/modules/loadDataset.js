@@ -16,7 +16,7 @@ const readCsvFile = async (file) => new Promise((resolve, reject) => {
 /**
  * Legge un file CSV e ritorna un array di oggetti, ciascuno dei quali
  * rappresentatne una riga del CSV.
- * Ogni oggetto contiene i campi: "utente", "data", "tipoEvento", "applicazione", "ip".
+ * Ogni oggetto contiene i campi: "id", "utente", "data", "tipoEvento", "applicazione", "ip".
  * Il campo "ip" può essere vuoto
  * @param {File} file - File CSV da caricare
  * @returns Array di oggetti

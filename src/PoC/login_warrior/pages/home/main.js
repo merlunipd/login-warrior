@@ -1,12 +1,16 @@
+// Importa moduli necessari
 import loadDataset from './modules/loadDataset.js';
-import { createDB, deleteDB, readDB, updateDB } from '../../shared/modules/indexdDB.js';
+import {
+  createDB, deleteDB, updateDB,
+} from '../../shared/modules/indexdDB.js';
 import { loadSession } from '../../shared/modules/session.js';
 
+// Collega DOM con gli eventi
 const datasetInput = document.querySelector('#datasetInput');
 const datasetButton = document.querySelector('#datasetButton');
 const loadSessionButton = document.querySelector('#load-session-button');
 const loadSessionInput = document.querySelector('#load-session-input');
-const plotList = document.querySelector("#plot-list");
+const plotList = document.querySelector('#plot-list');
 
 datasetButton.addEventListener('click', () => {
   datasetInput.click();
@@ -18,21 +22,21 @@ datasetInput.addEventListener('change', async () => {
     const data = await loadDataset(file);
 
     const session = {
-      data: data,
-      configuration: undefined
+      data,
+      configuration: undefined,
     };
 
     await deleteDB();
     await createDB();
     await updateDB(session);
 
-    plotList.style.display = "block";
+    plotList.style.display = 'block';
   } else {
-    plotList.style.display = "none";
+    plotList.style.display = 'none';
   }
 });
 
-loadSessionButton.addEventListener("click", () => {
+loadSessionButton.addEventListener('click', () => {
   loadSessionInput.click();
 });
 
@@ -40,13 +44,15 @@ loadSessionInput.addEventListener('change', async () => {
   const file = loadSessionInput.files[0];
   if (file !== undefined) {
     const session = await loadSession(file);
-    
-    console.log(session);
 
     await deleteDB();
     await createDB();
     await updateDB(session);
 
-    window.location.href = `../..${session.configuration.pathToPage}`;
+    // TODO: Il codice del DB non è veramente sincrono, per il momento
+    // gli viene dato un tempo fisso di attesa. Da correggere
+    setTimeout(() => {
+      window.location.href = `../..${session.configuration.pathToPage}`;
+    }, 500);
   }
 });

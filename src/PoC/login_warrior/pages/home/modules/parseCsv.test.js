@@ -7,6 +7,7 @@ describe('CSV parsing', () => {
     43;1300802;2021-04-12 08:54:58.000;1;ERM;erm3zs02;94.95.136.251;"001       ";lezbqhmgse;mmz995wuau`;
     const data = [
       {
+        id: 0,
         utente: '38',
         data: '2021-04-20 12:06:22.000',
         tipoEvento: '1',
@@ -14,6 +15,7 @@ describe('CSV parsing', () => {
         ip: '93.51.242.42',
       },
       {
+        id: 1,
         utente: '40',
         data: '2020-12-21 15:13:31.000',
         tipoEvento: '2',
@@ -21,6 +23,7 @@ describe('CSV parsing', () => {
         ip: '79.51.75.159',
       },
       {
+        id: 2,
         utente: '43',
         data: '2021-04-12 08:54:58.000',
         tipoEvento: '1',

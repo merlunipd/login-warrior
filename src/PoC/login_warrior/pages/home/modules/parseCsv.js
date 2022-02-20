@@ -1,7 +1,7 @@
 /**
  * Legge una stringa CSV e ritorna un array di oggetti, ciascuno dei quali
  * rappresentatne una riga del CSV.
- * Ogni oggetto contiene i campi: "utente", "data", "tipoEvento", "applicazione", "ip".
+ * Ogni oggetto contiene i campi: "id", "utente", "data", "tipoEvento", "applicazione", "ip".
  * @param {string} text - Stringa CSV
  * @returns Array di oggetti
  */

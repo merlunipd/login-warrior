@@ -15,4 +15,7 @@ module.exports = {
     'import/extensions': 'off',
     'linebreak-style': 'off'
   },
+  globals: {
+    d3: true
+  },
 };
