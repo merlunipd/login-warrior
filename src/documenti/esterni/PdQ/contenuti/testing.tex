@@ -1,17 +1,5 @@
 \chapter{Testing}
-Per assicurarsi di raggiungere dei buoni livelli di qualità per il prodotto, il gruppo MERL 
-ha adottato come modello di sviluppo il \textbf{Modello a V}. In questo modo è possibile verificare 
-che le parti di programma sottoposte a controllo siano implementate correttamente e assumano un 
-comportamento atteso.
-\\Possiamo individuare differenti tipologie di test:
-    \begin{itemize}
-        \item \textbf{Test di Unità}
-        \item \textbf{Test di Integrazione} 
-        \item \textbf{Test di Sistema}
-        \item \textbf{Test di Accettazione}
-        
-    \end{itemize}
-
+Per assicurarsi di raggiungere dei buoni livelli di qualità del prodotto, il gruppo MERL ha deciso di eseguire la fase di test in parallelo con lo sviluppo delle varie componenti. In questo modo è possibile verificare che le parti di programma sottoposte a controllo siano implementate correttamente e assumano un comportamento atteso.
 \section{Tipologie di test}
     \subsection{Test di Unità (TU)}  Servono a verificare che le più piccole pati di programma prese singolarmente abbiano un funzionamento autonomo.
     \subsection{Test di Integrazione (TI)} Ha la funzione di verificare che le singole unità interagiscano tra loro nel modo corretto.
@@ -24,7 +12,7 @@ comportamento atteso.
 \section{Specifica dei test}
     \begin{longtable}{|p{1.5cm}|p{11cm}|p{1cm}|} \hline
       \textbf{Codice} & \textbf{Descrizione} & \textbf{Stato} \\ \hline
-        STF1 & L'utente deve poter caricare dati nel sistema tramite file CSV oppure caricare una sessione precedente tramite un file .json. \'E necessario verificare che: \begin{itemize}
+        STF1 & L'utente deve poter caricare dati nel sistema tramite file CSV oppure caricare una sessione precedente tramite un file .json. \`E necessario verificare che: \begin{itemize}
             \item L'utente possa caricare i dati mediante gli appositi bottoni;
             \item I file caricati siano sintatticamente corretti;
             \item Sia visualizzato a schermo un messaggio con l'esito dell'operazione.
@@ -35,15 +23,15 @@ comportamento atteso.
             \item Sia possibile inserire nuovamente i file.
         \end{itemize} & NI\\ \hline
 
-        STF3 & L'utente deve poter visualizzare con quali dimensioni è possibile visualizzare il grafico. Verificare che: \begin{itemize}
+        STF3 & L'utente deve poter decidere con quale grafico l'applicativo rapresenta i dati. Verificare che: \begin{itemize}
+            \item Sia visualizzata in modo intuitivo la scelta del grafico da utilizzare;
+            \item Il grafico visualizzato corrisponda alla scelta dell'utente.
+        \end{itemize} & NI\\ \hline
+
+        STF4 & L'utente deve poter visualizzare con quali dimensioni è possibile visualizzare il grafico. Verificare che: \begin{itemize}
             \item Siano visualizzate le dimensioni corrette;
             \item Ogni dimensione sia selezionabile;
             \item Le dimensioni abbiano un'effettiva utilità per l'utente.
-        \end{itemize} & NI\\ \hline
-
-        STF4 & L'utente deve poter decidere con quale grafico l'applicativo rapresenta i dati. Verificare che: \begin{itemize}
-            \item Sia visualizzata in modo intuitivo la scelta del grafico da utilizzare;
-            \item Il grafico visualizzato corrisponda alla scelta dell'utente.
         \end{itemize} & NI\\ \hline
 
         STF4.1 & L'applicazione deve fornire la visualizzazione  \textit{Scatter Plot}. Verificare che: \begin{itemize}
@@ -81,10 +69,10 @@ comportamento atteso.
             \item Le caratteristiche vengono applicate e visualizzate correttamente.
         \end{itemize} & NI\\ \hline
 
-        STF6 & L'applicazione deve permettere la visualizzazione dei manuali. Verificare che: \begin{itemize}
-            \item L'utente possa individuare e consultare facilmente le guide;
-            \item Le guide siano comprensibili, in particolare il manuale utente deve esserlo per qualunque tipologia di utente;
-            \item La guide descrivano tutti gli utilizzi e le caratteristiche dell'applicazione.
+        STF6 & L'applicazione deve permettere la visualizzazione in qualunque momento del manuale utente. Verificare che: \begin{itemize}
+            \item L'utente possa individuare e consultare facilmente la guida;
+            \item La guida sia comprensibile a qualunque tipologia di utente;
+            \item La guida descriva tutti gli utilizzi e le caratteristiche dell'applicazione.
         \end{itemize}& NI\\ \hline
 
         STF7 & L'applicazione deve permettere il salvataggio della configurazione e delle impostazioni selezionate per permettere di ripristinarle in un momento successivo. Verificare che: \begin{itemize}
@@ -95,17 +83,18 @@ comportamento atteso.
 
     Attualmente lo stato di tutti i test è contrassegnato dalla sigla \textit{NI} che indica "Non Implementato".
 
-    \begin{longtable}{|p{1.5cm}|p{11cm}|} \hline
+    \begin{longtable}{|p{3cm}|p{10cm}|} \hline
+        \textbf{Codice Test} & \textbf{Codice Requisiti} \\ \hline
         STF1 & RF.1.1 RF.2.3\\ \hline
         STF2 & RF.1.2 RF.1.4 \\ \hline
-        STF3 & RF.1.5 \\ \hline
-        STF4 & RF.1.6 \\ \hline
+        STF3 & RF.1.6 \\ \hline
+        STF4 & RF.1.5 \\ \hline
         STF4.1 & RF.1.6.1 \\ \hline
         STF4.2 & RF.1.6.2 \\ \hline
         STF4.3 & RF.1.6.3 \\ \hline
         STF4.4 & RF.1.6.4 \\ \hline
         STF5 & RF.2.7 RF.2.7.1 RF.2.7.2 RF.2.7.3 RF.2.7.4 RF.2.7.5\\ \hline
-        STF6 & RF.2.10 RQ.1.2 \\ \hline
+        STF6 & RF.2.10 \\ \hline
         STF7 & RF.2.11 \\ \hline
-
+        \caption{Tracciamento test - requisiti funzionali}
     \end{longtable}
