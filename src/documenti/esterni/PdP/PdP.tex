@@ -2,17 +2,49 @@
 \documentclass[12pt, a4paper]{report}
 
 \usepackage{graphicx}
-\usepackage{xcolor}
+\usepackage[table,xcdraw]{xcolor}
+%\usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{siunitx}
 \usepackage{float}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{longtable}
 \usepackage[italian]{babel}
+\usepackage{longtable}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 
 \usepackage{hyperref}
 \hypersetup{
     colorlinks,
     linkcolor=black,
     urlcolor=blue
+}
+
+\geometry{
+  top=30mm,
+  bottom=30mm,
+  left=30mm,
+  right=30mm,
+}
+
+\pagestyle{fancy}
+\lhead{}
+\lfoot{Piano di Progetto}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{16pt}
+
+\fancypagestyle{firstpage}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \lfoot{}
+  \rfoot{}
 }
 
 \graphicspath{ {immagini/} }
@@ -22,10 +54,9 @@
 % Variabili
 \newcommand{\titolo}{Piano di Progetto}
 
-
-
 % Struttura
 \begin{document}
+  \thispagestyle{firstpage}
   \input{contenuti/intestazione}
   \input{contenuti/titolo}
   \newpage

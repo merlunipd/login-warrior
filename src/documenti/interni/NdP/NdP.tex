@@ -7,13 +7,41 @@
 \usepackage{hyperref}
 \usepackage{fancyvrb}
 \usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{longtable}
 \usepackage[italian]{babel}
 
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
     urlcolor=blue,
-    }
+}
+
+\geometry{
+  top=30mm,
+  bottom=30mm,
+  left=30mm,
+  right=30mm,
+}
+
+\pagestyle{fancy}
+\lhead{}
+\lfoot{Norme di Progetto}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{16pt}
+
+\fancypagestyle{firstpage}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \lfoot{}
+  \rfoot{}
+}
+
 \graphicspath{ {immagini/} }
 \definecolor{RossoUnipd}{HTML}{B5121B}
 \titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\textbf}
@@ -26,6 +54,7 @@
 
 % Struttura
 \begin{document}
+  \thispagestyle{firstpage}
   \input{contenuti/intestazione}
   \input{contenuti/titolo}
   \newpage
