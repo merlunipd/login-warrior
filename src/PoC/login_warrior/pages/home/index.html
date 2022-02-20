@@ -7,28 +7,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Warrior</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../../shared/style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <button id="datasetButton">Carica Dataset</button>
-  <input id="datasetInput" class="input-hide" type="file" accept=".csv" />
-  <button id="load-session-button">Carica Sessione</button>
-  <input id="load-session-input" class="input-hide" type="file" accept=".json" />
+  <header>
+    <h1>Login Warrior</h1>
+  </header>
+
+  <div id="controls">
+    <button id="datasetButton">CARICA DATASET</button>
+    <input id="datasetInput" class="input-hide" type="file" accept=".csv" />
+    <button id="load-session-button">CARICA SESSIONE</button>
+    <input id="load-session-input" class="input-hide" type="file" accept=".json" />
+  </div>
+
 
   <article id="plot-list">
-    <h1>Scatter Plot</h1>
-    <article>
-      <h3><a href="../scatterplot_01/">Scatter Plot 1</a></h3>
-      <p>X: giorno</p>
-      <p>Y: ora</p>
-      <p>Colore: tipoEvento</p>
-      <p>Testo (on hover): Utente, IP, Applicazione)</p>
-    </article>
-    <article>
-      <h3><a href="#">Scatter Plot 2</a></h3>
-      <p>X: ...</p>
-      <p>Y: ...</p>
-      <p>...</p>
+    <article class="plot-entry">
+      <h2>Scatter Plot 1</h3>
+        <p>Questo scatter plot offre una disposizione dei dati temporale, utile per individuare periodi e orari che
+          possono risultare sospetti</p>
+        <div class="entry-info">
+          <p><strong>X</strong>: giorno</p>
+          <p><strong>Y</strong>: ora</p>
+          <p><strong>Colore</strong>: tipo di evento (login, errore, logout)</p>
+          <p><strong>Testo (on hover)</strong>: informazioni (utente, ip, applicazione)</p>
+        </div>
+        <div class="plot-link-container">
+          <a class="plot-link" href="../scatterplot_01/">Visualizza</a>
+        </div>
     </article>
   </article>
 
