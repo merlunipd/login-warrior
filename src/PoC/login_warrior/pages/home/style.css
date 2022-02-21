@@ -51,6 +51,7 @@ button {
   border: 1px solid black;
   border-radius: 5px;
   padding: 1em;
+  margin-bottom: 1em;
 }
 
 .plot-entry h2 {
