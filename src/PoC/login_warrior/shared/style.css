@@ -1,0 +1,15 @@
+html, body {
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+}
+
+header {
+  background-color: black;
+}
+
+header h1 {
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 1em;
+}

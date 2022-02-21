@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Warrior</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../../shared/style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>Login Warrior</h1>
+  </header>
+
+  <div id="controls">
+    <button id="datasetButton">CARICA DATASET</button>
+    <input id="datasetInput" class="input-hide" type="file" accept=".csv" />
+    <button id="load-session-button">CARICA SESSIONE</button>
+    <input id="load-session-input" class="input-hide" type="file" accept=".json" />
+  </div>
+
+
+  <article id="plot-list">
+    <article class="plot-entry">
+      <h2>Scatter Plot 1</h3>
+        <p>Questo scatter plot offre una disposizione dei dati temporale, utile per individuare periodi e orari che
+          possono risultare sospetti</p>
+        <div class="entry-info">
+          <p><strong>X</strong>: giorno</p>
+          <p><strong>Y</strong>: ora</p>
+          <p><strong>Colore</strong>: tipo di evento (login, errore, logout)</p>
+          <p><strong>Testo (on hover)</strong>: informazioni (utente, ip, applicazione)</p>
+        </div>
+        <div class="plot-link-container">
+          <a class="plot-link" href="../scatterplot_01/">Visualizza</a>
+        </div>
+    </article>
+    <article class="plot-entry">
+      <h2>Scatter Plot 2</h3>
+        <p>Questo scatter plot offre una disposizione degli utenti nelle varie ore, utile per individuare utenti che
+          possono risultare sospetti</p>
+        <div class="entry-info">
+          <p><strong>X</strong>: utente</p>
+          <p><strong>Y</strong>: ora</p>
+          <p><strong>Colore</strong>: tipo di evento (login, errore)</p>
+          <p><strong>Opacità</strong>: login 50% ed errore 100%</p>
+          <p><strong>Testo (on hover)</strong>: informazioni (utente, ip, applicazione)</p>
+        </div>
+        <div class="plot-link-container">
+          <a class="plot-link" href="../scatterplot_02/">Visualizza</a>
+        </div>
+    </article>
+  </article>
+
+
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
