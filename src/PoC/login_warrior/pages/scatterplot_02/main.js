@@ -52,6 +52,15 @@ errorCheckbox.addEventListener('change', () => {
   updateScatterPlot(data, data.filter(filters));
 });
 
+logoutCheckbox.addEventListener('change', () => {
+  if (logoutCheckbox.checked) {
+    configuration.filterLogouts = '3';
+  } else {
+    configuration.filterLogouts = '';
+  }
+  updateScatterPlot(data, data.filter(filters));
+});
+
 filtroUtente.addEventListener('input', (event) => {
   configuration.filtroUtente = event.target.value;
   updateScatterPlot(data, data.filter(filters));
