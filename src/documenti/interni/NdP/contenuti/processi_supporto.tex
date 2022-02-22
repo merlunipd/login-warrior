@@ -58,7 +58,7 @@ I documenti prodotti saranno di due tipi:
 
 \end{itemize}
 \subsection{Struttura del documento}
-Ogni documento è formato da diverse sezioni, ognuna definita dal proprio file \LaTeX{}. La parte principale è chiamata \texttt{"nomedoc.tex"} (dove \texttt{nomedoc} indica la sigla di quel documento, vedi \ref{sigle}) e contiene le seguenti componenti:
+Ogni documento è formato da diverse sezioni, ognuna definita dal proprio file \LaTeX{}. La parte principale è chiamata \texttt{"nomedoc.tex"} (dove \texttt{nomedoc} indica la sigla di quel documento, vedi sezione \underline{\ref{sec:Sigle} \nameref{sec:Sigle}}) e contiene le seguenti componenti:
 \begin{itemize}
     \item La prima pagina che specifica il nome del documento;
     \item Il registro delle modifiche, che permette di tenere tracciabili i cambiamenti a quel documento;
@@ -110,9 +110,10 @@ Il nome dei file e delle cartelle specifici di un singolo documento si chiamano 
 \subsection{Stile di testo}
 Gli stili di testo adottati nei documenti sono:
 \begin{itemize}
-    \item \textbf{Grassetto:} questo stile viene applicato per le parole ritenute particolarmente importanti;
-    \item \textbf{Corsivo:} questo stile viene applicato per i nomi propri, i nomi dei ruoli, il nome del progetto e per il nome dei documenti;
-    \item \textbf{Monospace:} questo stile viene applicato per snippet di codice.
+    \item \textbf{Grassetto:} questo stile viene applicato alle parole ritenute particolarmente importanti;
+    \item \textbf{Corsivo:} questo stile viene applicato ai nomi propri, ai nomi dei ruoli, al nome del progetto e ai nomi dei documenti;
+    \item \textbf{Monospace:} questo stile viene applicato a snippet di codice;
+    \item \textbf{Sottolineato:} questo stile viene applicato a link interni al documento.
 \end{itemize}
 \subsection{Norme tipografiche}
 \begin{itemize}
@@ -129,8 +130,7 @@ Il \textit{Glossario} è un documento contenente vocaboli tecnici o ambigui per 
 
 Il \textit{Glossario} è un documento condiviso su Google Drive a cui hanno accesso in lettura e scrittura tutti i membri del gruppo. Se durante il progetto didattico si incontra qualche termine particolarmente significativo, qualsiasi membro del gruppo può inserirlo insieme alla relativa definizione all'interno del \textit{Glossario}, verificando che esso non sia già presente.
 
-\subsection{Sigle}
-\label{sigle}
+\subsection{Sigle}\label{sec:Sigle}
 \begin{itemize}
     \item Sigle relative ai nomi dei documenti:
     \begin{itemize}
@@ -225,9 +225,8 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
 
 
  \subsection{Sistemi software utilizzati}
- Per la gestione delle differenti versioni è stato deciso di utilizzare il sistema
- di versionamento distribuito Git; utilizzando il servizio GitHub per gestire la repository.\\
- Per la suddivisione e la gestione dei lavori da svolgere il nostro gruppo utilizza il sistema di Issue e Pull Request di GitHub.\\
+ Per la gestione delle differenti versioni è stato deciso di utilizzare il sistema di versionamento distribuito Git; utilizzando il servizio GitHub per gestire la repository.
+ Per la suddivisione e la gestione dei lavori da svolgere il nostro gruppo utilizza il sistema di Issue e Pull Request di GitHub.
 
  \subsection{Struttura repository}
   \subsubsection{Repository utilizzata}
@@ -277,14 +276,15 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
       \item Test di accettazione;
       \item Test di unità;
       \item Test d'integrazione;
+      \item Test di regressione;
       \item Test di sistema.
   \end{itemize}
   Per questi ultimi test verrà indicato se sono stati implementati o meno.
   \newline
-  Infine troviamo un resoconto che contiene i risultati dei test della qualità di processo, della qualità di prodotto e del software, in cui, grazie a opportuni grafici, abbiamo una rappresentazione dei vari indici nel corso del tempo. Per svolgere al meglio questo lavoro è possibile affidarsi alla sottosezione \textit{\ref{sec:metriche} Metriche}, in cui è presente la descrizione e le formule delle varie metriche.
+  Infine troviamo un resoconto che contiene i risultati dei test della qualità di processo, della qualità di prodotto e del software, in cui, grazie a opportuni grafici, abbiamo una rappresentazione dei vari indici nel corso del tempo. Per svolgere al meglio questo lavoro è possibile affidarsi alla sottosezione \underline{\ref{sec:Metriche} \nameref{sec:Metriche}}, in cui è presente la descrizione e le formule delle varie metriche.
 
 
-  \subsection{Metriche}\label{sec:metriche}
+  \subsection{Metriche}\label{sec:Metriche}
   All'interno del \textit{Piano di Qualifica} vengono utilizzate diverse metriche, di seguito viene spiegato come capirle e come utilizzarle per
   eseguire i test di qualità.
   \subsubsection{Codifica}
