@@ -76,7 +76,7 @@
 \end{figure}
 
  \begin{itemize}
-     \item \textbf{Descrizione:} viene visualizzata la scelta della tipologia di grafico;
+     \item \textbf{Descrizione:} l'utente visualizza varie tipologie di grafico e ne sceglie una;
      \item \textbf{Attore primario:} utente;
      \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
      \item \textbf{Postcondizioni:} viene visualizzato il grafico desiderato;
@@ -89,6 +89,42 @@
          \item \textit{Sankey Diagram} [UC5.4].
      \end{enumerate}
  \end{itemize}
+
+\subsection{UC5.1 - Selezionato Scatter Plot}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Scatter Plot} vuole vedere;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Scatter Plot} selezionato;
+    \item \textbf{Scenario principale:} l'utente sceglie la visualizzazione desiderata tra quelle disponibili, decidendo tra varie visualizzazioni dello stesso grafico;
+\end{itemize}
+
+\subsection{UC5.2 - Selezionato Parallel Coordinates}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Parallel Coordinates} vuole vedere;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Parallel Coordinates} selezionato;
+    \item \textbf{Scenario principale:} l'utente sceglie la visualizzazione desiderata tra quelle disponibili, decidendo tra varie visualizzazioni dello stesso grafico;
+\end{itemize}
+
+\subsection{UC5.3 - Selezionato Force-Directed Graph}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Force-Directed Graph} vuole vedere;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Force-Directed Graph} selezionato;
+    \item \textbf{Scenario principale:} l'utente sceglie la visualizzazione desiderata tra quelle disponibili, decidendo tra varie visualizzazioni dello stesso grafico;
+\end{itemize}
+
+\subsection{UC5.4 - Selezionato Sankey Diagram}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Sankey Diagram} vuole vedere;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Sankey Diagram} selezionato;
+    \item \textbf{Scenario principale:} l'utente sceglie la visualizzazione desiderata tra quelle disponibili, decidendo tra varie visualizzazioni dello stesso grafico;
+\end{itemize}
 
 
 \section{UC6 - Filtri sui dati}
@@ -140,8 +176,8 @@
 \begin{itemize}
   \item \textbf{Descrizione:} l'utente salva la sessione di lavoro;
   \item \textbf{Attore primario:} utente;
-  \item \textbf{Precondizioni:} l'utente ha svolto una sessione di lavoro sull'applicazione, in particolare potrebbe aver scelto un grafico specifico, impostato le dimensioni volute e modificato i parametri personalizzando la visualizzazione;
-  \item \textbf{Postcondizioni:} l'utente possiede un file JSON in grado di recuperare grafico, dimensioni e parametri impostati durante la sessione di lavoro;
+  \item \textbf{Precondizioni:} l'utente ha svolto una sessione di lavoro sull'applicazione, in particolare potrebbe aver scelto un grafico specifico e modificato i parametri personalizzando la visualizzazione;
+  \item \textbf{Postcondizioni:} l'utente possiede un file JSON in grado di recuperare grafico e parametri impostati durante la sessione di lavoro;
   \item \textbf{Scenario principale:}
   \begin{enumerate}
     \item L'utente sta lavorando sull'applicazione;
