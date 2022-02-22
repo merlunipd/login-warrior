@@ -32,7 +32,7 @@ file temporanei relativi alla compilazione dei file latex;
 
 import os
 import shutil
-from time import gmtime, strftime
+from time import localtime, strftime
 
 # --- Configurazione ---
 
@@ -148,7 +148,7 @@ def update_verbali(file_content):
     file.close()
 
 def update_last_update_date(html_website):
-  time_string = strftime("%Y/%m/%d %H:%M", gmtime())
+  time_string = strftime("%Y/%m/%d %H:%M", localtime())
   return html_website.replace("<placeholder_last_update/>", time_string)
 
 # --- Funzioni Primarie ---
@@ -256,9 +256,9 @@ def main():
   set_path_base_directory()
   clean_start()
 
-  #create_new_output_directory()
-  #latex_to_pdf()
-  #replace_old_output_directory()
+  create_new_output_directory()
+  latex_to_pdf()
+  replace_old_output_directory()
   
   generate_website()
 
