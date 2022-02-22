@@ -27,9 +27,9 @@
 
 \section{UC2 - Visualizzazione errore inserimento dati}
 \begin{itemize}
+  \item \textbf{Descrizione}: l'utente carica un file mal formattato o che presenta dati non validi, quindi visualizza un messaggio di errore esplicativo;
   \item \textbf{Attore Primario:} utente;
-  \item \textbf{Precondizioni:} l’utente carica un file CSV contenente i dati da analizzare mal formattato o
-  che presenta dati non validi;
+  \item \textbf{Precondizioni:} l’utente carica un file CSV contenente i dati da analizzare mal formattato o che presenta dati non validi;
   \item \textbf{Postcondizioni:} l'utente visualizza un messaggio di errore e i dati non vengono caricati;
   \item \textbf{Scenario Principale:}
   \begin{enumerate}
@@ -39,8 +39,7 @@
 
 \section{UC3 - Caricamento sessione salvata}
 \begin{itemize}
-  \item \textbf{Descrizione:} l'utente vuole riprendere ad analizzare da dove si era interrotto
-  o ha la necessità di visualizzare una sessione precedente;
+  \item \textbf{Descrizione:} l'utente vuole riprendere ad analizzare da dove si era interrotto o ha la necessità di visualizzare una sessione precedente;
   \item \textbf{Attore Primario:} utente;
   \item \textbf{Precondizioni:} l'utente che avvia l'applicativo ha salvato almeno una sessione di lavoro precedente;
   \item \textbf{Postcondizioni:} i dati di una sessione precedentemente salvata vengono ricaricati nel sistema;
@@ -60,9 +59,9 @@
 
 \section{UC4 - Visualizzazione errore ripristino sessione}
 \begin{itemize}
+  \item \textbf{Descrizione}: l'utente carica un file mal formattato o che presenta dati non corretti, quindi visualizza un messaggio di errore esplicativo;
   \item \textbf{Attore Primario:} utente;
-  \item \textbf{Precondizioni:} l’utente carica un file JSON contenente i dati da analizzare mal formattato o
-  che presenta dati non validi o non corretti;
+  \item \textbf{Precondizioni:} l’utente carica un file JSON contenente i dati da analizzare mal formattato o che presenta dati non validi o non corretti;
   \item \textbf{Postcondizioni:} l'utente visualizza un messaggio di errore e i dati non vengono caricati;
   \item \textbf{Scenario Principale:}
   \begin{enumerate}
@@ -93,7 +92,6 @@
 
 
 \section{UC6 - Filtri sui dati}
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{uc6.png}
@@ -115,7 +113,7 @@
 
 \section{UC7 - Visualizzazione errore scelta filtri}
 \begin{itemize}
-  \item \textbf{Descrizione}: l'utente imposta dei filtri non validi;
+  \item \textbf{Descrizione}: l'utente imposta dei filtri non validi, quindi visualizza un messaggio di errore esplicativo;
   \item \textbf{Attore primario}: utente;
   \item \textbf{Precondizioni}: l'utente imposta dei filtri che non permettono una corretta visualizzazione del grafico;
   \item \textbf{Postcondizioni}: l'utente visualizza un messaggio di errore e i filtri non vengono applicati;
