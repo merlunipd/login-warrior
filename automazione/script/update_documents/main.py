@@ -32,7 +32,7 @@ file temporanei relativi alla compilazione dei file latex;
 
 import os
 import shutil
-from time import gmtime, strftime
+from time import localtime, strftime
 
 # --- Configurazione ---
 
@@ -45,7 +45,8 @@ PATH_DOCUMENTI = [
   os.path.join("src", "documenti", "esterni", "AdR", "AdR.tex"),
   os.path.join("src", "documenti", "interni", "NdP", "NdP.tex")
 ]
-PATH_VERBALI = os.path.join("src", "documenti", "interni", "verbali")
+PATH_VERBALI_INTERNI = os.path.join("src", "documenti", "interni", "verbali")
+PATH_VERBALI_ESTERNI = os.path.join("src", "documenti", "esterni", "verbali")
 
 # Configurazione di default
 NAME_OUTPUT_DIRECTORY = "output_documenti"
@@ -62,7 +63,10 @@ def get_output_file_path(path):
   if "candidatura" in list_path_elements:
     return os.path.join(PATH_OUTPUT_TEMP, "candidatura")
   if "esterni" in list_path_elements:
-    return os.path.join(PATH_OUTPUT_TEMP, "esterni")
+    if "verbali" in list_path_elements:
+      return os.path.join(PATH_OUTPUT_TEMP, "esterni", "verbali")
+    else:
+      return os.path.join(PATH_OUTPUT_TEMP, "esterni")
   if "interni" in list_path_elements:
     if "verbali" in list_path_elements:
       return os.path.join(PATH_OUTPUT_TEMP, "interni", "verbali")
@@ -117,23 +121,34 @@ def parse_verbale_title(file_name):
   return day + " " + month + " " + year
 
 def update_verbali(file_content):
-  html_verbali = ""
+  html_verbali_interni = ""
+  html_verbali_esterni = ""
   try:
     file = open(os.path.join(PATH_WEBSITE_DIRECTORY, "partials", "verbale.html"), "r")
     html_template_verbale = file.read()
     file_verbali_list = os.listdir(os.path.join("output_documenti", "interni", "verbali"))
     for file_verbale in file_verbali_list:
-      html_verbali += html_template_verbale.replace(
+      html_verbali_interni += html_template_verbale.replace(
         "<placeholder_link_verbale/>", "output_documenti/interni/verbali/" + file_verbale
       ).replace(
         "<placeholder_titolo_verbale/>", parse_verbale_title(file_verbale)
       ) + "\n"
-    return file_content.replace("<placeholder_verbali/>", html_verbali)
+
+    file_verbali_list = os.listdir(os.path.join("output_documenti", "esterni", "verbali"))
+    for file_verbale in file_verbali_list:
+      html_verbali_esterni += html_template_verbale.replace(
+        "<placeholder_link_verbale/>", "output_documenti/esterni/verbali/" + file_verbale
+      ).replace(
+        "<placeholder_titolo_verbale/>", parse_verbale_title(file_verbale)
+      ) + "\n"
+    file_content_updated = file_content.replace("<placeholder_verbali_interni/>", html_verbali_interni)\
+      .replace("<placeholder_verbali_esterni/>", html_verbali_esterni)
+    return file_content_updated
   finally:
     file.close()
 
 def update_last_update_date(html_website):
-  time_string = strftime("%Y/%m/%d %H:%M", gmtime())
+  time_string = strftime("%Y/%m/%d %H:%M", localtime())
   return html_website.replace("<placeholder_last_update/>", time_string)
 
 # --- Funzioni Primarie ---
@@ -174,12 +189,14 @@ def create_new_output_directory():
   """
   Crea una directory temporanea in cui mettere i PDF generati.
   """
-  if not os.path.exists(PATH_OUTPUT_TEMP):
-    os.mkdir(PATH_OUTPUT_TEMP)
-    os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "candidatura"))
-    os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "esterni"))
-    os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "interni"))
-    os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "interni", "verbali"))
+  if os.path.exists(PATH_OUTPUT_TEMP):
+    shutil.rmtree(PATH_OUTPUT_TEMP)
+  os.mkdir(PATH_OUTPUT_TEMP)
+  os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "candidatura"))
+  os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "esterni"))
+  os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "esterni", "verbali"))
+  os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "interni"))
+  os.mkdir(os.path.join(PATH_OUTPUT_TEMP, "interni", "verbali"))
 
 def latex_to_pdf():
   """
@@ -189,11 +206,18 @@ def latex_to_pdf():
     if os.path.exists(path_file):
       path_directory, name_file = os.path.split(path_file)
       compile_latex_and_move_pdf(name_file, path_directory)
-  if os.path.exists(PATH_VERBALI):
-    list_directory_verbale = os.listdir(PATH_VERBALI)
+  if os.path.exists(PATH_VERBALI_INTERNI):
+    list_directory_verbale = os.listdir(PATH_VERBALI_INTERNI)
     list_directory_verbale.remove("shared")
     for directory_verbale in list_directory_verbale:
-      path_directory = os.path.join(PATH_VERBALI, directory_verbale)
+      path_directory = os.path.join(PATH_VERBALI_INTERNI, directory_verbale)
+      name_file = directory_verbale + ".tex"
+      compile_latex_and_move_pdf(name_file, path_directory)
+  if os.path.exists(PATH_VERBALI_ESTERNI):
+    list_directory_verbale = os.listdir(PATH_VERBALI_ESTERNI)
+    list_directory_verbale.remove("shared")
+    for directory_verbale in list_directory_verbale:
+      path_directory = os.path.join(PATH_VERBALI_ESTERNI, directory_verbale)
       name_file = directory_verbale + ".tex"
       compile_latex_and_move_pdf(name_file, path_directory)
 
@@ -235,6 +259,7 @@ def main():
   create_new_output_directory()
   latex_to_pdf()
   replace_old_output_directory()
+  
   generate_website()
 
   ok_message()
