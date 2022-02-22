@@ -96,7 +96,7 @@ if (configuration) {
   filtroUtente.dispatchEvent(new Event('input'));
 } else {
   configuration = {
-    pathToPage: window.location.pathname,
+    plotName: window.location.pathname.split("/").filter((string) => string != "").pop(),
     filterLogins: '1',
     filterErrors: '2',
     filterLogouts: '3',

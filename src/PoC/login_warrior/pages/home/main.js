@@ -52,7 +52,7 @@ loadSessionInput.addEventListener('change', async () => {
     // TODO: Il codice del DB non è veramente sincrono, per il momento
     // gli viene dato un tempo fisso di attesa. Da correggere
     setTimeout(() => {
-      window.location.href = `../..${session.configuration.pathToPage}`;
+      window.location.href = `../${session.configuration.plotName}`;
     }, 500);
   }
 });
