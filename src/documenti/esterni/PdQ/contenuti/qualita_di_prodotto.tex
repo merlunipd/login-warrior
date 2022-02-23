@@ -3,50 +3,78 @@ Dopo aver individuato i fattori di qualità necessari per il ciclo di vita del n
 e il software, dei quali impostiamo delle metriche, per definirne dei valori da rispettare e fissarci così degli obiettivi.
 \section{Obiettivi}
 \subsubsection{Documenti}
+
 \begin{center}
-  \begin{tabular}{|p{3cm}|p{7.5cm}|p{2cm}|} \hline
-    \textbf{Obiettivo} & \textbf{Descrizione} & \textbf{Metrica}  \\ \hline
-    Comprensione & I documenti sono una parte fondamentale del nostro prodotto, è quindi importante che siano comprensibili e leggibili, prestando molta attenzione
-    a errori lessicali, ortografici e grammaticali.  & MPD1 \newline MPD2       \\ \hline
-  \end{tabular}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{longtable}{|p{3cm}|p{7.5cm}|p{2cm}|} \hline
+  \rowcolor[HTML]{036400}
+  \textcolor{white}{\textbf{Obiettivo}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Metrica}} \\[0.2em] \hline
+  \rowcolor[HTML]{EFEFEF}
+    Comprensione & I documenti sono una parte fondamentale del nostro prodotto, è quindi importante che siano comprensibili e leggibili, prestando molta attenzione a errori lessicali, ortografici e grammaticali.  & MPD1 \newline MPD2       \\ \hline
+  \end{longtable}
 \end{center}
+
 
 \subsubsection{Software}
 \begin{center}
-  \begin{tabular}{|p{3cm}|p{7.5cm}|p{2cm}|} \hline
-    \textbf{Obiettivo} & \textbf{Descrizione} & \textbf{Metrica}  \\ \hline
+  \renewcommand{\arraystretch}{1.25}
+  \begin{longtable}{|p{3cm}|p{7.5cm}|p{2cm}|} \hline
+    \rowcolor[HTML]{036400}
+    \textcolor{white}{\textbf{Obiettivo}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Metrica}}  \\ \hline
+    \rowcolor[HTML]{EFEFEF}
     Funzionalità & Essere in grado di soddisfare tutti i requisiti trovati nell'\textit{Analisi dei Requisiti}  & MPD3       \\ \hline
+    \rowcolor[HTML]{C0C0C0}
     Efficienza & Essere in grado di svolgere il lavoro nel minor tempo possibile e utilizzando poche risorse   & MPD4       \\ \hline
+    \rowcolor[HTML]{EFEFEF}
     Usabilità & Essere di semplice e veloce apprendimento, che comporti pochi errori da parte dell'utente e che sia facile all'uso  & MPD5 \newline MPD6 \newline MPD7    \\ \hline
+    \rowcolor[HTML]{C0C0C0}
     Affidabilità & Essere in grado di funzionare anche in presenza di errori, evitandone la visualizzazione  & MPD8 \newline MPD9       \\ \hline
+    \rowcolor[HTML]{EFEFEF}
     Manutenibilità & Permettere di essere facilmente modificabile, di ricercare errori e aggiungere parti senza compromettere l'intero sofware  & MPD10       \\ \hline
+    \rowcolor[HTML]{C0C0C0}
     Portabilità & Essere in grado di funzionare in diversi ambienti di sviluppo, perciò essendo adattabilie & MPD8 \newline MPD11 \newline MPD12       \\ \hline
-  \end{tabular}
+  \end{longtable}
 \end{center}
 
 
 \subsection{Metriche}
 \subsubsection{Documenti}
 \begin{center}
-  \begin{tabular}{|p{1.8cm}|p{3.5cm}|p{3.8cm}|p{3.3cm}|} \hline
-    \textbf{Metrica} & \textbf{Nome} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale}    \\ \hline
+  \renewcommand{\arraystretch}{1.25}
+  \begin{longtable}{|p{1.8cm}|p{3.5cm}|p{3.8cm}|p{3.3cm}|} \hline
+    \rowcolor[HTML]{036400}
+    \textcolor{white}{\textbf{Metrica}} & \textcolor{white}{\textbf{Nome}} & \textcolor{white}{\textbf{Valore Accettabile}} & \textcolor{white}{\textbf{Valore Ottimale}}    \\ \hline
+      \rowcolor[HTML]{EFEFEF}
       MPD1 & Errori Ortografici    & $0\%$      & $0\%$        \\ \hline
+      \rowcolor[HTML]{C0C0C0}
       MPD2 & Indice di Gulpease    & $\geq60$   & $\geq80$     \\ \hline
-  \end{tabular}
+  \end{longtable}
 \end{center}
+
 \subsubsection{Software}
 \begin{center}
-  \begin{tabular}{|p{1.8cm}|p{4.5cm}|p{2.8cm}|p{3.5cm}|} \hline
-    \textbf{Metrica} & \textbf{Nome} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale}    \\ \hline
+  \renewcommand{\arraystretch}{1.25}
+  \begin{longtable}{|p{1.8cm}|p{4.5cm}|p{3.8cm}|p{3.5cm}|} \hline
+    \rowcolor[HTML]{036400}
+    \textcolor{white}{\textbf{Metrica}} & \textcolor{white}{\textbf{Nome}} & \textcolor{white}{\textbf{Valore Accettabile}} & \textcolor{white}{\textbf{Valore Ottimale}}   \\ \hline
       MPD3 & Copertura dei requisiti & $100\%$ & $100\%$  \\ \hline
+      \rowcolor[HTML]{EFEFEF}
       MPD4 & Tempo di risposta medio    &  4 secondi  &  2 secondi   \\ \hline
+      \rowcolor[HTML]{C0C0C0}
       MPD5 & Tempo apprendimento    & 10 minuti  & 5 minuti       \\ \hline
+      \rowcolor[HTML]{EFEFEF}
       MPD6 & Raggiunta dell'obiettivo    & 8 click   & 5 click     \\ \hline
+      \rowcolor[HTML]{C0C0C0}
       MPD7 & Errori dell'utente    & $2$      & $0$        \\ \hline
+      \rowcolor[HTML]{EFEFEF}
       MPD8 & Maturità dei test    & $85\%$ &  $100\%$    \\ \hline
+      \rowcolor[HTML]{C0C0C0}
       MPD9 & Gestione degli errori    & $60\%$ & $80\%$     \\ \hline
+      \rowcolor[HTML]{EFEFEF}
       MPD10 & Comprensibilità del codice    & $20$-$35\%$ & $30$-$45\%$     \\ \hline
+      \rowcolor[HTML]{C0C0C0}
       MPD11 & OS supportati    & $100\%$ & $100\%$     \\ \hline
+      \rowcolor[HTML]{EFEFEF}
       MPD12 & Browser supportati    & $80\%$ & $100\%$     \\ \hline
-  \end{tabular}
+  \end{longtable}
 \end{center}
