@@ -1,0 +1,21 @@
+{
+  "name": "login-warrior",
+  "version": "0.1.0",
+  "description": "Proof of concept dell'applicazione Login Warrior",
+  "scripts": {
+    "server": "http-server",
+    "lint": "npx eslint ./pages",
+    "lint-fix": "npx eslint ./pages --fix",
+    "test": "jest --verbose --coverage"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "http-server": "^14.1.0",
+    "jest": "^27.5.1"
+  }
+}
