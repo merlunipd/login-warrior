@@ -1,3 +1,128 @@
 \chapter{Testing}
+Per assicurarsi di raggiungere dei buoni livelli di qualità del prodotto, il gruppo MERL ha deciso di eseguire la fase di test in parallelo allo sviluppo delle varie componenti. In questo modo è possibile verificare che le parti di programma sottoposte a controllo siano implementate correttamente e assumano un comportamento atteso.
 \section{Tipologie di test}
+    \subsection{Test di Unità (TU)}  Servono a verificare che le più piccole pati di programma prese singolarmente abbiano un funzionamento autonomo.
+    \subsection{Test di Integrazione (TI)} Ha la funzione di verificare che le singole unità interagiscano tra loro nel modo corretto.
+    \subsection{Test di Regressione (TR)} Verificano che l'implementazione di nuove componenti dell'applicativo non generino nuovi errori.
+    \subsection{Test di Sistema (TS)} Verificano che il comportamento dell'intero sistema sia conforme a quanto prestabilito in termini prestazionali e verificano la corretta implementazione dei requisiti.
+    \subsection{Test di Accettazione (TA)} Svolti con il committente, hanno la funzione di verificare che il prodotto
+        finale sia completo, funzionante e rispetti le caratteristiche concordate tra le parti.
+
+
 \section{Specifica dei test}
+\begin{center}
+    \renewcommand\arraystretch{1.5}
+    \centering
+    \begin{longtable}{|p{1.5cm}|p{11cm}|p{1cm}|}
+    \hline
+    \rowcolor[HTML]{036400}
+    \textcolor{white}{\textbf{Codice}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Stato}} \\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF1 & L'utente deve poter caricare dati nel sistema tramite file CSV oppure caricare una sessione precedente tramite un file .json. \`E necessario verificare che: \begin{itemize}
+            \item L'utente possa caricare i dati mediante gli appositi bottoni;
+            \item I file caricati siano sintatticamente corretti;
+            \item Sia visualizzato a schermo un messaggio con l'esito dell'operazione.
+        \end{itemize} & NI\\ \hline
+        \rowcolor[HTML]{C0C0C0}
+        STF2 & L'utente deve essere informato in caso di errore nel caricamento dei file. \'E necessario verificare che: \begin{itemize}
+            \item L'avviso di errore sia chiaro e ben visibile;
+            \item Sia possibile inserire nuovamente i file.
+        \end{itemize} & NI\\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF3 & L'utente deve poter decidere con quale grafico l'applicativo rapresenta i dati. Verificare che: \begin{itemize}
+            \item Sia visualizzata in modo intuitivo la scelta del grafico da utilizzare;
+            \item Il grafico visualizzato corrisponda alla scelta dell'utente.
+            \item Ci siano i grafici obbligatori;
+        \end{itemize} & NI\\ \hline
+        \rowcolor[HTML]{C0C0C0}
+        STF3.1 & L'applicazione deve fornire la visualizzazione  \textit{Scatter Plot}. Verificare che: \begin{itemize}
+            \item L'utente possa scegliere quali combinazioni di dimensioni l'applicativo deve visualizzare;
+            \item Sia corretto rispetto ai dati scelti da rappresentare;
+            \item Il grafico rispetti le personalizzazioni scelte;
+            \item L'utente possa interagire con il grafico.
+        \end{itemize} & NI\\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF3.2 & L'applicazione deve fornire la visualizzazione  \textit{Parallel Coordinates}. Verificare che: \begin{itemize}
+            \item L'utente possa scegliere quali combinazioni di dimensioni l'applicativo deve visualizzare;
+            \item La rappresentazione grafica sia la più chiara possibile;
+            \item Sia corretto rispetto ai dati scelti da rappresentare;
+            \item Il grafico rispetti le personalizzazioni scelte;
+            \item L'utente possa interagire con il grafico;
+            \item Ogni caratteristica interessante sia rappresentata negli assi.
+        \end{itemize} & NI\\ \hline
+        \rowcolor[HTML]{C0C0C0}
+        STF3.3 & L'applicazione deve fornire la visualizzazione  \textit{Force-Direct Graph}. Verificare che: \begin{itemize}
+            \item L'utente possa scegliere quali combinazioni di dimensioni l'applicativo deve visualizzare;
+            \item La rappresentazione grafica sia la più chiara possibile;
+            \item Sia corretto rispetto ai dati scelti da rappresentare;
+            \item Ogni linea rappresenti una relazione tra i nodi;
+            \item Le distanze e le forze di attrazione e repulsione tra i nodi siano correttamente implementate;
+            \item Il grafico rispetti le personalizzazioni scelte;
+            \item L'utente possa interagire con il grafico.
+        \end{itemize} & NI\\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF3.4 & L'applicazione deve fornire la visualizzazione  \textit{Sankey Diagram}. Verificare che: \begin{itemize}
+            \item L'utente possa scegliere quali combinazioni di dimensioni l'applicativo deve visualizzare;
+            \item La rappresentazione grafica sia la più chiara possibile;
+            \item Sia corretto rispetto ai dati scelti da rappresentare;
+            \item Il grafico rispetti le personalizzazioni scelte;
+            \item L'utente possa interagire con il grafico.
+        \end{itemize} & NI\\ \hline
+        \rowcolor[HTML]{C0C0C0}
+        STF4 & L'applicazione deve mettere a disposiazione alcuni parametri per personalizzare la visualizzazione. Vericare che: \begin{itemize}
+            \item L'utente possa scegliere le caratteristiche messe a disposizione;
+            \item I parametri modificabili siano chiari e ben visibili;
+            \item Le caratteristiche vengono applicate e visualizzate correttamente.
+        \end{itemize} & NI\\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF5 & L'utente deve essere informato in caso di errore nella scelta dei parametri nella personalizzazione della visualizzazione. Verificare che: \begin{itemize}
+            \item L'avviso di errore sia chiaro e ben visibile;
+            \item Sia possibile modificare i parametri scelti.
+        \end{itemize} & NI\\ \hline
+        \rowcolor[HTML]{C0C0C0}
+        STF6 & L'applicazione deve permettere la visualizzazione in qualunque momento del manuale utente. Verificare che: \begin{itemize}
+            \item L'utente possa individuare e consultare facilmente la guida;
+            \item La guida sia comprensibile a qualunque tipologia di utente;
+            \item La guida descriva tutti gli utilizzi e le caratteristiche dell'applicazione.
+        \end{itemize} & NI\\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF7 & L'applicazione deve permettere il salvataggio della configurazione e delle impostazioni selezionate per permettere di ripristinarle in un momento successivo. Verificare che: \begin{itemize}
+            \item Sia disponibile un bottone per il salvataggio della sessione;
+            \item La sessione venga salvata correttamente;
+        \end{itemize}& NI\\ \hline
+        \caption{Tabella della specifica dei test}
+    \end{longtable}
+\end{center}
+
+    Attualmente lo stato di tutti i test è contrassegnato dalla sigla \textit{NI} che indica "Non Implementato".
+\begin{center}
+    \renewcommand\arraystretch{1.5}
+    \centering
+    \begin{longtable}{|p{3cm}|p{10cm}|} \hline
+        \rowcolor[HTML]{036400}
+        \textcolor{white}{\textbf{Codice Test}} & \textcolor{white}{\textbf{Codice Requisiti}} \\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF1 & RF.1.1 RF.2.3\\ \hline
+        \rowcolor[HTML]{C0C0C0}
+        STF2 & RF.1.2 RF.1.4 \\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF3 & RF.1.5 \\ \hline
+        \rowcolor[HTML]{C0C0C0}
+        STF3.1 & RF.1.5.1 \\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF3.2 & RF.1.5.2 \\ \hline
+        \rowcolor[HTML]{C0C0C0}
+        STF3.3 & RF.1.5.3 \\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF3.4 & RF.1.5.4 \\ \hline
+        \rowcolor[HTML]{C0C0C0}
+        STF4 & RF.2.6 \\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF5 & RF.1.7 \\ \hline
+        \rowcolor[HTML]{C0C0C0}
+        STF6 & RF.2.8 \\ \hline
+        \rowcolor[HTML]{EFEFEF}
+        STF7 & RF.2.9 \\ \hline
+        \caption{Tracciamento test - requisiti funzionali}
+    \end{longtable}
+\end{center}

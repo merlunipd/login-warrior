@@ -12,6 +12,10 @@
 \usepackage{geometry}
 \usepackage{longtable}
 \usepackage[italian]{babel}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 
 \hypersetup{
     colorlinks=true,
@@ -58,6 +62,10 @@
   \newpage
   \input{contenuti/modifiche}
   \tableofcontents
+  \newpage
+  \listoftables
+  \newpage
+  \listoffigures
 
   % Capitoli
   \input{contenuti/introduzione}
