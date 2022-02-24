@@ -9,10 +9,11 @@
 \usepackage{float}
 \usepackage{geometry}
 \usepackage{fancyhdr}
-\usepackage{longtable}
+\usepackage{verbatim}
 \usepackage[italian]{babel}
 \usepackage{longtable}
 \usepackage{array}
+\usepackage{changepage}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
@@ -64,9 +65,11 @@
   \newpage
   \input{contenuti/modifiche}
   \tableofcontents
-  \listoftables
+  \newpage
   \listoffigures
-
+  \newpage
+  \listoftables
+  
   % Capitoli
   \input{contenuti/introduzione}
   \input{contenuti/modello_di_sviluppo}
