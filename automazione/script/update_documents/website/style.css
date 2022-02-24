@@ -60,9 +60,17 @@ section h1 {
   color: gray;
 }
 
+#link-github {
+  word-break: break-word;
+}
+
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
+  }
+
+  section {
+    padding: 0.5em;
   }
 
   #nav-navigation {
