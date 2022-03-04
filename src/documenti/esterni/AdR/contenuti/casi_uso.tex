@@ -150,33 +150,97 @@
 \end{figure}
 
 \begin{itemize}
-  \item \textbf{Descrizione}: l'utente ha la possibilità di modificare vari aspetti visivi del grafico;
+  \item \textbf{Descrizione}: l'utente ha la possibilità di modificare la visualizzazione attraverso l'applicazione di filtri sui dati;
   \item \textbf{Attore primario}: utente;
   \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
-  \item \textbf{Postcondizioni}: le modifiche apportate al grafico vengono visualizzate;
+  \item \textbf{Postcondizioni}: i filtri applicati consentono di mostrare la nuova visualizzazione dei dati sul grafico;
   \item \textbf{Scenario principale}:
     \begin{enumerate}
-      \item L'utente può impostare i filtri da una lista automaticamente generata e il grafico viene visualizzato con le nuove caratteristiche;
-    \end{enumerate}
-  \item \textbf{Estensioni}:
-    \begin{enumerate}
-      \item L'utente inserisce dei filtri non validi [UC7].
+      \item L'utente può impostare i filtri tramite una sezione dedicata;
+      \item Il grafico mostra solo i dati con le caratteristiche corrispondenti alla scelta dei filtri.
     \end{enumerate}
 \end{itemize}
 
-\section{UC7 - Visualizzazione errore scelta filtri}
+\subsection{UC6.1 - ID}
 \begin{itemize}
-  \item \textbf{Descrizione}: l'utente imposta dei filtri non validi, quindi visualizza un messaggio di errore esplicativo;
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base ad un determinato ID;
   \item \textbf{Attore primario}: utente;
-  \item \textbf{Precondizioni}: l'utente imposta dei filtri che non permettono una corretta visualizzazione del grafico;
-  \item \textbf{Postcondizioni}: l'utente visualizza un messaggio di errore e i filtri non vengono applicati;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base ad un determinato ID;
   \item \textbf{Scenario principale}:
     \begin{enumerate}
-      \item L'utente visualizza un messaggio di errore esplicativo.
+      \item L'utente inserisce l'ID desiderato;
+      \item Il grafico mostra solo i dati con l'ID corrispondente.
     \end{enumerate}
 \end{itemize}
 
-\section{UC8 - Accesso al manuale utente}
+\subsection{UC6.2 - IP}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base ad un determinato IP;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base ad un determinato IP;
+  \item \textbf{Scenario principale}:
+    \begin{enumerate}
+      \item L'utente inserisce l'IP desiderato;
+      \item Il grafico mostra solo i dati con l'IP corrispondente.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC6.3 - Utente}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base ad un determinato utente;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base ad un determinato utente;
+  \item \textbf{Scenario principale}:
+    \begin{enumerate}
+      \item L'utente inserisce il numero dell'utente desiderato;
+      \item Il grafico mostra solo i dati con il numero dell'utente corrispondente.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC6.4 - Tipo evento}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base ad un determinato tipo di evento;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base ad un determinato tipo di evento;
+  \item \textbf{Scenario principale}:
+    \begin{enumerate}
+      \item L'utente inserisce il tipo di evento desiderato;
+      \item Il grafico mostra solo i dati con il tipo di evento corrispondente.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC6.5 - Data}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base alla data;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base alla data;
+  \item \textbf{Scenario principale}:
+    \begin{enumerate}
+      \item L'utente inserisce il periodo temporale desiderato;
+      \item Il grafico mostra solo i dati interni al periodo temporale corrispondente.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC6.6 - Applicazione}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base ad una determinata applicazione;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base ad una determinata applicazione;
+  \item \textbf{Scenario principale}:
+    \begin{enumerate}
+      \item L'utente inserisce l'applicazione desiderata;
+      \item Il grafico mostra solo i dati relativi all'applicazione corrispondente.
+    \end{enumerate}
+\end{itemize}
+
+
+\section{UC7 - Accesso al manuale utente}
 \begin{itemize}
   \item \textbf{Descrizione}: l'utente che ha un dubbio o vuole più informazioni sull'utilizzo dell'applicazione, deve avere accesso rapido al manuale utente;
   \item \textbf{Attore primario}: utente;
@@ -189,7 +253,7 @@
   \end{enumerate}
 \end{itemize}
 
-\section{UC9 - Salvataggio sessione}
+\section{UC8 - Salvataggio sessione}
 \begin{itemize}
   \item \textbf{Descrizione:} l'utente salva la sessione di lavoro;
   \item \textbf{Attore primario:} utente;
