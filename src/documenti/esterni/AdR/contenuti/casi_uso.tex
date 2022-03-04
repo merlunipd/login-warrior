@@ -142,27 +142,100 @@
 \end{itemize}
 
 
-\section{UC6 - Filtri sui dati}
+\section{UC6 - Personalizzazione visualizzazione scelta}
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{uc6.png}
-  \caption{UC6 - Filtri sui dati}
+  \caption{UC6 - Personalizzazione visualizzazione}
 \end{figure}
 
 \begin{itemize}
-  \item \textbf{Descrizione}: l'utente ha la possibilità di modificare vari aspetti visivi del grafico;
-  \item \textbf{Attore primario}: utente;
+  \item \textbf{Descrizione}: l'utente ha la possibilità di modificare vari aspetti del grafico;
+  \item \textbf{Attore primario}: l'utente;
   \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
   \item \textbf{Postcondizioni}: le modifiche apportate al grafico vengono visualizzate;
-  \item \textbf{Scenario principale}:
+  \item \textbf{Scenario principale}: 
+   \begin{enumerate}
+    \item L'utente può impostare varie opzioni del grafico scelto;
+    \item Le opzioni scelte vengono visualizzate;
+  \end{enumerate}
+  \item \textbf{Generalizzazioni}:
     \begin{enumerate}
-      \item L'utente può impostare i filtri da una lista automaticamente generata e il grafico viene visualizzato con le nuove caratteristiche;
-    \end{enumerate}
-  \item \textbf{Estensioni}:
-    \begin{enumerate}
-      \item L'utente inserisce dei filtri non validi [UC7].
+      \item Personalizzazione \textit{Scatter Plot} [UC6.1];
+      \item Personalizzazione \textit{Parallel Coordinates} [UC6.2];
+      \item Personalizzazione \textit{Force-Directed Graph} [UC6.3];
+      \item Personalizzazione \textit{Sankey Diagram} [UC6.4].
     \end{enumerate}
 \end{itemize}
+
+\subsection{UC6.1 - Personalizzazione Scatter Plot}
+\subsection{UC6.2 - Personalizzazione Parallel Coordinates}
+
+\subsection{UC6.3 - Personalizzazione Force-Directed Graph}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{uc6.3.png}
+  \caption{UC6.3 - Personalizzazione Force-Directed Graph}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di apportare modificare a vari aspetti del grafico;
+    \item \textbf{Attore primario:} l'utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:} 
+    \begin{enumerate}
+      \item L'utente può decidere di modificare le caratteristiche:
+    \begin{enumerate}
+      \item Funzione di forza [UC6.3.1];
+      \item Intensità delle forze di attrazione e tensione [UC6.3.2];
+      \item Stili di visualizzazione del grafico [UC6.3.3];
+    \end{enumerate}
+    \item Le modifiche scelte vengono visualizzate.
+  \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.3.1 - Funzione di forza}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere quale funzione di forza adottare;
+    \item \textbf{Attore primario:} l'utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:} 
+     \begin{enumerate}
+      \item L'utente sceglie la funzione di forza;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.3.2 - Intensità delle forze di attrazione e tensione}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere quale intensità delle forze attrattive e di tensione adottare;
+    \item \textbf{Attore primario:} l'utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:} 
+      \begin{enumerate}
+      \item L'utente sceglie l'intensità delle forze;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.3.3 - Stili di visualizzazione}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere quali stili adottare;
+    \item \textbf{Attore primario:} l'utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:} 
+     \begin{enumerate}
+      \item L'utente sceglie quale stile tra quelli disponibili applicare;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+
+\subsection{UC6.4 - Personalizzazione Sankey Diagram}
+
 
 \section{UC7 - Visualizzazione errore scelta filtri}
 \begin{itemize}
