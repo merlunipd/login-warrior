@@ -154,7 +154,7 @@
   \item \textbf{Attore primario}: utente;
   \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
   \item \textbf{Postcondizioni}: le modifiche apportate al grafico vengono visualizzate;
-  \item \textbf{Scenario principale}: 
+  \item \textbf{Scenario principale}:
    \begin{enumerate}
     \item L'utente può impostare varie opzioni del grafico scelto;
     \item Le opzioni scelte vengono visualizzate;
@@ -170,6 +170,22 @@
 
 \subsection{UC.1 - Personalizzazione Scatter Plot}
 \subsection{UC.2 - Personalizzazione Parallel Coordinates}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Parallel Coordinates} [UC5.2];
+    \item \textbf{Postcondizioni:} le modifiche apportate al grafico vengono visualizzate;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente ha a disposizione tre slider che permettono di:
+    \begin{enumerate}
+      \item Cambiare l'opacità del grafico;
+      \item Cambiare la curvatura delle linee;
+      \item Cambiare la forza di raggruppamento delle linee;
+    \end{enumerate}
+    \item Il grafico viene modificato in base alla posizione degli slider.
+  \end{enumerate}
+  \end{itemize}
 
 \subsection{UC.3 - Personalizzazione Force-Directed Graph}
 \begin{figure}[H]
@@ -178,11 +194,11 @@
   \caption{UC.3 - Personalizzazione Force-Directed Graph}
 \end{figure}
 \begin{itemize}
-    \item \textbf{Descrizione:} l'utente ha la possibilità di apportare modificare a vari aspetti del grafico;
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
     \item \textbf{Attore primario:} utente;
-    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Force-Directed Graph} [UC5.3];
     \item \textbf{Postcondizioni:} il grafico viene aggiornato;
-    \item \textbf{Scenario principale:} 
+    \item \textbf{Scenario principale:}
     \begin{enumerate}
       \item L'utente può decidere di:
     \begin{enumerate}
@@ -200,7 +216,7 @@
     \item \textbf{Attore primario:} utente;
     \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
     \item \textbf{Postcondizioni:} il grafico viene aggiornato;
-    \item \textbf{Scenario principale:} 
+    \item \textbf{Scenario principale:}
      \begin{enumerate}
       \item L'utente sceglie la funzione di forza;
       \item La modifica viene applicata al grafico.
@@ -213,7 +229,7 @@
     \item \textbf{Attore primario:} utente;
     \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
     \item \textbf{Postcondizioni:} il grafico viene aggiornato;
-    \item \textbf{Scenario principale:} 
+    \item \textbf{Scenario principale:}
       \begin{enumerate}
       \item L'utente sceglie l'intensità delle forze;
       \item La modifica viene applicata al grafico.
@@ -226,7 +242,7 @@
     \item \textbf{Attore primario:} utente;
     \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
     \item \textbf{Postcondizioni:} il grafico viene aggiornato;
-    \item \textbf{Scenario principale:} 
+    \item \textbf{Scenario principale:}
      \begin{enumerate}
       \item L'utente sceglie quali colori associare alle varie dimensioni;
       \item La modifica viene applicata al grafico.
