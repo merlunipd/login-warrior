@@ -299,7 +299,66 @@
 
 
 \subsection{UC?.4 - Personalizzazione Sankey Diagram}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{ucSankey.png}
+  \caption{UC?.4 - Personalizzazione Sankey Diagram}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.3];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente può decidere di:
+    \begin{enumerate}
+      \item Selezionare il colore dei link [UC?.4.1];
+      \item Impostare l'opacità dei link [UC?.4.2];
+      \item Selezionare l'allinamento dei nodi [UC?.4.3];
+    \end{enumerate}
+    \item Le modifiche scelte vengono visualizzate.
+  \end{enumerate}
+  \end{itemize}
 
+  \subsubsection{UC?.4.1 - Selezione colore dei link}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere la colorazione dei link, cioè i collegamento tra i nodi;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Sankey Diagram [UC?.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie la colorazione dei link;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC?.4.2 - Impostazione opacità dei link}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di impostare l'opacità dei link;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Sankey Diagram [UC?.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+      \begin{enumerate}
+      \item L'utente imposta l'opacità dei link;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC?.4.3 - Selezionare allinamento nodi}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere l'allineamento dei nodi;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Sankey Diagram [UC?.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie l'allinamento dei nodi;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
 
 \section{UC7 - Visualizzazione errore scelta filtri}
 \begin{itemize}
