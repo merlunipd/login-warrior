@@ -69,17 +69,17 @@
   \end{enumerate}
 \end{itemize}
 
-\section{UC5 - Selezione tipo di grafico}
+\section{UC5 - Generazione del grafico}
 \begin{figure}[H]
  \includegraphics[width=\textwidth]{uc5.png}
- \caption{UC5 - Selezione tipo di grafico}
+ \caption{UC5 - Generazione del grafico}
 \end{figure}
 
  \begin{itemize}
-     \item \textbf{Descrizione:} l'utente visualizza varie tipologie di grafico e ne sceglie una;
+     \item \textbf{Descrizione:} l'utente ha a disposizione varie tipologie di grafico e ne sceglie una;
      \item \textbf{Attore primario:} utente;
      \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
-     \item \textbf{Postcondizioni:} viene visualizzato il grafico desiderato;
+     \item \textbf{Postcondizioni:} viene generato il grafico desiderato;
      \item \textbf{Scenario principale:}
      \begin{enumerate}
        \item L'utente sceglie la visualizzazione desiderata tra quelle disponibili;
@@ -93,7 +93,7 @@
      \end{enumerate}
  \end{itemize}
 
-\subsection{UC5.1 - Selezione Scatter Plot}
+\subsection{UC5.1 - Generazione Scatter Plot}
 \begin{itemize}
     \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Scatter Plot} vuole vedere;
     \item \textbf{Attore primario:} utente;
@@ -105,7 +105,7 @@
     \end{enumerate}
 \end{itemize}
 
-\subsection{UC5.2 - Selezione Parallel Coordinates}
+\subsection{UC5.2 - Generazione Parallel Coordinates}
 \begin{itemize}
     \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Parallel Coordinates} vuole vedere;
     \item \textbf{Attore primario:} utente;
@@ -117,7 +117,7 @@
     \end{enumerate}
 \end{itemize}
 
-\subsection{UC5.3 - Selezione Force-Directed Graph}
+\subsection{UC5.3 - Generazione Force-Directed Graph}
 \begin{itemize}
     \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Force-Directed Graph} vuole vedere;
     \item \textbf{Attore primario:} utente;
@@ -129,7 +129,7 @@
     \end{enumerate}
 \end{itemize}
 
-\subsection{UC5.4 - Selezione Sankey Diagram}
+\subsection{UC5.4 - Generazione Sankey Diagram}
 \begin{itemize}
     \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Sankey Diagram} vuole vedere;
     \item \textbf{Attore primario:} utente;
@@ -138,6 +138,58 @@
     \item \textbf{Scenario principale:}
     \begin{enumerate}
       \item L'utente sceglie la visualizzazione desiderata tra quelle disponibili, decidendo tra varie visualizzazioni dello stesso grafico.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC5.5 - Configurazione Scatter Plot}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide la configurazione dello \textit{Scatter Plot};
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l'utente ha selezionato \textit{Scatter Plot} come grafico da visualizzare [UC5.1];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Scatter Plot} con la configurazione scelta;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente sceglie la configurazione desiderata tra quelle disponibili;
+      \item Viene visualizzato il grafico con la configurazione selezionata.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC5.6 - Configurazione Parallel Coordinates}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide la configurazione dello \textit{Parallel Coordinates};
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l'utente ha selezionato \textit{Parallel Coordinates} come grafico da visualizzare [UC5.2];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Parallel Coordinates} con la configurazione scelta;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente sceglie la configurazione desiderata tra quelle disponibili;
+      \item Viene visualizzato il grafico con la configurazione selezionata.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC5.7 - Configurazione Force-Directed Graph}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide la configurazione dello \textit{Force-Directed Graph};
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l'utente ha selezionato \textit{Force-Directed Graph} come grafico da visualizzare [UC5.3];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Force-Directed Graph} con la configurazione scelta;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente sceglie la configurazione desiderata tra quelle disponibili;
+      \item Viene visualizzato il grafico con la configurazione selezionata.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC5.8 - Configurazione Sankey Diagram}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide la configurazione dello \textit{Sankey Diagram};
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l'utente ha selezionato \textit{Sankey Diagram} come grafico da visualizzare [UC5.4];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Sankey Diagram} con la configurazione scelta;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente sceglie la configurazione desiderata tra quelle disponibili;
+      \item Viene visualizzato il grafico con la configurazione selezionata.
     \end{enumerate}
 \end{itemize}
 
