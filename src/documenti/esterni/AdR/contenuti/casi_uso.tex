@@ -193,7 +193,31 @@
     \end{enumerate}
 \end{itemize}
 
-\section{UC6 - }
+\section{UC6 - Personalizzazione visualizzazione}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{uc6.png}
+  \caption{UC6 - Personalizzazione visualizzazione}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di modificare vari aspetti del grafico;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: le modifiche apportate al grafico vengono visualizzate;
+  \item \textbf{Scenario principale}:
+   \begin{enumerate}
+    \item L'utente può impostare varie opzioni del grafico scelto;
+    \item Le opzioni scelte vengono visualizzate.
+  \end{enumerate}
+  \item \textbf{Generalizzazioni}:
+    \begin{enumerate}
+      \item Personalizzazione \textit{Scatter Plot} [UC6.1];
+      \item Personalizzazione \textit{Parallel Coordinates} [UC6.2];
+      \item Personalizzazione \textit{Force-Directed Graph} [UC6.3];
+      \item Personalizzazione \textit{Sankey Diagram} [UC6.4].
+    \end{enumerate}
+\end{itemize}
 
 \subsection{UC6.1 - Personalizzazione Scatter Plot}
 \begin{figure}[H]
@@ -240,68 +264,6 @@
       \begin{enumerate}
       \item L'utente sceglie i colori dei punti;
       \item La modifica viene applicata al grafico.
-    \end{enumerate}
-  \end{itemize}
-
-\subsection{UC6.4 - Personalizzazione Sankey Diagram}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.6\textwidth]{uc6.4.png}
-  \caption{UC6.4 - Personalizzazione Sankey Diagram}
-\end{figure}
-\begin{itemize}
-    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
-    \item \textbf{Attore primario:} utente;
-    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
-    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
-    \item \textbf{Scenario principale:}
-    \begin{enumerate}
-      \item L'utente può decidere di:
-    \begin{enumerate}
-      \item Selezionare il colore dei link [UC6.4.1];
-      \item Impostare l'opacità dei link [UC6.4.2];
-      \item Selezionare l'allinamento dei nodi [UC6.4.3].
-    \end{enumerate}
-    \item Le modifiche scelte vengono visualizzate.
-  \end{enumerate}
-  \end{itemize}
-
-  \subsubsection{UC6.4.1 - Modifica colore dei link}
-  \begin{itemize}
-    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere la colorazione dei link, cioè i collegamento tra i nodi;
-    \item \textbf{Attore primario:} utente;
-    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
-    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
-    \item \textbf{Scenario principale:}
-     \begin{enumerate}
-      \item L'utente sceglie la colorazione dei link;
-      \item La modifica viene applicata al grafico.
-    \end{enumerate}
-  \end{itemize}
-
-  \subsubsection{UC6.4.2 - Modifica opacità dei link}
-  \begin{itemize}
-    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare l'opacità dei link;
-    \item \textbf{Attore primario:} utente;
-    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
-    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
-    \item \textbf{Scenario principale:}
-      \begin{enumerate}
-      \item L'utente sceglie l'opacità dei link;
-      \item La modifica viene applicata al grafico.
-    \end{enumerate}
-  \end{itemize}
-
-  \subsubsection{UC6.4.3 - Modifica allinamento nodi}
-  \begin{itemize}
-    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere l'allineamento dei nodi;
-    \item \textbf{Attore primario:} utente;
-    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
-    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
-    \item \textbf{Scenario principale:}
-     \begin{enumerate}
-      \item L'utente sceglie l'allinamento dei nodi;
-            \item La modifica viene applicata al grafico.
     \end{enumerate}
   \end{itemize}
 
@@ -365,6 +327,130 @@
     \item La modifica viene applicata al grafico.
   \end{enumerate}
 \end{itemize}
+
+\subsection{UC6.3 - Personalizzazione Force-Directed Graph}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{uc6.3.png}
+  \caption{UC6.3 - Personalizzazione Force-Directed Graph}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Force-Directed Graph} [UC5.3];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente può decidere di:
+    \begin{enumerate}
+      \item Modificare l'intensità della forza di repulsione [UC6.3.1];
+      \item Modificare l'intensità della forza di tensione [UC6.3.2];
+      \item Modificare i colori visualizzati [UC6.3.3].
+    \end{enumerate}
+    \item Le modifiche scelte vengono visualizzate.
+  \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.3.1 - Modifica intensità della forza di repulsione}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere quale intensità della forza di repulsione adottare;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie la funzione di forza;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.3.2 - Modifica intensità della forza di tensione}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere quale intensità della forza di tensione adottare;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+      \begin{enumerate}
+      \item L'utente sceglie l'intensità delle forze;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.3.3 - Modifica colori visualizzati}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere quali colori adottare;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Force-Directed Graph [UC5.3];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie quali colori associare alle varie dimensioni;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsection{UC6.4 - Personalizzazione Sankey Diagram}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{uc6.4.png}
+  \caption{UC6.4 - Personalizzazione Sankey Diagram}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente può decidere di:
+    \begin{enumerate}
+      \item Selezionare il colore dei link [UC6.4.1];
+      \item Impostare l'opacità dei link [UC6.4.2];
+      \item Selezionare l'allinamento dei nodi [UC6.4.3].
+    \end{enumerate}
+    \item Le modifiche scelte vengono visualizzate.
+  \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.4.1 - Modifica colore dei link}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere la colorazione dei link, cioè i collegamento tra i nodi;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie la colorazione dei link;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.4.2 - Modifica opacità dei link}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare l'opacità dei link;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+      \begin{enumerate}
+      \item L'utente sceglie l'opacità dei link;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.4.3 - Modifica allinamento nodi}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere l'allineamento dei nodi;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie l'allinamento dei nodi;
+            \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
 
 \section{UC7 - Filtri sui dati}
 \begin{figure}[H]
