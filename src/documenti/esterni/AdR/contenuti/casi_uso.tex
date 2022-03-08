@@ -8,9 +8,9 @@
 \end{figure}
 \section{UC1 - Caricamento dataset}
 \begin{itemize}
-  \item \textbf{Descrizione:} l'utente vuole analizzare un nuovo dataset non presente nel sistema;
+  \item \textbf{Descrizione:} l'utente vuole analizzare un nuovo dataset$_G$ non presente nel sistema;
   \item \textbf{Attore primario:} utente;
-  \item \textbf{Precondizioni:} il sistema è raggiungibile e funzionante. L’utente ha a disposizione un dataset in formato CSV;
+  \item \textbf{Precondizioni:} il sistema è raggiungibile e funzionante. L’utente ha a disposizione un dataset in formato CSV$_G$;
   \item \textbf{Postcondizioni:} i dati presenti nel file vengono caricati nel sistema.
   \item \textbf{Scenario principale:}
   \begin{enumerate}
@@ -46,7 +46,7 @@
   \item \textbf{Scenario Principale:}
   \begin{enumerate}
     \item L'utente accede al sistema;
-    \item L'utente sceglie la sessione da caricare selezionando il file JSON desiderato tra quelli disponibili,
+    \item L'utente sceglie la sessione da caricare selezionando il file JSON$_G$ desiderato tra quelli disponibili,
     cioè tra le sessioni salvate in precedenza;
     \item L'utente riprende da dove aveva salvato.
   \end{enumerate}
@@ -86,10 +86,10 @@
      \end{enumerate}
      \item \textbf{Generalizzazioni:} l'utente può selezionare una tra le possibili opzioni:
      \begin{enumerate}
-         \item \textit{Scatter Plot} [UC5.1];
-         \item \textit{Parallel Coordinates} [UC5.2];
-         \item \textit{Force-Directed Graph} [UC5.3];
-         \item \textit{Sankey Diagram} [UC5.4].
+         \item \textit{Scatter Plot}$_G$ [UC5.1];
+         \item \textit{Parallel Coordinates}$_G$ [UC5.2];
+         \item \textit{Force-Directed Graph}$_G$ [UC5.3];
+         \item \textit{Sankey Diagram}$_G$ [UC5.4].
      \end{enumerate}
  \end{itemize}
 
@@ -131,7 +131,7 @@
 
 \subsection{UC5.4 - Generazione Sankey Diagram}
 \begin{itemize}
-    \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Sankey Diagram} vuole vedere;
+    \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Sankey Diagram}$_G$ vuole vedere;
     \item \textbf{Attore primario:} utente;
     \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
     \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Sankey Diagram} selezionato;
@@ -193,40 +193,209 @@
     \end{enumerate}
 \end{itemize}
 
+\section{UC6 - }
 
-\section{UC6 - Filtri sui dati}
+\subsection{UC6.1 - Personalizzazione Scatter Plot}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{uc6.png}
-  \caption{UC6 - Filtri sui dati}
+  \includegraphics[width=\textwidth]{uc6.1.png}
+  \caption{UC6.1 - Personalizzazione Scatter Plot}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Scatter Plot} [UC5.1];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente può decidere di:
+    \begin{enumerate}
+      \item Modificare visualizzazione dei punti [UC6.1.1];
+      \item Modificare colori dei punti  [UC6.1.2].
+    \end{enumerate}
+    \item Le modifiche scelte vengono visualizzate.
+  \end{enumerate}
+  \end{itemize}
+  
+    \subsubsection{UC6.1.1 - Modifica della visualizzazione dei punti}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare la forma e la dimensione dei punti;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Scatter Plot [UC5.1];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie la forma e la dimensione dei punti;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+  
+  \subsubsection{UC6.1.2 - Modifica colori dei punti}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere i colori dei punti;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Scatter Plot [UC5.1];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+      \begin{enumerate}
+      \item L'utente sceglie i colori dei punti;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+\subsection{UC6.4 - Personalizzazione Sankey Diagram}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{uc6.4.png}
+  \caption{UC6.4 - Personalizzazione Sankey Diagram}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente può decidere di:
+    \begin{enumerate}
+      \item Selezionare il colore dei link [UC6.4.1];
+      \item Impostare l'opacità dei link [UC6.4.2];
+      \item Selezionare l'allinamento dei nodi [UC6.4.3].
+    \end{enumerate}
+    \item Le modifiche scelte vengono visualizzate.
+  \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.4.1 - Modifica colore dei link}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere la colorazione dei link, cioè i collegamento tra i nodi;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie la colorazione dei link;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.4.2 - Modifica opacità dei link}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare l'opacità dei link;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+      \begin{enumerate}
+      \item L'utente sceglie l'opacità dei link;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.4.3 - Modifica allinamento nodi}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere l'allineamento dei nodi;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie l'allinamento dei nodi;
+            \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+\section{UC7 - Filtri sui dati}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{UC7.png}
+  \caption{UC7 - Filtri sui dati}
 \end{figure}
 
 \begin{itemize}
-  \item \textbf{Descrizione}: l'utente ha la possibilità di modificare vari aspetti visivi del grafico;
+  \item \textbf{Descrizione}: l'utente ha la possibilità di modificare la visualizzazione attraverso l'applicazione di filtri sui dati;
   \item \textbf{Attore primario}: utente;
   \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
-  \item \textbf{Postcondizioni}: le modifiche apportate al grafico vengono visualizzate;
+  \item \textbf{Postcondizioni}: i filtri applicati consentono di mostrare la nuova visualizzazione dei dati sul grafico;
   \item \textbf{Scenario principale}:
     \begin{enumerate}
-      \item L'utente può impostare i filtri da una lista automaticamente generata e il grafico viene visualizzato con le nuove caratteristiche;
-    \end{enumerate}
-  \item \textbf{Estensioni}:
-    \begin{enumerate}
-      \item L'utente inserisce dei filtri non validi [UC7].
+      \item L'utente può impostare i seguenti filtri tramite una sezione dedicata:
+        \begin{itemize}
+          \item IP [UC7.1];
+          \item Utente [UC7.2];
+          \item Evento [UC7.3];
+          \item Data [UC7.4];
+          \item Applicazione [UC7.5].
+        \end{itemize}
+      \item Il grafico mostra solo i dati con le caratteristiche corrispondenti alla scelta dei filtri.
     \end{enumerate}
 \end{itemize}
 
-\section{UC7 - Visualizzazione errore scelta filtri}
+\subsection{UC7.1 - Filtraggio per IP}
 \begin{itemize}
-  \item \textbf{Descrizione}: l'utente imposta dei filtri non validi, quindi visualizza un messaggio di errore esplicativo;
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base ad un determinato IP;
   \item \textbf{Attore primario}: utente;
-  \item \textbf{Precondizioni}: l'utente imposta dei filtri che non permettono una corretta visualizzazione del grafico;
-  \item \textbf{Postcondizioni}: l'utente visualizza un messaggio di errore e i filtri non vengono applicati;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base ad un determinato IP;
   \item \textbf{Scenario principale}:
     \begin{enumerate}
-      \item L'utente visualizza un messaggio di errore esplicativo.
+      \item L'utente inserisce l'IP desiderato;
+      \item Il grafico mostra solo i dati con l'IP corrispondente.
     \end{enumerate}
 \end{itemize}
+
+\subsection{UC7.2 - Filtraggio per utente}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base ad un determinato utente;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base ad un determinato utente;
+  \item \textbf{Scenario principale}:
+    \begin{enumerate}
+      \item L'utente inserisce il numero dell'utente desiderato;
+      \item Il grafico mostra solo i dati con il numero dell'utente corrispondente.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC7.3 - Filtraggio per evento}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base ad un determinato tipo di evento;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base ad un determinato tipo di evento;
+  \item \textbf{Scenario principale}:
+    \begin{enumerate}
+      \item L'utente inserisce il tipo di evento desiderato;
+      \item Il grafico mostra solo i dati con il tipo di evento corrispondente.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC7.4 - Filtraggio per data}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base alla data;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base alla data;
+  \item \textbf{Scenario principale}:
+    \begin{enumerate}
+      \item L'utente inserisce il periodo temporale desiderato;
+      \item Il grafico mostra solo i dati interni al periodo temporale corrispondente.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC7.5 - Filtraggio per applicazione}
+\begin{itemize}
+  \item \textbf{Descrizione}: l'utente ha la possibilità di filtrare i dati in base ad una determinata applicazione;
+  \item \textbf{Attore primario}: utente;
+  \item \textbf{Precondizioni}: l'utente ha selezionato la tipologia di grafico [UC5] e l'applicativo lo ha generato;
+  \item \textbf{Postcondizioni}: i dati visualizzati sono filtrati in base ad una determinata applicazione;
+  \item \textbf{Scenario principale}:
+    \begin{enumerate}
+      \item L'utente inserisce l'applicazione desiderata;
+      \item Il grafico mostra solo i dati relativi all'applicazione corrispondente.
+    \end{enumerate}
+\end{itemize}
+
 
 \section{UC8 - Accesso al manuale utente}
 \begin{itemize}
