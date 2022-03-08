@@ -8,9 +8,9 @@
 \end{figure}
 \section{UC1 - Caricamento dataset}
 \begin{itemize}
-  \item \textbf{Descrizione:} l'utente vuole analizzare un nuovo dataset non presente nel sistema;
+  \item \textbf{Descrizione:} l'utente vuole analizzare un nuovo dataset$_G$ non presente nel sistema;
   \item \textbf{Attore primario:} utente;
-  \item \textbf{Precondizioni:} il sistema è raggiungibile e funzionante. L’utente ha a disposizione un dataset in formato CSV;
+  \item \textbf{Precondizioni:} il sistema è raggiungibile e funzionante. L’utente ha a disposizione un dataset in formato CSV$_G$;
   \item \textbf{Postcondizioni:} i dati presenti nel file vengono caricati nel sistema.
   \item \textbf{Scenario principale:}
   \begin{enumerate}
@@ -46,7 +46,7 @@
   \item \textbf{Scenario Principale:}
   \begin{enumerate}
     \item L'utente accede al sistema;
-    \item L'utente sceglie la sessione da caricare selezionando il file JSON desiderato tra quelli disponibili,
+    \item L'utente sceglie la sessione da caricare selezionando il file JSON$_G$ desiderato tra quelli disponibili,
     cioè tra le sessioni salvate in precedenza;
     \item L'utente riprende da dove aveva salvato.
   \end{enumerate}
@@ -69,31 +69,31 @@
   \end{enumerate}
 \end{itemize}
 
-\section{UC5 - Selezione tipo di grafico}
+\section{UC5 - Generazione del grafico}
 \begin{figure}[H]
  \includegraphics[width=\textwidth]{uc5.png}
- \caption{UC5 - Selezione tipo di grafico}
+ \caption{UC5 - Generazione del grafico}
 \end{figure}
 
  \begin{itemize}
-     \item \textbf{Descrizione:} l'utente visualizza varie tipologie di grafico e ne sceglie una;
+     \item \textbf{Descrizione:} l'utente ha a disposizione varie tipologie di grafico e ne sceglie una;
      \item \textbf{Attore primario:} utente;
      \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
-     \item \textbf{Postcondizioni:} viene visualizzato il grafico desiderato;
+     \item \textbf{Postcondizioni:} viene generato il grafico desiderato;
      \item \textbf{Scenario principale:}
      \begin{enumerate}
        \item L'utente sceglie la visualizzazione desiderata tra quelle disponibili;
      \end{enumerate}
      \item \textbf{Generalizzazioni:} l'utente può selezionare una tra le possibili opzioni:
      \begin{enumerate}
-         \item \textit{Scatter Plot} [UC5.1];
-         \item \textit{Parallel Coordinates} [UC5.2];
-         \item \textit{Force-Directed Graph} [UC5.3];
-         \item \textit{Sankey Diagram} [UC5.4].
+         \item \textit{Scatter Plot}$_G$ [UC5.1];
+         \item \textit{Parallel Coordinates}$_G$ [UC5.2];
+         \item \textit{Force-Directed Graph}$_G$ [UC5.3];
+         \item \textit{Sankey Diagram}$_G$ [UC5.4].
      \end{enumerate}
  \end{itemize}
 
-\subsection{UC5.1 - Selezione Scatter Plot}
+\subsection{UC5.1 - Generazione Scatter Plot}
 \begin{itemize}
     \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Scatter Plot} vuole vedere;
     \item \textbf{Attore primario:} utente;
@@ -105,7 +105,7 @@
     \end{enumerate}
 \end{itemize}
 
-\subsection{UC5.2 - Selezione Parallel Coordinates}
+\subsection{UC5.2 - Generazione Parallel Coordinates}
 \begin{itemize}
     \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Parallel Coordinates} vuole vedere;
     \item \textbf{Attore primario:} utente;
@@ -117,7 +117,7 @@
     \end{enumerate}
 \end{itemize}
 
-\subsection{UC5.3 - Selezione Force-Directed Graph}
+\subsection{UC5.3 - Generazione Force-Directed Graph}
 \begin{itemize}
     \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Force-Directed Graph} vuole vedere;
     \item \textbf{Attore primario:} utente;
@@ -129,9 +129,9 @@
     \end{enumerate}
 \end{itemize}
 
-\subsection{UC5.4 - Selezione Sankey Diagram}
+\subsection{UC5.4 - Generazione Sankey Diagram}
 \begin{itemize}
-    \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Sankey Diagram} vuole vedere;
+    \item \textbf{Descrizione:} l'utente decide che visualizzazione di \textit{Sankey Diagram}$_G$ vuole vedere;
     \item \textbf{Attore primario:} utente;
     \item \textbf{Precondizioni:} il sistema è stato inizializzato [UC1];
     \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Sankey Diagram} selezionato;
@@ -141,6 +141,169 @@
     \end{enumerate}
 \end{itemize}
 
+\subsection{UC5.5 - Configurazione Scatter Plot}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide la configurazione dello \textit{Scatter Plot};
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l'utente ha selezionato \textit{Scatter Plot} come grafico da visualizzare [UC5.1];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Scatter Plot} con la configurazione scelta;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente sceglie la configurazione desiderata tra quelle disponibili;
+      \item Viene visualizzato il grafico con la configurazione selezionata.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC5.6 - Configurazione Parallel Coordinates}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide la configurazione dello \textit{Parallel Coordinates};
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l'utente ha selezionato \textit{Parallel Coordinates} come grafico da visualizzare [UC5.2];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Parallel Coordinates} con la configurazione scelta;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente sceglie la configurazione desiderata tra quelle disponibili;
+      \item Viene visualizzato il grafico con la configurazione selezionata.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC5.7 - Configurazione Force-Directed Graph}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide la configurazione dello \textit{Force-Directed Graph};
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l'utente ha selezionato \textit{Force-Directed Graph} come grafico da visualizzare [UC5.3];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Force-Directed Graph} con la configurazione scelta;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente sceglie la configurazione desiderata tra quelle disponibili;
+      \item Viene visualizzato il grafico con la configurazione selezionata.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{UC5.8 - Configurazione Sankey Diagram}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente decide la configurazione dello \textit{Sankey Diagram};
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l'utente ha selezionato \textit{Sankey Diagram} come grafico da visualizzare [UC5.4];
+    \item \textbf{Postcondizioni:} viene visualizzato il grafico \textit{Sankey Diagram} con la configurazione scelta;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente sceglie la configurazione desiderata tra quelle disponibili;
+      \item Viene visualizzato il grafico con la configurazione selezionata.
+    \end{enumerate}
+\end{itemize}
+
+\section{UC6 - }
+
+\subsection{UC6.1 - Personalizzazione Scatter Plot}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{uc6.1.png}
+  \caption{UC6.1 - Personalizzazione Scatter Plot}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Scatter Plot} [UC5.1];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente può decidere di:
+    \begin{enumerate}
+      \item Modificare visualizzazione dei punti [UC6.1.1];
+      \item Modificare colori dei punti  [UC6.1.2].
+    \end{enumerate}
+    \item Le modifiche scelte vengono visualizzate.
+  \end{enumerate}
+  \end{itemize}
+  
+    \subsubsection{UC6.1.1 - Modifica della visualizzazione dei punti}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare la forma e la dimensione dei punti;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Scatter Plot [UC5.1];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie la forma e la dimensione dei punti;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+  
+  \subsubsection{UC6.1.2 - Modifica colori dei punti}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere i colori dei punti;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico Scatter Plot [UC5.1];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+      \begin{enumerate}
+      \item L'utente sceglie i colori dei punti;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+\subsection{UC6.4 - Personalizzazione Sankey Diagram}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{uc6.4.png}
+  \caption{UC6.4 - Personalizzazione Sankey Diagram}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+    \begin{enumerate}
+      \item L'utente può decidere di:
+    \begin{enumerate}
+      \item Selezionare il colore dei link [UC6.4.1];
+      \item Impostare l'opacità dei link [UC6.4.2];
+      \item Selezionare l'allinamento dei nodi [UC6.4.3].
+    \end{enumerate}
+    \item Le modifiche scelte vengono visualizzate.
+  \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.4.1 - Modifica colore dei link}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere la colorazione dei link, cioè i collegamento tra i nodi;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie la colorazione dei link;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.4.2 - Modifica opacità dei link}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di modificare l'opacità dei link;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+      \begin{enumerate}
+      \item L'utente sceglie l'opacità dei link;
+      \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
+
+  \subsubsection{UC6.4.3 - Modifica allinamento nodi}
+  \begin{itemize}
+    \item \textbf{Descrizione:} l'utente ha la possibilità di scegliere l'allineamento dei nodi;
+    \item \textbf{Attore primario:} utente;
+    \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Sankey Diagram} [UC5.4];
+    \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+    \item \textbf{Scenario principale:}
+     \begin{enumerate}
+      \item L'utente sceglie l'allinamento dei nodi;
+            \item La modifica viene applicata al grafico.
+    \end{enumerate}
+  \end{itemize}
 
 \subsection{UC6.2 - Personalizzazione Parallel Coordinates}
 \begin{figure}[H]

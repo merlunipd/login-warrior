@@ -22,17 +22,33 @@ Il gruppo \textit{MERL} dopo un'attenta analisi ha individuato i seguenti requis
     RF.2.3 & L'utente deve poter caricare una sessione precedentemente salvata & Desiderabile & UC3 \\ \hline
     \rowcolor[HTML]{C0C0C0}
     RF.1.4 & Visualizzazione messaggio di errore in caso di problemi durante il caricamento della sessione & Obbligatorio & UC4 \\ \hline
-    \rowcolor[HTML]{EFEFEF}
-    RF.1.5 & L'utente deve poter selezionare il grafico da visualizzare & Obbligatorio & Capitolato - UC5 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RF.1.5.1 & L'utente deve poter selezionare il grafico \textit{Scatter Plot} & Obbligatorio & Capitolato - UC5.1 \\ \hline
+    RF.1.5.1 & L'utente deve poter selezionare il grafico \textit{Scatter Plot} tra quelli proposti& Obbligatorio & Capitolato - UC5.1 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RF.1.5.2 & L'utente deve poter selezionare il grafico \textit{Parallel Coordinates} & Obbligatorio & Capitolato - UC5.2 \\ \hline
+    RF.1.5.2 & L'utente deve poter selezionare il grafico \textit{Parallel Coordinates} tra quelli proposti& Obbligatorio & Capitolato - UC5.2 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RF.1.5.3 & L'utente deve poter selezionare il grafico \textit{Force-Direct Graph} & Obbligatorio & Capitolato - UC5.3 \\ \hline
+    RF.1.5.3 & L'utente deve poter selezionare il grafico \textit{Force-Direct Graph} tra quelli proposti& Obbligatorio & Capitolato - UC5.3 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RF.1.5.4 & L'utente deve poter selezionare il grafico \textit{Sankey Diagram} & Obbligatorio & Capitolato - UC5.4 \\ \hline
+    RF.1.5.4 & L'utente deve poter selezionare il grafico \textit{Sankey Diagram} tra quelli proposti& Obbligatorio & Capitolato - UC5.4 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RF.1.5.5 & L'utente deve poter selezionare la configurazione del grafico \textit{Scatter Plot} tra quelle proposte& Obbligatorio & UC5.5 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RF.1.5.6 & L'utente deve poter selezionare la configurazione del grafico \textit{Parallel Coordinates} tra quelle proposte& Obbligatorio & UC5.6 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RF.1.5.7 & L'utente deve poter selezionare la configurazione del grafico \textit{Force-Direct Graph} tra quelle proposte& Obbligatorio & UC5.7 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RF.1.5.8 & L'utente deve poter selezionare la configurazione del grafico \textit{Sankey Diagram} tra quelle proposte& Obbligatorio & UC5.8 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RF.2.6.1.1 & \textit{Scatter Plot}: l'utente deve poter modificare la visualizzazione dei punti & Desiderabile & UC6.1 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RF.2.6.1.2 & \textit{Scatter Plot}: l'utente deve poter scegliere i colori  & Desiderabile & UC6.1 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RF.2.6.4.1 & \textit{Sankey Diagram}: l'utente deve poter scegliere la colorazione dei link & Desiderabile & UC6.4 \\ \hline
     \rowcolor[HTML]{EFEFEF}
+    RF.2.6.4.2 & \textit{Sankey Diagram}: l'utente deve poter scegliere l'opacità dei link & Desiderabile & UC6.4 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RF.2.6.4.3 & \textit{Sankey Diagram}: l'utente deve poter scegliere l'allinamento dei link & Desiderabile & UC6.4 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
     RF.2.6.2.1 & \textit{Parallel Coordinates}: L'utente deve poter cambiare l'opacità del grafico & Desiderabile & UC6.2 \\ \hline
     \rowcolor[HTML]{EFEFEF}
     RF.2.6.2.2 & \textit{Parallel Coordinates}: L'utente deve poter cambiare la curvatura delle linee & Desiderabile & UC6.2 \\ \hline
@@ -97,7 +113,7 @@ Il gruppo \textit{MERL} dopo un'attenta analisi ha individuato i seguenti requis
     \rowcolor[HTML]{EFEFEF}
     RV.1.3 & Il prodotto finale deve essere in grado di analizzare file \textit{CSV} & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RV.3.4 & Deve essere utilizzata la libreria \textit{D3.js} & Opzionale & Capitolato \\ \hline
+    RV.3.4 & Deve essere utilizzata la libreria \textit{D3.js}$_G$ & Opzionale & Capitolato \\ \hline
     \rowcolor[HTML]{EFEFEF}
     RV.1.5 & Il prodotto finale è supportato dai seguenti browser: \textit{Chrome 61}, \textit{Edge 16}, \textit{Firefox 60}, \textit{Opera 48}, \textit{Safari 10.1} & Obbligatorio & \textit{Javascript Modules} \\ \hline
 
@@ -107,7 +123,7 @@ Il gruppo \textit{MERL} dopo un'attenta analisi ha individuato i seguenti requis
 \end{center}
 
 \section{Requisiti Prestazionali}
-Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante l'analisi del capitolato e delle richieste del proponente.
+Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante l'analisi del capitolato e delle richieste del proponente$_G$.
 
 
 \section{Tracciamento}
@@ -140,7 +156,12 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
     \rowcolor[HTML]{C0C0C0}
     UC5.4 & RF.1.5.4 \\ \hline
     \rowcolor[HTML]{C0C0C0}
+    UC6.1 & RF.2.6.1.1 RF.2.6.1.2 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
     UC6.2 & RF.2.6.2.1 RF.2.6.2.2 RF.2.6.2.3  \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    UC6.4 & RF.2.6.4.1 RF.2.6.4.2 RF.2.6.4.3  \\ \hline
+    \rowcolor[HTML]{EFEFEF}
     \rowcolor[HTML]{EFEFEF}
     UC7 & RF.2.7 \\ \hline
     \rowcolor[HTML]{C0C0C0}
@@ -192,11 +213,21 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
     \rowcolor[HTML]{EFEFEF}
     RF.1.5.4 & Capitolato - UC5.4 \\ \hline
     \rowcolor[HTML]{C0C0C0}
+    RF.2.6.1.1 & UC6.1 \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RF.2.6.1.2 & UC6.1 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
     RF.2.6.2.1 & UC6.2 \\ \hline
     \rowcolor[HTML]{EFEFEF}
     RF.2.6.2.2 & UC6.2 \\ \hline
     \rowcolor[HTML]{EFEFEF}
     RF.2.6.2.3 & UC6.2 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RF.2.6.4.1 & UC6.4 \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RF.2.6.4.2 & UC6.4 \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RF.2.6.4.3 & UC6.4 \\ \hline
     \rowcolor[HTML]{C0C0C0}
     RF.2.7 & UC7 \\ \hline
     \rowcolor[HTML]{EFEFEF}
