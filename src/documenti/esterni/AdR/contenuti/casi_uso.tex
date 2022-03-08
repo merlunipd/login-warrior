@@ -305,6 +305,67 @@
     \end{enumerate}
   \end{itemize}
 
+\subsection{UC6.2 - Personalizzazione Parallel Coordinates}
+\begin{figure}[H]
+ \includegraphics[width=\textwidth]{UC62.png}
+ \caption{UC6.2 - Personalizzazione Parallel Coordinates}
+\end{figure}
+\begin{itemize}
+  \item \textbf{Descrizione:} l'utente ha la possibilità di modificare vari aspetti del grafico;
+  \item \textbf{Attore primario:} utente;
+  \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Parallel Coordinates} [UC5.2];
+  \item \textbf{Postcondizioni:} le modifiche apportate al grafico vengono visualizzate;
+  \item \textbf{Scenario principale:}
+  \begin{enumerate}
+    \item L'utente può decidere di:
+  \begin{itemize}
+    \item Cambiare l'opacità del grafico [UC6.2.1];
+    \item Cambiare la curvatura delle linee [UC6.2.2];
+    \item Cambiare la forza di raggruppamento delle linee [UC6.2.3].
+  \end{itemize}
+  \item Le modifiche scelte vengono visualizzate.
+\end{enumerate}
+\end{itemize}
+
+\subsubsection{UC6.2.1 - Modifica opacità del grafico}
+\begin{itemize}
+  \item \textbf{Descrizione:} l'utente ha la possibilità di cambiare l'opacità del grafico;
+  \item \textbf{Attore primario:} utente;
+  \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Parallel Coordinates} [UC5.2];
+  \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+  \item \textbf{Scenario principale:}
+    \begin{enumerate}
+    \item L'utente sceglie il grado di opacità;
+    \item La modifica viene applicata al grafico.
+  \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC6.2.2 - Modifica curvatura delle linee}
+\begin{itemize}
+  \item \textbf{Descrizione:} l'utente ha la possibilità di cambiare la curvatura delle linee;
+  \item \textbf{Attore primario:} utente;
+  \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Parallel Coordinates} [UC5.2];
+  \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+  \item \textbf{Scenario principale:}
+    \begin{enumerate}
+    \item L'utente sceglie se avere delle linee più curve o più rette;
+    \item La modifica viene applicata al grafico.
+  \end{enumerate}
+\end{itemize}
+
+\subsubsection{UC6.2.3 - Modifica forza di raggruppamento delle linee}
+\begin{itemize}
+  \item \textbf{Descrizione:} l'utente ha la possibilità di cambiare la forza di raggruppamento delle linee;
+  \item \textbf{Attore primario:} utente;
+  \item \textbf{Precondizioni:} l’utente ha scelto il grafico \textit{Parallel Coordinates} [UC5.2];
+  \item \textbf{Postcondizioni:} il grafico viene aggiornato;
+  \item \textbf{Scenario principale:}
+    \begin{enumerate}
+    \item L'utente sceglie quanto deve essere forte il raggruppamento tra le linee del grafico;
+    \item La modifica viene applicata al grafico.
+  \end{enumerate}
+\end{itemize}
+
 \section{UC7 - Filtri sui dati}
 \begin{figure}[H]
   \centering
