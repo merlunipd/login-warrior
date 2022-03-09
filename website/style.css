@@ -64,6 +64,11 @@ section h1 {
   word-break: break-word;
 }
 
+.tag-versione {
+  font-size: 0.8em;
+  color: gray;
+}
+
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
