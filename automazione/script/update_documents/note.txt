@@ -1,0 +1,5 @@
+Per modificare la versione dei documenti è necessario:
+- Cambiare il nome ai file latex, ad esempio "AdR_V1.tex" che genererà "AdR_V1.pdf";
+- Cambiare i nomi dei file nella configurazione del main.py (variabile PATH_DOCUMENTI alla riga 40)
+- Cambiare i link nel file "login-warrior\automazione\script\update_documents\index.html"
+- Cambiare le versioni indicate negli span nel file "login-warrior\automazione\script\update_documents\index.html"
