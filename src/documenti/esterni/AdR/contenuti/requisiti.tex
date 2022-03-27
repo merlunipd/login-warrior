@@ -3,7 +3,7 @@
 \renewcommand\arraystretch{1,5}
 
 \section{Introduzione}
-Il gruppo \textit{MERL} dopo un'attenta analisi ha individuato i seguenti requisiti che il prodotto finale andrà a soddisfare. Questi sono organizzati in forma tabellare e la loro struttura segue le regole definite nel documento \textit{Norme di Progetto}.
+Il gruppo \textit{MERL} dopo un'attenta analisi ha individuato i seguenti requisiti che il prodotto finale andrà a soddisfare. Questi sono organizzati in forma tabellare e la loro struttura segue le regole definite nel documento \textit{Norme di Progetto V1.0.0}.
 
 \section{Requisiti Funzionali}
 
@@ -98,7 +98,7 @@ Il gruppo \textit{MERL} dopo un'attenta analisi ha individuato i seguenti requis
     \rowcolor[HTML]{C0C0C0}
     RQ.1.4 & Il codice sorgente deve essere presente su una repository in \textit{GitHub} o in altri repository pubblici & Obbligatorio & Capitolato \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RQ.1.5 & Il prodotto deve essere sviluppato seguendo le \textit{Norme di Progetto} & Obbligatorio & \textit{Norme di Progetto} \\ \hline
+    RQ.1.5 & Il prodotto deve essere sviluppato seguendo le \textit{Norme di Progetto V1.0.0} & Obbligatorio & \textit{Norme di Progetto V1.0.0} \\ \hline
 
     \caption{Tabella dei requisiti di qualità}
   \end{longtable}
@@ -121,8 +121,16 @@ Il gruppo \textit{MERL} dopo un'attenta analisi ha individuato i seguenti requis
     \rowcolor[HTML]{C0C0C0}
     RV.3.4 & Deve essere utilizzata la libreria \textit{D3.js}$_G$ & Opzionale & Capitolato \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RV.1.5 & Il prodotto finale è supportato dai seguenti browser: \textit{Chrome 61}, \textit{Edge 16}, \textit{Firefox 60}, \textit{Opera 48}, \textit{Safari 10.1} & Obbligatorio & \textit{Javascript Modules} \\ \hline
-
+    RV.1.5 & Il prodotto finale deve essere supportato dal browser \textit{Chrome 61} & Obbligatorio & \textit{Javascript Modules} \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RV.1.6 & Il prodotto finale deve essere supportato dal browser \textit{Edge 16} & Obbligatorio & \textit{Javascript Modules} \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RV.1.7 & Il prodotto finale deve essere supportato dal browser \textit{Firefox 60} & Obbligatorio & \textit{Javascript Modules} \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RV.1.8 & Il prodotto finale deve essere supportato dal browser \textit{Opera 48} & Obbligatorio & \textit{Javascript Modules} \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RV.1.9 & Il prodotto finale deve essere supportato dal browser \textit{Safari 10.1} & Obbligatorio & \textit{Javascript Modules} \\ \hline
+    
 
     \caption{Tabella dei requisiti di vincolo}
   \end{longtable}
@@ -186,9 +194,9 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
     \rowcolor[HTML]{C0C0C0}
     UC9 & RF.2.9 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    \textit{Norme di Progetto} & RQ.1.5 \\ \hline
+    \textit{Norme di Progetto V1.0.0} & RQ.1.5 \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    R.V.1.2 & RV.1.5 \\ \hline
+    \textit{Javascript Modules} & RV.1.5 - RV.1.6 - RV.1.7 - RV.1.8 - RV.1.9 \\ \hline
 
     \caption{Tabella di tracciamento fonte-requisiti}
   \end{longtable}
@@ -266,7 +274,7 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
     \rowcolor[HTML]{C0C0C0}
     RQ.1.4 & Capitolato \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    RQ.1.5 & \textit{Norme di Progetto} \\ \hline
+    RQ.1.5 & \textit{Norme di Progetto V1.0.0} \\ \hline
     \rowcolor[HTML]{C0C0C0}
     RV.1.1 & Capitolato \\ \hline
     \rowcolor[HTML]{EFEFEF}
@@ -276,7 +284,15 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
     \rowcolor[HTML]{EFEFEF}
     RV.3.4 & Capitolato \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    RV.1.5 & RV.1.2 \\ \hline
+    RV.1.5 & \textit{Javascript Modules} \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RV.1.6 & \textit{Javascript Modules} \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RV.1.7 & \textit{Javascript Modules} \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    RV.1.8 & \textit{Javascript Modules} \\ \hline
+    \rowcolor[HTML]{C0C0C0}
+    RV.1.9 & \textit{Javascript Modules} \\ \hline
 
     \caption{Tabella di tracciamento requisito-fonti}
   \end{longtable}
@@ -296,7 +312,7 @@ Il gruppo \textit{MERL} non ha individuato alcun requisito prestazionale durante
     \rowcolor[HTML]{C0C0C0}
     Di Qualità & 5 & 0 & 0 & 5 \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    Di Vincolo & 4 & 0 & 1 & 5 \\ \hline
+    Di Vincolo & 8 & 0 & 1 & 9 \\ \hline
     \rowcolor[HTML]{C0C0C0}
     Prestazionale & 0 & 0 & 0 & 0 \\ \hline
 
