@@ -2,59 +2,44 @@
 Per garantire un prodotto stabile e di qualità entro i costi e tempi stabiliti nel \textit{Piano di Progetto}, il gruppo \textit{MERL} ha deciso di adottare lo standard \textit{SPICE}$_G$. Questo standard garantisce la qualità di tutti i processi attraverso una definizione chiara degli obiettivi e di soglie minime prestabilite da rispettare.
 Per quanto riguarda il miglioramento continuo nella qualità dei processi si è deciso di utilizzare il \textit{Ciclo di Deming}, questo garantisce una qualità tesa al miglioramento continuo dei processi e all'utilizzo ottimale delle risorse, e prevede una costante integrazione tra ricerca, progettazione, verifica$_G$ e produzione.
 
-\section{Processi di sviluppo}
-\subsection{Sviluppo - obiettivi}
+\section{Processi Primari}
 \begin{table}[H]
   \renewcommand{\arraystretch}{1.25}
-  \begin{tabular}{|p{2.5cm}|p{8cm}|p{1.7cm}|} \hline
+  \begin{tabular}{|p{2.5cm}|p{8cm}|p{3cm}|} \hline
     \rowcolor[HTML]{036400}
     \textcolor{white}{\textbf{Obiettivo}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Metrica}}  \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    Percentuale requisiti &  &      \\ \hline
+    Fornitura & Scelta delle risorse e delle procedure atte al perseguimento dello sviluppo del progetto & MPC1, MPC2, \newline MPC3, MPC4, \newline MPC5, MPC6 \newline MPC7     \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    Accoppiamento classi &  &   \\ \hline
-    \rowcolor[HTML]{EFEFEF}
-    Profondità gerarchia &  & MPC4     \\ \hline
-    \rowcolor[HTML]{C0C0C0}
-    Numero parametri per metodo &  &   \\ \hline
-  \end{tabular}
-  \caption{Tabella qualità processi organizzativi}
-\end{table}
-
-
-\section{Processi organizzativi}
-\subsection{Gestione organizzativa - obiettivi}
-\begin{table}[H]
-  \renewcommand{\arraystretch}{1.25}
-  \begin{tabular}{|p{2.5cm}|p{8cm}|p{1.7cm}|} \hline
-    \rowcolor[HTML]{036400}
-    \textcolor{white}{\textbf{Obiettivo}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Metrica}}  \\ \hline
-    \rowcolor[HTML]{EFEFEF}
-    Budget & Evitare differenze eccessive rispetto al costo preventivato & MPC1 \newline MPC2 \newline MPC3     \\ \hline
-    \rowcolor[HTML]{C0C0C0}
-    Formazione & Ciascun componente del gruppo deve possedere un livello adeguato di preparazione, per cercare di evitare ritardi nella produzione   & \    \\ \hline
-    \rowcolor[HTML]{EFEFEF}
-    Calendario & Assicurare una pianificazione adatta ai compiti da svolgere, con conseguente massimizzazione dell'efficienza$_G$ della produzione  & MPC4       \\ \hline
-    \rowcolor[HTML]{C0C0C0}
-    Accuratezza Pianificazione &  & \    \\ \hline
-    
+    Sviluppo & Attività e compiti per realizzare il prodotto software richiesto & MPC8, MPC9 \\ \hline
   \end{tabular}
   \caption{Tabella qualità processi organizzativi}
 \end{table}
 
 
 \section{Processi di supporto}
-\subsection{Verifica - obiettivi}
 \begin{table}[H]
   \renewcommand{\arraystretch}{1.25}
   \begin{tabular}{|p{2.5cm}|p{8cm}|p{1.7cm}|} \hline
     \rowcolor[HTML]{036400}
     \textcolor{white}{\textbf{Obiettivo}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Metrica}}  \\ \hline
     \rowcolor[HTML]{EFEFEF}
-    Code Coverage &  &   \\ \hline
+    Verifica & Controllo dello sviluppo software lato codifica & MPC10, MPC11, MPC12  \\ \hline
     \rowcolor[HTML]{C0C0C0}
-    Indice Gulpease &   & \    \\ \hline
-    
+    Gestione qualita & Garantire gli obiettivi di qualità del prodotto e dei servizi che offre & MPC13  \\ \hline
+  \end{tabular}
+  \caption{Tabella qualità processi organizzativi}
+\end{table}
+
+
+\section{Processi Organizzativi}
+\begin{table}[H]
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabular}{|p{2.5cm}|p{8cm}|p{1.7cm}|} \hline
+    \rowcolor[HTML]{036400}
+    \textcolor{white}{\textbf{Obiettivo}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Metrica}}  \\ \hline
+    \rowcolor[HTML]{EFEFEF}
+    Gestione organizzativa & Modalità di coordinamento del gruppo & MPC14 \\ \hline
   \end{tabular}
   \caption{Tabella qualità processi organizzativi}
 \end{table}
@@ -67,19 +52,33 @@ Per quanto riguarda il miglioramento continuo nella qualità dei processi si è 
     \rowcolor[HTML]{036400}
     \textcolor{white}{\textbf{Metrica}} & \textcolor{white}{\textbf{Nome}} & \textcolor{white}{\textbf{Valore Accettabile}} & \textcolor{white}{\textbf{Valore Ottimale}}    \\ \hline
       \rowcolor[HTML]{EFEFEF}
-      MPC1 & Budget at Completion & Errore del +/- 5\% rispetto al preventivo & Corrispondente al preventivo \\ \hline
+      MPC1 & Estimated at Completion (EAC)&  Errore del +/- 5\% rispetto al preventivo & Corrispondente al preventivo   \\ \hline
       \rowcolor[HTML]{C0C0C0}
-      MPC2 & Budget Variance    &  +/- 10\% rispetto al preventivo & 0\% rispetto al preventivo     \\ \hline
+      MPC2 & Budget Variance (BV) & +/- 10\%  & $\leq$0\%    \\ \hline
       \rowcolor[HTML]{EFEFEF}
-      MPC3 & Actual Cost    & Minore del budget totale  & Corrispondente al preventivo     \\ \hline
+      MPC3 & Actual Cost (AC)   & $\geq$0  & $\leq$EAC    \\ \hline
       \rowcolor[HTML]{C0C0C0}
-      MPC4 & Schedule Variance & 7 giorni di ritardo/anticipo & 0 giorni di ritardo/anticipo     \\ \hline
+      MPC4 & Schedule Variance (SV) & 7 giorni di ritardo/anticipo & 0 giorni di ritardo/anticipo     \\ \hline
       \rowcolor[HTML]{EFEFEF}
-      MPCX1 & Earned Value    &   &    \\ \hline
+      MPC5 & Earned Value (EV) & $\geq$0  & $\leq$EAC   \\ \hline
       \rowcolor[HTML]{C0C0C0}
-      MPCX2 & Planned Value &  &    \\ \hline
+      MPC6 & Planned Value (PV) & $\geq$0 & $\leq$ Budget at Completion   \\ \hline
       \rowcolor[HTML]{EFEFEF}
-      MPCX3 & Cost Variance    &   &    \\ \hline
+      MPC7 & Estimate to Complete (ETC) & $\geq$0  & $\leq$EAC   \\ \hline
+      \rowcolor[HTML]{C0C0C0}
+      MPC8 & Requirements stability index (RSI) & 70\% & 100\%   \\ \hline
+      \rowcolor[HTML]{EFEFEF}
+      MPC9 & Satisfied obligatory requirements (SOR) & 100\%  & 100\%   \\ \hline
+      \rowcolor[HTML]{C0C0C0}
+      MPC10 & Code Coverage (CC)& 75\% & 92\%   \\ \hline
+      \rowcolor[HTML]{EFEFEF}
+      MPC11 & Passed test cases percentage (PTCP) & $\geq$90\%  &  100\%  \\ \hline
+      \rowcolor[HTML]{C0C0C0}
+      MPC12 & Failed test cases percentage (FTCP) & $\leq$10\% &  0\% \\ \hline
+      \rowcolor[HTML]{EFEFEF}
+      MPC13 & Quality Metrics Satisfied (QMS) & $\geq$90\%  & 100\%   \\ \hline
+      \rowcolor[HTML]{C0C0C0}
+      MPC14 & Non-calculated risk & $\leq$ 5& 0   \\ \hline
   \end{tabular}
   \caption{Tabella riassuntiva delle metriche}
 \end{table}
