@@ -1,16 +1,17 @@
 \section{Diario della riunione}
 \begin{itemize}
-  \item Aggiornamento del proponente sulle attività svolte fino ad oggi e sulla revisione da poco superata. Il proponente ha voluto approfondire i casi d'uso dell'\textit{Analisi dei Requisiti}
+  \item Aggiornamento del proponente sulle attività svolte fino a oggi e sulla revisione da poco superata. Il proponente ha voluto approfondire i casi d'uso dell'\textit{Analisi dei Requisiti}
     suggerendoci di vedere ciascun caso come un compito o desiderio dell'utente, questo comporta che il caso non può essere al passato e, inoltre, facilita l'individuazione;
   \item Il proponente ha sottolineato l'importanza di campionare il dataset vista la dimensione di quest'ultimo. Per questo è necessario:
     \begin{itemize}
       \item Individuare uno o più criteri per ridurre il dataset prima della produzione di un grafico;
       \item Prevedere la possibilità di ricampionare il dataset anche dopo la produzione di un grafico. Per esempio, il proponente si è immaginato un bottone che nella pagina di un grafico permetta il ricampionamento e quindi la modifica della visualizzazione;
-      \item SVG o Canvas non sembra essere una questione importante. Il proponente preferisce SVG e dice di concentrarsi sul campionamento dei dati poichè quest'ultimo dovrebbe impedire tempi elevati di elaborazione e grafici non comprensibili.
+      \item SVG o Canvas non sembra essere una questione importante. Il proponente preferisce SVG e dice di concentrarsi sul campionamento dei dati poiché quest'ultimo dovrebbe impedire tempi elevati di elaborazione e grafici non comprensibili;
+      \item Valutare la possibilità di rappresentare i punti con un diametro minore per avere un grafico più chiaro e per evitare un'eccessiva sovrapposizione.
     \end{itemize}
-  \item Il proponente ha suggerito di dividere la colonna data che nel dataset presenta giorno e ora;
+  \item Il proponente ha suggerito di dividere la colonna data che nel dataset presenta giorno e ora. Inoltre, ha suggerito di considerare anche il giorno della settimana;
   \item Per quanto riguarda il pattern architetturale, risultano simili tra loro MVC, MVP, MVVM e per questo l'importante è porre attenzione nel dividere correttamente modello e vista. 
-    Il proponente, dopo aver osservato un esempio del modello che avevamo pensato e averlo ritenuto non corretto, ha voluto consigliarci di pensare sempre di avere più di una vista. Queste viste che hanno un unico modello devono essere modificate in base al cambiamento di qust'ultimo.
-    Tutto questo sottolinea che nel modello devono esserci solo i dati ed eventualmente il campionamento di questi, ma tutto quello che riguarda la rappresentazione grafica non deve stare in esso.
+    Il proponente, dopo aver osservato un esempio del modello che avevamo pensato e averlo ritenuto non corretto, ha voluto consigliarci di pensare sempre di avere più di una vista. Queste viste che hanno un unico modello devono essere modificate in base al cambiamento di quest'ultimo.
+    Tutto questo sottolinea che nel modello devono esserci solo i dati ed eventualmente il campionamento di questi, ma tutto quello che riguarda la rappresentazione grafica non deve stare in esso;
   \item Può essere utile inserire qualche tabella che rappresenta i dati in un altro modo rispetto ai grafici.
 \end{itemize}
