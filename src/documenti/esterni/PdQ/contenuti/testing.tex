@@ -56,7 +56,7 @@ Per assicurarsi di raggiungere dei buoni livelli di qualità del prodotto, il gr
             \rowcolor[HTML]{C0C0C0}
             TI2 & Verificare il dataset presente nel database sia raggiungibile. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TI3 & Verificare che la chisura del collegamento con il database avvenga correttamente. & NI\\ \hline
+            TI3 & Verificare che la chiusura del collegamento con il database avvenga correttamente. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
             TI4 & Verificare che l’integrazione con la libreria di visualizzazione dei grafici sia gestita correttamente. & NI\\ \hline   
             \caption{Tabella dei test di integrazione}
@@ -69,42 +69,54 @@ Per assicurarsi di raggiungere dei buoni livelli di qualità del prodotto, il gr
         \centering
         \begin{longtable}{|p{1.5cm}|p{11cm}|p{1cm}|}
         \hline
-    \rowcolor[HTML]{EFEFEF}
-            TR1 & Verificare che i dati vengano inseriti correttamente ne sistema. & NI\\ \hline
+        \rowcolor[HTML]{036400}
+        \textcolor{white}{\textbf{Codice}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Stato}} \\ \hline
             \rowcolor[HTML]{C0C0C0}
+            TR1 & Verificare che i dati vengano inseriti correttamente nel sistema. & NI\\ \hline
+            \rowcolor[HTML]{EFEFEF}
             TR2 & Verificare che venga visualizzato a schermo un messaggio d’esito dell’operazione di caricamento di un file CSV.& NI\\ \hline
-            \rowcolor[HTML]{EFEFEF}
-            TR3 & Verificare che l’utente possa selezionare la configurazione del grafico Scatter Plot. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TR4 & Verificare che l’utente possa selezionare la configurazione del grafico Parallel Coordinates. & NI\\ \hline
+            TR3 & Verificare che venga visualizzato a schermo un messaggio d’esito dell’operazione di caricamento di un file JSON.& NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TR5 & Verificare che l’utente possa selezionare la configurazione del grafico Force-Direct Graph. & NI\\ \hline
+            TR4 & Verificare che l’utente possa selezionare la configurazione del grafico Scatter Plot. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TR6 & Verificare che l’utente possa selezionare la configurazione del grafico Sankey Diagram. & NI\\ \hline
+            TR5 & Verificare che l’utente possa selezionare la configurazione del grafico Parallel Coordinates. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TR7 & Verificare che l’utente possa selezionare la configurazione del grafico Scatter Plot. & NI\\ \hline
+            TR6 & Verificare che l’utente possa selezionare la configurazione del grafico Force-Direct Graph. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TR8 & Verificare che l’utente possa apportare modifiche al grafico Scatter Plot. & NI\\ \hline
+            TR7 & Verificare che l’utente possa selezionare la configurazione del grafico Sankey Diagram. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TR9 & Verificare che l’utente possa apportare modifiche al grafico Parallel Coordinates. & NI\\ \hline
+            TR8 & Verificare che l’utente possa selezionare la configurazione del grafico Scatter Plot. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TR10 & Verificare che l’utente possa apportare modifiche al grafico Force-Direct Graph. & NI\\ \hline
+            TR9 & Verificare che l’utente possa apportare modifiche al grafico Scatter Plot. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TR11 & Verificare che l’utente possa apportare modifiche al grafico Sankey Diagram. & NI\\ \hline
+            TR10 & Verificare che l’utente possa apportare modifiche al grafico Parallel Coordinates. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TR12 & Verificare che l’utente possa applicare i filtri al grafico Scatter Plot. & NI\\ \hline
+            TR11 & Verificare che l’utente possa apportare modifiche al grafico Force-Direct Graph. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TR13 & Verificare che l’utente possa applicare i filtri al grafico Parallel Coordinates. & NI\\ \hline
+            TR12 & Verificare che l’utente possa apportare modifiche al grafico Sankey Diagram. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TR14 & Verificare che l’utente possa applicare i filtri al grafico Force-Direct Graph. & NI\\ \hline
+            TR13 & Verificare che l’utente possa applicare i filtri al grafico Scatter Plot. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TR15 & Verificare che l’utente possa applicare i filtri al grafico Sankey Diagram. & NI\\ \hline
+            TR14 & Verificare che l’utente possa applicare i filtri al grafico Parallel Coordinates. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TR16 & Verificare che l’utente possa consultare il manuale. & NI\\ \hline
+            TR15 & Verificare che l’utente possa applicare i filtri al grafico Force-Direct Graph. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TR17 & Verificare che l’utente possa salvare la sessione di lavoro in corso o ripristinarne una precedente. & NI\\ \hline
+            TR16 & Verificare che l’utente possa applicare i filtri al grafico Sankey Diagram. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TR18 & Verificare la compatibilità dell'applicazione con i browser. & NI\\ \hline
+            TR17 & Verificare che l’utente possa consultare il manuale. & NI\\ \hline
+            \rowcolor[HTML]{EFEFEF}
+            TR18 & Verificare che l’utente possa salvare la sessione di lavoro in corso o ripristinarne una precedente. & NI\\ \hline
+            \rowcolor[HTML]{C0C0C0}
+            TR19 & Verificare che l'applicazione sia compatibile con il browser \textit{Chrome} dalla versione 61. & NI\\ \hline
+            \rowcolor[HTML]{EFEFEF}
+            TR20 & Verificare che l'applicazione sia compatibile con il browser \textit{Edge} dalla versione 16. & NI\\ \hline
+            \rowcolor[HTML]{C0C0C0}
+            TR21 & Verificare che l'applicazione sia compatibile con il browser \textit{Firefox} dalla versione 60. & NI\\ \hline
+            \rowcolor[HTML]{EFEFEF}
+            TR22 & Verificare che l'applicazione sia compatibile con il browser \textit{Opera} dalla versione 48. & NI\\ \hline
+            \rowcolor[HTML]{C0C0C0}
+            TR23 & Verificare che l'applicazione sia compatibile con il browser \textit{Safari} dalla versione 10.1. & NI\\ \hline
             \caption{Tabella dei test di regressione}
         \end{longtable}
     \end{center}
@@ -118,53 +130,57 @@ Per assicurarsi di raggiungere dei buoni livelli di qualità del prodotto, il gr
         \hline
         \rowcolor[HTML]{036400}
         \textcolor{white}{\textbf{Codice}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Stato}} \\ \hline
+            \rowcolor[HTML]{C0C0C0}
+            TS1F1 & Verificare che l’utente possa caricare dei dati nel sistema tramite file CSV. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F1 & Verificare che l’utente possa caricare dei dati nel sistema tramite file CSVG. & NI\\ \hline
+            TS1F2 & Verificare che l’utente possa caricare dei dati nel sistema tramite file JSON. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F2 & Verificare che all’utente venga visualizzato a schermo un messaggio d’esito dell’operazione di caricamento di un file CSV.& NI\\ \hline
+            TS1F3 & Verificare che all’utente venga visualizzato a schermo un messaggio d’esito dell’operazione di caricamento di un file CSV.& NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F3 & Verificare che l’utente possa selezionare la configurazione del grafico Scatter Plot. & NI\\ \hline
+            TS1F4 & Verificare che all’utente venga visualizzato a schermo un messaggio d’esito dell’operazione di caricamento di un file JSON.& NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F4 & Verificare che l’utente possa selezionare la configurazione del grafico Parallel Coordinates. & NI\\ \hline
+            TS1F5 & Verificare che l’utente possa selezionare la configurazione del grafico Scatter Plot. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F5 & Verificare che l’utente possa selezionare la configurazione del grafico Force-Direct Graph. & NI\\ \hline
+            TS1F6 & Verificare che l’utente possa selezionare la configurazione del grafico Parallel Coordinates. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F6 & Verificare che l’utente possa selezionare la configurazione del grafico Sankey Diagram. & NI\\ \hline
-            \rowcolor[HTML]{C0C0C0}
-            TS2F7 & Verificare che l’utente possa apportare modifiche al grafico Scatter Plot. & NI\\ \hline
+            TS1F7 & Verificare che l’utente possa selezionare la configurazione del grafico Force-Direct Graph. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS2F8 & Verificare che l’utente possa apportare modifiche al grafico Parallel Coordinates. & NI\\ \hline
+            TS1F8 & Verificare che l’utente possa selezionare la configurazione del grafico Sankey Diagram. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS2F9 & Verificare che l’utente possa apportare modifiche al grafico Force-Direct Graph. & NI\\ \hline
+            TS2F9 & Verificare che l’utente possa apportare modifiche al grafico Scatter Plot. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS2F10 & Verificare che l’utente possa apportare modifiche al grafico Sankey Diagram. & NI\\ \hline
+            TS2F10 & Verificare che l’utente possa apportare modifiche al grafico Parallel Coordinates. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS2F11 & Verificare che l’utente possa applicare i filtri al grafico Scatter Plot. & NI\\ \hline
+            TS2F11 & Verificare che l’utente possa apportare modifiche al grafico Force-Direct Graph. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS2F12 & Verificare che l’utente possa applicare i filtri al grafico Parallel Coordinates. & NI\\ \hline
+            TS2F12 & Verificare che l’utente possa apportare modifiche al grafico Sankey Diagram. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS2F13 & Verificare che l’utente possa applicare i filtri al grafico Force-Direct Graph. & NI\\ \hline
+            TS2F13 & Verificare che l’utente possa applicare i filtri al grafico Scatter Plot. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS2F14 & Verificare che l’utente possa applicare i filtri al grafico Sankey Diagram. & NI\\ \hline
+            TS2F14 & Verificare che l’utente possa applicare i filtri al grafico Parallel Coordinates. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS2F15 & Verificare che l’utente possa consultare il manuale. & NI\\ \hline
+            TS2F15 & Verificare che l’utente possa applicare i filtri al grafico Force-Direct Graph. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS2F16 & Verificare che l’utente possa salvare la sessione di lavoro in corso o ripristinarne una precedente. & NI\\ \hline
+            TS2F16 & Verificare che l’utente possa applicare i filtri al grafico Sankey Diagram. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F17 & Verificare che l'applicazione sia compatibile con il browser \textit{Chrome} dalla versione 61. & NI\\ \hline
+            TS2F17 & Verificare che l’utente possa consultare il manuale. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F18 & Verificare che l'applicazione sia compatibile con il browser \textit{Edge} dalla versione 16. & NI\\ \hline
+            TS2F18 & Verificare che l’utente possa salvare la sessione di lavoro in corso o ripristinarne una precedente. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F19 & Verificare che l'applicazione sia compatibile con il browser \textit{Firefox} dalla versione 60. & NI\\ \hline
+            TS1F19 & Verificare che l'applicazione sia compatibile con il browser \textit{Chrome} dalla versione 61. & NI\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F20 & Verificare che l'applicazione sia compatibile con il browser \textit{Opera} dalla versione 48. & NI\\ \hline
+            TS1F20 & Verificare che l'applicazione sia compatibile con il browser \textit{Edge} dalla versione 16. & NI\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F21 & Verificare che l'applicazione sia compatibile con il browser \textit{Safari} dalla versione 10.1. & NI\\ \hline
+            TS1F21 & Verificare che l'applicazione sia compatibile con il browser \textit{Firefox} dalla versione 60. & NI\\ \hline
+            \rowcolor[HTML]{EFEFEF}
+            TS1F22 & Verificare che l'applicazione sia compatibile con il browser \textit{Opera} dalla versione 48. & NI\\ \hline
+            \rowcolor[HTML]{C0C0C0}
+            TS1F23 & Verificare che l'applicazione sia compatibile con il browser \textit{Safari} dalla versione 10.1. & NI\\ \hline
             \caption{Tabella dei test di sistema}
         \end{longtable}
     \end{center}
 
-    \subsection{Tracciemento dei test di sistema }
+    \subsection{Tracciamento dei test di sistema }
     \begin{center}
         \renewcommand\arraystretch{1.5}
         \centering
@@ -173,48 +189,48 @@ Per assicurarsi di raggiungere dei buoni livelli di qualità del prodotto, il gr
         \rowcolor[HTML]{036400}
         \textcolor{white}{\textbf{Codice}} & \textcolor{white}{\textbf{Requisito}} \\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F1 & RF.1.1\\ \hline
+            TS1F1, TS1F2 & RF.1.1\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F2 & RF.1.2\\ \hline
+            TS1F3, TS1F4  & RF.1.2\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F3 & RF.1.5.1, RF.1.5.5\\ \hline
+            TS1F5 & RF.1.5.1, RF.1.5.5\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F4 & RF.1.5.2, RF.1.5.6\\ \hline
+            TS1F6 & RF.1.5.2, RF.1.5.6\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F5 & RF.1.5.3, RF.1.5.7\\ \hline
+            TS1F7 & RF.1.5.3, RF.1.5.7\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F6 & RF.1.5.4, RF.1.5.8\\ \hline
+            TS1F8 & RF.1.5.4, RF.1.5.8\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS2F7 & RF.2.6.1.1, RF.2.6.1.2\\ \hline
+            TS2F9 & RF.2.6.1.1, RF.2.6.1.2\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS2F8 & RF.2.6.2.1, RF.2.6.2.2, RF.2.6.2.3 \\ \hline
+            TS2F10 & RF.2.6.2.1, RF.2.6.2.2, RF.2.6.2.3 \\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS2F9 & RF.2.6.3.1, RF.2.6.3.2, RF.2.6.3.3 \\ \hline
+            TS2F11 & RF.2.6.3.1, RF.2.6.3.2, RF.2.6.3.3 \\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS2F10 & RF.2.6.4.1, RF.2.6.4.2, RF.2.6.4.3\\ \hline
-            \rowcolor[HTML]{EFEFEF}
-            TS1F11 & RF.2.7, RF.2.7.1, RF.2.7.2, RF.2.7.3, RF.2.7.4, RF.2.7.5\\ \hline
-            \rowcolor[HTML]{C0C0C0}
-            TS1F12 & RF.2.7, RF.2.7.1, RF.2.7.2, RF.2.7.3, RF.2.7.4, RF.2.7.5\\ \hline
+            TS2F12 & RF.2.6.4.1, RF.2.6.4.2, RF.2.6.4.3\\ \hline
             \rowcolor[HTML]{EFEFEF}
             TS1F13 & RF.2.7, RF.2.7.1, RF.2.7.2, RF.2.7.3, RF.2.7.4, RF.2.7.5\\ \hline
             \rowcolor[HTML]{C0C0C0}
             TS1F14 & RF.2.7, RF.2.7.1, RF.2.7.2, RF.2.7.3, RF.2.7.4, RF.2.7.5\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F15 & RF.2.8\\ \hline
+            TS1F15 & RF.2.7, RF.2.7.1, RF.2.7.2, RF.2.7.3, RF.2.7.4, RF.2.7.5\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS2F16 & RF.2.3, RF.2.9\\ \hline
+            TS1F16 & RF.2.7, RF.2.7.1, RF.2.7.2, RF.2.7.3, RF.2.7.4, RF.2.7.5\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F17 & RV.1.5\\ \hline
+            TS1F17 & RF.2.8\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F18 & RV.1.6\\ \hline
+            TS2F18 & RF.2.3, RF.2.9\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F19 & RV.1.7\\ \hline
+            TS1F19 & RV.1.5\\ \hline
             \rowcolor[HTML]{C0C0C0}
-            TS1F20 & RV.1.8\\ \hline
+            TS1F20 & RV.1.6\\ \hline
             \rowcolor[HTML]{EFEFEF}
-            TS1F21 & RV.1.9\\ \hline
-            \caption{Tabella del tracciamento dei test }
+            TS1F21 & RV.1.7\\ \hline
+            \rowcolor[HTML]{C0C0C0}
+            TS1F22 & RV.1.8\\ \hline
+            \rowcolor[HTML]{EFEFEF}
+            TS1F23 & RV.1.9\\ \hline
+            \caption{Tabella del tracciamento dei test di sistema }
         \end{longtable}
     \end{center}
 
@@ -229,49 +245,53 @@ Per assicurarsi di raggiungere dei buoni livelli di qualità del prodotto, il gr
             \rowcolor[HTML]{036400}
             \textcolor{white}{\textbf{Codice}} & \textcolor{white}{\textbf{Descrizione}} & \textcolor{white}{\textbf{Stato}} \\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F1 & Verificare che l’utente possa caricare dei dati nel sistema tramite file CSVG. & NI\\ \hline
+                TA1 & Verificare che l’utente possa caricare dei dati nel sistema tramite file CSV. & NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F2 & Verificare che l’utente possa visualizzare a schermo un messaggio d’esito dell’operazione di caricamento di un file CSV.& NI\\ \hline
+                TA2 & Verificare che l’utente possa caricare dei dati nel sistema tramite file JSON. & NI\\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F3 & Verificare che l’utente possa selezionare la configurazione del grafico Scatter Plot. & NI\\ \hline
+                TA3 & Verificare che l’utente possa visualizzare a schermo un messaggio d’esito dell’operazione di caricamento di un file CSV.& NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F4 & Verificare che l’utente possa selezionare la configurazione del grafico Parallel Coordinates. & NI\\ \hline
+                TA4 & Verificare che l’utente possa visualizzare a schermo un messaggio d’esito dell’operazione di caricamento di un file JSON.& NI\\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F5 & Verificare che l’utente possa selezionare la configurazione del grafico Force-Direct Graph. & NI\\ \hline
+                TA5 & Verificare che l’utente possa selezionare la configurazione del grafico Scatter Plot. & NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F6 & Verificare che l’utente possa selezionare la configurazione del grafico Sankey Diagram. & NI\\ \hline
+                TA6 & Verificare che l’utente possa selezionare la configurazione del grafico Parallel Coordinates. & NI\\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F7 & Verificare che l’utente possa selezionare la configurazione del grafico Scatter Plot. & NI\\ \hline
+                TA7 & Verificare che l’utente possa selezionare la configurazione del grafico Force-Direct Graph. & NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F8 & Verificare che l’utente possa apportare modifiche al grafico Scatter Plot. & NI\\ \hline
+                TA8 & Verificare che l’utente possa selezionare la configurazione del grafico Sankey Diagram. & NI\\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F9 & Verificare che l’utente possa apportare modifiche al grafico Parallel Coordinates. & NI\\ \hline
+                TA9 & Verificare che l’utente possa selezionare la configurazione del grafico Scatter Plot. & NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F10 & Verificare che l’utente possa apportare modifiche al grafico Force-Direct Graph. & NI\\ \hline
+                TA10 & Verificare che l’utente possa apportare modifiche al grafico Scatter Plot. & NI\\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F11 & Verificare che l’utente possa apportare modifiche al grafico Sankey Diagram. & NI\\ \hline
+                TA11 & Verificare che l’utente possa apportare modifiche al grafico Parallel Coordinates. & NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F12 & Verificare che l’utente possa applicare i filtri al grafico Scatter Plot. & NI\\ \hline
+                TA12 & Verificare che l’utente possa apportare modifiche al grafico Force-Direct Graph. & NI\\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F13 & Verificare che l’utente possa applicare i filtri al grafico Parallel Coordinates. & NI\\ \hline
+                TA13 & Verificare che l’utente possa apportare modifiche al grafico Sankey Diagram. & NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F14 & Verificare che l’utente possa applicare i filtri al grafico Force-Direct Graph. & NI\\ \hline
+                TA14 & Verificare che l’utente possa applicare i filtri al grafico Scatter Plot. & NI\\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F15 & Verificare che l’utente possa applicare i filtri al grafico Sankey Diagram. & NI\\ \hline
+                TA15 & Verificare che l’utente possa applicare i filtri al grafico Parallel Coordinates. & NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F16 & Verificare che l’utente possa consultare il manuale. & NI\\ \hline
+                TA16 & Verificare che l’utente possa applicare i filtri al grafico Force-Direct Graph. & NI\\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F17 & Verificare che l’utente possa salvare la sessione di lavoro in corso o ripristinarne una precedente. & NI\\ \hline
+                TA17 & Verificare che l’utente possa applicare i filtri al grafico Sankey Diagram. & NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F18 & Verificare che l'applicazione sia compatibile con il browser \textit{Chrome} dalla versione 61. & NI\\ \hline
+                TA18 & Verificare che l’utente possa consultare il manuale. & NI\\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F19 & Verificare che l'applicazione sia compatibile con il browser \textit{Edge} dalla versione 16. & NI\\ \hline
+                TA19 & Verificare che l’utente possa salvare la sessione di lavoro in corso o ripristinarne una precedente. & NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F18 & Verificare che l'applicazione sia compatibile con il browser \textit{Firefox} dalla versione 60. & NI\\ \hline
+                TA20 & Verificare che l'applicazione sia compatibile con il browser \textit{Chrome} dalla versione 61. & NI\\ \hline
                 \rowcolor[HTML]{EFEFEF}
-                TS1F19 & Verificare che l'applicazione sia compatibile con il browser \textit{Opera} dalla versione 48. & NI\\ \hline
+                TA21 & Verificare che l'applicazione sia compatibile con il browser \textit{Edge} dalla versione 16. & NI\\ \hline
                 \rowcolor[HTML]{C0C0C0}
-                TS1F20 & Verificare che l'applicazione sia compatibile con il browser \textit{Safari} dalla versione 10.1. & NI\\ \hline
+                TA22 & Verificare che l'applicazione sia compatibile con il browser \textit{Firefox} dalla versione 60. & NI\\ \hline
+                \rowcolor[HTML]{EFEFEF}
+                TA23 & Verificare che l'applicazione sia compatibile con il browser \textit{Opera} dalla versione 48. & NI\\ \hline
+                \rowcolor[HTML]{C0C0C0}
+                TA24 & Verificare che l'applicazione sia compatibile con il browser \textit{Safari} dalla versione 10.1. & NI\\ \hline
                 \caption{Tabella dei test di accettazione}
             \end{longtable}
         \end{center}
