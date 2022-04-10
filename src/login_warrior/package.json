@@ -1,0 +1,21 @@
+{
+  "name": "login-warrior",
+  "version": "0.1.0",
+  "description": "Applicazione per la visualizzazione di dati di login",
+  "scripts": {
+    "server": "http-server",
+    "lint": "npx eslint ./src",
+    "lint-fix": "npx eslint ./src --fix",
+    "test": "jest --verbose --coverage"
+  },
+  "author": "Team MERL",
+  "license": "",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "http-server": "^14.1.0",
+    "jest": "^27.5.1"
+  }
+}
