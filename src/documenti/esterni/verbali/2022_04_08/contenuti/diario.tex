@@ -5,12 +5,12 @@
       \item Buona divisione tra modello, vista e controller;
       \item Discussione sulla schermata della home, poiché secondo il proponente non rappresentano una vista vera e propria, suggerendo infine di lasciarla, ponendo attenzione al ruolo di ogni classe;
       \item Discussione sull'uso dei design pattern Strategy e Facade per la classe Drawer, consigliato il design pattern Factory da parte del proponente;
-      \item Discussione sulla posizione e la struttura della classe Storage, consigliato d'inserirla nel controller e di usare il pattern Adapter da parte del proponente;
-      \item Data la debolezza di tipizzazione di JavaScript, è stato consigliato di porre attenzione al controllo dell'errore e di produrre una buona documentazione.
+      \item Discussione sulla posizione e la struttura della classe Storage, consigliato di lasciarlo fuori dal pattern MVC e di inserirlo in "Servizi";
+      \item Data la tipizzazione debole di JavaScript, è stato consigliato di porre attenzione al controllo dell'errore e di produrre una buona documentazione.
     \end{itemize}
   \item Suggerimenti sui grafici da produrre:
     \begin{itemize}
       \item Sankey, il proponente ha consigliato di usare dei nodi che rappresentino "orari di ufficio" e "orari non di ufficio" in modo da evidenziare dove avvengono maggiormente gli errori di login, ampliando anche con il mese dell'anno;
-      \item Force-Directed Graph, il proponente ha fornito una spiegazione sulla struttura generale del grafico, chiarendo che i nodi equivalgono a un evento e che la distanza dai nodi indica la forza che li lega, suggerendo infine di usare la percentuale di errori di login come forza che lega i nodi.
+      \item Force-Directed Graph, il proponente ha fornito una spiegazione sulla struttura generale del grafico, chiarendo che i nodi equivalgono a un evento e che la distanza dai nodi indica la forza che li lega, suggerendo infine di usare la percentuale di "successi di login" come parametro dei nodi, cioè gli utenti, e poter, quindi, aggregare chi ha un'alta percentuale e chi ha una bassa percentuale, per avere una visione sui possibili utenti malevoli.
     \end{itemize} 
 \end{itemize}
