@@ -1,0 +1,81 @@
+% Configurazione
+\documentclass[12pt, a4paper]{report}
+
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+%\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+\usepackage[italian]{babel}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{changepage}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+\geometry{
+  top=30mm,
+  bottom=30mm,
+  left=30mm,
+  right=30mm,
+}
+
+\pagestyle{fancy}
+\lhead{}
+\lfoot{Manuale Sviluppatore}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{16pt}
+
+\fancypagestyle{firstpage}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \lfoot{}
+  \rfoot{}
+}
+
+\graphicspath{ {immagini/} }
+\definecolor{RossoUnipd}{HTML}{B5121B}
+\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\textbf}
+
+% Variabili
+\newcommand\cincludegraphics[2][]{\raisebox{-0.3\height}{\includegraphics[#1]{#2}}}
+
+\newcommand{\titolo}{Manuale Sviluppatore}
+
+% Struttura
+\begin{document}
+  \thispagestyle{firstpage}
+  \input{contenuti/intestazione}
+  \input{contenuti/titolo}
+  \input{contenuti/listaDistribuzione}
+  \newpage
+  \input{contenuti/modifiche}
+  \tableofcontents
+  \newpage
+  \listoffigures
+  \newpage
+  \listoftables
+
+  % Capitoli
+  \input{contenuti/introduzione}
+  \input{contenuti/tecnologie}
+  \input{contenuti/configurazione}
+  \input{contenuti/architettura}
+  \input{contenuti/estensione}
+  \input{contenuti/glossario}
+\end{document}
