@@ -92,28 +92,28 @@ export default class Filters {
   /**
    * @param {string} ip Filtro sull'IP utente
    */
-   setIp(ip) {
+  setIp(ip) {
     this.#ip = ip;
   }
 
   /**
    * @param {Date} date Filtro sulla data del login
    */
-   setDate(date) {
+  setDate(date) {
     this.#date = date;
   }
 
   /**
    * @param {string} event Filtro sull'evento
    */
-   setEvent(event) {
+  setEvent(event) {
     this.#event = event;
   }
 
   /**
    * @param {string} application Filtro sull'applicazione
    */
-   setApplication(application) {
+  setApplication(application) {
     this.#application = application;
   }
 }
