@@ -2,14 +2,34 @@
  * Classe contenitore per il singolo dato di login
  */
 export default class DataPoint {
+  /**
+   * Identificativo dell'utente
+   * @type {string}
+   */
   #id;
 
+  /**
+   * IP dell'utente
+   * @type {string}
+   */
   #ip;
 
+  /**
+   * Data dell'evento
+   * @type {Date}
+   */
   #date;
 
+  /**
+   * Esito evento (login, logout, error)
+   * @type {string}
+   */
   #event;
 
+  /**
+   * Applicazione a cui è stato richiesto l'accesso
+   * @type {string}
+   */
   #application;
 
   /**

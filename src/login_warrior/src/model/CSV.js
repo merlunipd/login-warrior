@@ -4,6 +4,10 @@ import DataPoint from './DataPoint.js';
  * Classe per gestire ed effettuare parsing di file CSV
  */
 export default class CSV {
+  /**
+   * Contenuto testuale del file CSV
+   * @type {string}
+   */
   #csvText;
 
   /**
@@ -14,6 +18,7 @@ export default class CSV {
   }
 
   /**
+   * Ritorna il dataset relativo al file CSV
    * @returns {DataPoint[]} Array di DataPoint che compongono il dataset
    */
   parseCsv() {
