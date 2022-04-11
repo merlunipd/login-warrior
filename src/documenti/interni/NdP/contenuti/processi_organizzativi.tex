@@ -7,7 +7,6 @@
 \subsubsection{Comunicazioni}
 Le \textbf{comunicazioni interne} sono principalmente tra studenti del gruppo e sono conversazioni tra pari. Dipendentemente dal canale di comunicazione scelto, per favorire la produttività, bisognerà adottare un registro adeguato e seguire le convenzioni decise (consultare la sezione \underline{\ref{sec:Infrastruttura} \nameref{sec:Infrastruttura}} per più informazioni sugli strumenti di organizzazione utilizzati):
 \begin{itemize}
-  \item \textbf{Trello}$_G$: comunicazioni formali, brevi e concise di natura principalmente organizzativa;
   \item \textbf{GitHub}$_G$: comunicazioni formali, brevi e concise di natura principalmente tecnica;
   \item \textbf{Discord}$_G$: in base alla categoria del canale
   \begin{itemize}
@@ -37,7 +36,7 @@ Per mantenere efficiente il tempo di lavoro sincrono delle riunioni interne, si 
 
 La scaletta di una tipica riunione interna è la seguente:
 \begin{itemize}
-  \item Controllo task boards: verifica e possibile discussione di tasks (di Trello, GitHub) che necessitano di essere discusse tutti insieme;
+  \item Controllo task boards: verifica e possibile discussione di tasks (GitHub) che necessitano di essere discusse tutti insieme;
   \item Attività specifiche di riunione: attività pianificate ad hoc per una particolare riunione;
   \item Tempo di slack: utilizzato per discutere di argomenti non previsti. Se l'attività di pianificazione è efficace e non ci sono imprevisti, questo spazio non sarà utilizzato.
 \end{itemize}
@@ -59,8 +58,7 @@ I ruoli che ciascun membro dovrà ricoprire durante il corso del progetto, per u
   \begin{itemize}
     \item Essere sempre aggiornato sullo stato di progresso del progetto;
     \item Gestire la pianificazione delle attività di ciascuna milestone$_G$, definendole insieme a chi segue il documento \textit{Piano di Progetto} e predisponendo le relative task su GitHub;
-    \item Gestire le attività di organizzazione, aggiungendo le task necessarie sulla board di Trello;
-    \item Approvare qualsiasi task sia stata completata e verificata, sia di processi primari e di supporto (su GitHub, approvando le pull request$_G$), sia di processi organizzativi (su Trello);
+    \item Approvare qualsiasi task sia stata completata e verificata, quindi processi primari e di supporto (su GitHub, approvando le pull request$_G$);
     \item Gestire il calendario condiviso;
     \item Gestire le comunicazioni esterne.
   \end{itemize}
@@ -111,8 +109,6 @@ Per task di processi primari o di supporto (come la documentazione), si utilizza
   \item Accettazione: quando il \textit{Verificatore} conferma la validità della task, il \textit{Responsabile di Progetto} esegue un rapido controllo e se tutto è in ordine approva la pull request, chiude la issue relativa e cancella il branch dell'attività.
 \end{itemize}
 
-Il ciclo di vita delle task di un processo organizzativo viene gestito da Trello ed è descritto nella sezione \underline{\ref{sec:Infrastruttura} \nameref{sec:Infrastruttura}}.
-
 In generale le dimensioni di una task sono variabili rispetto al processo considerato, in pratica sono attività non triviali ma sufficientemente contenute da poter essere svolte da un individuo in un tempo ragionevole. Ad esempio:
 \begin{itemize}
   \item (processo primario) Codifica di una classe;
@@ -120,43 +116,43 @@ In generale le dimensioni di una task sono variabili rispetto al processo consid
   \item (processo organizzativo) Creazione e configurazione delle attività di una milestone.
 \end{itemize}
 
-Sia le task primarie e di supporto (gestite su Github) sia quelle organizzative (gestite su Trello), hanno la possibilità di essere discusse individualmente utilizzando la sezione "Commenti" della rispettiva piattaforma. Questa funzionalità risulta fondamentale nel momento in cui l'autore e il \textit{Verificatore} di una task hanno bisogno di instaurare una discussione. Questo approccio favorisce anche la tracciabilità delle attività svolte e dei relativi problemi incontrati.
+Sia le task primarie e di supporto, sia quelle organizzative, hanno la possibilità di essere discusse individualmente utilizzando la sezione "Commenti" della rispettiva piattaforma. Questa funzionalità risulta fondamentale nel momento in cui l'autore e il \textit{Verificatore} di una task hanno bisogno di instaurare una discussione. Questo approccio favorisce anche la tracciabilità delle attività svolte e dei relativi problemi incontrati.
 
+\subsubsection{Metodo di lavoro}
 
+In seguito alla prima revisione il gruppo, accortosi del ritardo accumulato, ha deciso di introdurre un nuovo metodo per rendere più efficace il lavoro svolto. A questo proposito è stato deciso, dopo varie considerazioni, di aggiungere la tecnica degli \textit{Sprint}$_G$ del framework \textit{Scrum}$_G$.\\
+Questa tecnica permette di dividere il tempo di lavoro in brevi intervalli in modo da definire a priori le attività da svolgere con la possibilità di valutare ciò che è stato o non è stato fatto al termine dello sprint.\\
+Ogni sprint, della durata di una settimana, prevede le seguenti fasi:
+\begin{itemize}
+  \item \textbf{Sprint Planning}: pianificazione da svolgere in gruppo il primo giorno dello sprint. Questa fase prevede le seguenti attività:
+  \begin{itemize}
+    \item Brainstorming delle idee: ogni membro esprime le proprie idee su ciò che ha più rilevanza nell'immediato futuro;
+    \item Obiettivi e issue: il \textit{Responsabile} è incaricato di creare lo \textbf{Sprint Backlog} definendo gli obiettivi per lo sprint e di inserire le corrispondenti issue su \textit{GitHub};
+    \item Preventivi: ogni membro, in base alle attività che si impegna a svolgere durante lo sprint, indica il proprio preventivo orario.
+  \end{itemize}
+  \item \textbf{Sprint Review}: revisione dello sprint appena trascorso da svolgere l'ultimo giorno dello sprint con la presenza di tutto il gruppo. Le attività che compongono questa fase sono le seguenti:
+  \begin{itemize}
+    \item Consuntivo e produttività individuale: ogni membro esprime ciò che ha svolto, con successo o insuccesso, durante lo sprint. Se necessario può dimostrare in live i propri dubbi o risultati sull'attività svolta;
+    \item Obiettivi raggiunti: in seguito alle attività svolte dai membri viene stilata una lista di obiettivi raggiunti.
+    \item Obiettivi non raggiunti: in seguito alle attività non svolte dai membri viene stilata una lista di obiettivi non raggiunti. Questa lista andrà ad aggiungersi ai nuovi obiettivi per lo sprint successivo.
+  \end{itemize}
+  \item \textbf{Sprint Retrospective}: retrospettiva con lo scopo di concludere definitivamente lo sprint appena svolto e di valutare l'andamento di quest'ultimo. È importante in questa fase valutare ciò che è andato bene, in modo da continuare su quella strada, e ciò che è andato male, per poter risolvere quelle particolari problematiche. Risulta utile stilare due liste:
+  \begin{itemize}
+    \item Good: indica ciò che è andato bene durante lo sprint;
+    \item To Improve: indica ciò che può essere migliorato.
+  \end{itemize}
+  In particolare questa attività permette di definire ciò che è necessario:
+  \begin{itemize}
+    \item Iniziare a fare;
+    \item Smettere di fare;
+    \item Continuare a fare.
+  \end{itemize}
+\end{itemize}
 
 \section{Infrastruttura}\label{sec:Infrastruttura}
 Fanno parte dell'infrastruttura organizzativa tutti gli strumenti che permettono al gruppo di attuare in modo efficace ed efficiente i processi organizzativi. In particolare tali strumenti permettono la \textbf{comunicazione}, il \textbf{coordinamento} e la \textbf{pianificazione}.
 
 \subsection{Strumenti}
-\subsubsection{Trello}
-Principale strumento di project management utilizzato come \textbf{Kanban board}$_G$.
-
-La \textbf{board principale} è divisa nelle seguenti liste:
-\begin{itemize}
-  \item \textbf{Backlog}$_G$: contiene task da fare in un momento non specificato. Questa lista viene esaminata nel momento di definizione di una milestone come integrazione per assicurarsi di non dimenticare obiettivi fondamentali;
-  \item \textbf{Todo}: contiene task da fare il prima possibile. Se una task non è assegnata a nessuno, qualsiasi membro del gruppo può autonomamente prenderla in carico e portare avanti il suo ciclo di vita. L'unico che può inserire nuove task in questa lista è il \textit{Responsabile di Progetto};
-  \item \textbf{Doing}: contiene task in corso. Da questo punto del ciclo di vita, qualsiasi task ha almeno un membro associato a essa, non possono esserci task "orfane". Questo permette di coordinarsi per essere sicuri che i membri del gruppo non stiano lavorando asincronamente a una stessa task;
-  \item \textbf{Verify}: contiene task completate che necessitano di verifica. Qualsiasi membro del gruppo può autonomamente diventare \textit{Verificatore} di una task aggiungendosi a essa, con la precondizione che non sia la stessa persona che l'ha svolta. In caso di problemi può nascere una conversazione nella sezione "Commenti" tra l'esecutore e il \textit{Verificatore}, con possibile ritorno della task nella lista "Doing". Quando il \textit{Verificatore} conferma l'idoneità, può segnalare la sua approvazione con il corrispettivo tag "Approved". Sarà poi compito del \textit{Responsabile di Progetto} accettare la fine della task e spostarla in "Done";
-  \item \textbf{Done}: contiene task completate, verificate e accettate. Utile principalmente come traccia storica dei compiti svolti (chi, cosa, quando, problemi).
-\end{itemize}
-
-Ciascuna \textbf{task} è costituita da:
-\begin{itemize}
-  \item \textbf{Titolo} sintetico nella seguente forma generale: \textit{[categoria] - [breve titolo significativo]} (e.g. \texttt{documentazione - verbale meeting interno 23/11/2021});
-  \item \textbf{Descrizione} opzionale e breve per dettagli importanti;
-  \item \textbf{Membro/i} del gruppo coinvolti nella task;
-  \item \textbf{Tag} per segnalare particolarità della task. Le etichette principali definite sono:
-  \begin{itemize}
-    \item \texttt{Importante}: segnala una task con alto livello di priorità;
-    \item \texttt{Team}: segnala una task che necessita del coinvolgimento dell'intero team. Rimane comunque che ci deve essere un membro incaricato \textit{Responsabile} per quella determinata task;
-    \item \texttt{Approved}: segnala una task in "Verify" che è stata verificata e può essere spostata (dal \textit{Responsabile di Progetto}) in "Done".
-  \end{itemize}
-  \item \textbf{Commenti} per discutere (soprattutto asincronamente) sulla specifica task.
-\end{itemize}
-Le task inserite nel sistema non vengono \textbf{mai cancellate} ma solo spostate tra le liste presenti. Solo in casi eccezionali le task possono essere archiviate ma anche in questo caso di loro e della loro storia resta traccia.
-
-Per navigare più facilmente nella bacheca è possibile impostare dei \textbf{filtri}, ad esempio per membro o tag.
-
 \subsubsection{GitHub}
 È il principale servizio di hosting della repository$_G$ di gruppo e di controllo della versione distribuito.
 
