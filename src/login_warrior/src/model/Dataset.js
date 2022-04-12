@@ -137,7 +137,8 @@ export default class Dataset {
    * @param {number} samplesLimit Numero massimo di punti che ritorna la funzione di campionamento
    * @returns {DataPoint[]} Dataset campionato
    */
-  static #sampleDataset(dataset, samplesLimit) {
+  /* eslint-disable class-methods-use-this */
+  #sampleDataset(dataset, samplesLimit) {
     if (dataset.length <= samplesLimit) {
       return [...dataset];
     }
@@ -146,4 +147,5 @@ export default class Dataset {
     const sampledDataset = shuffledDataset.slice(0, samplesLimit);
     return sampledDataset;
   }
+  /* eslint-enable class-methods-use-this */
 }

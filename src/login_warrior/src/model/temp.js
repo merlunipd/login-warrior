@@ -1,4 +1,7 @@
 import CSV from './CSV.js';
+import Dataset from './Dataset.js';
+import Filters from './Filters.js';
+import Model from './Model.js';
 
 const csvSampleText = `18682;128720058;2021-01-12 13:31:33.000;1;ERM;erm3zs02;92.223.250.4;"001       ";mecumzgtvw;pjnz16keg9
 18682;140520277;2021-03-13 15:00:18.000;1;ERM;erm3zs02;92.223.250.4;"001       ";crwredkmsn;i20drxb7tm
@@ -927,5 +930,30 @@ const csvSampleText = `18682;128720058;2021-01-12 13:31:33.000;1;ERM;erm3zs02;92
 `;
 
 const csv1 = new CSV(csvSampleText);
-const dataset1 = csv1.parseCsv();
-console.log(dataset1);
+const filters1 = new Filters(null, null, null, null, null);
+const model1 = new Dataset(csv1, filters1);
+
+console.log('Initial');
+console.log(model1.getDataset(100));
+console.log(model1.getDatasetUnfiltered(100));
+console.log(model1.getDatasetUnsampled());
+console.log(model1.getDatasetUnfilteredUnsampled());
+
+filters1.setId('18690');
+model1.setFilters(filters1);
+
+console.log('Filter on ID 18690');
+console.log(model1.getDataset(100));
+console.log(model1.getDatasetUnfiltered(100));
+console.log(model1.getDatasetUnsampled());
+console.log(model1.getDatasetUnfilteredUnsampled());
+
+filters1.setId(null);
+filters1.setIp('5.102.13.83');
+model1.setFilters(filters1);
+
+console.log('Filter on IP 5.102.13.83');
+console.log(model1.getDataset(100));
+console.log(model1.getDatasetUnfiltered(100));
+console.log(model1.getDatasetUnsampled());
+console.log(model1.getDatasetUnfilteredUnsampled());
