@@ -1,13 +1,7 @@
 /**
- * @class
- * @constructor
- * @saveDataset
- * @loadDataset
- * @saveCustomization
- * @loadCustomization
- * @saveVisualizationIndex
- * @loadVisualizationIndex
+ * @interface Storage
  */
+
 class Storage{
     constructor(){
         throw("Sono l'intefaccia Storage, non istanziarmi :(");

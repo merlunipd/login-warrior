@@ -1,0 +1,66 @@
+<script>
+    class IndexedDB /** implements Storage*/ {
+    #request = null;
+    #db = null;
+    #datasetDB = null;
+    #customizationDB = null;
+    #visualizationDB = null;
+
+    
+    async #openIndexedDB(){
+        let promise = new Promise((resolve,reject) => {
+            this.#request = indexedDB.open("Login-Warrior");
+
+            this.#request.onsuccess = e => {
+                alert("osuccess")
+                this.#db = e.target.result;
+            }
+
+            this.#request.onerror = e => {
+                alert("onerror")
+                this.#db = e.target.result;
+            }
+
+            this.#request.onupgradedneeded = e =>{
+                alert("onUpgraded")
+                this.#datasetDB = this.#db.createObjectStore("Dataset", { autoIncrement: true });
+                this.#customizationDB = this.#db.createObjectStore("Customization", { autoIncrement: true });
+                this.#visualizationDB = this.#db.createObjectStore("Visualization", { autoIncrement: true });
+            }
+        });
+        let result = await promise;
+    }
+
+    constructor(){
+        this.#openIndexedDB();  
+    }
+    
+    saveDataset(d){
+        const constructorPromise = new Promise(function(resolve,reject){
+            this.#request = indexedDB.open("Login-Warrior");
+        });
+
+        constructorPromise.then(
+            resolve => this.#db = e.target.result,
+            error => alert("Errore nell'aggiornamento del DB, ricaricare la pagina")
+        )
+
+        this.#db.#request.result;
+    }
+
+    loadDataset(){}
+
+    saveCustomization(c){}
+
+    loadCustomization(){}
+
+    saveVisualizationIndex(index){}
+
+    loadVisualizationIndex(){}
+
+    
+
+}
+
+let a = new IndexedDB();
+</script>

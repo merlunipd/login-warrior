@@ -14,7 +14,7 @@ test("Test non implementazione interfaccia Storage", () => {
 
 /**
 test("saveDataset", () => {
-  expect(Storage.saveDataset("ciao")).toBe("");
+  expect(Storage.saveDataset("d")).toBe("");
 })
 
 test("loadDataset", () => {
@@ -22,7 +22,7 @@ test("loadDataset", () => {
 })
 
 test("saveCustomization", () => {
-  expect(Storage.saveCustomization("ciao")).toBe("");
+  expect(Storage.saveCustomization("c")).toBe("");
 })
 
 test("loadCustomization", () => {
@@ -30,7 +30,7 @@ test("loadCustomization", () => {
 })
 
 test("saveVisualizationIndex", () => {
-  expect(Storage.saveVisualizationIndex("ciao")).toBe("");
+  expect(Storage.saveVisualizationIndex("v")).toBe("");
 })
 
 test("loadVisualizationIndex()", () => {
