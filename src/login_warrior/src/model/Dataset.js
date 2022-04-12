@@ -1,11 +1,13 @@
-import Model from "./Model.js";
-import Filters from "./Filters.js";
-import CSV from "./CSV.js";
-import DataPoint from "./DataPoint.js";
+/* eslint-disable no-unused-vars */
+import Model from './Model.js';
+import Filters from './Filters.js';
+import CSV from './CSV.js';
+import DataPoint from './DataPoint.js';
+/* eslint-enable no-unused-vars */
 
 /**
  * @implements {Model}
- * 
+ *
  * Classe per interagire con il dataset.
  * Principale classe del modello.
  */
@@ -23,7 +25,7 @@ export default class Dataset {
   #filters;
 
   /**
-   * @param {CSV} csv CSV da cui estrarre il dataset 
+   * @param {CSV} csv CSV da cui estrarre il dataset
    * @param {Filters} filters Filtri iniziali sui dati
    */
   constructor(csv, filters) {
@@ -45,7 +47,7 @@ export default class Dataset {
    * @param {number} samplesLimit Numero massimo di punti del dataset da campionare
    * @returns {DataPoint[]} Punti del dataset
    */
-  getDatasetUnfiltered(samplesLimit) { 
+  getDatasetUnfiltered(samplesLimit) {
     return this.#sampleDataset(this.#dataset, samplesLimit);
   }
 
@@ -81,71 +83,67 @@ export default class Dataset {
 
   /**
    * Funzione per filtrare il dataset corrente utilizzando i filtri correnti.
-   * 
+   *
    * Attenzione: il filtro della data viene eseguito considerando
    * l'uguaglianza di giorno, mese, anno.
    * @returns {DataPoint[]} Dataset filtrato
    */
   #filterDataset() {
-    return this.#dataset.filter(dataPoint => {
+    return this.#dataset.filter((dataPoint) => {
       const idFilter = this.#filters.getId();
       if (idFilter === null) {
         return true;
-      } else {
-        return dataPoint.getId() === idFilter;
       }
+      return dataPoint.getId() === idFilter;
     })
-      .filter(dataPoint => {
+      .filter((dataPoint) => {
         const ipFilter = this.#filters.getIp();
         if (ipFilter === null) {
           return true;
-        } else {
-          return dataPoint.getIp() === ipFilter;
         }
+        return dataPoint.getIp() === ipFilter;
       })
-      .filter(dataPoint => {
+      .filter((dataPoint) => {
         const dateFilter = this.#filters.getDate();
         if (dateFilter === null) {
           return true;
-        } else {
-          return dataPoint.getDate().getFullYear() === dateFilter.getFullYear() &&
-          dataPoint.getDate().getMonth() === dateFilter.getMonth() &&
-          dataPoint.getDate().getDate() === dateFilter.getDate();
         }
+        return dataPoint.getDate().getFullYear() === dateFilter.getFullYear()
+          && dataPoint.getDate().getMonth() === dateFilter.getMonth()
+          && dataPoint.getDate().getDate() === dateFilter.getDate();
       })
-      .filter(dataPoint => {
+      .filter((dataPoint) => {
         const eventFilter = this.#filters.getEvent();
         if (eventFilter === null) {
           return true;
-        } else {
-          return dataPoint.getEvent() === eventFilter;
         }
+        return dataPoint.getEvent() === eventFilter;
       })
-      .filter(dataPoint => {
+      .filter((dataPoint) => {
         const applicationFilter = this.#filters.getApplication();
         if (applicationFilter === null) {
           return true;
-        } else {
-          return dataPoint.getApplication() === applicationFilter;
         }
-      })
+        return dataPoint.getApplication() === applicationFilter;
+      });
   }
 
   /**
-   * Funzione di campionamento del dataset. 
-   * Se il numero di punti del dataset è minore o uguale di samplesLimit, ritorna una copia del dataset stesso, altrimenti effettua un campionamento casuale dei dati.
+   * Funzione di campionamento del dataset.
+   *
+   * Se il numero di punti del dataset è minore o uguale di samplesLimit,
+   * ritorna una copia del dataset stesso, altrimenti effettua un campionamento casuale dei dati.
    * @param {DataPoint[]} dataset Dataset da campionare
    * @param {number} samplesLimit Numero massimo di punti che ritorna la funzione di campionamento
-   * @returns {DataPoint[]} Dataset campionato 
+   * @returns {DataPoint[]} Dataset campionato
    */
-  #sampleDataset(dataset, samplesLimit) {
+  static #sampleDataset(dataset, samplesLimit) {
     if (dataset.length <= samplesLimit) {
       return [...dataset];
-    } else {
-      const datasetCopy = [...dataset];
-      const shuffledDataset = datasetCopy.sort(() => 0.5 - Math.random());
-      const sampledDataset = shuffledDataset.slice(0, samplesLimit);
-      return sampledDataset;
     }
+    const datasetCopy = [...dataset];
+    const shuffledDataset = datasetCopy.sort(() => 0.5 - Math.random());
+    const sampledDataset = shuffledDataset.slice(0, samplesLimit);
+    return sampledDataset;
   }
 }
