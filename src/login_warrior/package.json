@@ -17,5 +17,8 @@
     "eslint-plugin-import": "^2.25.4",
     "http-server": "^14.1.0",
     "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "dexie": "^3.2.1"
   }
 }
