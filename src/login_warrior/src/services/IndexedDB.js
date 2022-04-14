@@ -1,51 +1,44 @@
 import { Storage } from "./Storage";
+import * as DexieLibrary from "https://unpkg.com/dexie/dist/dexie.js";
+    
+export class IdexedDB /**extends Storage */{
+    db;
 
-
-class IdexedDB extends Storage {
-    #db;
-
-
+    /**
+     * TODO: trovare un modo per ottenere i "_value" dall'oggetto ritornato "dexie.promise"
+     * 
+    */
     constructor() {
-        const constructorPromise = new Promise(function(resolve,reject){
-            resolve(request=indexedDB.open("Login-Warrior"));
-        });
-
-        constructorPromise.then(
-            resolve => request.onsuccess = e =>{
-                db = e.target.result;
-                const datasetDB = db.createObjectStore("Data",{autoIncrement: true});  
-                const customizationDB = db.createObjectStore("Data",{autoIncrement: true});
-                const visualizationDB = db.createObjectStore("Data",{autoIncrement: true});
-                
-            },
-            reject => alert("Errore nell'apertura del DB, ricaricare la pagina")
-        )
-
-        this.#db.request.result;
+        this.db = new Dexie("DatabaseInfame");
+        this.db.version(1).stores({Dataset: "++id, data" , Customization: "++id, data", Visualization: "++id, data"});
     }
 
     saveDataset(d){
-        const constructorPromise = new Promise(function(resolve,reject){
-            const request = indexedDB.open("Login-Warrior");
-        });
-
-        constructorPromise.then(
-            resolve => this.#db = e.target.result,
-            error => alert("Errore nell'aggiornamento del DB, ricaricare la pagina")
-        )
-
-        
+        this.db.Dataset.put({data: d});
     }
 
-    loadDataset(){}
+    loadDataset(){
+        const data = this.db.Dataset.toArray();
+        return data;
+    }
 
-    saveCustomization(c){}
+    saveCustomization(c){
+        this.db.Customization.put({data: c});
+    }
 
-    loadCustomization(){}
+    loadCustomization(){
+        const data = this.db.Customization.toArray();
+        return data;
+    }
 
-    saveVisualizationIndex(index){}
+    saveVisualizationIndex(index){
+        this.db.Visualization.put({data: index});
+    }
 
-    loadVisualizationIndex(){}
+    loadVisualizationIndex(){
+        const data = this.db.Visualization.toArray();
+        return data;
+    }
 }
 
 export{indexedDB}
