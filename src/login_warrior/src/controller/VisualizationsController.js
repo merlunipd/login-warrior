@@ -1,5 +1,6 @@
 import Controller from "./Controller.js";
 import IndexedDBStorage from "../services/IndexedDBStorage.js";
+import VisualizationView from "../view/VisualizationView.js";
 
 /**
  * Classe controller per le pagine con le visualizzazioni
@@ -25,6 +26,7 @@ export default class VisualizationsController extends Controller {
 
   setupView() {
     this.#createViews();
+    this.#setupViewsInitialState();
     this.#setupEventListeners();
   }
 
@@ -36,7 +38,7 @@ export default class VisualizationsController extends Controller {
     if (this.#db.loadDataset() === null ||
       this.#db.loadCustomizations() === null ||
       this.#db.loadVisualizationIndex() === null) {
-        alert("Dati non caricati"); // TODO: rimandare alla pagina home (invece di alert)
+      alert("Dati non caricati"); // TODO: rimandare alla pagina home (invece di alert)
     }
   }
 
@@ -45,8 +47,24 @@ export default class VisualizationsController extends Controller {
   }
 
   #createViews() {
-    
+    const visualizationIndex = this.#db.loadVisualizationIndex();
+    this.#view = new VisualizationView(visualizationIndex);
   }
 
-  #setupEventListeners() { }
+  #setupViewsInitialState() { 
+    // Visualizzazione
+    this.#view.visualization.draw();
+
+    // Filtri
+    this.#view.filterId.setFilter(this.#model.getFilters().getId());
+    this.#view.filterIp.setFilter(this.#model.getFilters().getIp());
+    this.#view.filterApplication.setFilter(this.#model.getFilters().getApplication());
+    this.#view.filterEvent.setFilter(this.#model.getFilters().getEvent());
+    // Attenzione: la data viene convertita in stringa
+    this.#view.filterDate.setFilter(this.#model.getFilters().getDate().toString());
+  }
+
+  #setupEventListeners() { 
+    
+  }
 }
