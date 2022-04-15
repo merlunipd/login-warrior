@@ -1,10 +1,10 @@
 import { Storage } from "./Storage";
 //import * as DexieLibrary from "https://unpkg.com/dexie/dist/dexie.js";
 //import * as DexieLibrary from "./Dexie.js";  
- /**
+ 
+/**
   * npm install dexie
 */
-
 import Dexie from "dexie";
 
 export class IndexedDB /**extends Storage */{
@@ -26,6 +26,7 @@ export class IndexedDB /**extends Storage */{
     loadDataset(){
         const data = this.#db.Dataset.toArray();
         return data;
+
     }
 
     saveCustomization(c){

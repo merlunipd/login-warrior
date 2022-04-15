@@ -2,29 +2,30 @@
 import * as DexieLibrary from "https://unpkg.com/dexie/dist/dexie.js";
     
 export class IdexedDB /**extends Storage */{
+    
     db;
 
     constructor() {
         this.db = new Dexie("DatabaseInfame");
-        this.db.version(1).stores({Dataset: "++id, data" , Customization: "++id, data", Visualization: "++id, data"});
+        this.db.version(1).stores({Dataset: "++id, data"});
     }
 
     saveDataset(d){
-        this.db.Dataset.put({data: d});
+        this.db.Dataset.add(
+            {id: 1, data: d});
     }
 
     loadDataset(){
-        const data = this.db.Dataset.toArray();
-        return data;
+        return this.db.Dataset.where("id").equals(1).first(); 
     }
-
+/*
     saveCustomization(c){
         this.db.Customization.put({data: c});
     }
 
     loadCustomization(){
-        const data = this.db.Customization.toArray();
-        return data;
+        let getdata = this.db.Customization.where("id").equals("1").first().id;
+        return getdata
     }
 
     saveVisualizationIndex(index){
@@ -34,12 +35,13 @@ export class IdexedDB /**extends Storage */{
     loadVisualizationIndex(){
         const data = this.db.Visualization.toArray();
         return data;
-    }
+    }*/
 }
 
 let a = new IdexedDB();
-a.saveDataset("ciao1");
-a.saveCustomization("ciao2");
-a.saveVisualizationIndex("ciao3");
-console.log(a.loadDataset());
+//a.saveDataset("MaledettoProgramma")
+let f=a.loadDataset();
+let x=f.value;
+console.log(f);
+console.log(x);
 </script>
