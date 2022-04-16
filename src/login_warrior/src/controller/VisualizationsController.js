@@ -10,6 +10,7 @@ export default class VisualizationsController extends Controller {
   #view;
   #model;
   #db;
+  #samplesLimit = 100; // TODO: cambiare in base al grafico selezionato (eg check this.#db.loadVisualizationIndex() )
 
   constructor() {
     super();
@@ -38,7 +39,7 @@ export default class VisualizationsController extends Controller {
     if (this.#db.loadDataset() === null ||
       this.#db.loadCustomizations() === null ||
       this.#db.loadVisualizationIndex() === null) {
-      alert("Dati non caricati"); // TODO: rimandare alla pagina home (invece di alert)
+      window.location.href = '../home';
     }
   }
 
@@ -51,9 +52,9 @@ export default class VisualizationsController extends Controller {
     this.#view = new VisualizationView(visualizationIndex);
   }
 
-  #setupViewsInitialState() { 
+  #setupViewsInitialState() {
     // Visualizzazione
-    this.#view.visualization.draw();
+    this.#view.visualization.draw(this.#model.getDataset(this.#samplesLimit));
 
     // Filtri
     this.#view.filterId.setFilter(this.#model.getFilters().getId());
@@ -64,7 +65,43 @@ export default class VisualizationsController extends Controller {
     this.#view.filterDate.setFilter(this.#model.getFilters().getDate().toString());
   }
 
-  #setupEventListeners() { 
+  #setupEventListeners() {
+    this.#eventListenerHomeButton();
+    this.#eventListenerSaveButton();
+    this.#eventListenerSampleDatasetButton();
+    this.#eventListenerFilters();
+    this.#eventListenerCustomizations();
+  }
+
+  #eventListenerHomeButton() {
+    window.location.href = '../home';
+  }
+
+  #eventListenerSaveButton() {
+    this.#saveToFileJson(
+      JSON.stringify(this.#model)
+    );
+  }
+
+  #saveToFileJson(jsonString) {
+    const file = new Blob([jsonString], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(file);
+    a.download = 'session';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  #eventListenerSampleDatasetButton() {
+    // TODO: bisogna testare il funzionamento di questo
+    this.#view.visualization.draw(this.#model.getDataset(this.#samplesLimit)); 
+  }
+
+  #eventListenerFilters() {
     // TODO
+  }
+
+  #eventListenerCustomizations() {
+    // TODO: implementare quando ci saranno le personalizzazioni
   }
 }
