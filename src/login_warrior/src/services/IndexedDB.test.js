@@ -1,45 +1,47 @@
-import { IndexedDB } from "./IndexedDB";
-//import * as DexieLibrary from "./Dexie.js";  
+import "fake-indexeddb/auto";
+import { IndexedDB } from "./IndexedDB.js";
 
- /**
-  * npm install dexie
+ /*
+    ISTRUZIONI:
+      - eseguire da terminale 'npm install dexie'
+      - eseguire da terminale 'npm install --save-dev fake-indexeddb'
+      - andare in IndexedDB.js e rimuovere le barre di commento da '//import * as DexieLibrary from "https://unpkg.com/dexie/dist/dexie.js";'
 */
 
 import Dexie from "dexie";
 
 let b = new IndexedDB();
-let d = "ciao1";
-let c = "ciao2";
-let index = "ciao3";
+let d = "InserireOggettoDataset";
+let c = "InserireOggettoCustomization";
+let index = "InserireOggettoIndice";
 
-/*
-test("saveDataset", () => {
-  b.saveDataset(d);
-  expect(b.loadDataset()).toBe(d);
+test("saveDataset", async () => {
+  await b.saveDataset(d);
+  expect((await b.loadDataset()).data).toBe(d);
 })
 
-test("loadDataset", () => {
-  expect(b.loadDataset()).toBe(d);
+test("loadDataset", async () => {
+  expect((await b.loadDataset()).data).toBe(d);
 })
 
-test("saveCustomization", () => {
-  b.saveCustomization(c);
-  expect(b.loadCustomization()).toBe(c);
+test("saveCustomization", async () => {
+  await b.saveCustomization(c);
+  expect((await b.loadCustomization()).data).toBe(c);
 })
 
-test("loadCustomization", () => {
-  expect(b.loadCustomization()).toBe(c);
+test("loadCustomization", async () => {
+  expect((await b.loadCustomization()).data).toBe(c);
 })
 
-test("saveVisualizationIndex", () => {
-  b.saveVisualizationIndex(index);
-  expect(b.loadVisualizationIndex()).toBe(index);
+test("saveVisualizationIndex", async () => {
+  await b.saveVisualizationIndex(index);
+  expect((await b.loadVisualizationIndex()).data).toBe(index);
 })
 
-test("loadVisualizationIndex()", () => {
-  expect(b.loadVisualizationIndex()).toBe(index);
+test("loadVisualizationIndex", async () => {
+  expect((await b.loadVisualizationIndex()).data).toBe(index);
 })
-*/
+
 test("saveDataset", () => {
   expect(typeof b.saveDataset).toEqual("function");
 })
@@ -60,7 +62,7 @@ test("saveVisualizationIndex", () => {
   expect(typeof b.saveVisualizationIndex).toEqual("function");
 })
 
-test("loadVisualizationIndex()", () => {
+test("loadVisualizationIndex", () => {
   expect(typeof b.loadVisualizationIndex).toEqual("function");
 })
 

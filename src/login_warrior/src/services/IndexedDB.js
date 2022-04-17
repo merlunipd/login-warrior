@@ -1,49 +1,87 @@
 import { Storage } from "./Storage";
 //import * as DexieLibrary from "https://unpkg.com/dexie/dist/dexie.js";
-//import * as DexieLibrary from "./Dexie.js";  
- 
-/**
-  * npm install dexie
-*/
-import Dexie from "dexie";
+//import Dexie from "dexie"
 
+/*
+    ISTRUZIONI:
+        Per testing: 
+            -eseguire 'npm install dexie' da terminale
+            -togliere commento '//import Dexie from "dexie";'
+
+        Per esecuzione:
+            -togliere come commento '//import * as DexieLibrary from "https://unpkg.com/dexie/dist/dexie.js";'
+*/
+
+/**
+ * @class IndexedDB
+ * @extends Storage
+ */
 export class IndexedDB /**extends Storage */{
-    #db;
+    #db=null;
 
     /**
-     * TODO: trovare un modo per ottenere i "_value" dall'oggetto ritornato "dexie.promise"
-     * 
-    */
+     * @constructor
+     */
     constructor() {
-        this.#db = new Dexie("DatabaseInfame");
-        this.#db.version(1).stores({Dataset: "++id, data" , Customization: "++id, data", Visualization: "++id, data"});
+        this.#db = new Dexie("IndexedDataBase");
+        this.#db.version(1).stores({
+            Dataset: "++id, data", 
+            Customization: "++id, data", 
+            Visualization: "++id, data"
+        });
     }
 
-    saveDataset(d){
-        this.#db.Dataset.put({data: d});
+    /** 
+     * @param {Dataset} d
+     * @returns {void} nothing
+     */
+    async saveDataset(d){
+        this.#db.Dataset.add(
+            {data: d}
+        );
     }
 
-    loadDataset(){
-        const data = this.#db.Dataset.toArray();
-        return data;
-
+    /**
+     * @param {void} nothing
+     * @returns {Object} obj{id,data}
+     */
+    async loadDataset(){
+        return await this.#db.Dataset.where("id").equals(1).first();
     }
 
-    saveCustomization(c){
-        this.#db.Customization.put({data: c});
+    /** 
+     * @param {Customization} c
+     * @returns {void} nothing
+     */
+    async saveCustomization(c){
+        this.#db.Customization.add(
+            {data: c}
+        );
     }
 
-    loadCustomization(){
-        const data = this.#db.Customization.toArray();
-        return data;
+    /**
+     * @param {void} nothing
+     * @returns {Object} obj{id,data}
+     */
+    async loadCustomization(){
+        return await this.#db.Customization.where("id").equals(1).first();
     }
 
-    saveVisualizationIndex(index){
-        this.#db.Visualization.put({data: index});
+    /** 
+     * @param {number} index  
+     * @returns {void} nothing
+     */
+    async saveVisualizationIndex(index){
+        await this.#db.Visualization.add(
+            {data: index}
+        );
     }
 
-    loadVisualizationIndex(){
-        const data = this.#db.Visualization.toArray();
-        return data;
+    /**
+     * @param {void} nothing
+     * @returns {Object} obj{id,data}
+     */
+    async loadVisualizationIndex(){
+        return await this.#db.Visualization.where("id").equals(1).first();
     }
 }
