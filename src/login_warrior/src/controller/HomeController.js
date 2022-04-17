@@ -1,4 +1,6 @@
 import Controller from "./Controller.js";
+import IndexedDBStorage from "../services/IndexedDBStorage.js";
+import HomeView from "../view/HomeView.js";
 
 /**
  * Classe controller per la home page
