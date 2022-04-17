@@ -1,0 +1,40 @@
+svg {
+  display: block;
+  margin: auto;
+}
+
+button {
+  font-family: 'Roboto Mono', monospace;
+}
+
+#home-button {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+#home-button:hover {
+  text-decoration: underline;
+}
+
+.plot-controls {
+  margin: 1em;
+}
+
+.plot-controls div {
+  margin: 1em;
+}
+
+#save-session-button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+#save-session-button:hover {
+  text-decoration: underline;
+}
