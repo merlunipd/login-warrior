@@ -56,6 +56,7 @@ export default class VisualizationsController extends Controller {
     // Visualizzazione
     this.#view.visualization.draw(this.#model.getDataset(this.#samplesLimit));
 
+    // TODO: l'interfaccia per i filtri probabilmente sarà cambiata
     // Filtri
     this.#view.filterId.setFilter(this.#model.getFilters().getId());
     this.#view.filterIp.setFilter(this.#model.getFilters().getIp());
@@ -93,12 +94,11 @@ export default class VisualizationsController extends Controller {
   }
 
   #eventListenerSampleDatasetButton() {
-    // TODO: bisogna testare il funzionamento di questo
     this.#view.visualization.draw(this.#model.getDataset(this.#samplesLimit)); 
   }
 
   #eventListenerFilters() {
-    // TODO
+    // TODO: aspettare di avere l'interfaccia dei filtri definitiva
   }
 
   #eventListenerCustomizations() {
