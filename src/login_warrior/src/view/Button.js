@@ -8,5 +8,9 @@
     constructor() {
       throw new Error('Interfaces can not be instantiated');
     }
+
+    setClick(function) {
+      throw new Error('Abstract method')
+    }
   }
   
