@@ -2,7 +2,6 @@ import DataPoint from './DataPoint.js';
 
 describe('Unit Testing DataPoint', () => {
     //DataPoint vuoto
-    // !!! Non sono sicuro se dovrebbe andare undefined o null come ritorno delle funzioni !!!
     const dataPointNull = new DataPoint();
 
     test('Getter Id vuoto', () => {
@@ -51,7 +50,6 @@ describe('Unit Testing DataPoint', () => {
         expect(dataPoint.getIp()).toBe("92.223.250.4");
     });
     test('Getter Date', () => {
-        // !!! con il toBe non passa il test e consiglia di usare toStrictEqual se dovrebbe passare, in quanto restituisce 'serializes to the same string' al posto di '2021-01-12T12:31:33.000Z'  !!!
         expect(dataPoint.getDate()).toStrictEqual(new Date("2021-01-12 13:31:33.000"));
     });
     test('Getter Event', () => {

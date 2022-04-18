@@ -3,7 +3,6 @@ import Filters from './Filters';
 
 describe('Unit Testing Filters', () => {
     //Filters vuoto
-    // !!! Non sono sicuro se dovrebbe andare undefined o null come ritorno delle funzioni !!!
     const filtersNull = new Filters();
 
     test('Getter Id vuoto', () => {
@@ -53,7 +52,6 @@ describe('Unit Testing Filters', () => {
         expect(filters.getIp()).toBe("92.223.250.4");
     });
     test('Getter Date', () => {
-        // !!! con il toBe non passa il test e consiglia di usare toStrictEqual se dovrebbe passare, in quanto restituisce 'serializes to the same string' al posto di '2021-01-12T12:31:33.000Z'  !!!
         expect(filters.getDate()).toStrictEqual(new Date("2021-01-12 13:31:33.000"));
     });
     test('Getter Event', () => {
@@ -82,7 +80,6 @@ describe('Unit Testing Filters', () => {
     });
     test('Setter Date', () => {
         filters.setDate(new Date("2020-04-12 15:31:33.000"));
-        // !!! con il toBe non passa il test e consiglia di usare toStrictEqual se dovrebbe passare, in quanto restituisce 'serializes to the same string' al posto di '2021-01-12T12:31:33.000Z'  !!!
         expect(filters.getDate()).toStrictEqual(new Date("2020-04-12 15:31:33.000"));
     });
     test('Setter Event', () => {

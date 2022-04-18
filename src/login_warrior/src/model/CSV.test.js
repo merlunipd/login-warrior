@@ -15,7 +15,7 @@ describe('Unit Testing CSV', () => {
       expect(CSVNumerico.getCsvText()).toBe(18682);
     });
 
-    // !!! Inserie controllo sullo stato del CsvText prima di eseguire il parser !!!
+    //ParseCSV con CsvText vuoto
     test('ParseCSV vuoto', () => {
         const dataPoint = CSVVuoto.parseCsv();
         expect( dataPoint[0] ).toBe(undefined);
