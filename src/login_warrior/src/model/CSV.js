@@ -22,6 +22,10 @@ export default class CSV {
    * @returns {DataPoint[]} Array di DataPoint che compongono il dataset
    */
   parseCsv() {
+    if (this.#csvText === undefined) {
+      return [];
+    }
+
     const dataset = [];
     const lines = this.#csvText.split('\n').filter((line) => line !== '');
     lines.forEach((line) => {

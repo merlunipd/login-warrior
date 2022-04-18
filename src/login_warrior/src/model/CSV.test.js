@@ -16,9 +16,9 @@ describe('Unit Testing CSV', () => {
     });
 
     // !!! Inserie controllo sullo stato del CsvText prima di eseguire il parser !!!
-    test('ParseCSV vuoto e getId()', () => {
+    test('ParseCSV vuoto', () => {
         const dataPoint = CSVVuoto.parseCsv();
-        expect( dataset[0].getId ).toBe(undefined);
+        expect( dataPoint[0] ).toBe(undefined);
     });
 
     //CSV con dati
