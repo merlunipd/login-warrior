@@ -14,9 +14,69 @@ let b = new IndexedDB();
 let d = "InserireOggettoDataset";
 let c = "InserireOggettoCustomization";
 let index = "InserireOggettoIndice";
+let obj = {
+  number: [4,4,5,6,7,5,1,2],
+  string: ["oggetto prova database"]
+};
+
+test("NumberOfTuplesDataset", async () => {
+  expect(await b.counterDataset()).toEqual(0);
+})
+
+test("NumberOfTuplesCustomization", async () => {
+  expect(await b.counterCustomization()).toEqual(0);
+})
+
+test("NumberOfTuplesVisualization", async () => {
+  expect(await b.counterVisualization()).toEqual(0);
+})
+
+test("loadVoidDatasetError", async () => {
+  let thrownError;
+    try {
+      (await b.loadDataset()).data;
+    }
+    catch(error) {
+     thrownError = error;
+    }
+    expect(String(thrownError)).toMatch('TypeError: Cannot read properties of undefined (reading \'data\')');
+})
+
+test("loadVoidCustomizationError", async () => {
+  let thrownError;
+    try {
+      (await b.loadCustomization()).data;
+    }
+    catch(error) {
+     thrownError = error;
+    }
+    expect(String(thrownError)).toMatch('TypeError: Cannot read properties of undefined (reading \'data\')');
+})
+
+test("loadVoidVisualizationIndexError", async () => {
+  let thrownError;
+    try {
+      (await b.loadVisualizationIndex()).data;
+    }
+    catch(error) {
+     thrownError = error;
+    }
+    expect(String(thrownError)).toMatch('TypeError: Cannot read properties of undefined (reading \'data\')');
+})
+
+test("loadVoidDataset", async () => {
+  expect(await b.loadVisualizationIndex()).toBeUndefined();
+})
+
+test("loadVoidCustomization", async () => {
+  expect(await b.loadVisualizationIndex()).toBeUndefined();
+})
+
+test("loadVoidVisualizationIndex", async () => {
+  expect(await b.loadVisualizationIndex()).toBeUndefined();
+})
 
 test("saveDataset", async () => {
-  await b.saveDataset("Stringa da sovrascrivere");
   await b.saveDataset(d);
   expect((await b.loadDataset()).data).toBe(d);
 })
@@ -41,6 +101,33 @@ test("saveVisualizationIndex", async () => {
 
 test("loadVisualizationIndex", async () => {
   expect((await b.loadVisualizationIndex()).data).toBe(index);
+})
+
+test("saveDatasetObject", async () => {
+  await b.saveDataset(obj);
+  expect((await b.loadDataset()).data).toEqual(obj);
+})
+
+test("saveCustomizationObject", async () => {
+  await b.saveCustomization(obj);
+  expect((await b.loadCustomization()).data).toEqual(obj);
+})
+
+test("saveVisualizationIndexObject", async () => {
+  await b.saveVisualizationIndex(obj);
+  expect((await b.loadVisualizationIndex()).data).toEqual(obj);
+})
+
+test("NumberOfTuplesDataset", async () => {
+  expect(await b.counterDataset()).toEqual(1);
+})
+
+test("NumberOfTuplesCustomization", async () => {
+  expect(await b.counterCustomization()).toEqual(1);
+})
+
+test("NumberOfTuplesVisualization", async () => {
+  expect(await b.counterVisualization()).toEqual(1);
 })
 
 test("saveDataset", () => {

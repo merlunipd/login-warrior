@@ -21,9 +21,10 @@ export class IndexedDB /**extends Storage */{
 
     /**
      * @constructor
+     * @param {string} name
      */
-    constructor() {
-        this.#db = new Dexie("IndexedDataBase");
+    constructor(name = "IndexedDataBase") {
+        this.#db = new Dexie(name);
         this.#db.version(1).stores({
             Dataset: "++id, data", 
             Customization: "++id, data", 
@@ -37,7 +38,7 @@ export class IndexedDB /**extends Storage */{
      */
     async saveDataset(d){
         this.#db.Dataset.put(
-            {data: d}
+            {id: 1, data: d}
         );
     }
 
@@ -55,7 +56,7 @@ export class IndexedDB /**extends Storage */{
      */
     async saveCustomization(c){
         this.#db.Customization.put(
-            {data: c}
+            {id: 1, data: c}
         );
     }
 
@@ -73,7 +74,7 @@ export class IndexedDB /**extends Storage */{
      */
     async saveVisualizationIndex(index){
         await this.#db.Visualization.put(
-            {data: index}
+            {id: 1, data: index}
         );
     }
 
@@ -83,5 +84,32 @@ export class IndexedDB /**extends Storage */{
      */
     async loadVisualizationIndex(){
         return await this.#db.Visualization.where("id").equals(1).first();
+    }
+
+    /**
+     * Ritorna il numero di tuple presenti nella tabella Dataset
+     * @param {void} nothing
+     * @returns {int} int
+     */
+    async counterDataset(){
+        return await this.#db.Dataset.count();
+    }
+
+    /**
+     * Ritorna il numero di tuple presenti nella tabella Customization
+     * @param {void} nothing
+     * @returns {int} int
+     */
+    async counterCustomization(){
+        return await this.#db.Customization.count();
+    }
+
+    /**
+     * Ritorna il numero di tuple presenti nella tabella Visualization
+     * @param {void} nothing
+     * @returns {int} int
+     */
+    async counterVisualization(){
+        return await this.#db.Visualization.count();
     }
 }
