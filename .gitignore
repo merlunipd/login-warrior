@@ -290,3 +290,5 @@ TSWLatexianTemp*
 
 
 node_modules
+
+src/login_warrior/coverage/
