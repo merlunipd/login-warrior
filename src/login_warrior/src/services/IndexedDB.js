@@ -1,4 +1,4 @@
-import { Storage } from "./Storage";
+//import { Storage } from "./Storage";
 //import * as DexieLibrary from "https://unpkg.com/dexie/dist/dexie.js";
 import Dexie from "dexie"
 
@@ -36,7 +36,7 @@ export class IndexedDB /**extends Storage */{
      * @returns {void} nothing
      */
     async saveDataset(d){
-        this.#db.Dataset.add(
+        this.#db.Dataset.put(
             {data: d}
         );
     }
@@ -54,7 +54,7 @@ export class IndexedDB /**extends Storage */{
      * @returns {void} nothing
      */
     async saveCustomization(c){
-        this.#db.Customization.add(
+        this.#db.Customization.put(
             {data: c}
         );
     }
@@ -72,7 +72,7 @@ export class IndexedDB /**extends Storage */{
      * @returns {void} nothing
      */
     async saveVisualizationIndex(index){
-        await this.#db.Visualization.add(
+        await this.#db.Visualization.put(
             {data: index}
         );
     }
