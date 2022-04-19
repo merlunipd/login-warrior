@@ -1,6 +1,6 @@
 import { Storage } from "./Storage";
 //import * as DexieLibrary from "https://unpkg.com/dexie/dist/dexie.js";
-//import Dexie from "dexie"
+import Dexie from "dexie"
 
 /*
     ISTRUZIONI:

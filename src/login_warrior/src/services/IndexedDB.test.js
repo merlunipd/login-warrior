@@ -16,6 +16,7 @@ let c = "InserireOggettoCustomization";
 let index = "InserireOggettoIndice";
 
 test("saveDataset", async () => {
+  await b.saveDataset("Stringa da sovrascrivere");
   await b.saveDataset(d);
   expect((await b.loadDataset()).data).toBe(d);
 })
