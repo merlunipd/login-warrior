@@ -1,62 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1650268812316" clover="3.2.0">
-  <project timestamp="1650268812316" name="All files">
-    <metrics statements="47" coveredstatements="47" conditionals="6" coveredconditionals="6" methods="22" coveredmethods="22" elements="75" coveredelements="75" complexity="0" loc="47" ncloc="47" packages="1" files="3" classes="3"/>
-    <file name="CSV.js" path="C:\Dropbox\Data\University\corsi\swe\project\repo\login-warrior\src\login_warrior\src\model\CSV.js">
+<coverage generated="1650396907538" clover="3.2.0">
+  <project timestamp="1650396907538" name="All files">
+    <metrics statements="85" coveredstatements="85" conditionals="21" coveredconditionals="21" methods="36" coveredmethods="36" elements="142" coveredelements="142" complexity="0" loc="85" ncloc="85" packages="1" files="5" classes="5"/>
+    <file name="CSV.js" path="C:\Users\Marco\Documents\GitHub\login-warrior\src\login_warrior\src\model\CSV.js">
       <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="5" coveredmethods="5"/>
-      <line num="17" count="6" type="stmt"/>
-      <line num="25" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="7" type="stmt"/>
+      <line num="25" count="8" type="cond" truecount="2" falsecount="0"/>
       <line num="26" count="1" type="stmt"/>
-      <line num="29" count="5" type="stmt"/>
-      <line num="30" count="7" type="stmt"/>
-      <line num="31" count="5" type="stmt"/>
-      <line num="32" count="7" type="stmt"/>
-      <line num="33" count="7" type="stmt"/>
-      <line num="34" count="7" type="stmt"/>
-      <line num="35" count="7" type="stmt"/>
-      <line num="37" count="7" type="cond" truecount="4" falsecount="0"/>
-      <line num="39" count="4" type="stmt"/>
-      <line num="40" count="4" type="stmt"/>
-      <line num="42" count="1" type="stmt"/>
-      <line num="43" count="1" type="stmt"/>
+      <line num="29" count="7" type="stmt"/>
+      <line num="30" count="15" type="stmt"/>
+      <line num="31" count="7" type="stmt"/>
+      <line num="32" count="15" type="stmt"/>
+      <line num="33" count="15" type="stmt"/>
+      <line num="34" count="15" type="stmt"/>
+      <line num="35" count="15" type="stmt"/>
+      <line num="37" count="15" type="cond" truecount="4" falsecount="0"/>
+      <line num="39" count="6" type="stmt"/>
+      <line num="40" count="6" type="stmt"/>
+      <line num="42" count="7" type="stmt"/>
+      <line num="43" count="7" type="stmt"/>
       <line num="45" count="1" type="stmt"/>
       <line num="46" count="1" type="stmt"/>
       <line num="48" count="1" type="stmt"/>
-      <line num="50" count="6" type="stmt"/>
-      <line num="51" count="6" type="stmt"/>
-      <line num="53" count="4" type="stmt"/>
+      <line num="50" count="14" type="stmt"/>
+      <line num="51" count="14" type="stmt"/>
+      <line num="53" count="6" type="stmt"/>
       <line num="60" count="3" type="stmt"/>
     </file>
-    <file name="DataPoint.js" path="C:\Dropbox\Data\University\corsi\swe\project\repo\login-warrior\src\login_warrior\src\model\DataPoint.js">
+    <file name="DataPoint.js" path="C:\Users\Marco\Documents\GitHub\login-warrior\src\login_warrior\src\model\DataPoint.js">
       <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+      <line num="43" count="20" type="stmt"/>
+      <line num="44" count="20" type="stmt"/>
+      <line num="45" count="20" type="stmt"/>
+      <line num="46" count="20" type="stmt"/>
+      <line num="47" count="20" type="stmt"/>
+      <line num="54" count="15" type="stmt"/>
+      <line num="61" count="7" type="stmt"/>
+      <line num="68" count="12" type="stmt"/>
+      <line num="75" count="8" type="stmt"/>
+      <line num="82" count="6" type="stmt"/>
+    </file>
+    <file name="Dataset.js" path="C:\Users\Marco\Documents\GitHub\login-warrior\src\login_warrior\src\model\Dataset.js">
+      <metrics statements="37" coveredstatements="37" conditionals="15" coveredconditionals="15" methods="13" coveredmethods="13"/>
+      <line num="32" count="4" type="stmt"/>
+      <line num="33" count="4" type="stmt"/>
+      <line num="35" count="2" type="stmt"/>
+      <line num="38" count="2" type="stmt"/>
+      <line num="47" count="4" type="stmt"/>
+      <line num="56" count="4" type="stmt"/>
+      <line num="64" count="2" type="stmt"/>
+      <line num="72" count="2" type="stmt"/>
+      <line num="79" count="4" type="stmt"/>
+      <line num="86" count="2" type="stmt"/>
+      <line num="97" count="6" type="stmt"/>
+      <line num="98" count="24" type="stmt"/>
+      <line num="99" count="24" type="cond" truecount="2" falsecount="0"/>
+      <line num="100" count="12" type="stmt"/>
+      <line num="102" count="12" type="stmt"/>
+      <line num="105" count="15" type="stmt"/>
+      <line num="106" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="107" count="12" type="stmt"/>
+      <line num="109" count="3" type="stmt"/>
+      <line num="112" count="15" type="stmt"/>
+      <line num="113" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="114" count="12" type="stmt"/>
+      <line num="116" count="3" type="cond" truecount="3" falsecount="0"/>
+      <line num="121" count="15" type="stmt"/>
+      <line num="122" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="123" count="12" type="stmt"/>
+      <line num="125" count="3" type="stmt"/>
+      <line num="128" count="15" type="stmt"/>
+      <line num="129" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="130" count="12" type="stmt"/>
+      <line num="132" count="3" type="stmt"/>
+      <line num="147" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="148" count="5" type="stmt"/>
+      <line num="150" count="3" type="stmt"/>
+      <line num="151" count="14" type="stmt"/>
+      <line num="152" count="3" type="stmt"/>
+      <line num="153" count="3" type="stmt"/>
+    </file>
+    <file name="Filters.js" path="C:\Users\Marco\Documents\GitHub\login-warrior\src\login_warrior\src\model\Filters.js">
+      <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="11"/>
       <line num="43" count="12" type="stmt"/>
       <line num="44" count="12" type="stmt"/>
       <line num="45" count="12" type="stmt"/>
       <line num="46" count="12" type="stmt"/>
       <line num="47" count="12" type="stmt"/>
-      <line num="54" count="3" type="stmt"/>
-      <line num="61" count="4" type="stmt"/>
-      <line num="68" count="3" type="stmt"/>
-      <line num="75" count="5" type="stmt"/>
-      <line num="82" count="3" type="stmt"/>
-    </file>
-    <file name="Filters.js" path="C:\Dropbox\Data\University\corsi\swe\project\repo\login-warrior\src\login_warrior\src\model\Filters.js">
-      <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="11"/>
-      <line num="43" count="4" type="stmt"/>
-      <line num="44" count="4" type="stmt"/>
-      <line num="45" count="4" type="stmt"/>
-      <line num="46" count="4" type="stmt"/>
-      <line num="47" count="4" type="stmt"/>
-      <line num="54" count="6" type="stmt"/>
-      <line num="61" count="7" type="stmt"/>
-      <line num="68" count="6" type="stmt"/>
-      <line num="75" count="6" type="stmt"/>
-      <line num="82" count="6" type="stmt"/>
+      <line num="54" count="30" type="stmt"/>
+      <line num="61" count="22" type="stmt"/>
+      <line num="68" count="21" type="stmt"/>
+      <line num="75" count="21" type="stmt"/>
+      <line num="82" count="21" type="stmt"/>
       <line num="89" count="3" type="stmt"/>
       <line num="96" count="3" type="stmt"/>
       <line num="103" count="3" type="stmt"/>
       <line num="110" count="3" type="stmt"/>
       <line num="117" count="3" type="stmt"/>
+    </file>
+    <file name="Model.js" path="C:\Users\Marco\Documents\GitHub\login-warrior\src\login_warrior\src\model\Model.js">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="9" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

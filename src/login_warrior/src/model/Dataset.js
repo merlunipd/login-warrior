@@ -29,7 +29,12 @@ export default class Dataset {
    * @param {Filters} filters Filtri iniziali sui dati
    */
   constructor(csv, filters) {
-    this.#dataset = csv.parseCsv();
+    try{
+      this.#dataset = csv.parseCsv();
+    } catch (error) {
+      throw new Error("error parsing csv");
+    }
+    
     this.#filters = filters;
   }
 
@@ -108,9 +113,9 @@ export default class Dataset {
         if (dateFilter === null) {
           return true;
         }
-        return dataPoint.getDate().getFullYear() === dateFilter.getFullYear()
-          && dataPoint.getDate().getMonth() === dateFilter.getMonth()
-          && dataPoint.getDate().getDate() === dateFilter.getDate();
+        return dataPoint.getDate().getFullYear() === (new Date(dateFilter)).getFullYear()
+          && dataPoint.getDate().getMonth() === (new Date(dateFilter)).getMonth()
+          && dataPoint.getDate().getDate() === (new Date(dateFilter)).getDate();
       })
       .filter((dataPoint) => {
         const eventFilter = this.#filters.getEvent();
