@@ -15,7 +15,7 @@ export default class SaveButton{
         this.#cssSelector = cssSelector;
     }
 
-    setClick(saveSessionFunction){
-        document.querySelector(this.#cssSelector).addEventListener('click', saveSessionFunction)
+    setClick(function){
+        document.querySelector(this.#cssSelector).addEventListener('click', function)
     }
 }

@@ -10,7 +10,7 @@
     }
 
     setClick(function) {
-      throw new Error('Abstract method')
+      throw new Error('Abstract method');
     }
   }
   

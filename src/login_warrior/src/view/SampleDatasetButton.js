@@ -15,7 +15,7 @@ export default class SampleDatasetButton{
         this.#cssSelector = cssSelector;
     }
 
-    setClick(sampleDatasetFunction){
-        document.querySelector(this.#cssSelector).addEventListener('click', sampleDatasetFunction)
+    setClick(function){
+        document.querySelector(this.#cssSelector).addEventListener('click', function);
     }
 }
