@@ -15,7 +15,7 @@ export default class LoadDatasetButton{
         this.#cssSelector = cssSelector;
     }
 
-    setClick(loadDatasetFunction){
-        document.querySelector(this.#cssSelector).addEventListener('click', loadDatasetFunction)
+    setClick(function){
+        document.querySelector(this.#cssSelector).addEventListener('click', function);
     }
 }

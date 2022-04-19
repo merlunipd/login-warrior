@@ -15,7 +15,7 @@ export default class HomeButton{
         this.#cssSelector = cssSelector;
     }
 
-    setClick(goHomeFunction){
-        document.querySelector(this.#cssSelector).addEventListener('click', goHomeFunction)
+    setClick(function){
+        document.querySelector(this.#cssSelector).addEventListener('click', function)
     }
 }
