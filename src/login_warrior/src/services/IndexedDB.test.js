@@ -1,5 +1,5 @@
 import "fake-indexeddb/auto";
-import { IndexedDB } from "./IndexedDB.js";
+import IndexedDB from "./IndexedDB.js";
 
  /*
     ISTRUZIONI:
@@ -78,11 +78,11 @@ test("loadVoidVisualizationIndex", async () => {
 
 test("saveDataset", async () => {
   await b.saveDataset(d);
-  expect((await b.loadDataset()).data).toBe(d);
+  expect((await b.loadDataset())).toBe(d);
 })
 
 test("loadDataset", async () => {
-  expect((await b.loadDataset()).data).toBe(d);
+  expect((await b.loadDataset())).toBe(d);
 })
 
 test("saveCustomization", async () => {
@@ -105,7 +105,7 @@ test("loadVisualizationIndex", async () => {
 
 test("saveDatasetObject", async () => {
   await b.saveDataset(obj);
-  expect((await b.loadDataset()).data).toEqual(obj);
+  expect((await b.loadDataset())).toEqual(obj);
 })
 
 test("saveCustomizationObject", async () => {

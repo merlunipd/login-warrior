@@ -25,17 +25,24 @@ export default class Dataset {
   filters;
 
   /**
+   * Filtri sui dati
+   * @type {CSV}
+   */
+  csv;
+
+  /**
    * @param {CSV} csv CSV da cui estrarre il dataset
    * @param {Filters} filters Filtri iniziali sui dati
    */
   constructor(csv, filters) {
-    try{
+    try {
       this.dataset = csv.parseCsv();
     } catch (error) {
       throw new Error("error parsing csv");
     }
-    
+
     this.filters = filters;
+    this.csv = csv;
   }
 
   /**
@@ -153,4 +160,20 @@ export default class Dataset {
     return sampledDataset;
   }
   /* eslint-enable class-methods-use-this */
+
+  /**
+   * Necessario poichè una volta salvato l'oggetto in IndexedDB, il tipo viene perso.
+   * Funziona solo se tutti i campi dati sono pubblici.
+   */
+  static newDatasetFromObject(o) {
+    const csv = new CSV(o.csv.csvText);
+    const filters = new Filters(
+      o.filters.id,
+      o.filters.ip,
+      o.filters.date === null ? null : new Date(o.filters.date),
+      o.filters.event,
+      o.filters.application
+    );
+    return new Dataset(csv, filters);
+  }
 }

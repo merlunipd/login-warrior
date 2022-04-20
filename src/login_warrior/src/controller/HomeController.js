@@ -72,7 +72,8 @@ export default class HomeController {
   /* Metodi privati di supporto */
 
   async loadModel() {
-    this.model = await this.db.loadDataset();
+    const loadedModel = await this.db.loadDataset();
+    this.model = loadedModel ? Dataset.newDatasetFromObject(loadedModel) : null;
   }
 
   /**
@@ -88,6 +89,8 @@ export default class HomeController {
   setupViewsState() {
     if (this.model) {
       this.view.list.show(true);
+    } else {
+      this.view.list.show(false);
     }
   }
 
@@ -119,9 +122,8 @@ export default class HomeController {
         this.model = new Dataset(csv, filters);
 
         // Salva il modello su IndexedDB
-        console.log(this.model);
         await this.db.saveDataset(this.model);
-        console.log(await this.db.loadDataset());
+        this.view.list.show(true);
       }
     });
   }
