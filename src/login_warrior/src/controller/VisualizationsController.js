@@ -1,66 +1,72 @@
 import Controller from "./Controller.js";
-import IndexedDBStorage from "../services/IndexedDBStorage.js";
+import IndexedDBStorage from "../services/IndexedDB.js";
 import VisualizationView from "../view/VisualizationView.js";
+import Dataset from "../model/Dataset.js";
 
 /**
  * Classe controller per le pagine con le visualizzazioni
  * @implements {Controller}
  */
-export default class VisualizationsController extends Controller {
-  #view;
-  #model;
-  #db;
-  #visualizationIndex;
-  #samplesLimit;
+export default class VisualizationsController {
+  view;
+  model;
+  db;
+  visualizationIndex;
+  samplesLimit;
 
   constructor() {
-    super();
+    this.setup();
+  }
+
+  async setup() {
+    this.setupStorage();
+    await this.setupModel();
+    this.setupView();
   }
 
   setupStorage() {
-    this.#db = new IndexedDBStorage();
+    this.db = new IndexedDBStorage();
   }
 
-  setupModel() {
-    this.#loadModel();
-    this.#checkModelExists();
+  async setupModel() {
+    await this.loadModel();
+    this.checkModelExists();
   }
 
   setupView() {
-    this.#createViews();
-    // TODO: BOOKMARK (continuare da qui)
-    this.#setupViewsInitialState();
-    this.#setupEventListeners();
+    this.createViews();
+    this.setupViewsInitialState();
+    this.setupEventListeners();
   }
 
 
 
-  
+
 
   /* Metodi privati di supporto */
 
-  #loadModel() {
-    this.#model = this.#db.loadDataset();
+  async loadModel() {
+    const loadedModel = await this.db.loadDataset();
+    this.model = loadedModel ? Dataset.newDatasetFromObject(loadedModel) : null;
+    console.log(this.model);
   }
 
-  #checkModelExists() {
-    if (this.#model === undefined) {
+  checkModelExists() {
+    if (this.model === null) {
       window.location.href = '../home';
     }
   }
 
-  #createViews() {
-    this.#viewsInfo();
-    this.#view = new VisualizationView(this.#visualizationIndex);
+  createViews() {
+    this.viewsInfo();
+    this.view = new VisualizationView(this.visualizationIndex);
   }
 
-  #viewsInfo() {
-    // TODO: spostare in view?
-    const visualizationsName = window.location.href.split("/").at(-2);
-    switch (visualizationsName) {
+  viewsInfo() {
+    switch (this.getVisualizationName()) {
       case "scatterplot_01":
-        this.#samplesLimit = 1000;
-        this.#visualizationIndex = 1;
+        this.samplesLimit = 1000;
+        this.visualizationIndex = 1;
         break;
 
       default:
@@ -69,32 +75,51 @@ export default class VisualizationsController extends Controller {
     }
   }
 
-  #setupViewsInitialState() {
+  getVisualizationName() {
+    return window.location.href.split("/").at(-2)
+  }
+
+  setupViewsInitialState() {
     // Visualizzazione
-    this.#view.visualization.draw(this.#model.getDataset(this.#samplesLimit));
+    this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
 
     // TODO: implementare i filtri
     // Filtri
   }
 
-  #setupEventListeners() {
-    this.#eventListenerHomeButton();
-    this.#eventListenerSaveButton();
-    this.#eventListenerSampleDatasetButton();
-    this.#eventListenerFilters();
+  setupEventListeners() {
+    this.eventListenerHomeButton();
+    this.eventListenerSampleDatasetButton();
+    this.eventListenerSaveButton();
+    // TODO completare
+    this.eventListenerFilters();
   }
 
-  #eventListenerHomeButton() {
-    window.location.href = '../home';
+  eventListenerHomeButton() {
+    this.view.homeButton.setClick(() => {
+      window.location.href = '../home';
+    });
   }
 
-  #eventListenerSaveButton() {
-    this.#saveToFileJson(
-      JSON.stringify(this.#model)
-    );
+  eventListenerSampleDatasetButton() {
+    this.view.sampleDatasetButton.setClick(() => {
+      this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+    });
   }
 
-  #saveToFileJson(jsonString) {
+  // TODO
+  eventListenerSaveButton() {
+    this.view.saveButton.setClick(() => {
+      this.saveToFileJson(
+        JSON.stringify({
+          data: this.model,
+          path: this.getVisualizationName()
+        })
+      );
+    });
+  }
+
+  saveToFileJson(jsonString) {
     const file = new Blob([jsonString], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(file);
@@ -103,10 +128,7 @@ export default class VisualizationsController extends Controller {
     URL.revokeObjectURL(a.href);
   }
 
-  #eventListenerSampleDatasetButton() {
-    this.#view.visualization.draw(this.#model.getDataset(this.#samplesLimit));
-  }
 
   // TODO: implementare i filtri
-  #eventListenerFilters() { }
+  eventListenerFilters() { }
 }

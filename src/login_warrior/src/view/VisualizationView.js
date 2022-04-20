@@ -1,10 +1,15 @@
-import {
-  ScatterPlot1, ScatterPlot2, ParallelCoordinates, SankeyDiagram, ForceDirected,
-} from './drawers';
-import {
-  FilterIp, FilterEvent, FilterDate, FilterApplication, FilterId,
-} from './filters';
-import Visualization from './Visualization';
+import ScatterPlot1 from "./drawers/ScatterPlot1.js";
+
+import FilterId from "./filters/FilterId.js";
+import FilterIp from "./filters/FilterIp.js";
+import FilterDate from "./filters/FilterDate.js";
+import FilterEvent from "./filters/FilterEvent.js";
+import FilterApplication from "./filters/FilterApplication.js";
+
+import Visualization from './Visualization.js';
+import HomeButton from "./HomeButton.js"
+import SaveButton from "./SaveButton.js"
+import SampleDatasetButton from "./SampleDatasetButton.js"
 
 export default class VisualizationView {
   visualization;
@@ -19,7 +24,11 @@ export default class VisualizationView {
 
   filterApplication;
 
-  // mancano i bottoni
+  homeButton;
+
+  saveButton;
+
+  sampleDatasetButton;
 
   constructor(visualizationIndex) {
     switch (visualizationIndex) {
@@ -47,5 +56,9 @@ export default class VisualizationView {
     this.filterEvent = new FilterEvent('#filterEvent');
     this.filterDate = new FilterDate('#filterDate');
     this.filterApplication = new FilterApplication('#filterApplication');
+
+    this.homeButton = new HomeButton("#home-button");
+    this.saveButton = new SaveButton("#save-session-button");
+    this.sampleDatasetButton = new SampleDatasetButton("#sample-dataset-button");
   }
 }

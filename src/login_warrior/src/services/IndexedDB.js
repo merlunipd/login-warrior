@@ -37,7 +37,7 @@ export default class IndexedDB /**extends Storage */{
      * @returns {void} nothing
      */
     async saveDataset(d){
-        this.#db.Dataset.put(
+        await this.#db.Dataset.put(
             {id: 1, data: d}
         );
     }

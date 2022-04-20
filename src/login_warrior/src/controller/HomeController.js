@@ -108,10 +108,13 @@ export default class HomeController {
 
   loadDatasetFunction() {
     document.querySelector("#datasetInput").addEventListener('change', async () => {
-      const file = datasetInput.files[0];
+      const file = document.querySelector("#datasetInput").files[0];
       if (file !== undefined) {
         // Leggi file
         const text = await this.readFile(file);
+
+        // Pulisci input
+        document.querySelector("#datasetInput").value = null;
 
         // Crea modello
         const csv = new CSV(text);
@@ -146,5 +149,32 @@ export default class HomeController {
   }
 
   // TODO
-  eventListenerSessionButton() { }
+  eventListenerSessionButton() {
+    this.loadSessionFunction();
+    this.view.sessionbt.setClick(this.loadSessionTrigger);
+  }
+
+  loadSessionFunction() {
+    document.querySelector("#load-session-input").addEventListener('change', async () => {
+      const file = document.querySelector("#load-session-input").files[0];
+      if (file !== undefined) {
+        // Leggi file
+        const text = await this.readFile(file);
+        
+        // Pulisci input
+        document.querySelector("#load-session-input").value = null;
+        
+        // Carica modello
+        this.model = Dataset.newDatasetFromObject(JSON.parse(text).data);
+        await this.db.saveDataset(this.model);
+
+        // Reindirizza alla pagina corretta
+        window.location.href = '../' + JSON.parse(text).path;
+      }
+    });
+  }
+
+  loadSessionTrigger() {
+    document.querySelector("#load-session-input").click();
+  }
 }
