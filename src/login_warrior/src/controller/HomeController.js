@@ -61,7 +61,6 @@ export default class HomeController {
   setupView() {
     this.createViews();
     this.setupViewsState();
-    // TODO: BOOKMARK
     this.setupViewsEventListeners();
   }
 
@@ -100,10 +99,8 @@ export default class HomeController {
   setupViewsEventListeners() {
     this.eventListenerDatasetButton();
     this.eventListenerSessionButton();
-    this.eventListenerList();
   }
 
-  // TODO
   eventListenerDatasetButton() {
     this.loadDatasetFunction();
     this.view.datasetbt.setClick(this.loadDatasetTrigger);
@@ -114,7 +111,7 @@ export default class HomeController {
       const file = datasetInput.files[0];
       if (file !== undefined) {
         // Leggi file
-        const text = await this.readCsvFile(file);
+        const text = await this.readFile(file);
 
         // Crea modello
         const csv = new CSV(text);
@@ -123,12 +120,14 @@ export default class HomeController {
 
         // Salva il modello su IndexedDB
         await this.db.saveDataset(this.model);
+
+        // Mostra la lista
         this.view.list.show(true);
       }
     });
   }
 
-  async readCsvFile(file) {
+  async readFile(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onerror = () => {
@@ -146,14 +145,6 @@ export default class HomeController {
     document.querySelector("#datasetInput").click();
   }
 
-
-
-
-
-
   // TODO
   eventListenerSessionButton() { }
-
-  // TODO
-  eventListenerList() { }
 }
