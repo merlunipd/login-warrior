@@ -1,160 +1,163 @@
 import Controller from "./Controller.js";
-import IndexedDBStorage from "../services/IndexedDBStorage.js";
+import IndexedDBStorage from "../services/IndexedDB.js";
 import HomeView from "../view/HomeView.js";
+import Dataset from "../model/Dataset.js";
+import CSV from "../model/CSV.js";
+import Filters from "../model/Filters.js";
 
 /**
  * Classe controller per la home page
  * @implements {Controller}
  */
-export default class HomeController extends Controller {
+export default class HomeController {
   /**
    * Vista della home
    * @type {ViewHome}
    */
-  #view;
+  view;
 
   /**
    * Modello
    * @type {Dataset}
    */
-  #model;
+  model;
 
   /**
    * Database
    * @type {IndexedDBStorage}
    */
-  #db;
+  db;
 
   /**
    * Costruttore a zero parametri
    */
   constructor() {
-    super();
+    this.setup();
+  }
+
+  setup() {
+    this.setupStorage();
+    this.setupModel();
+    this.setupView();
   }
 
   /**
    * Funzione per impostare il database
    */
   setupStorage() {
-    this.#createStorage();
+    this.db = new IndexedDBStorage();
   }
 
   /**
    * Funzione per impostare il modello
    */
   setupModel() {
-    this.#checkDatasetExists();
+    this.loadModel();
   }
 
   /**
    * Funzione per impostare la view
    */
   setupView() {
-    this.#createViews();
-    this.#setupViewsState();
-    this.#setupViewsEventListeners();
+    this.createViews();
+    this.setupViewsState();
+    // TODO: BOOKMARK
+    this.setupViewsEventListeners();
   }
 
-  /**
-   * Funzione per creare il database
-   */
-  #createStorage() {
-    this.#db = new IndexedDBStorage();
-  }
 
-  /**
-   * Funzione per controllare se è presente un dataset
-   */
-  #checkDatasetExists() {
-    /**
-     * Uso le funzioni get perché logicamente a mio parere le load è vero
-     * che ritornano un dataset ma implementano anche il caricamento del
-     * dataset e questa funzione controlla solo che sia presente o meno.
-     * A questo punto andrebbe implementata anche la get del dataset nel db
-     */
-    const dataset = this.#db.getDataset();
-    const filters = this.#db.getDataset().getFilters();
-    //const dataset = this.#db.loadDataset();
-    //const filters = this.#db.loadDataset().getFilters();
-    if (dataset) {
-      if (filters) {
-        this.#model = new Dataset(dataset.getDatasetUnsampled(), filters);
-      } else {
-        this.#model = new Dataset(dataset.getDatasetUnfilteredUnsampled(), filters);
-      }
-    }
-  }
 
-  /**
-   * Funzione per aggiornare il model
-   */
-  #updateModel() {
-    const dataset = this.#db.loadDataset();
-    const filters = this.#db.loadDataset().getFilters();
-    if (dataset) {
-      if (filters) {
-        this.#model = new Dataset(dataset.getDatasetUnsampled(), filters);
-      } else {
-        this.#model = new Dataset(dataset.getDatasetUnfilteredUnsampled(), filters);
-      }
-    }
+
+
+  /* Metodi privati di supporto */
+
+  async loadModel() {
+    this.model = await this.db.loadDataset();
   }
 
   /**
    * Funzione per creare la view della home
    */
-  #createViews() {
-    this.#view = new HomeView();
+  createViews() {
+    this.view = new HomeView();
   }
 
   /**
-   * Funzione per settare lo stato della view
-   */
-  #setupViewsState() {
-    //if (this.#model.getDatasetUnfilteredUnsampled()) {
-    if (this.#db.getDataset()) {
-      this.#view.visualizationList.show(true);
+    * Funzione per settare lo stato della view
+    */
+  setupViewsState() {
+    if (this.model) {
+      this.view.list.show(true);
     }
   }
 
   /**
-   * Funzione per la gestione degli eventi
-   */
-  #setupViewsEventListeners() {
-    const datasetButton = this.#view.loadDatasetButton;
-    const sessionButton = this.#view.loadSessionButton;
-    const list = this.#view.visualizationList;
+    * Funzione per la gestione degli eventi
+    */
+  setupViewsEventListeners() {
+    this.eventListenerDatasetButton();
+    this.eventListenerSessionButton();
+    this.eventListenerList();
+  }
 
-    datasetButton.addEventListener("click", () => {
-      this.#updateModel();
-      this.#setupViewsState();
-    });
+  // TODO
+  eventListenerDatasetButton() {
+    this.loadDatasetFunction();
+    this.view.datasetbt.setClick(this.loadDatasetTrigger);
+  }
 
-    sessionButton.addEventListener("click", () => {
-      this.#db.loadSession();
+  loadDatasetFunction() {
+    document.querySelector("#datasetInput").addEventListener('change', async () => {
+      const file = datasetInput.files[0];
+      if (file !== undefined) {
+        // Leggi file
+        const text = await this.readCsvFile(file);
 
-      /**
-       * Suppongo ci saranno i metodi per salvare e caricare la sessione nel db.
-       * Nel momento in cui carico la sessione dovrebbe essere mostrata la view
-       * della visualizzazione corrispondente, a questo punto però entra in gioco
-       * il VisualizationController, mi sfugge quindi come effettuare questo passaggio
-       */
-    });
+        // Crea modello
+        const csv = new CSV(text);
+        const filters = new Filters(null, null, null, null, null);
+        this.model = new Dataset(csv, filters);
 
-    list.forEach(element => {
-      /** 
-       * per ogni elemento della lista collego l'evento al click sul bottone(?),
-       * suppongo ogni elemento abbia la parte di descrizione e il bottone,
-       * o come campo dati o lo prendo direttamente dal DOM (non so se in
-       * questo modo sia corretto)
-      */
-      //element.visualizationButton.addEventListener("click", () => {
-      element.getElementsByTagName(button).addEventListener("click", () => {
-        /**
-         * Stesso discorso fatto sopra per quanto riguarda l'entrata in gioco
-         * del VisualizationController
-         */
-      })
+        // Salva il modello su IndexedDB
+        console.log(this.model);
+        console.log(JSON.stringify(this.model));
+        
+        console.log("Saving");
+        await this.db.saveDataset(this.model);
+        console.log("Saved");
+        console.log("Loading");
+        console.log(await this.db.loadDataset());
+        console.log("Loaded");
+      }
     });
   }
+
+  async readCsvFile(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = () => {
+        reader.abort();
+        reject(new DOMException('Error reading input file'));
+      };
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+      reader.readAsText(file);
+    });
+  }
+
+  loadDatasetTrigger() {
+    document.querySelector("#datasetInput").click();
+  }
+
+
+
+
+
+
+  // TODO
+  eventListenerSessionButton() { }
+
+  // TODO
+  eventListenerList() { }
 }

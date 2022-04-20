@@ -1,6 +1,6 @@
 //import { Storage } from "./Storage";
-//import * as DexieLibrary from "https://unpkg.com/dexie/dist/dexie.js";
-import Dexie from "dexie"
+import * as DexieLibrary from "https://unpkg.com/dexie/dist/dexie.js";
+//import Dexie from "dexie"
 
 /*
     ISTRUZIONI:
@@ -16,7 +16,7 @@ import Dexie from "dexie"
  * @class IndexedDB
  * @extends Storage
  */
-export class IndexedDB /**extends Storage */{
+export default class IndexedDB /**extends Storage */{
     #db=null;
 
     /**

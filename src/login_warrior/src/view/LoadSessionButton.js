@@ -15,7 +15,7 @@ export default class LoadSessionButton{
         this.#cssSelector = cssSelector;
     }
 
-    setClick(function){
-        document.querySelector(this.#cssSelector).addEventListener('click', function);
+    setClick(f){
+        document.querySelector(this.#cssSelector).addEventListener('click', f);
     }
 }

@@ -30,8 +30,8 @@ export default class HomeView {
    list;  
 
   constructor() {
-    this.datasetbt = new LoadDatasetButton("load-dataset-button");
-    this.sessionbt = new LoadSessionButton("load-session-button");
-    this.list = new VisualizationList("visualizations-list");
+    this.datasetbt = new LoadDatasetButton("#datasetButton");
+    this.sessionbt = new LoadSessionButton("#load-session-button");
+    this.list = new VisualizationList("#plot-list");
   }
 }

@@ -9,7 +9,7 @@
       throw new Error('Interfaces can not be instantiated');
     }
 
-    setClick(function) {
+    setClick(f) {
       throw new Error('Abstract method');
     }
   }
