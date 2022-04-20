@@ -421,6 +421,70 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
                 \end{tabular}
             \end{center}
             \renewcommand\arraystretch{1}
+            \item \textbf{Controllo},\\
+            Alcuni valori importanti per la tabella successiva:
+            \begin{itemize}
+                \item LC, indica la percentuale del lavoro completato;
+                \item LP, indica la percentuale del lavoro pianificato;
+                \item BAC (Budget at Completion), corrisponde al budget totale allocato inizialmente per il progetto;
+                \item AC (Actual Cost), indica i soldi spesi per il progetto fino al momento del calcolo;
+                \item ETC (Estimate to Complete), valore stimato delle attività necessarie per il completamento del progetto.
+            \end{itemize}
+            \renewcommand\arraystretch{1,5}
+            \begin{center}
+                \begin{tabular}{|p{1.7cm}|p{3cm}|p{4.5cm}|p{3cm}|} \hline
+                  \rowcolor[HTML]{036400}
+                  \textcolor[HTML]{FFFFFF}{\textbf{Metrica}} & \textcolor[HTML]{FFFFFF}{\textbf{Nome}} & \textcolor[HTML]{FFFFFF}{\textbf{Descrizione}} & \textcolor[HTML]{FFFFFF}{\textbf{Formula}}    \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  EAC & Estimated at Completion & Indica il budget totale allocato per il progetto & AC + ETC  \\ \hline
+                  \rowcolor[HTML]{EFEFEF}
+                  EV & Earned Value & Rappresenta il valore prodotto dal progetto fino al momento della misurazione in seguito alle attività svolte & EAC * LC  \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  PV & Planned value & Corrisponde al denaro che si dovrebbe guadagnare al momento della misurazione & BAC * LP  \\ \hline
+                  \rowcolor[HTML]{EFEFEF}
+                  SV & Schedule Variance & Descrive se il gruppo sta rispettando o meno i tempi prestabiliti per i processi & ($\frac{EV}{PT}-1)*100$  \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  BV & Budget Variance & Descrive se il gruppo sta rispettando o meno i costi prestabiliti per i processi & ($\frac{EV}{AC}-1)*100$   \\ \hline
+                \end{tabular}
+            \end{center}
+            \renewcommand\arraystretch{1}
+
+
+            \item \textbf{Prodotto}, \\
+            Alcuni valori importanti per la tabella successiva:
+            \begin{itemize}
+                \item TT, numero di test totali;
+                \item PT, numero di test passati;
+                \item FT, numero di test falliti;
+                \item TQM (Total number of Quality Metrics), numero totale di metriche di qualità;
+                \item NQMS (Number of Quality Metrics Satisfied), numero di metriche di qualità soddisfatte;
+                \item Rc, righe totali di commenti;
+                \item Rt, righe codice totali;
+                \item LCE (Line of Code Executed), linee codice eseguite dai test;
+                \item LC (Line of Code), linee codice totali;
+                \item NoC (Number of Changed), numero requisiti cambiati;
+                \item NoD (Number of Deleted), numero requisiti eliminati;
+                \item NoA (Number of Added), numero requisiti aggiunti;
+                \item TNIR (Total Number of Initial Requirement), Numero totale requisiti iniziale;
+            \end{itemize}
+            \renewcommand\arraystretch{1,5}
+            \begin{center}
+                \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{5cm}|} \hline
+                  \rowcolor[HTML]{036400}
+                  \textcolor[HTML]{FFFFFF}{\textbf{Metrica}} & \textcolor[HTML]{FFFFFF}{\textbf{Nome}} & \textcolor[HTML]{FFFFFF}{\textbf{Descrizione}} & \textcolor[HTML]{FFFFFF}{\textbf{Formula}}    \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  PTCP & Passed Test Cases Percentage & Indica il valore percentuale di test passati & $\frac{PT}{TT}*100$  \\ \hline
+                  \rowcolor[HTML]{EFEFEF}
+                  FTCP & Failed Test Cases Percentage & Indica il valore percentuale di test falliti & $\frac{FT}{TT}*100$  \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  QMS & Quality Metrics Satisfied & Indica la percentuale di metriche di qualità soddisfatte &  $\frac{NQMS}{TQM}*100$ \\ \hline
+                  \rowcolor[HTML]{EFEFEF}
+                  CC & Code coverage & Descrive quanto il codice prodotto è coperto dalla suite di test dinamici & $\frac{LCE}{LC}*100$  \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  RSI & Requirements stability index & Indica quanto i requisiti variano nel tempo & $(1-\frac{NoC*NoD*NoA}{TNIR})*100$   \\ \hline  
+                \end{tabular}
+            \end{center}
+            \renewcommand\arraystretch{1}
    \end{itemize}
 
   \subsection{Aspettative}
@@ -540,6 +604,15 @@ Questa tipologia di analisi risulta molto utile per la verifica di un documento.
 \end{itemize}
 Inizialmente l'attività di Walkthrough sarà prevalente rispetto a Inspection ma
 con l'avanzamento dell'attività di progetto e quindi con il ripetersi del processo di Verifica sulla documentazione, si riuscirà a sviluppare una lista degli errori più comuni detta \textbf{Lista di Controllo} consentendo l'utilizzo più massivo della tecnica \textbf{Inspection} che risulta essere più efficiente.
+
+\subsection{Verifica del prodotto}
+Al fine di minimizzare gli errori il codice viene cotrollato mediante attività di analisi statica e dinamica.
+
+\subsubsection{Attività di analisi statica}
+Lo strumento utilizzato per controllare in maniera statica il codice è \textit{ESLint}, il quale permette di verificare che i principi di buona programmazione decisi vengano rispettati.
+
+\subsubsection{Attività di analisi dinamica}
+Per offrire una maggior garanzia che il prodotto non incorra in problemi durante l'esecuzione, il gruppo utilizza un insieme di test eseguibili a run-time. L'esecuzione di tali test deve essere ripetibile, perciò è necessario identificare vari strumenti per renderla automatica. A questo fine il gruppo \textit{MERL} si affida al software \textit{Node.js}.
 
 \section{Validazione}
 \subsection{Descrizione}
