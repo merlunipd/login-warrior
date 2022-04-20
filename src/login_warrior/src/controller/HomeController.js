@@ -35,9 +35,9 @@ export default class HomeController {
     this.setup();
   }
 
-  setup() {
+  async setup() {
     this.setupStorage();
-    this.setupModel();
+    await this.setupModel();
     this.setupView();
   }
 
@@ -51,8 +51,8 @@ export default class HomeController {
   /**
    * Funzione per impostare il modello
    */
-  setupModel() {
-    this.loadModel();
+  async setupModel() {
+    await this.loadModel();
   }
 
   /**
@@ -120,14 +120,8 @@ export default class HomeController {
 
         // Salva il modello su IndexedDB
         console.log(this.model);
-        console.log(JSON.stringify(this.model));
-        
-        console.log("Saving");
         await this.db.saveDataset(this.model);
-        console.log("Saved");
-        console.log("Loading");
         console.log(await this.db.loadDataset());
-        console.log("Loaded");
       }
     });
   }

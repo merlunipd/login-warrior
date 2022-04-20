@@ -47,7 +47,7 @@ export default class IndexedDB /**extends Storage */{
      * @returns {Object} obj{id,data}
      */
     async loadDataset(){
-        return await this.#db.Dataset.where("id").equals(1).first();
+        return (await this.#db.Dataset.where("id").equals(1).first()).data;
     }
 
     /** 
