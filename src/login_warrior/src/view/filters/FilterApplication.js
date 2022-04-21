@@ -5,17 +5,11 @@
 export default class FilterApplication {
   #cssSelector;
 
-  #appilcation;
-
   constructor(cssSelector) {
     this.#cssSelector = cssSelector;
   }
 
-  getFilter() {
-    return this.#appilcation;
-  }
-
-  setFilter(filter) {
-    this.#appilcation = filter;
+  getDomObject() {
+    return document.querySelector(this.#cssSelector);
   }
 }

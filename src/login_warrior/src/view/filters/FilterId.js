@@ -5,17 +5,11 @@
 export default class FilterId {
   #cssSelector;
 
-  #id;
-
   constructor(cssSelector) {
     this.#cssSelector = cssSelector;
   }
 
-  getFilter() {
-    return this.#id;
-  }
-
-  setFilter(filter) {
-    this.#id = filter;
+  getDomObject() {
+    return document.querySelector(this.#cssSelector);
   }
 }

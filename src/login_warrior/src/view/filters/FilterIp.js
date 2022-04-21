@@ -5,17 +5,11 @@
 export default class FilterIp {
   #cssSelector;
 
-  #ip;
-
   constructor(cssSelector) {
     this.#cssSelector = cssSelector;
   }
 
-  getFilter() {
-    return this.#ip;
-  }
-
-  setFilter(filter) {
-    this.#ip = filter;
+  getDomObject() {
+    return document.querySelector(this.#cssSelector);
   }
 }

@@ -51,11 +51,11 @@ export default class VisualizationView {
       default:
         break;
     }
-    this.filterId = new FilterId('#filterId');
-    this.filterIp = new FilterIp('#filterIp');
-    this.filterEvent = new FilterEvent('#filterEvent');
-    this.filterDate = new FilterDate('#filterDate');
-    this.filterApplication = new FilterApplication('#filterApplication');
+    this.filterId = new FilterId('#filtro-utente');
+    this.filterIp = new FilterIp('#filtro-ip');
+    this.filterEvent = new FilterEvent('#filtro-evento');
+    this.filterDate = new FilterDate('#date-input');
+    this.filterApplication = new FilterApplication('#filtro-app');
 
     this.homeButton = new HomeButton("#home-button");
     this.saveButton = new SaveButton("#save-session-button");

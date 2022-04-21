@@ -10,12 +10,7 @@ export default class FilterView {
     throw new Error('Interfaces can not be instantiated');
   }
 
-  getFilter() {
-    throw new Error('Metodo astratto');
-  }
-
-  // eslint-disable-next-line no-unused-vars
-  setFilter(filter) {
+  getDomObject() {
     throw new Error('Metodo astratto');
   }
 }

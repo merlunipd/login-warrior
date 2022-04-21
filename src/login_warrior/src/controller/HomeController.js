@@ -148,7 +148,6 @@ export default class HomeController {
     document.querySelector("#datasetInput").click();
   }
 
-  // TODO
   eventListenerSessionButton() {
     this.loadSessionFunction();
     this.view.sessionbt.setClick(this.loadSessionTrigger);
@@ -178,3 +177,5 @@ export default class HomeController {
     document.querySelector("#load-session-input").click();
   }
 }
+
+// TODO: elemento HTML che indica grandezza del dataset caricato attualmente (se presente)?
