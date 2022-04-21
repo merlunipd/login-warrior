@@ -91,7 +91,7 @@ export default class ScatterPlot1 {
     d3.select('svg g').selectAll('circle')
       .data(dataset, (d, index) => index)
       .append('title')
-      .text((d, index) => `IP: ${d.getIp()}\nUTENTE: ${d.getId()}\nTIPO EVENTO: ${d.getEvent()}\nDATA: ${d.getDate()}\nAPPLICAZIONE: ${d.getApplication()}`);
+      .text((d) => `IP: ${d.getIp()}\nUTENTE: ${d.getId()}\nTIPO EVENTO: ${d.getEvent()}\nDATA: ${d.getDate()}\nAPPLICAZIONE: ${d.getApplication()}`);
 
     d3.select('svg g').selectAll('circle')
       .data(dataset, (d, index) => index)
