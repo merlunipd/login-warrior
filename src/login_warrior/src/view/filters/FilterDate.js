@@ -5,17 +5,11 @@
 export default class FilterDate {
   #cssSelector;
 
-  #date;
-
   constructor(cssSelector) {
     this.#cssSelector = cssSelector;
   }
 
-  getFilter() {
-    return this.#date;
-  }
-
-  setFilter(filter) {
-    this.#date = filter;
+  getDomObject() {
+    return document.querySelector(this.#cssSelector);
   }
 }

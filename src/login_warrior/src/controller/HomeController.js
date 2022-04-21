@@ -1,160 +1,186 @@
-import Controller from "./Controller.js";
-import IndexedDBStorage from "../services/IndexedDBStorage.js";
-import HomeView from "../view/HomeView.js";
+/* eslint-disable-next-line no-unused-vars */
+import Controller from './Controller.js';
+import IndexedDBStorage from '../services/IndexedDB.js';
+import HomeView from '../view/HomeView.js';
+import Dataset from '../model/Dataset.js';
+import CSV from '../model/CSV.js';
+import Filters from '../model/Filters.js';
 
 /**
  * Classe controller per la home page
  * @implements {Controller}
  */
-export default class HomeController extends Controller {
+export default class HomeController {
   /**
    * Vista della home
    * @type {ViewHome}
    */
-  #view;
+  view;
 
   /**
    * Modello
    * @type {Dataset}
    */
-  #model;
+  model;
 
   /**
    * Database
    * @type {IndexedDBStorage}
    */
-  #db;
+  db;
 
   /**
    * Costruttore a zero parametri
    */
   constructor() {
-    super();
+    this.setup();
+  }
+
+  async setup() {
+    this.setupStorage();
+    await this.setupModel();
+    this.setupView();
   }
 
   /**
    * Funzione per impostare il database
    */
   setupStorage() {
-    this.#createStorage();
+    this.db = new IndexedDBStorage();
   }
 
   /**
    * Funzione per impostare il modello
    */
-  setupModel() {
-    this.#checkDatasetExists();
+  async setupModel() {
+    await this.loadModel();
   }
 
   /**
    * Funzione per impostare la view
    */
   setupView() {
-    this.#createViews();
-    this.#setupViewsState();
-    this.#setupViewsEventListeners();
+    this.createViews();
+    this.setupViewsState();
+    this.setupViewsEventListeners();
   }
 
-  /**
-   * Funzione per creare il database
-   */
-  #createStorage() {
-    this.#db = new IndexedDBStorage();
-  }
+  /* Metodi privati di supporto */
 
-  /**
-   * Funzione per controllare se è presente un dataset
-   */
-  #checkDatasetExists() {
-    /**
-     * Uso le funzioni get perché logicamente a mio parere le load è vero
-     * che ritornano un dataset ma implementano anche il caricamento del
-     * dataset e questa funzione controlla solo che sia presente o meno.
-     * A questo punto andrebbe implementata anche la get del dataset nel db
-     */
-    const dataset = this.#db.getDataset();
-    const filters = this.#db.getDataset().getFilters();
-    //const dataset = this.#db.loadDataset();
-    //const filters = this.#db.loadDataset().getFilters();
-    if (dataset) {
-      if (filters) {
-        this.#model = new Dataset(dataset.getDatasetUnsampled(), filters);
-      } else {
-        this.#model = new Dataset(dataset.getDatasetUnfilteredUnsampled(), filters);
-      }
-    }
-  }
+  async loadModel() {
+    const loadedModel = await this.db.loadDataset();
+    this.model = loadedModel ? Dataset.newDatasetFromObject(loadedModel) : null;
 
-  /**
-   * Funzione per aggiornare il model
-   */
-  #updateModel() {
-    const dataset = this.#db.loadDataset();
-    const filters = this.#db.loadDataset().getFilters();
-    if (dataset) {
-      if (filters) {
-        this.#model = new Dataset(dataset.getDatasetUnsampled(), filters);
-      } else {
-        this.#model = new Dataset(dataset.getDatasetUnfilteredUnsampled(), filters);
-      }
+    // Reset filtri se qualche dataset è caricato
+    if (this.model) {
+      const emptyFilters = new Filters(null, null, null, null, null);
+      this.model.setFilters(emptyFilters);
+      await this.db.saveDataset(this.model);
     }
   }
 
   /**
    * Funzione per creare la view della home
    */
-  #createViews() {
-    this.#view = new HomeView();
+  createViews() {
+    this.view = new HomeView();
   }
 
   /**
-   * Funzione per settare lo stato della view
-   */
-  #setupViewsState() {
-    //if (this.#model.getDatasetUnfilteredUnsampled()) {
-    if (this.#db.getDataset()) {
-      this.#view.visualizationList.show(true);
+    * Funzione per settare lo stato della view
+    */
+  setupViewsState() {
+    if (this.model) {
+      this.view.list.show(true);
+    } else {
+      this.view.list.show(false);
     }
   }
 
   /**
-   * Funzione per la gestione degli eventi
-   */
-  #setupViewsEventListeners() {
-    const datasetButton = this.#view.loadDatasetButton;
-    const sessionButton = this.#view.loadSessionButton;
-    const list = this.#view.visualizationList;
+    * Funzione per la gestione degli eventi
+    */
+  setupViewsEventListeners() {
+    this.eventListenerDatasetButton();
+    this.eventListenerSessionButton();
+  }
 
-    datasetButton.addEventListener("click", () => {
-      this.#updateModel();
-      this.#setupViewsState();
+  eventListenerDatasetButton() {
+    this.loadDatasetFunction();
+    this.view.datasetbt.setClick(this.loadDatasetTrigger);
+  }
+
+  loadDatasetFunction() {
+    document.querySelector('#datasetInput').addEventListener('change', async () => {
+      const file = document.querySelector('#datasetInput').files[0];
+      if (file !== undefined) {
+        // Leggi file
+        const text = await this.readFile(file);
+
+        // Pulisci input
+        document.querySelector('#datasetInput').value = null;
+
+        // Crea modello
+        const csv = new CSV(text);
+        const filters = new Filters(null, null, null, null, null);
+        this.model = new Dataset(csv, filters);
+
+        // Salva il modello su IndexedDB
+        await this.db.saveDataset(this.model);
+
+        // Mostra la lista
+        this.view.list.show(true);
+      }
     });
+  }
 
-    sessionButton.addEventListener("click", () => {
-      this.#db.loadSession();
-
-      /**
-       * Suppongo ci saranno i metodi per salvare e caricare la sessione nel db.
-       * Nel momento in cui carico la sessione dovrebbe essere mostrata la view
-       * della visualizzazione corrispondente, a questo punto però entra in gioco
-       * il VisualizationController, mi sfugge quindi come effettuare questo passaggio
-       */
+  /* eslint-disable-next-line class-methods-use-this */
+  async readFile(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = () => {
+        reader.abort();
+        reject(new DOMException('Error reading input file'));
+      };
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+      reader.readAsText(file);
     });
+  }
 
-    list.forEach(element => {
-      /** 
-       * per ogni elemento della lista collego l'evento al click sul bottone(?),
-       * suppongo ogni elemento abbia la parte di descrizione e il bottone,
-       * o come campo dati o lo prendo direttamente dal DOM (non so se in
-       * questo modo sia corretto)
-      */
-      //element.visualizationButton.addEventListener("click", () => {
-      element.getElementsByTagName(button).addEventListener("click", () => {
-        /**
-         * Stesso discorso fatto sopra per quanto riguarda l'entrata in gioco
-         * del VisualizationController
-         */
-      })
+  /* eslint-disable-next-line class-methods-use-this */
+  loadDatasetTrigger() {
+    document.querySelector('#datasetInput').click();
+  }
+
+  eventListenerSessionButton() {
+    this.loadSessionFunction();
+    this.view.sessionbt.setClick(this.loadSessionTrigger);
+  }
+
+  loadSessionFunction() {
+    document.querySelector('#load-session-input').addEventListener('change', async () => {
+      const file = document.querySelector('#load-session-input').files[0];
+      if (file !== undefined) {
+        // Leggi file
+        const text = await this.readFile(file);
+
+        // Pulisci input
+        document.querySelector('#load-session-input').value = null;
+
+        // Carica modello
+        this.model = Dataset.newDatasetFromObject(JSON.parse(text).data);
+        await this.db.saveDataset(this.model);
+
+        // Reindirizza alla pagina corretta
+        window.location.href = `../${JSON.parse(text).path}`;
+      }
     });
+  }
+
+  /* eslint-disable-next-line class-methods-use-this */
+  loadSessionTrigger() {
+    document.querySelector('#load-session-input').click();
   }
 }

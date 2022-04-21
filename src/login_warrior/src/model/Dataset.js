@@ -16,26 +16,33 @@ export default class Dataset {
    * Dataset completo
    * @type {DataPoint[]}
    */
-  #dataset;
+  dataset;
 
   /**
    * Filtri sui dati
    * @type {Filters}
    */
-  #filters;
+  filters;
+
+  /**
+   * Filtri sui dati
+   * @type {CSV}
+   */
+  csv;
 
   /**
    * @param {CSV} csv CSV da cui estrarre il dataset
    * @param {Filters} filters Filtri iniziali sui dati
    */
   constructor(csv, filters) {
-    try{
-      this.#dataset = csv.parseCsv();
+    try {
+      this.dataset = csv.parseCsv();
     } catch (error) {
-      throw new Error("error parsing csv");
+      throw new Error('error parsing csv');
     }
-    
-    this.#filters = filters;
+
+    this.filters = filters;
+    this.csv = csv;
   }
 
   /**
@@ -44,7 +51,7 @@ export default class Dataset {
    * @returns {DataPoint[]} Punti del dataset
    */
   getDataset(samplesLimit) {
-    return this.#sampleDataset(this.#filterDataset(), samplesLimit);
+    return this.sampleDataset(this.filterDataset(), samplesLimit);
   }
 
   /**
@@ -53,7 +60,7 @@ export default class Dataset {
    * @returns {DataPoint[]} Punti del dataset
    */
   getDatasetUnfiltered(samplesLimit) {
-    return this.#sampleDataset(this.#dataset, samplesLimit);
+    return this.sampleDataset(this.dataset, samplesLimit);
   }
 
   /**
@@ -61,7 +68,7 @@ export default class Dataset {
    * @returns {DataPoint[]} Punti del dataset
    */
   getDatasetUnsampled() {
-    return this.#filterDataset();
+    return this.filterDataset();
   }
 
   /**
@@ -69,21 +76,21 @@ export default class Dataset {
    * @returns {DataPoint[]} Punti del dataset
    */
   getDatasetUnfilteredUnsampled() {
-    return [...this.#dataset];
+    return [...this.dataset];
   }
 
   /**
    * @returns {Filters} Filtri attuali del dataset
    */
   getFilters() {
-    return this.#filters;
+    return this.filters;
   }
 
   /**
    * @param {Filters} filters Filtri aggiornati per il dataset
    */
   setFilters(filters) {
-    this.#filters = filters;
+    this.filters = filters;
   }
 
   /**
@@ -93,23 +100,23 @@ export default class Dataset {
    * l'uguaglianza di giorno, mese, anno.
    * @returns {DataPoint[]} Dataset filtrato
    */
-  #filterDataset() {
-    return this.#dataset.filter((dataPoint) => {
-      const idFilter = this.#filters.getId();
+  filterDataset() {
+    return this.dataset.filter((dataPoint) => {
+      const idFilter = this.filters.getId();
       if (idFilter === null) {
         return true;
       }
       return dataPoint.getId() === idFilter;
     })
       .filter((dataPoint) => {
-        const ipFilter = this.#filters.getIp();
+        const ipFilter = this.filters.getIp();
         if (ipFilter === null) {
           return true;
         }
         return dataPoint.getIp() === ipFilter;
       })
       .filter((dataPoint) => {
-        const dateFilter = this.#filters.getDate();
+        const dateFilter = this.filters.getDate();
         if (dateFilter === null) {
           return true;
         }
@@ -118,14 +125,14 @@ export default class Dataset {
           && dataPoint.getDate().getDate() === (new Date(dateFilter)).getDate();
       })
       .filter((dataPoint) => {
-        const eventFilter = this.#filters.getEvent();
+        const eventFilter = this.filters.getEvent();
         if (eventFilter === null) {
           return true;
         }
         return dataPoint.getEvent() === eventFilter;
       })
       .filter((dataPoint) => {
-        const applicationFilter = this.#filters.getApplication();
+        const applicationFilter = this.filters.getApplication();
         if (applicationFilter === null) {
           return true;
         }
@@ -143,7 +150,7 @@ export default class Dataset {
    * @returns {DataPoint[]} Dataset campionato
    */
   /* eslint-disable class-methods-use-this */
-  #sampleDataset(dataset, samplesLimit) {
+  sampleDataset(dataset, samplesLimit) {
     if (dataset.length <= samplesLimit) {
       return [...dataset];
     }
@@ -153,4 +160,20 @@ export default class Dataset {
     return sampledDataset;
   }
   /* eslint-enable class-methods-use-this */
+
+  /**
+   * Necessario poichè una volta salvato l'oggetto in IndexedDB, il tipo viene perso.
+   * Funziona solo se tutti i campi dati sono pubblici.
+   */
+  static newDatasetFromObject(o) {
+    const csv = new CSV(o.csv.csvText);
+    const filters = new Filters(
+      o.filters.id,
+      o.filters.ip,
+      o.filters.date === null ? null : new Date(o.filters.date),
+      o.filters.event,
+      o.filters.application,
+    );
+    return new Dataset(csv, filters);
+  }
 }

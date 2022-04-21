@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
-import Customizations from './Customizations';
+import Customizations from './Customizations.js';
 // eslint-disable-next-line no-unused-vars
-import Drawer from './Drawer';
+import Drawer from './Drawer.js';
 
 /**
  * @class

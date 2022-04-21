@@ -1,15 +1,15 @@
 export default class VisualizationsList {
-    #cssSelector
+  #cssSelector;
 
-    constructor(cssSelector){
-        this.#cssSelector = cssSelector;
-    }
+  constructor(cssSelector) {
+    this.#cssSelector = cssSelector;
+  }
 
-    hide(){
-        document.getElementById(this.#cssSelector).style.display = 'none'; // hide
+  show(booleanValues) {
+    if (booleanValues) {
+      document.querySelector(this.#cssSelector).style.display = 'block';
+    } else {
+      document.querySelector(this.#cssSelector).style.display = 'none';
     }
-
-    show(){
-        document.getElementById(this.#cssSelector).style.display = ''; // show
-    }
+  }
 }

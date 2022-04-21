@@ -19,6 +19,19 @@ button {
   text-decoration: underline;
 }
 
+#sample-dataset-button {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+#sample-dataset-button:hover {
+  text-decoration: underline;
+}
+
 .plot-controls {
   margin: 1em;
 }
@@ -30,11 +43,37 @@ button {
 #save-session-button {
   background-color: black;
   color: white;
-  border: none;
+  border: 2px solid black;
   border-radius: 5px;
-  padding: 1em;
+  padding: 0.5em;
+  margin: 1em;
 }
 
 #save-session-button:hover {
+  text-decoration: underline;
+}
+
+#filter-button {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+#filter-button:hover {
+  text-decoration: underline;
+}
+
+#reset-button {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+#reset-button:hover {
   text-decoration: underline;
 }

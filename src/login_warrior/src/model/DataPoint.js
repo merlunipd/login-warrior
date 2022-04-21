@@ -6,31 +6,31 @@ export default class DataPoint {
    * Identificativo dell'utente
    * @type {string}
    */
-  #id;
+  id;
 
   /**
    * IP dell'utente
    * @type {string}
    */
-  #ip;
+  ip;
 
   /**
    * Data dell'evento
    * @type {Date}
    */
-  #date;
+  date;
 
   /**
    * Esito evento (login, logout, error)
    * @type {string}
    */
-  #event;
+  event;
 
   /**
    * Applicazione a cui è stato richiesto l'accesso
    * @type {string}
    */
-  #application;
+  application;
 
   /**
    * @param {string} id ID utente
@@ -40,45 +40,45 @@ export default class DataPoint {
    * @param {string} application Applicazione a cui è stato richiesto l'accesso
    */
   constructor(id, ip, date, event, application) {
-    this.#id = id;
-    this.#ip = ip;
-    this.#date = date;
-    this.#event = event;
-    this.#application = application;
+    this.id = id;
+    this.ip = ip;
+    this.date = date;
+    this.event = event;
+    this.application = application;
   }
 
   /**
    * @returns {string} Ritorna l'ID utente
    */
   getId() {
-    return this.#id;
+    return this.id;
   }
 
   /**
    * @returns {string} Ritorna l'IP utente
    */
   getIp() {
-    return this.#ip;
+    return this.ip;
   }
 
   /**
    * @returns {Date} Ritorna la data del login
    */
   getDate() {
-    return this.#date;
+    return this.date;
   }
 
   /**
    * @returns {string} Ritorna l'evento (login, logout, error)
    */
   getEvent() {
-    return this.#event;
+    return this.event;
   }
 
   /**
    * @returns {string} Ritorna l'applicazione a cui è stato richiesto l'accesso
    */
   getApplication() {
-    return this.#application;
+    return this.application;
   }
 }

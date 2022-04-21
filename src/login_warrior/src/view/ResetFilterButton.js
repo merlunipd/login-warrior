@@ -5,10 +5,10 @@ import Button from './Button.js';
 /**
  * @implements {Button}
  *
- * Classe per il bottone che permette di caricare il dataset.
+ * Classe per il bottone che permette di resettare i filtri sui dati.
  */
 
-export default class LoadDatasetButton {
+export default class ResetFilterButton {
   #cssSelector;
 
   constructor(cssSelector) {

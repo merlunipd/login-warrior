@@ -5,17 +5,11 @@
 export default class FilterEvent {
   #cssSelector;
 
-  #event;
-
   constructor(cssSelector) {
     this.#cssSelector = cssSelector;
   }
 
-  getFilter() {
-    return this.#event;
-  }
-
-  setFilter(filter) {
-    this.#event = filter;
+  getDomObject() {
+    return document.querySelector(this.#cssSelector);
   }
 }

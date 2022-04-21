@@ -1,90 +1,157 @@
-import Controller from "./Controller.js";
-import IndexedDBStorage from "../services/IndexedDBStorage.js";
-import VisualizationView from "../view/VisualizationView.js";
+/* eslint-disable-next-line no-unused-vars */
+import Controller from './Controller.js';
+import IndexedDBStorage from '../services/IndexedDB.js';
+import VisualizationView from '../view/VisualizationView.js';
+import Dataset from '../model/Dataset.js';
+import Filters from '../model/Filters.js';
 
 /**
  * Classe controller per le pagine con le visualizzazioni
  * @implements {Controller}
  */
-export default class VisualizationsController extends Controller {
-  #view;
-  #model;
-  #db;
-  #samplesLimit = 100; // TODO: cambiare in base al grafico selezionato (eg check this.#db.loadVisualizationIndex() )
+export default class VisualizationsController {
+  view;
+
+  model;
+
+  db;
+
+  visualizationIndex;
+
+  samplesLimit;
 
   constructor() {
-    super();
+    this.setup();
+  }
+
+  async setup() {
+    this.setupStorage();
+    await this.setupModel();
+    this.setupView();
   }
 
   setupStorage() {
-    this.#db = new IndexedDBStorage();
-    this.#checkDataExists()
+    this.db = new IndexedDBStorage();
   }
 
-  setupModel() {
-    this.#createModel();
+  async setupModel() {
+    await this.loadModel();
+    this.checkModelExists();
   }
 
   setupView() {
-    this.#createViews();
-    this.#setupViewsInitialState();
-    this.#setupEventListeners();
+    this.createViews();
+    this.setupViewsInitialState();
+    this.setupEventListeners();
   }
-
-
 
   /* Metodi privati di supporto */
 
-  #checkDataExists() {
-    if (this.#db.loadDataset() === null ||
-      this.#db.loadCustomizations() === null ||
-      this.#db.loadVisualizationIndex() === null) {
+  async loadModel() {
+    const loadedModel = await this.db.loadDataset();
+    this.model = loadedModel ? Dataset.newDatasetFromObject(loadedModel) : null;
+  }
+
+  checkModelExists() {
+    if (this.model === null) {
       window.location.href = '../home';
     }
   }
 
-  #createModel() {
-    this.#model = this.#db.loadDataset();
+  createViews() {
+    this.viewsInfo();
+    this.view = new VisualizationView(this.visualizationIndex);
   }
 
-  #createViews() {
-    const visualizationIndex = this.#db.loadVisualizationIndex();
-    this.#view = new VisualizationView(visualizationIndex);
+  viewsInfo() {
+    switch (this.getVisualizationName()) {
+      case 'scatterplot_01':
+        this.samplesLimit = 1000;
+        this.visualizationIndex = 1;
+        break;
+
+      default:
+        window.location.href = '../home';
+        break;
+    }
   }
 
-  #setupViewsInitialState() {
+  /* eslint-disable-next-line class-methods-use-this */
+  getVisualizationName() {
+    return window.location.href.split('/').at(-2);
+  }
+
+  setupViewsInitialState() {
     // Visualizzazione
-    this.#view.visualization.draw(this.#model.getDataset(this.#samplesLimit));
+    this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
 
-    // TODO: l'interfaccia per i filtri probabilmente sarà cambiata
     // Filtri
-    this.#view.filterId.setFilter(this.#model.getFilters().getId());
-    this.#view.filterIp.setFilter(this.#model.getFilters().getIp());
-    this.#view.filterApplication.setFilter(this.#model.getFilters().getApplication());
-    this.#view.filterEvent.setFilter(this.#model.getFilters().getEvent());
-    // Attenzione: la data viene convertita in stringa
-    this.#view.filterDate.setFilter(this.#model.getFilters().getDate().toString());
+    this.setupFiltersInitialState();
   }
 
-  #setupEventListeners() {
-    this.#eventListenerHomeButton();
-    this.#eventListenerSaveButton();
-    this.#eventListenerSampleDatasetButton();
-    this.#eventListenerFilters();
-    this.#eventListenerCustomizations();
+  setupFiltersInitialState() {
+    const filters = this.model.getFilters();
+
+    this.view.filterId.getDomObject().value = filters.getId();
+    this.view.filterIp.getDomObject().value = filters.getIp();
+    this.view.filterApplication.getDomObject().value = filters.getApplication();
+
+    /* eslint-disable prefer-destructuring */
+    if (filters.getDate()) {
+      this.view.filterDate.getDomObject().value = filters.getDate().toISOString().split('T')[0];
+    } else {
+      this.view.filterDate.getDomObject().value = '';
+    }
+    /* eslint-enable prefer-destructuring */
+
+    switch (filters.getEvent()) {
+      case 'login':
+        document.querySelector('#login-radio').checked = true;
+        break;
+      case 'error':
+        document.querySelector('#error-radio').checked = true;
+        break;
+      case 'logout':
+        document.querySelector('#logout-radio').checked = true;
+        break;
+      default:
+        document.querySelector('#all-events-radio').checked = true;
+        break;
+    }
   }
 
-  #eventListenerHomeButton() {
-    window.location.href = '../home';
+  setupEventListeners() {
+    this.eventListenerHomeButton();
+    this.eventListenerSampleDatasetButton();
+    this.eventListenerSaveButton();
+    this.eventListenerFilters();
   }
 
-  #eventListenerSaveButton() {
-    this.#saveToFileJson(
-      JSON.stringify(this.#model)
-    );
+  eventListenerHomeButton() {
+    this.view.homeButton.setClick(() => {
+      window.location.href = '../home';
+    });
   }
 
-  #saveToFileJson(jsonString) {
+  eventListenerSampleDatasetButton() {
+    this.view.sampleDatasetButton.setClick(() => {
+      this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+    });
+  }
+
+  eventListenerSaveButton() {
+    this.view.saveButton.setClick(() => {
+      this.saveToFileJson(
+        JSON.stringify({
+          data: this.model,
+          path: this.getVisualizationName(),
+        }),
+      );
+    });
+  }
+
+  /* eslint-disable-next-line class-methods-use-this */
+  saveToFileJson(jsonString) {
     const file = new Blob([jsonString], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(file);
@@ -93,15 +160,49 @@ export default class VisualizationsController extends Controller {
     URL.revokeObjectURL(a.href);
   }
 
-  #eventListenerSampleDatasetButton() {
-    this.#view.visualization.draw(this.#model.getDataset(this.#samplesLimit)); 
-  }
+  eventListenerFilters() {
+    this.view.filterButton.setClick(() => {
+      const filters = this.model.getFilters();
 
-  #eventListenerFilters() {
-    // TODO: aspettare di avere l'interfaccia dei filtri definitiva
-  }
+      // Filtro ID utente
+      const idValue = this.view.filterId.getDomObject().value;
+      filters.setId(idValue !== '' ? idValue : null);
 
-  #eventListenerCustomizations() {
-    // TODO: implementare quando ci saranno le personalizzazioni
+      // Filtro IP
+      const ipValue = this.view.filterIp.getDomObject().value;
+      filters.setIp(ipValue !== '' ? ipValue : null);
+
+      // Filtro applicazione
+      const appValue = this.view.filterApplication.getDomObject().value;
+      filters.setApplication(appValue !== '' ? appValue : null);
+
+      // Filtro evento
+      const eventValue = document.querySelector('input[name="event"]:checked').value;
+      filters.setEvent(eventValue !== 'all' ? eventValue : null);
+
+      // Filtro data
+      const dateValue = this.view.filterDate.getDomObject().value;
+      filters.setDate(dateValue !== '' ? new Date(dateValue) : null);
+
+      // Imposta i filtri e aggiorna la visualizzazione
+      this.model.setFilters(filters);
+      this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+    });
+
+    this.view.resetFilterButton.setClick(() => {
+      // Reset views
+      this.view.filterId.getDomObject().value = '';
+      this.view.filterIp.getDomObject().value = '';
+      this.view.filterApplication.getDomObject().value = '';
+      this.view.filterDate.getDomObject().value = '';
+      document.querySelector('#all-events-radio').checked = true;
+
+      // Reset modello
+      const filters = new Filters(null, null, null, null, null);
+      this.model.setFilters(filters);
+
+      // Aggiornamento visualizzazione
+      this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+    });
   }
 }

@@ -8,14 +8,14 @@ import Button from './Button.js';
  * Classe per il bottone che permette di caricare una sessione salvata.
  */
 
-export default class LoadSessionButton{
-    #cssSelector;
+export default class LoadSessionButton {
+  #cssSelector;
 
-    constructor(cssSelector){
-        this.#cssSelector = cssSelector;
-    }
+  constructor(cssSelector) {
+    this.#cssSelector = cssSelector;
+  }
 
-    setClick(function){
-        document.querySelector(this.#cssSelector).addEventListener('click', function);
-    }
+  setClick(f) {
+    document.querySelector(this.#cssSelector).addEventListener('click', f);
+  }
 }

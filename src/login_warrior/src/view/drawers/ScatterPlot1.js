@@ -16,7 +16,7 @@ export default class ScatterPlot1 {
   circlesOpacity = 0.4;
 
   createSvg() {
-    d3.select('#chart')
+    d3.select('#visualization')
       .append('svg')
       .attr('width', this.width)
       .attr('height', this.height)
@@ -27,8 +27,8 @@ export default class ScatterPlot1 {
   getScales(dataset) {
     this.xScale = d3.scaleTime()
       .domain([
-        d3.min(dataset, (d) => new Date(d.data)),
-        d3.max(dataset, (d) => new Date(d.data)),
+        d3.min(dataset, (d) => new Date(d.getDate())),
+        d3.max(dataset, (d) => new Date(d.getDate())),
       ])
       .range([0, this.width - this.spacing]);
 
@@ -66,20 +66,20 @@ export default class ScatterPlot1 {
 
   drawCircles(dataset, xScale, yScale) {
     d3.select('svg g').selectAll('circle')
-      .data(dataset, (d) => d.id)
+      .data(dataset, (d, index) => index)
       .enter()
       .append('circle')
-      .attr('cx', (d) => xScale(new Date(d.data)))
-      .attr('cy', (d) => yScale((new Date(d.data)).getHours() + (new Date(d.data)).getMinutes() / 60))
+      .attr('cx', (d) => xScale(new Date(d.getDate())))
+      .attr('cy', (d) => yScale((new Date(d.getDate())).getHours() + (new Date(d.getDate())).getMinutes() / 60))
       .attr('r', this.circlesRadius)
       .style('opacity', this.circlesOpacity)
       .style('fill', (d) => {
-        switch (d.tipoEvento) {
-          case '1':
+        switch (d.getEvent()) {
+          case 'login':
             return 'green';
-          case '2':
+          case 'error':
             return 'red';
-          case '3':
+          case 'logout':
             return 'grey';
           default:
             return 'blu';
@@ -89,12 +89,12 @@ export default class ScatterPlot1 {
       .on('mouseout', (e) => this.mouseout(e));
 
     d3.select('svg g').selectAll('circle')
-      .data(dataset, (d) => d.id)
+      .data(dataset, (d, index) => index)
       .append('title')
-      .text((d) => `ID: ${d.id}\nIP: ${d.ip}\nUTENTE: ${d.utente}\nTIPO EVENTO: ${d.tipoEvento}\nDATA: ${d.data}\nAPPLICAZIONE: ${d.applicazione}`);
+      .text((d) => `IP: ${d.getIp()}\nUTENTE: ${d.getId()}\nTIPO EVENTO: ${d.getEvent()}\nDATA: ${d.getDate()}\nAPPLICAZIONE: ${d.getApplication()}`);
 
     d3.select('svg g').selectAll('circle')
-      .data(dataset, (d) => d.id)
+      .data(dataset, (d, index) => index)
       .exit()
       .remove();
   }
@@ -117,6 +117,8 @@ export default class ScatterPlot1 {
   }
 
   draw(dataset) {
+    d3.select('#visualization').html('');
+
     this.createSvg();
     [this.xScale, this.yScale] = this.getScales(dataset);
     this.drawAxis(this.xScale, this.yScale);
