@@ -1,9 +1,10 @@
-import Controller from "./Controller.js";
-import IndexedDBStorage from "../services/IndexedDB.js";
-import HomeView from "../view/HomeView.js";
-import Dataset from "../model/Dataset.js";
-import CSV from "../model/CSV.js";
-import Filters from "../model/Filters.js";
+/* eslint-disable-next-line no-unused-vars */
+import Controller from './Controller.js';
+import IndexedDBStorage from '../services/IndexedDB.js';
+import HomeView from '../view/HomeView.js';
+import Dataset from '../model/Dataset.js';
+import CSV from '../model/CSV.js';
+import Filters from '../model/Filters.js';
 
 /**
  * Classe controller per la home page
@@ -64,16 +65,12 @@ export default class HomeController {
     this.setupViewsEventListeners();
   }
 
-
-
-
-
   /* Metodi privati di supporto */
 
   async loadModel() {
     const loadedModel = await this.db.loadDataset();
     this.model = loadedModel ? Dataset.newDatasetFromObject(loadedModel) : null;
-    
+
     // Reset filtri se qualche dataset è caricato
     if (this.model) {
       const emptyFilters = new Filters(null, null, null, null, null);
@@ -114,14 +111,14 @@ export default class HomeController {
   }
 
   loadDatasetFunction() {
-    document.querySelector("#datasetInput").addEventListener('change', async () => {
-      const file = document.querySelector("#datasetInput").files[0];
+    document.querySelector('#datasetInput').addEventListener('change', async () => {
+      const file = document.querySelector('#datasetInput').files[0];
       if (file !== undefined) {
         // Leggi file
         const text = await this.readFile(file);
 
         // Pulisci input
-        document.querySelector("#datasetInput").value = null;
+        document.querySelector('#datasetInput').value = null;
 
         // Crea modello
         const csv = new CSV(text);
@@ -137,6 +134,7 @@ export default class HomeController {
     });
   }
 
+  /* eslint-disable-next-line class-methods-use-this */
   async readFile(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -151,8 +149,9 @@ export default class HomeController {
     });
   }
 
+  /* eslint-disable-next-line class-methods-use-this */
   loadDatasetTrigger() {
-    document.querySelector("#datasetInput").click();
+    document.querySelector('#datasetInput').click();
   }
 
   eventListenerSessionButton() {
@@ -161,28 +160,27 @@ export default class HomeController {
   }
 
   loadSessionFunction() {
-    document.querySelector("#load-session-input").addEventListener('change', async () => {
-      const file = document.querySelector("#load-session-input").files[0];
+    document.querySelector('#load-session-input').addEventListener('change', async () => {
+      const file = document.querySelector('#load-session-input').files[0];
       if (file !== undefined) {
         // Leggi file
         const text = await this.readFile(file);
-        
+
         // Pulisci input
-        document.querySelector("#load-session-input").value = null;
-        
+        document.querySelector('#load-session-input').value = null;
+
         // Carica modello
         this.model = Dataset.newDatasetFromObject(JSON.parse(text).data);
         await this.db.saveDataset(this.model);
 
         // Reindirizza alla pagina corretta
-        window.location.href = '../' + JSON.parse(text).path;
+        window.location.href = `../${JSON.parse(text).path}`;
       }
     });
   }
 
+  /* eslint-disable-next-line class-methods-use-this */
   loadSessionTrigger() {
-    document.querySelector("#load-session-input").click();
+    document.querySelector('#load-session-input').click();
   }
 }
-
-// TODO: elemento HTML che indica grandezza del dataset caricato attualmente (se presente)?

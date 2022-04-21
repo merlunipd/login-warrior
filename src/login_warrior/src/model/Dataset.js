@@ -38,7 +38,7 @@ export default class Dataset {
     try {
       this.dataset = csv.parseCsv();
     } catch (error) {
-      throw new Error("error parsing csv");
+      throw new Error('error parsing csv');
     }
 
     this.filters = filters;
@@ -172,7 +172,7 @@ export default class Dataset {
       o.filters.ip,
       o.filters.date === null ? null : new Date(o.filters.date),
       o.filters.event,
-      o.filters.application
+      o.filters.application,
     );
     return new Dataset(csv, filters);
   }

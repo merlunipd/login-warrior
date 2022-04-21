@@ -8,14 +8,14 @@ import Button from './Button.js';
  * Classe per il bottone che permette di tornare alla schermata home.
  */
 
-export default class HomeButton{
-    #cssSelector;
+export default class HomeButton {
+  #cssSelector;
 
-    constructor(cssSelector){
-        this.#cssSelector = cssSelector;
-    }
+  constructor(cssSelector) {
+    this.#cssSelector = cssSelector;
+  }
 
-    setClick(f){
-        document.querySelector(this.#cssSelector).addEventListener('click', f)
-    }
+  setClick(f) {
+    document.querySelector(this.#cssSelector).addEventListener('click', f);
+  }
 }

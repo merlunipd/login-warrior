@@ -66,7 +66,7 @@ export default class ScatterPlot1 {
 
   drawCircles(dataset, xScale, yScale) {
     d3.select('svg g').selectAll('circle')
-      .data(dataset, (d,index) => index)
+      .data(dataset, (d, index) => index)
       .enter()
       .append('circle')
       .attr('cx', (d) => xScale(new Date(d.getDate())))
@@ -94,7 +94,7 @@ export default class ScatterPlot1 {
       .text((d, index) => `INDEX: ${index}\nIP: ${d.getIp()}\nUTENTE: ${d.getId()}\nTIPO EVENTO: ${d.getEvent()}\nDATA: ${d.getDate()}\nAPPLICAZIONE: ${d.getApplication()}`);
 
     d3.select('svg g').selectAll('circle')
-      .data(dataset, (d,index) => index)
+      .data(dataset, (d, index) => index)
       .exit()
       .remove();
   }
@@ -117,8 +117,8 @@ export default class ScatterPlot1 {
   }
 
   draw(dataset) {
-    d3.select('#visualization').html("");
-    
+    d3.select('#visualization').html('');
+
     this.createSvg();
     [this.xScale, this.yScale] = this.getScales(dataset);
     this.drawAxis(this.xScale, this.yScale);
