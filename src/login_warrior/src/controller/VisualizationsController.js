@@ -94,8 +94,11 @@ export default class VisualizationsController {
     this.view.filterIp.getDomObject().value = filters.getIp();
     this.view.filterApplication.getDomObject().value = filters.getApplication();
 
+    console.log(filters.getDate());
     if (filters.getDate()) {
       this.view.filterDate.getDomObject().value = filters.getDate().toISOString().split('T')[0];
+    } else {
+      this.view.filterDate.getDomObject().value = "";
     }
 
     switch (filters.getEvent()) {
@@ -156,7 +159,7 @@ export default class VisualizationsController {
 
   // TODO: implementare i filtri
   eventListenerFilters() {
-    document.querySelector("#filter-button").addEventListener("click", () => {
+    this.view.filterButton.setClick(() => {
       const filters = this.model.getFilters();
 
       // Filtro ID utente
@@ -177,14 +180,14 @@ export default class VisualizationsController {
 
       // Filtro data
       const dateValue = this.view.filterDate.getDomObject().value;
-      filters.setDate(dateValue !== ""? new Date(dateValue) : null);
+      filters.setDate(dateValue !== "" ? new Date(dateValue) : null);
 
       // Imposta i filtri e aggiorna la visualizzazione
       this.model.setFilters(filters);
       this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
     });
 
-    document.querySelector("#reset-button").addEventListener("click", () => {
+    this.view.resetFilterButton.setClick(() => {
       // Reset views
       this.view.filterId.getDomObject().value = "";
       this.view.filterIp.getDomObject().value = "";

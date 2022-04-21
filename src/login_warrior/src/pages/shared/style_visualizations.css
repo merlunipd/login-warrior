@@ -52,3 +52,28 @@ button {
 #save-session-button:hover {
   text-decoration: underline;
 }
+
+#filter-button {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+#filter-button:hover {
+  text-decoration: underline;
+}
+
+#reset-button {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+#reset-button:hover {
+  text-decoration: underline;
+}

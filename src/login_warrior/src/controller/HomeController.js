@@ -73,6 +73,13 @@ export default class HomeController {
   async loadModel() {
     const loadedModel = await this.db.loadDataset();
     this.model = loadedModel ? Dataset.newDatasetFromObject(loadedModel) : null;
+    
+    // Reset filtri se qualche dataset è caricato
+    if (this.model) {
+      const emptyFilters = new Filters(null, null, null, null, null);
+      this.model.setFilters(emptyFilters);
+      await this.db.saveDataset(this.model);
+    }
   }
 
   /**

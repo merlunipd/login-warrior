@@ -10,6 +10,8 @@ import Visualization from './Visualization.js';
 import HomeButton from "./HomeButton.js"
 import SaveButton from "./SaveButton.js"
 import SampleDatasetButton from "./SampleDatasetButton.js"
+import FilterButton from "./FilterButton.js";
+import ResetFilterButton from "./ResetFilterButton.js";
 
 export default class VisualizationView {
   visualization;
@@ -29,6 +31,10 @@ export default class VisualizationView {
   saveButton;
 
   sampleDatasetButton;
+
+  filterButton;
+
+  resetFilterButton;
 
   constructor(visualizationIndex) {
     switch (visualizationIndex) {
@@ -60,5 +66,7 @@ export default class VisualizationView {
     this.homeButton = new HomeButton("#home-button");
     this.saveButton = new SaveButton("#save-session-button");
     this.sampleDatasetButton = new SampleDatasetButton("#sample-dataset-button");
+    this.filterButton = new FilterButton("#filter-button")
+    this.resetFilterButton = new ResetFilterButton("#reset-button")
   }
 }
