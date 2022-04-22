@@ -77,3 +77,7 @@ button {
 #reset-button:hover {
   text-decoration: underline;
 }
+
+#filtro-app{
+  text-transform: uppercase;
+}
