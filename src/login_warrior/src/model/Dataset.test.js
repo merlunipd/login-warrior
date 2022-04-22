@@ -10,10 +10,11 @@ describe('Unit Testing Dataset', () => {
     18686;6907333;2021-06-24 15:12:01.000;2;ERM;erm3zs02;92.223.250.4;"          ";"          ";fyh7jnb10z`);
   const samplesLimitTen = 10;
   const samplesLimitTwo = 2;
-  const Nofilters = new Filters(null, null, null, null, null);
-  const dataSetNoFilter = new Dataset(csv, Nofilters);
-  const filters = new Filters('18684', '92.223.250.4', '2020-01-31 14:34:30.000', 'error', 'ERM');
+  const noFilters = new Filters(null, null, null, null, null);
+  const dataSetNoFilter = new Dataset(csv, noFilters);
+  const filters = new Filters('18684', '92.223.250.4', new Date('2020-01-31 14:34:30.000'), 'error', 'ERM');
   const dataSetFilter = new Dataset(csv, filters);
+
 
   // Dataset vuoto
   test('Creazione Dataset vuoto', () => {
@@ -57,8 +58,8 @@ describe('Unit Testing Dataset', () => {
     expect(dataSetNoFilter.getFilters()).toStrictEqual(new Filters(null, null, null, null, null));
   });
   test('Setter filter, filtri vuoti', () => {
-    dataSetNoFilter.setFilters(new Filters('18684', '92.223.250.4', '2020-01-31 14:34:30.000', 'login', 'ERM'));
-    expect(dataSetNoFilter.getFilters()).toStrictEqual(new Filters('18684', '92.223.250.4', '2020-01-31 14:34:30.000', 'login', 'ERM'));
+    dataSetNoFilter.setFilters(new Filters('18684', '92.223.250.4', new Date('2020-01-31 14:34:30.000'), 'login', 'ERM'));
+    expect(dataSetNoFilter.getFilters()).toStrictEqual(new Filters('18684', '92.223.250.4', new Date('2020-01-31 14:34:30.000'), 'login', 'ERM'));
   });
 
   // Dataset con dati e no filtri
@@ -88,10 +89,19 @@ describe('Unit Testing Dataset', () => {
     expect(set.length).toBe(1);
   });
   test('Getter filter', () => {
-    expect(dataSetFilter.getFilters()).toStrictEqual(new Filters('18684', '92.223.250.4', '2020-01-31 14:34:30.000', 'error', 'ERM'));
+    expect(dataSetFilter.getFilters()).toStrictEqual(new Filters('18684', '92.223.250.4', new Date('2020-01-31 14:34:30.000'), 'error', 'ERM'));
   });
   test('Setter filter', () => {
     dataSetFilter.setFilters(new Filters('223', null, null, null, null));
     expect(dataSetFilter.getFilters()).toStrictEqual(new Filters('223', null, null, null, null));
   });
+  test('newDatasetFromObject', () => {
+    dataSetFilter.setFilters(filters);
+    expect(Dataset.newDatasetFromObject(dataSetFilter)).toStrictEqual(dataSetFilter);
+  });
+  test('newDatasetFromObject, date == null', () => {
+    dataSetFilter.setFilters(noFilters);
+    expect(Dataset.newDatasetFromObject(dataSetFilter)).toStrictEqual(dataSetFilter);
+  });
+
 });
