@@ -1,4 +1,5 @@
 import ScatterPlot1 from './drawers/ScatterPlot1.js';
+import ForceDirectedGraph1 from './drawers/ForceDirectedGraph1.js';
 
 import FilterId from './filters/FilterId.js';
 import FilterIp from './filters/FilterIp.js';
@@ -40,6 +41,9 @@ export default class VisualizationView {
     switch (visualizationIndex) {
       case 1:
         this.visualization = new Visualization('#visualization', null, new ScatterPlot1());
+        break;
+      case 2:
+        this.visualization = new Visualization('#visualization', null, new ForceDirectedGraph1());
         break;
 
       default:
