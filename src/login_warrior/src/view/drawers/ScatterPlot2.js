@@ -45,7 +45,9 @@ export default class ScatterPlot2 {
   drawAxis(xScale, yScale) {
     d3.select('svg g').append('g')
       .attr('transform', `translate(0,${this.height - this.spacing})`)
-      .call(d3.axisBottom(xScale));
+      .call(d3.axisBottom(xScale))
+      .selectAll('text')
+      .attr('style', 'transform: rotate(90deg) translate(25px,-12px)');
 
     d3.select('svg g').append('g')
       .call(d3.axisLeft(yScale));
@@ -61,8 +63,8 @@ export default class ScatterPlot2 {
     d3.select('svg g').append('text')
       .attr('class', 'x label')
       .attr('text-anchor', 'end')
-      .attr('y', this.height - this.spacing + 35)
-      .attr('x', this.width - this.spacing + 30)
+      .attr('y', this.height - this.spacing + 50)
+      .attr('x', this.width - this.spacing + 35)
       .attr('dx', '.75em')
       .text('Utente');
   }

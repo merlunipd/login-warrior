@@ -71,7 +71,7 @@ export default class VisualizationsController {
         break;
 
       case 'scatterplot_02':
-        this.samplesLimit = 1000;
+        this.samplesLimit = 1500;
         this.visualizationIndex = 2;
         break;
 
