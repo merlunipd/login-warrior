@@ -70,6 +70,11 @@ export default class VisualizationsController {
         this.visualizationIndex = 1;
         break;
 
+      case 'parallelcoordinates_01':
+        this.samplesLimit = 1200;
+        this.visualizationIndex = 3;
+        break;
+
       default:
         window.location.href = '../home';
         break;
