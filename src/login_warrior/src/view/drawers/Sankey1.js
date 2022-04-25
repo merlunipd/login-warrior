@@ -1,9 +1,9 @@
 export default class Sankey1 {
 
     // Variabili
-    margin = { top: 50, right: 200, bottom: 50, left: 200 };
+    margin = { top: 50, right: 150, bottom: 50, left: 200 };
 
-    width = 1400 - this.margin.left - this.margin.right;
+    width = 1500 - this.margin.left - this.margin.right;
 
     height = 800 - this.margin.top - this.margin.bottom;
 
@@ -266,7 +266,7 @@ export default class Sankey1 {
     }
     
     
-    drawNodeLink(dataset){
+    drawNodeLink(dataset, color, height, sankey){
         [this.nodes , this.links] = this.parseDati(dataset);
         // Genere un diagramma sankey con i dati in ingresso.
         this.sankey.nodes(this.nodes)
@@ -292,14 +292,13 @@ export default class Sankey1 {
             .data(this.nodes)
             .enter().append("g")
             .attr("class", "node")
-            .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
+            .attr("transform", function (d) {return "translate(" + d.x + "," + d.y + ")"; })
             .call(d3.drag()
                 .subject(function (d) { return d; })
                 .on("start", function () { this.parentNode.appendChild(this); })
                 .on("drag", dragmove));
 
         // Aggiunge i rettangoli ai nodi
-        let color=this.color;
         node
             .append("rect")
             .attr("height", function (d) { return d.dy; })
@@ -313,16 +312,17 @@ export default class Sankey1 {
         // Aggiunge il titolo ai nodi
         node
             .append("text")
+            .style("font-size", "0.8em")
             .attr("x", -6)
             .attr("y", function (d) { return d.dy / 2; })
-            .attr("dy", ".35em")
+            .attr("dy", ".10em")
             .attr("text-anchor", "end")
             .attr("transform", null)
             .text(function (d) { return d.name; })
             .filter(function (d) { return d.x < this.width / 2; })
             .attr("x", 6 + this.sankey.nodeWidth())
             .attr("text-anchor", "start");
-
+        
         // Funzione di movimento dei nodi
         function dragmove(d) {
             d3.select(this)
@@ -330,10 +330,10 @@ export default class Sankey1 {
                     "translate("
                     + d.x + ","
                     + (d.y = Math.max(
-                        0, Math.min(this.height - d.dy, d3.event.y))
+                        0, Math.min(height - d.dy, d3.event.y))
                     ) + ")");
-                    this.sankey.relayout();
-            link.attr("d", this.sankey.link());
+                    sankey.relayout();
+            link.attr("d", sankey.link());
         }
 
     };
@@ -345,7 +345,7 @@ export default class Sankey1 {
         d3.select('#visualization').html('');
         this.createSvg();
         this.sankey = this.createSankey();
-        this.drawNodeLink(dataset);
+        this.drawNodeLink(dataset, this.color, this.height, this.sankey);
     };
 
 }
