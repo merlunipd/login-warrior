@@ -9,7 +9,7 @@ export default class ParallelCoordinates {
     top: 30, right: 30, bottom: 30, left: 50,
   };
 
-  width = 1000 - this.margin.left - this.margin.right;
+  width = 1500 - this.margin.left - this.margin.right;
 
   height = 800 - this.margin.top - this.margin.bottom;
 
