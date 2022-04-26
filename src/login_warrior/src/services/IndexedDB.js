@@ -18,7 +18,7 @@ import * as DexieLibrary from 'https://unpkg.com/dexie/dist/dexie.js';
  * @extends Storage
  */
 export default class IndexedDB /** extends Storage */ {
-  #db = null;
+  db = null;
 
   /**
      * @constructor
@@ -26,8 +26,8 @@ export default class IndexedDB /** extends Storage */ {
      */
   constructor(name = 'IndexedDataBase') {
     /* eslint-disable-next-line no-undef */
-    this.#db = new Dexie(name);
-    this.#db.version(1).stores({
+    this.db = new Dexie(name);
+    this.db.version(1).stores({
       Dataset: '++id, data',
       Customization: '++id, data',
       Visualization: '++id, data',
@@ -39,7 +39,7 @@ export default class IndexedDB /** extends Storage */ {
      * @returns {void} nothing
      */
   async saveDataset(d) {
-    await this.#db.Dataset.put(
+    await this.db.Dataset.put(
       { id: 1, data: d },
     );
   }
@@ -49,7 +49,7 @@ export default class IndexedDB /** extends Storage */ {
      * @returns {Object} obj{id,data}
      */
   async loadDataset() {
-    const res = await this.#db.Dataset.where('id').equals(1).first();
+    const res = await this.db.Dataset.where('id').equals(1).first();
     return res ? res.data : res;
   }
 
@@ -58,7 +58,7 @@ export default class IndexedDB /** extends Storage */ {
      * @returns {void} nothing
      */
   async saveCustomization(c) {
-    this.#db.Customization.put(
+    this.db.Customization.put(
       { id: 1, data: c },
     );
   }
@@ -69,7 +69,7 @@ export default class IndexedDB /** extends Storage */ {
      */
   async loadCustomization() {
     /* eslint-disable-next-line no-return-await */
-    return await this.#db.Customization.where('id').equals(1).first();
+    return await this.db.Customization.where('id').equals(1).first();
   }
 
   /**
@@ -77,7 +77,7 @@ export default class IndexedDB /** extends Storage */ {
      * @returns {void} nothing
      */
   async saveVisualizationIndex(index) {
-    await this.#db.Visualization.put(
+    await this.db.Visualization.put(
       { id: 1, data: index },
     );
   }
@@ -88,7 +88,7 @@ export default class IndexedDB /** extends Storage */ {
      */
   async loadVisualizationIndex() {
     /* eslint-disable-next-line no-return-await */
-    return await this.#db.Visualization.where('id').equals(1).first();
+    return await this.db.Visualization.where('id').equals(1).first();
   }
 
   /**
@@ -98,7 +98,7 @@ export default class IndexedDB /** extends Storage */ {
      */
   async counterDataset() {
     /* eslint-disable-next-line no-return-await */
-    return await this.#db.Dataset.count();
+    return await this.db.Dataset.count();
   }
 
   /**
@@ -108,7 +108,7 @@ export default class IndexedDB /** extends Storage */ {
      */
   async counterCustomization() {
     /* eslint-disable-next-line no-return-await */
-    return await this.#db.Customization.count();
+    return await this.db.Customization.count();
   }
 
   /**
@@ -118,6 +118,6 @@ export default class IndexedDB /** extends Storage */ {
      */
   async counterVisualization() {
     /* eslint-disable-next-line no-return-await */
-    return await this.#db.Visualization.count();
+    return await this.db.Visualization.count();
   }
 }
