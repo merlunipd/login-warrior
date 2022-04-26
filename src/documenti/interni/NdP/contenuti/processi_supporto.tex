@@ -421,6 +421,70 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
                 \end{tabular}
             \end{center}
             \renewcommand\arraystretch{1}
+            \item \textbf{Controllo},\\
+            Alcuni valori importanti per la tabella successiva:
+            \begin{itemize}
+                \item LC, indica la percentuale del lavoro completato;
+                \item LP, indica la percentuale del lavoro pianificato;
+                \item BAC (Budget at Completion), corrisponde al budget totale allocato inizialmente per il progetto;
+                \item AC (Actual Cost), indica i soldi spesi per il progetto fino al momento del calcolo;
+                \item ETC (Estimate to Complete), valore stimato delle attività necessarie per il completamento del progetto.
+            \end{itemize}
+            \renewcommand\arraystretch{1,5}
+            \begin{center}
+                \begin{tabular}{|p{1.7cm}|p{3cm}|p{4.5cm}|p{3cm}|} \hline
+                  \rowcolor[HTML]{036400}
+                  \textcolor[HTML]{FFFFFF}{\textbf{Metrica}} & \textcolor[HTML]{FFFFFF}{\textbf{Nome}} & \textcolor[HTML]{FFFFFF}{\textbf{Descrizione}} & \textcolor[HTML]{FFFFFF}{\textbf{Formula}}    \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  EAC & Estimated at Completion & Indica il budget totale allocato per il progetto & AC + ETC  \\ \hline
+                  \rowcolor[HTML]{EFEFEF}
+                  EV & Earned Value & Rappresenta il valore prodotto dal progetto fino al momento della misurazione in seguito alle attività svolte & EAC * LC  \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  PV & Planned value & Corrisponde al denaro che si dovrebbe guadagnare al momento della misurazione & BAC * LP  \\ \hline
+                  \rowcolor[HTML]{EFEFEF}
+                  SV & Schedule Variance & Descrive se il gruppo sta rispettando o meno i tempi prestabiliti per i processi & ($\frac{EV}{PT}-1)*100$  \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  BV & Budget Variance & Descrive se il gruppo sta rispettando o meno i costi prestabiliti per i processi & ($\frac{EV}{AC}-1)*100$   \\ \hline
+                \end{tabular}
+            \end{center}
+            \renewcommand\arraystretch{1}
+
+
+            \item \textbf{Prodotto}, \\
+            Alcuni valori importanti per la tabella successiva:
+            \begin{itemize}
+                \item TT, numero di test totali;
+                \item PT, numero di test passati;
+                \item FT, numero di test falliti;
+                \item TQM (Total number of Quality Metrics), numero totale di metriche di qualità;
+                \item NQMS (Number of Quality Metrics Satisfied), numero di metriche di qualità soddisfatte;
+                \item Rc, righe totali di commenti;
+                \item Rt, righe codice totali;
+                \item LCE (Line of Code Executed), linee codice eseguite dai test;
+                \item LC (Line of Code), linee codice totali;
+                \item NoC (Number of Changed), numero requisiti cambiati;
+                \item NoD (Number of Deleted), numero requisiti eliminati;
+                \item NoA (Number of Added), numero requisiti aggiunti;
+                \item TNIR (Total Number of Initial Requirement), Numero totale requisiti iniziale;
+            \end{itemize}
+            \renewcommand\arraystretch{1,5}
+            \begin{center}
+                \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{5cm}|} \hline
+                  \rowcolor[HTML]{036400}
+                  \textcolor[HTML]{FFFFFF}{\textbf{Metrica}} & \textcolor[HTML]{FFFFFF}{\textbf{Nome}} & \textcolor[HTML]{FFFFFF}{\textbf{Descrizione}} & \textcolor[HTML]{FFFFFF}{\textbf{Formula}}    \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  PTCP & Passed Test Cases Percentage & Indica il valore percentuale di test passati & $\frac{PT}{TT}*100$  \\ \hline
+                  \rowcolor[HTML]{EFEFEF}
+                  FTCP & Failed Test Cases Percentage & Indica il valore percentuale di test falliti & $\frac{FT}{TT}*100$  \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  QMS & Quality Metrics Satisfied & Indica la percentuale di metriche di qualità soddisfatte &  $\frac{NQMS}{TQM}*100$ \\ \hline
+                  \rowcolor[HTML]{EFEFEF}
+                  CC & Code coverage & Descrive quanto il codice prodotto è coperto dalla suite di test dinamici & $\frac{LCE}{LC}*100$  \\ \hline
+                  \rowcolor[HTML]{C0C0C0}
+                  RSI & Requirements stability index & Indica quanto i requisiti variano nel tempo & $(1-\frac{NoC*NoD*NoA}{TNIR})*100$   \\ \hline  
+                \end{tabular}
+            \end{center}
+            \renewcommand\arraystretch{1}
    \end{itemize}
 
   \subsection{Aspettative}
@@ -461,44 +525,27 @@ Il gruppo non impone particolari limitazioni sui linguaggi utilizzabili, ricorda
 \begin{itemize}
     \item \textbf{Descrizione}: script per compilare i documenti \LaTeX{} in PDF e aggiornare il sito che li espone;
     \item \textbf{Utilizzo}:
+
+    \begin{Verbatim}[fontsize=\small]
+    # Copia del repository al solo fine di aggiornamento del sito
+    git clone https://github.com/merlunipd/login-warrior
+    cd ./login-warrior/
+
+    # Esecuzione dello script
+    python ./automazione/script/update_documents/main.py
+    # Se non ci sono errori durante l'esecuzione, lo script termina con un OK
+
+    # Aggiornamento del repository locale e remoto
+    git add -A
+    git commit -m "Aggiornamento dei documenti PDF e sito"
+    git push origin main
+    # GitHub Actions provvederà automaticamente ad aggiornare il sito
+    \end{Verbatim}
+
     \begin{itemize}
-        \item \textbf{Collettivo}: utilizzato per aggiornare il repository condiviso, tipicamente utilizzato nel seguente modo:
-\begin{Verbatim}[fontsize=\small]
-# Riallineamento del repository locale e remoto
-git checkout main
-git pull
-
-# Esecuzione dello script, supponendo di
-# trovarsi nella directory radice del repository
-python ./automazione/script/update_documents/main.py
-# Se non ci sono errori durante l'esecuzione, procedere
-
-# Aggiornamento del repository locale e remoto
-git add -A
-git commit -m "Aggiornamento dei documenti PDF e sito"
-git push origin main
-\end{Verbatim}
-
-        NB 1: non andando a modificare file sorgenti, il seguente commit$_G$ è accettato nel repository locale senza bisogno di pull request.
-
-        NB 2: tipicamente sarà compito del \textit{Responsabile di Progetto} tenere il sito e i documenti esposti sufficientemente aggiornati;
-
-        \item \textbf{Personale}: se un membro del gruppo desidera avere una versione di tutti i documenti più aggiornati rispetto a quelli esposti dal repository condiviso, può creare un \textbf{branch locale ad utilizzo personale} dove tenere documenti e sito aggiornati. Tale operazione può essere effettuate come segue:
-\begin{Verbatim}[fontsize=\small]
-# Checkout al branch locale personale
-git checkout <nome_branch_locale_personale>
-# Aggiornamento del branch rispetto al main
-git merge main
-
-# Esecuzione dello script, supponendo di
-# trovarsi nella directory radice del repository
-python ./automazione/script/update_documents/main.py
-# Se non ci sono errori durante l'esecuzione, procedere
-
-# Aggiornamento del repository locale (non remoto)
-git add -A
-git commit -m "Aggiornamento locale dei documenti PDF e sito"
-\end{Verbatim}
+        \item NB 1: dopo aver aggiornato il sito, è possibile eliminare il repository clonato ad hoc. Si utilizza questo clone solo per evitare di contaminare l'eventuale ambiente di lavoro locale già esistente.
+        \item  NB 2: non andando a modificare file sorgenti, il seguente commit$_G$ è accettato nel repository locale senza bisogno di pull request.
+        \item NB 3: tipicamente sarà compito del \textit{Responsabile di Progetto} tenere il sito e i documenti esposti sufficientemente aggiornati;
     \end{itemize}
 \end{itemize}
 
@@ -540,6 +587,15 @@ Questa tipologia di analisi risulta molto utile per la verifica di un documento.
 \end{itemize}
 Inizialmente l'attività di Walkthrough sarà prevalente rispetto a Inspection ma
 con l'avanzamento dell'attività di progetto e quindi con il ripetersi del processo di Verifica sulla documentazione, si riuscirà a sviluppare una lista degli errori più comuni detta \textbf{Lista di Controllo} consentendo l'utilizzo più massivo della tecnica \textbf{Inspection} che risulta essere più efficiente.
+
+\subsection{Verifica del prodotto}
+Al fine di minimizzare gli errori il codice viene controllato mediante attività di analisi statica e dinamica.
+
+\subsubsection{Attività di analisi statica}
+Lo strumento utilizzato per controllare in maniera statica il codice è \textit{ESLint}, il quale permette di verificare che i principi di buona programmazione decisi vengano rispettati.
+
+\subsubsection{Attività di analisi dinamica}
+Per offrire una maggior garanzia che il prodotto non incorra in problemi durante l'esecuzione, il gruppo utilizza un insieme di test eseguibili a run-time. L'esecuzione di tali test deve essere ripetibile, perciò è necessario identificare vari strumenti per renderla automatica. A questo fine il gruppo \textit{MERL} si affida al software \textit{Jest.js}.
 
 \section{Validazione}
 \subsection{Descrizione}

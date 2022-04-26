@@ -9,13 +9,13 @@ import Button from './Button.js';
  */
 
 export default class HomeButton {
-  #cssSelector;
+  cssSelector;
 
   constructor(cssSelector) {
-    this.#cssSelector = cssSelector;
+    this.cssSelector = cssSelector;
   }
 
   setClick(f) {
-    document.querySelector(this.#cssSelector).addEventListener('click', f);
+    document.querySelector(this.cssSelector).addEventListener('click', f);
   }
 }

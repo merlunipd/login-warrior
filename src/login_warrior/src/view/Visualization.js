@@ -9,11 +9,11 @@ import Drawer from './Drawer.js';
  * Classe per la visualizzazione e la personalizzazione dei grafici.
  */
 export default class Visualization {
-  #cssSelector;
+  cssSelector;
 
-  #customizations;
+  customizations;
 
-  #drawer;
+  drawer;
 
   /**
    *
@@ -22,9 +22,9 @@ export default class Visualization {
    * @param {Drawer} drawer
    */
   constructor(cssSelector, customizations, drawer) {
-    this.#cssSelector = cssSelector;
-    this.#customizations = customizations;
-    this.#drawer = drawer;
+    this.cssSelector = cssSelector;
+    this.customizations = customizations;
+    this.drawer = drawer;
   }
 
   /**
@@ -32,7 +32,7 @@ export default class Visualization {
    * @returns {Customizations} customizations
    */
   getCustomizations() {
-    return this.#customizations;
+    return this.customizations;
   }
 
   /**
@@ -40,7 +40,7 @@ export default class Visualization {
    * @param {Customizations} custom
    */
   setCustomizations(c) {
-    this.#customizations = c;
+    this.customizations = c;
   }
 
   /**
@@ -48,6 +48,6 @@ export default class Visualization {
    * @param {Dataset} dataset
    */
   draw(dataset) {
-    this.#drawer.draw(dataset);
+    this.drawer.draw(dataset);
   }
 }
