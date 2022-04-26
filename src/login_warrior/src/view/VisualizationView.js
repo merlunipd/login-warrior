@@ -1,4 +1,5 @@
 import ScatterPlot1 from './drawers/ScatterPlot1.js';
+import ParallelCoordinates from './drawers/ParallelCoordinates.js';
 import ScatterPlot2 from './drawers/ScatterPlot2.js';
 
 import FilterId from './filters/FilterId.js';
@@ -45,6 +46,10 @@ export default class VisualizationView {
       case 2:
         this.visualization = new Visualization('#visualization', null, new ScatterPlot2());
         break;
+      case 3:
+        this.visualization = new Visualization('#visualization', null, new ParallelCoordinates());
+        break;
+      
       default:
         break;
     }
