@@ -525,44 +525,27 @@ Il gruppo non impone particolari limitazioni sui linguaggi utilizzabili, ricorda
 \begin{itemize}
     \item \textbf{Descrizione}: script per compilare i documenti \LaTeX{} in PDF e aggiornare il sito che li espone;
     \item \textbf{Utilizzo}:
+
+    \begin{Verbatim}[fontsize=\small]
+    # Copia del repository al solo fine di aggiornamento del sito
+    git clone https://github.com/merlunipd/login-warrior
+    cd ./login-warrior/
+
+    # Esecuzione dello script
+    python ./automazione/script/update_documents/main.py
+    # Se non ci sono errori durante l'esecuzione, lo script termina con un OK
+
+    # Aggiornamento del repository locale e remoto
+    git add -A
+    git commit -m "Aggiornamento dei documenti PDF e sito"
+    git push origin main
+    # GitHub Actions provvederà automaticamente ad aggiornare il sito
+    \end{Verbatim}
+
     \begin{itemize}
-        \item \textbf{Collettivo}: utilizzato per aggiornare il repository condiviso, tipicamente utilizzato nel seguente modo:
-\begin{Verbatim}[fontsize=\small]
-# Riallineamento del repository locale e remoto
-git checkout main
-git pull
-
-# Esecuzione dello script, supponendo di
-# trovarsi nella directory radice del repository
-python ./automazione/script/update_documents/main.py
-# Se non ci sono errori durante l'esecuzione, procedere
-
-# Aggiornamento del repository locale e remoto
-git add -A
-git commit -m "Aggiornamento dei documenti PDF e sito"
-git push origin main
-\end{Verbatim}
-
-        NB 1: non andando a modificare file sorgenti, il seguente commit$_G$ è accettato nel repository locale senza bisogno di pull request.
-
-        NB 2: tipicamente sarà compito del \textit{Responsabile di Progetto} tenere il sito e i documenti esposti sufficientemente aggiornati;
-
-        \item \textbf{Personale}: se un membro del gruppo desidera avere una versione di tutti i documenti più aggiornati rispetto a quelli esposti dal repository condiviso, può creare un \textbf{branch locale ad utilizzo personale} dove tenere documenti e sito aggiornati. Tale operazione può essere effettuate come segue:
-\begin{Verbatim}[fontsize=\small]
-# Checkout al branch locale personale
-git checkout <nome_branch_locale_personale>
-# Aggiornamento del branch rispetto al main
-git merge main
-
-# Esecuzione dello script, supponendo di
-# trovarsi nella directory radice del repository
-python ./automazione/script/update_documents/main.py
-# Se non ci sono errori durante l'esecuzione, procedere
-
-# Aggiornamento del repository locale (non remoto)
-git add -A
-git commit -m "Aggiornamento locale dei documenti PDF e sito"
-\end{Verbatim}
+        \item NB 1: dopo aver aggiornato il sito, è possibile eliminare il repository clonato ad hoc. Si utilizza questo clone solo per evitare di contaminare l'eventuale ambiente di lavoro locale già esistente.
+        \item  NB 2: non andando a modificare file sorgenti, il seguente commit$_G$ è accettato nel repository locale senza bisogno di pull request.
+        \item NB 3: tipicamente sarà compito del \textit{Responsabile di Progetto} tenere il sito e i documenti esposti sufficientemente aggiornati;
     \end{itemize}
 \end{itemize}
 
