@@ -1,4 +1,5 @@
 import ScatterPlot1 from './drawers/ScatterPlot1.js';
+import Sankey1 from './drawers/Sankey1.js';
 import ParallelCoordinates from './drawers/ParallelCoordinates.js';
 import ScatterPlot2 from './drawers/ScatterPlot2.js';
 
@@ -49,7 +50,10 @@ export default class VisualizationView {
       case 3:
         this.visualization = new Visualization('#visualization', null, new ParallelCoordinates());
         break;
-      
+      case 4:
+        this.visualization = new Visualization('#visualization', null, new Sankey1());
+        break;
+        
       default:
         break;
     }
