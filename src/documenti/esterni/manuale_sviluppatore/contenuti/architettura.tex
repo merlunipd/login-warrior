@@ -32,7 +32,7 @@ La scelta di usare due controller nell'applicazione è stata fatta per riuscire 
 	\item \textbf{HomeController}: Ha la funzione di gestire l'interazione Model-View nella scheda iniziale. Caratteristica di questa classe è la presenza del metodo privato \texttt{loadSession()} che permette il caricamento di un dataset oppure di una sessione precedentemente salvata.
 	\item \textbf{VisualizationsController}: Ha la funzione di gestire l'interazione Model-View nella scheda in cui vengono visualizzati i grafici con i vari filtri. La caratteristica di questa classe è la presenza del metodo privato \texttt{saveSession()} che permette di salvare la sessione in corso con il grafico visualizzato e i filtri applicati.
 \end{itemize}
-Entrambe le classi precedentemente citate hanno il metodo comune \texttt{setup()} che permette l'inizializzazione della classe andando a chiamre altri tre metodi: \texttt{setupStorage()} che inizializza l'istanza della classe \texttt{IndexedDB}, \texttt{setupModel()} che inizializza il Modello e \texttt{setupView()} che inizializza la View. Completato il processo di inizializzazione l'applicazione sarà pronta a rispondere alle interazioni con l'utente.
+Entrambe le classi precedentemente citate hanno il metodo comune \texttt{setup()} che permette l'inizializzazione della classe andando a chiamre altri tre metodi: \texttt{setupStorage()} che genera l'istanza della classe \texttt{IndexedDB}, \texttt{setupModel()} che istanzia il Modello e \texttt{setupView()} che crea la View. Completato il processo di inizializzazione l'applicazione sarà pronta a rispondere alle interazioni con l'utente.
 
 \section{Diagrammi di sequenza}
 \subsection{Caricamento dataset}
@@ -42,7 +42,7 @@ Entrambe le classi precedentemente citate hanno il metodo comune \texttt{setup()
 	\caption{Diagramma Strategy pattern}
   \end{figure}
   La sequenza di azioni che portano al caricamento del dataset e alla conseguente visualizzazione dei vari grafici disponibili sono innescate dal "click" effettuato dall'utente sull'oggetto \texttt{LoadDatasetButton}.\\
-Una volta cliccato \texttt{LoadDatasetButton} emetterà un segnale recepito, tramite gli EventListner, dalla classe \texttt{HomeController} che eseguirà la funzione \texttt{loadDatasetFunction()}. Quest'ultima funzione chiamerà a sua volta un'altra funzione appartenente alla classe \texttt{HomeController} chiamata \texttt{ReadFile()}.
+Una volta cliccato \texttt{LoadDatasetButton} emetterà un segnale recepito, tramite gli EventListner, dalla classe \texttt{HomeController} che eseguirà la funzione \texttt{loadDatasetFunction()}. Tale funzione chiamerà a sua volta un'altra funzione appartenente alla classe \texttt{HomeController} chiamata \texttt{ReadFile()}.
 \texttt{ReadFile()} andrà semplicemente a creare un oggetto \texttt{FileReader} a cui verrà fatto leggere, sotto forma di testo, il dataset passato dall'utente. \\
 Una volta terminata l'esecuzione della funzione \texttt{ReadFile()} continuerà l'esecuzione della funzione \texttt{LoadDatasetButton} andando a creare tre oggetti: 
 \texttt{CSV} a cui verrà passato come parametro attuale ciò che è stato letto da \texttt{FileReader}, \texttt{Filters} e \texttt{Dataset} a cui vengono passati come parametri attuali gli oggetti precedentemente creati \texttt{CSV} e \texttt{FileReader}.
