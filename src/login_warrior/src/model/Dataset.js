@@ -156,7 +156,29 @@ export default class Dataset {
     }
     const datasetCopy = [...dataset];
     const shuffledDataset = datasetCopy.sort(() => 0.5 - Math.random());
-    const sampledDataset = shuffledDataset.slice(0, samplesLimit);
+    let sampledDataset = [];
+
+    // if per differenziare il campionamento per lo Scatter Plot 2. (da pensare)
+    if (samplesLimit >= 1200) {
+      const utenti = [];
+      let i = 0;
+      for (let index = 0; index < shuffledDataset.length && i < 50; index += 1) {
+        if (utenti.includes(shuffledDataset[index].getId()) === false) {
+          utenti[i] = shuffledDataset[index].getId();
+          i += 1;
+        }
+      }
+      i = 0;
+      for (let index = 0; index < shuffledDataset.length && i < samplesLimit; index += 1) {
+        if (utenti.includes(shuffledDataset[index].getId())) {
+          sampledDataset[i] = shuffledDataset[index];
+          i += 1;
+        }
+      }
+    } else {
+      sampledDataset = shuffledDataset.slice(0, samplesLimit);
+    }
+
     return sampledDataset;
   }
   /* eslint-enable class-methods-use-this */

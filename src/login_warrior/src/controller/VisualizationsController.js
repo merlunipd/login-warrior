@@ -70,6 +70,11 @@ export default class VisualizationsController {
         this.visualizationIndex = 1;
         break;
 
+      case 'scatterplot_02':
+        this.samplesLimit = 1500;
+        this.visualizationIndex = 2;
+        break;
+
       default:
         window.location.href = '../home';
         break;
