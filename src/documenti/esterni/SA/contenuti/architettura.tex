@@ -52,7 +52,8 @@ Come detto prima, la classe \texttt{VisualizationView} crea la classe \texttt{Vi
 	\caption{Diagramma delle classi riguardanti il Controller}
   \end{figure}
 \label{controller}Il controller agisce da intermediario tra vista e modello. Ha la funzione di soddisfare le richieste poste da parte dell'utente modificando le altre due componenti.\\
-Possiamo notare la presenza di una classe astratta chiamata \textbf{\texttt{Controller}} che definisce i valori e i metodi che le istanze dovranno presentare.\\
+Possiamo notare la presenza di una classe astratta chiamata \textbf{\texttt{Controller}} che definisce i valori e i metodi che le istanze dovranno presentare.
+
 La scelta di usare due controller nell'applicazione è stata fatta per riuscire a gestire le pagine, con differenti funzionalità, in modo semplice e modulare permettendo una più semplice estendibilità e manutenibilità.\\
 \textbf{HomeController} e \textbf{VisualizationsController} sono gli oggetti istanziabili con superclasse \textbf{\texttt{Controller}} e sono utilizzati nel seguente modo:
 \begin{itemize}
@@ -68,9 +69,11 @@ Entrambe le classi precedentemente citate hanno il metodo comune \texttt{setup()
 	\includegraphics[width=\textwidth]{SequenceDiagramLoadDatasetButton.jpg}
 	\caption{Diagramma di sequenza per il caricamento del dataset}
   \end{figure}
-  La sequenza di azioni che portano al caricamento del dataset e alla conseguente visualizzazione dei vari grafici disponibili sono innescate dal "click" effettuato dall'utente sull'oggetto \texttt{LoadDatasetButton}.\\
+  La sequenza di azioni che portano al caricamento del dataset e alla conseguente visualizzazione dei vari grafici disponibili sono innescate dal "click" effettuato dall'utente sull'oggetto \texttt{LoadDatasetButton}.
+
 Una volta cliccato \texttt{LoadDatasetButton} emetterà un segnale recepito, tramite gli EventListner, dalla classe \texttt{HomeController} che eseguirà la funzione\\ \texttt{loadDatasetFunction()}. Tale funzione chiamerà a sua volta un'altra funzione appartenente alla classe \texttt{HomeController} chiamata \texttt{ReadFile()}.
-\texttt{ReadFile()} andrà semplicemente a creare un oggetto \texttt{FileReader} a cui verrà fatto leggere, sotto forma di testo, il dataset passato dall'utente. \\
+\texttt{ReadFile()} andrà semplicemente a creare un oggetto \texttt{FileReader} a cui verrà fatto leggere, sotto forma di testo, il dataset passato dall'utente.
+
 Una volta terminata l'esecuzione della funzione \texttt{ReadFile()} continuerà l'esecuzione della funzione \texttt{LoadDatasetButton} andando a creare tre oggetti:
 \texttt{CSV} a cui verrà passato come parametro attuale ciò che è stato letto da \texttt{FileReader}, \texttt{Filters} e \texttt{Dataset} a cui vengono passati come parametri attuali gli oggetti precedentemente creati \texttt{CSV} e \texttt{FileReader}.
 Il passo successivo compiuto dalla funzione è chiamare il metodo \texttt{saveDataset()} dell'oggetto \texttt{IndexedDBStorage} a cui viene passato l'oggetto crato precedentemente \texttt{Dataset} con lo scopo di salvarlo nel database esterno all'applicazione.
@@ -92,8 +95,10 @@ Una volta cliccato \texttt{SampleDatasetButton} emetterà un segnale recepito, t
 	\includegraphics[width=\textwidth]{StrategyPattern.png}
 	\caption{Diagramma Strategy pattern}
   \end{figure}
-Il nostro gruppo ha scelto di utilizzare il pattern \textit{Strategy} per la generazione dei grafici in quanto ci serviva un algoritmo il cui fine era il medesimo, ma che sfruttasse passi differenti per la rappresentazione delle differenti viste.\\
-Come è possibile notare dall'immagine lo \texttt{Strategy} presenta un'interfaccia chiamata \texttt{Drawer} la quale dichiara un metodo \texttt{draw(dataset:Dataset)} che sarà definito in maniera differente dalle classi che implmenteranno l'interfaccia, in questo modo sarà possibile generare grafici differenti.\\
+Il nostro gruppo ha scelto di utilizzare il pattern \textit{Strategy} per la generazione dei grafici in quanto ci serviva un algoritmo il cui fine era il medesimo, ma che sfruttasse passi differenti per la rappresentazione delle differenti viste.
+
+Come è possibile notare dall'immagine lo \texttt{Strategy} presenta un'interfaccia chiamata \texttt{Drawer} la quale dichiara un metodo \texttt{draw(dataset:Dataset)} che sarà definito in maniera differente dalle classi che implmenteranno l'interfaccia, in questo modo sarà possibile generare grafici differenti.
+
 Dall'immagine possiamo notare solamente tre differenti classi che implementano "Drawer" che sono \texttt{ScatterPlot1}, \texttt{ScatterPlot2} e \texttt{Sankey1Diagram}; questo è stato fatto per una questione di semplicità espositiva, in realtà ogni configurazione dei vari grafici avrà la propria classe specifica per la rappresentazione del dataset. \\
 
 \subsection{Template method}
