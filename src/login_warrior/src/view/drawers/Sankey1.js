@@ -221,10 +221,7 @@ export default class Sankey1 {
             }
             
             if((typeof controlloOrario[1]) != "undefined" && contaLoginOra[1]!=0 ){
-                let s = controlloOrario[1];
-                let t = controlloTipologia[0];
-                let v = contaLoginOra[1];
-                links.push({"source":s,"target":t,"value":v});
+                links.push({"source":controlloOrario[1],"target":controlloTipologia[0],"value":contaLoginOra[1]});
             }
             for(let i=0;i<=controlloMese.length;i++){
                 if((typeof controlloMese[i]) != "undefined" && contaLoginMese[i]!=0){
