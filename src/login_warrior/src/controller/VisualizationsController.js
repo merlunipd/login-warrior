@@ -69,7 +69,10 @@ export default class VisualizationsController {
         this.samplesLimit = 1000;
         this.visualizationIndex = 1;
         break;
-
+      case 'scatterplot_02':
+        this.samplesLimit = 1500;
+        this.visualizationIndex = 2;
+        break;
       case 'parallelcoordinates_01':
         this.samplesLimit = 1200;
         this.visualizationIndex = 3;

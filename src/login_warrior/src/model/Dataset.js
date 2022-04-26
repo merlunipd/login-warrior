@@ -178,6 +178,7 @@ export default class Dataset {
     } else {
       sampledDataset = shuffledDataset.slice(0, samplesLimit);
     }
+ 
     return sampledDataset;
   }
   /* eslint-enable class-methods-use-this */
