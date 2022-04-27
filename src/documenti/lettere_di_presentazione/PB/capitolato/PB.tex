@@ -1,0 +1,61 @@
+% Configurazione
+\documentclass[12pt, a4paper]{report}
+
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+%\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+\usepackage[italian]{babel}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{changepage}
+\usepackage{url}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+\geometry{
+  top=30mm,
+  bottom=30mm,
+  left=30mm,
+  right=30mm,
+}
+
+\graphicspath{ {immagini/} }
+\definecolor{RossoUnipd}{HTML}{B5121B}
+
+% Variabili
+\newcommand{\titolo}{Lettera di presentazione - PB}
+
+
+
+% Struttura
+\begin{document}
+
+\input{contenuti/intestazione}
+
+\input{contenuti/titolo}
+
+\input{contenuti/introduzione}
+
+\input{contenuti/documenti}
+
+\input{contenuti/prodotti}
+
+\input{contenuti/componenti}
+
+\input{contenuti/saluti}
+
+\end{document}
