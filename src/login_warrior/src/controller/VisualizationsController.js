@@ -95,7 +95,7 @@ export default class VisualizationsController {
 
   setupViewsInitialState() {
     // Visualizzazione
-    this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+    this.view.visualization.draw(this.model.getDataset(this.samplesLimit, this.visualizationIndex));
 
     // Filtri
     this.setupFiltersInitialState();
@@ -147,7 +147,8 @@ export default class VisualizationsController {
 
   eventListenerSampleDatasetButton() {
     this.view.sampleDatasetButton.setClick(() => {
-      this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+      // eslint-disable-next-line max-len
+      this.view.visualization.draw(this.model.getDataset(this.samplesLimit, this.visualizationIndex));
     });
   }
 
@@ -198,7 +199,8 @@ export default class VisualizationsController {
 
       // Imposta i filtri e aggiorna la visualizzazione
       this.model.setFilters(filters);
-      this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+      // eslint-disable-next-line max-len
+      this.view.visualization.draw(this.model.getDataset(this.samplesLimit, this.visualizationIndex));
     });
 
     this.view.resetFilterButton.setClick(() => {
@@ -214,7 +216,8 @@ export default class VisualizationsController {
       this.model.setFilters(filters);
 
       // Aggiornamento visualizzazione
-      this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+      // eslint-disable-next-line max-len
+      this.view.visualization.draw(this.model.getDataset(this.samplesLimit, this.visualizationIndex));
     });
   }
 }
