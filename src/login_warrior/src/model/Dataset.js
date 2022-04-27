@@ -147,6 +147,7 @@ export default class Dataset {
    * ritorna una copia del dataset stesso, altrimenti effettua un campionamento casuale dei dati.
    * @param {DataPoint[]} dataset Dataset da campionare
    * @param {number} samplesLimit Numero massimo di punti che ritorna la funzione di campionamento
+   * @param {number} visualizationIndex indice del grafico da visualizzare
    * @returns {DataPoint[]} Dataset campionato
    */
   /* eslint-disable class-methods-use-this */
