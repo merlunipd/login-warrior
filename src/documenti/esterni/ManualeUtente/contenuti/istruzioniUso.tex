@@ -29,7 +29,7 @@ Si potrà scegliere tra vari tipi di:
     \includegraphics[width=1.0\textwidth]{ListaGrafici.jpg}
     \caption{Screenshot della lista dei grafici}
 \end{figure}
-Successivamente per visionare un grafico basterà premere il bottone "Visualizza".
+Successivamente per visionare il grafico desiderato basterà premere il relativo bottone "Visualizza".
 
 \subsection{Carica sessione}
 Cliccando su "Carica sessione" comparirà una finestra di dialogo che ci permetterà di caricare i dati di una sessione salvata in precedenza. Seleziona quindi il file in formato .json desiderato e poi clicca su "Apri" per caricare il file.
@@ -47,7 +47,7 @@ Dopo aver caricato la sessione nel sistema si potrà proseguire il lavoro da dov
 \end{figure}
 
 \section{Bottoni}
-In ogni pagina di visualizzazione dei grafici, sono disponibili dei bottoni. Questi si trovano nell'estremo superiore sinistro della pagina.
+Nella pagina di visualizzazione del grafico, sono disponibili tre bottoni. Questi si trovano nell'estremo superiore sinistro della pagina.
 
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{Bottoni1.JPG}
@@ -55,17 +55,17 @@ In ogni pagina di visualizzazione dei grafici, sono disponibili dei bottoni. Que
 \end{figure}
 
 \subsection{Bottone Home}
-Questo bottone permette di ritornare alla Home in qualsiasi momento.
+Questo bottone permette di ritornare alla Home in qualsiasi momento mantenendo comunque in memoria il dataset caricato, permettendo di scegliere un altra tipologia di grafico o di caricare un nuovo file.
 
 \subsection{Nuovo Campionamento}
-Ogni grafico attua un algoritmo di campionamento dei dati del dataset per permettere all'utilizzatore di avere una buona visualizzazione delle informazioni (il numero di dati sennò potrebbe essere estremamente grande, quindi non gestibile).
+Ogni grafico attua un appropriato algoritmo di campionamento dei dati per permettere all'utilizzatore di avere una buona visualizzazione delle informazioni (il numero di dati potrebbe essere estremamente grande, quindi non gestibile).
 Questo bottone permette di estrapolare ogni volta dei dati nuovi attraverso l'algoritmo di campionamento. Se il numero di dati del dataset è inferiore al numero massimo di dati che il grafico può visualizzare questo bottone non provoca cambiamenti.
 
 \subsection{Salva Sessione}
-Questo bottone permette di salvare la sessione corrente in tutti i suoi aspetti, compresi i filtri. Basterà premerlo per scaricare la sessione e averla a portata di file!
+Questo bottone permette di salvare la sessione corrente in tutti i suoi aspetti, compresi i filtri e dataset intero. Basterà premerlo per scaricare la sessione nel formato .json.
 
 \section{Filtri}
-In ogni grafico è possibile impostare dei filtri. Questi sono impostabili dall'estremo inferiore sinistro della pagina. Una volta inseriti i filtri desiderati occorre premere il bottone "Filtra" per applicarli. Per rimuovere i filtri invece occorre premere il bottone "Reset".
+In ogni grafico è possibile impostare dei filtri. Questi sono impostabili dall'estremo inferiore sinistro della pagina. Una volta inseriti i filtri desiderati occorre premere il bottone "Filtra" per applicarli. Per resettare i filtri invece occorre premere il bottone "Reset".
 
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{Filtri.JPG}
@@ -73,10 +73,10 @@ In ogni grafico è possibile impostare dei filtri. Questi sono impostabili dall'
 \end{figure}
 
 \subsection{Utente}
-In questo campo è possibile inserire il numero di un utente in modo da filtrare il grafico secondo questo utente.
+In questo campo è possibile inserire il numero di un utente se si vuole visualizzare il grafico contenente solo i suoi accessi.
 
 \subsection{Ip}
-In questo campo è possibile inserire un indirizzo IP in modo da filtrare il grafico secondo questo IP.
+In questo campo è possibile inserire un indirizzo IP se si vuole visualizzare il grafico contenente solo i suoi accessi.
 
 \subsection{Evento}
 Questo filtro permette di filtrare i dati secondo i vari tipi di evento, ovvero:
@@ -90,7 +90,7 @@ Questo filtro permette di filtrare i dati secondo i vari tipi di evento, ovvero:
 In questo campo è possibile inserire il nome di un'applicazione in modo da filtrare il grafico secondo questa applicazione.
 
 \subsection{Data}
-In questo campo è possibile inserire una data in modo da filtrare il grafico secondo questa particolare data.
+Qui viene fornito un calendario dal quale è possibile scegliere una data che permette di visualizzare gli accessi avvenuti in quella determinata giornata.
 
 \section{Scatter Plot}
 Il grafico \textit{Scatter Plot} permette di visualizzare ogni azione degli utenti sotto forma di punti all'interno del piano cartesiano.
@@ -111,8 +111,8 @@ Per visualizzare le informazioni di ogni evento si dovrà posizionare il cursore
 \end{figure}
 
 \section{Parallel Coordinates}
-Il grafico \textit{Parallel Coordinates} permette di visualizzare ogni azione degli utenti sotto forma di linee.
-Per visualizzare le informazioni di un particolare evento si dovrà posizionare il cursore al di sopra della linee scelta. Le informazioni disponibili sono:
+Il grafico \textit{Parallel Coordinates} permette di visualizzare ogni accesso sotto forma di linea.
+Per visualizzare le informazioni di un particolare evento si dovrà posizionare il cursore al di sopra della linea scelta. Le informazioni disponibili sono:
 \begin{itemize}
   \item Ip;
   \item Numero Utente;
