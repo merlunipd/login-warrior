@@ -49,24 +49,28 @@ Dopo aver caricato la sessione nel sistema si potrà proseguire il lavoro da dov
 \section{Bottoni}
 In ogni pagina di visualizzazione dei grafici, sono disponibili dei bottoni. Questi si trovano nell'estremo superiore sinistro della pagina.
 
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Bottoni1.JPG}
+    \caption{Screenshot che indica la posizione dei bottoni}
+\end{figure}
+
 \subsection{Bottone Home}
 Questo bottone permette di ritornare alla Home in qualsiasi momento.
 
 \subsection{Nuovo Campionamento}
-Ogni grafico attua un algoritmo di campionamento dei dati del dataset per permettere all'utilizzatore di avere una buona visualizzazione delle informazioni (il numero di dati sennò potrebbe estremamente grande, quindi non gestibile).
+Ogni grafico attua un algoritmo di campionamento dei dati del dataset per permettere all'utilizzatore di avere una buona visualizzazione delle informazioni (il numero di dati sennò potrebbe essere estremamente grande, quindi non gestibile).
 Questo bottone permette di estrapolare ogni volta dei dati nuovi attraverso l'algoritmo di campionamento. Se il numero di dati del dataset è inferiore al numero massimo di dati che il grafico può visualizzare questo bottone non provoca cambiamenti.
 
 \subsection{Salva Sessione}
-Questo bottone permette di salvare la sessione corrente in tutti i suoi aspetti, compreso i filtri. Basterà premerlo per scaricare la sessione e averla a portata di file!
-
-\begin{figure}[H]
-    \includegraphics[width=1.0\textwidth]{Bottoni1.JPG}
-    \caption{Screenshot che indica i bottoni}
-\end{figure}
-
+Questo bottone permette di salvare la sessione corrente in tutti i suoi aspetti, compresi i filtri. Basterà premerlo per scaricare la sessione e averla a portata di file!
 
 \section{Filtri}
 In ogni grafico è possibile impostare dei filtri. Questi sono impostabili dall'estremo inferiore sinistro della pagina. Una volta inseriti i filtri desiderati occorre premere il bottone "Filtra" per applicarli. Per rimuovere i filtri invece occorre premere il bottone "Reset".
+
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Filtri.JPG}
+    \caption{Screenshot che indica la posizione dei filtri}
+\end{figure}
 
 \subsection{Utente}
 In questo campo è possibile inserire il numero di un utente in modo da filtrare il grafico secondo questo utente.
@@ -88,13 +92,6 @@ In questo campo è possibile inserire il nome di un'applicazione in modo da filt
 \subsection{Data}
 In questo campo è possibile inserire una data in modo da filtrare il grafico secondo questa particolare data.
 
-\begin{figure}[H]
-    \includegraphics[width=1.0\textwidth]{Filtri.JPG}
-    \caption{Screenshot che indica i filtri}
-\end{figure}
-
-
-
 \section{Scatter Plot}
 Il grafico \textit{Scatter Plot} permette di visualizzare ogni azione degli utenti sotto forma di punti all'interno del piano cartesiano.
 Ogni evento ha un colore differente per avere una più facile visualizzazione.
@@ -111,4 +108,30 @@ Per visualizzare le informazioni di ogni evento si dovrà posizionare il cursore
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{VisualizzaInformazioni.JPG}
     \caption{Screenshot che mostra le informazioni di un punto}
+\end{figure}
+
+\section{Parallel Coordinates}
+Il grafico \textit{Parallel Coordinates} permette di visualizzare ogni azione degli utenti sotto forma di linee.
+Per visualizzare le informazioni di un particolare evento si dovrà posizionare il cursore al di sopra della linee scelta. Le informazioni disponibili sono:
+\begin{itemize}
+  \item Ip;
+  \item Numero Utente;
+  \item Tipologia di evento;
+  \item Data;
+  \item Applicazione da dove è stata compiuta l'azione.
+\end{itemize}
+
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Coordinates.JPG}
+    \caption{Screenshot che mostra le informazioni di una linea}
+\end{figure}
+
+\section{Sankey Diagram}
+Il grafico \textit{Sankey Diagram} permette di visualizzare gli eventi raggruppati in nodi.
+È per esempio possibile visualizzare quanti login ci sono stati nel mese di Aprile nell'orario d'ufficio.
+Per visualizzare il numero di dati che ogni nodo contiene basterà posizionare il cursore al di sopra del rettangolo colorato che indica i dati che ci interessano.
+
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Sankey.JPG}
+    \caption{Screenshot che mostra le informazioni di un nodo}
 \end{figure}
