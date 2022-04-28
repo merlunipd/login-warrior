@@ -36,7 +36,7 @@ Nel dettaglio la funzione delle varie componenti del model è:
 
 \subsection{View}
 \begin{figure}[H]
-    \includegraphics[width=1.0\textwidth]{vista.png}
+    \includegraphics[width=1.0\textwidth]{View.png}
     \caption{Diagramma delle classi riguardanti la View}
 \end{figure}
 Il diagramma delle classi della vista è diviso principalmente in due parti: la classe \texttt{HomeView} e \texttt{VisualizationView} che si occupano di creare tutti gli elementi che compongono le rispettive viste e implementano un'interfaccia comune \texttt{View}.
@@ -59,8 +59,8 @@ Possiamo notare la presenza di una classe astratta chiamata \textbf{\texttt{Cont
 La scelta di usare due controller nell'applicazione è stata fatta per riuscire a gestire le pagine, con differenti funzionalità, in modo semplice e modulare permettendo una più semplice estendibilità e manutenibilità.\\
 \textbf{\texttt{HomeController}} e \textbf{\texttt{VisualizationsController}} sono gli oggetti istanziabili con superclasse \textbf{\texttt{Controller}} e sono utilizzati nel seguente modo:
 \begin{itemize}
-	\item \textbf{\texttt{HomeController}}: Ha la funzione di gestire l'interazione Model-View nella scheda iniziale. Caratteristica di questa classe è la presenza del metodo privato \texttt{loadSession()} che permette il caricamento di un dataset oppure di una sessione precedentemente salvata.
-	\item \textbf{\texttt{VisualizationsController}}: Ha la funzione di gestire l'interazione Model-View nella scheda in cui vengono visualizzati i grafici con i vari filtri. La caratteristica di questa classe è la presenza del metodo privato \texttt{saveSession()} che permette di salvare la sessione in corso con il grafico visualizzato e i filtri applicati.
+	\item \textbf{\texttt{HomeController}}: Ha la funzione di gestire l'interazione Model-View nella scheda iniziale;
+	\item \textbf{\texttt{VisualizationsController}}: Ha la funzione di gestire l'interazione Model-View nella scheda in cui vengono visualizzati i grafici con i vari filtri.
 \end{itemize}
 Entrambe le classi precedentemente citate hanno il metodo comune \texttt{setup()} che permette l'inizializzazione della classe andando a chiamre altri tre metodi: \texttt{setupStorage()} che genera l'istanza della classe \texttt{IndexedDB}, \texttt{setupModel()} che istanzia il Modello e \texttt{setupView()} che crea la View. Completato il processo di inizializzazione l'applicazione sarà pronta a rispondere alle interazioni con l'utente.
 
