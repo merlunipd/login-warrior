@@ -50,8 +50,8 @@ export default class Dataset {
    * @param {number} samplesLimit Numero massimo di punti del dataset da campionare
    * @returns {DataPoint[]} Punti del dataset
    */
-  getDataset(samplesLimit) {
-    return this.sampleDataset(this.filterDataset(), samplesLimit);
+  getDataset(samplesLimit, visualizationIndex) {
+    return this.sampleDataset(this.filterDataset(), samplesLimit, visualizationIndex);
   }
 
   /**
@@ -59,8 +59,8 @@ export default class Dataset {
    * @param {number} samplesLimit Numero massimo di punti del dataset da campionare
    * @returns {DataPoint[]} Punti del dataset
    */
-  getDatasetUnfiltered(samplesLimit) {
-    return this.sampleDataset(this.dataset, samplesLimit);
+  getDatasetUnfiltered(samplesLimit, visualizationIndex) {
+    return this.sampleDataset(this.dataset, samplesLimit, visualizationIndex);
   }
 
   /**
@@ -147,19 +147,16 @@ export default class Dataset {
    * ritorna una copia del dataset stesso, altrimenti effettua un campionamento casuale dei dati.
    * @param {DataPoint[]} dataset Dataset da campionare
    * @param {number} samplesLimit Numero massimo di punti che ritorna la funzione di campionamento
+   * @param {number} visualizationIndex indice del grafico da visualizzare
    * @returns {DataPoint[]} Dataset campionato
    */
   /* eslint-disable class-methods-use-this */
-  sampleDataset(dataset, samplesLimit) {
-    if (dataset.length <= samplesLimit) {
-      return [...dataset];
-    }
+  sampleDataset(dataset, samplesLimit, visualizationIndex) {
     const datasetCopy = [...dataset];
     const shuffledDataset = datasetCopy.sort(() => 0.5 - Math.random());
     let sampledDataset = [];
 
-    // if per differenziare il campionamento per lo Scatter Plot 2. (da pensare)
-    if (samplesLimit >= 1200) {
+    if (visualizationIndex === 2 || visualizationIndex === 3) {
       const utenti = [];
       let i = 0;
       for (let index = 0; index < shuffledDataset.length && i < 50; index += 1) {
@@ -176,9 +173,13 @@ export default class Dataset {
         }
       }
     } else {
+      if (dataset.length <= samplesLimit) {
+        return [...dataset];
+      }
+
       sampledDataset = shuffledDataset.slice(0, samplesLimit);
     }
- 
+
     return sampledDataset;
   }
   /* eslint-enable class-methods-use-this */
