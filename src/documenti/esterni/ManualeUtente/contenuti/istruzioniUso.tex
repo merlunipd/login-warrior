@@ -66,13 +66,40 @@ Questo bottone permette di salvare la sessione corrente in tutti i suoi aspetti,
 
 
 \section{Filtri}
-In ogni grafico è possibile impostare dei filtri. Questi sono impostabili dall'estremo inferiore sinistro della pagina.
+In ogni grafico è possibile impostare dei filtri. Questi sono impostabili dall'estremo inferiore sinistro della pagina. Una volta inseriti i filtri desiderati occorre premere il bottone "Filtra" per applicarli. Per rimuovere i filtri invece occorre premere il bottone "Reset".
+
+\subsection{Utente}
+In questo campo è possibile inserire il numero di un utente in modo da filtrare il grafico secondo questo utente.
+
+\subsection{Ip}
+In questo campo è possibile inserire un indirizzo IP in modo da filtrare il grafico secondo questo IP.
+
+\subsection{Evento}
+Questo filtro permette di filtrare i dati secondo i vari tipi di evento, ovvero:
+\begin{itemize}
+  \item Login;
+  \item Errore;
+  \item Logout.
+\end{itemize}
+
+\subsection{Applicazione}
+In questo campo è possibile inserire il nome di un'applicazione in modo da filtrare il grafico secondo questa applicazione.
+
+\subsection{Data}
+In questo campo è possibile inserire una data in modo da filtrare il grafico secondo questa particolare data.
+
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Filtri.JPG}
+    \caption{Screenshot che indica i filtri}
+\end{figure}
+
+
 
 \section{Scatter Plot}
 Il grafico \textit{Scatter Plot} permette di visualizzare ogni azione degli utenti sotto forma di punti all'interno del piano cartesiano.
-Ogni azione ha un colore differente per avere una più facile visualizzazione.
-Il verde indica un login effettuato con successo, il rosso un errore e in grigio il logout.
-Per visualizzare le informazioni di ogni azione si dovrà posizionare il cursore al di sopra del pallino scelto. Le informazioni disponibili sono:
+Ogni evento ha un colore differente per avere una più facile visualizzazione.
+Il verde indica un login effettuato con successo, il rosso un errore e il grigio un logout.
+Per visualizzare le informazioni di ogni evento si dovrà posizionare il cursore al di sopra del pallino scelto. Le informazioni disponibili sono:
 \begin{itemize}
   \item Ip;
   \item Numero Utente;
@@ -83,5 +110,5 @@ Per visualizzare le informazioni di ogni azione si dovrà posizionare il cursore
 
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{VisualizzaInformazioni.JPG}
-    \caption{Screenshot che mostra le informazioni di un pallino}
+    \caption{Screenshot che mostra le informazioni di un punto}
 \end{figure}
