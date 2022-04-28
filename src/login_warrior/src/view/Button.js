@@ -10,7 +10,11 @@ export default class Button {
   }
 
   /* eslint-disable-next-line class-methods-use-this, no-unused-vars */
-  setClick(f) {
+   /*
+      METODI NON IMPLEMENTATI PER EVITARE VALORI ERRATI NELLE
+      RIGHE DI CODICE COPERTE DA TEST
+  setClick() {
     throw new Error('Abstract method');
   }
+  */
 }

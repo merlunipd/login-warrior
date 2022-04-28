@@ -3,13 +3,13 @@
  * Classe FilterId per la gestione del filtro sul ip.
  */
 export default class FilterIp {
-  #cssSelector;
+  cssSelector;
 
   constructor(cssSelector) {
-    this.#cssSelector = cssSelector;
+    this.cssSelector = cssSelector;
   }
 
   getDomObject() {
-    return document.querySelector(this.#cssSelector);
+    return document.querySelector(this.cssSelector);
   }
 }
