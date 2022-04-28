@@ -18,11 +18,18 @@ Cliccando su "Carica dataset" comparirà una finestra di dialogo che ci permette
 \end{figure}
 
 Dopo aver caricato il dataset comparirà una lista dei grafici disponibili.
+Si potrà scegliere tra vari tipi di:
+\begin{itemize}
+  \item \textit{Scatter Plot};
+  \item \textit{Parallel Coordinates};
+  \item \textit{Sankey Diagram}.
+\end{itemize}
 
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{ListaGrafici.jpg}
     \caption{Screenshot della lista dei grafici}
 \end{figure}
+Successivamente per visionare un grafico basterà premere il bottone "Visualizza".
 
 \subsection{Carica sessione}
 Cliccando su "Carica sessione" comparirà una finestra di dialogo che ci permetterà di caricare i dati di una sessione salvata in precedenza. Seleziona quindi il file desiderato e poi clicca su "Apri" per caricare il file.
@@ -30,4 +37,51 @@ Cliccando su "Carica sessione" comparirà una finestra di dialogo che ci permett
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{BottoneSessione.JPG}
     \caption{Screenshot della finestra di dialogo per il caricamento della sessione}
+\end{figure}
+
+Dopo aver caricato la sessione nel sistema si potrà proseguire il lavoro da dove era stato salvato.
+
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{CaricamentoSessione.JPG}
+    \caption{Screenshot della sessione caricata}
+\end{figure}
+
+\section{Bottoni}
+In ogni pagina di visualizzazione dei grafici, sono disponibili dei bottoni. Questi si trovano nell'estremo superiore sinistro della pagina.
+
+\subsection{Bottone Home}
+Questo bottone permette di ritornare alla Home in qualsiasi momento.
+
+\subsection{Nuovo Campionamento}
+Ogni grafico attua un algoritmo di campionamento dei dati del dataset per permettere all'utilizzatore di avere una buona visualizzazione delle informazioni (il numero di dati sennò potrebbe estremamente grande, quindi non gestibile).
+Questo bottone permette di estrapolare ogni volta dei dati nuovi attraverso l'algoritmo di campionamento. Se il numero di dati del dataset è inferiore al numero massimo di dati che il grafico può visualizzare questo bottone non provoca cambiamenti.
+
+\subsection{Salva Sessione}
+Questo bottone permette di salvare la sessione corrente in tutti i suoi aspetti, compreso i filtri. Basterà premerlo per scaricare la sessione e averla a portata di file!
+
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Bottoni1.JPG}
+    \caption{Screenshot che indica i bottoni}
+\end{figure}
+
+
+\section{Filtri}
+In ogni grafico è possibile impostare dei filtri. Questi sono impostabili dall'estremo inferiore sinistro della pagina.
+
+\section{Scatter Plot}
+Il grafico \textit{Scatter Plot} permette di visualizzare ogni azione degli utenti sotto forma di punti all'interno del piano cartesiano.
+Ogni azione ha un colore differente per avere una più facile visualizzazione.
+Il verde indica un login effettuato con successo, il rosso un errore e in grigio il logout.
+Per visualizzare le informazioni di ogni azione si dovrà posizionare il cursore al di sopra del pallino scelto. Le informazioni disponibili sono:
+\begin{itemize}
+  \item Ip;
+  \item Numero Utente;
+  \item Tipologia di evento;
+  \item Data;
+  \item Applicazione da dove è stata compiuta l'azione.
+\end{itemize}
+
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{VisualizzaInformazioni.JPG}
+    \caption{Screenshot che mostra le informazioni di un pallino}
 \end{figure}
