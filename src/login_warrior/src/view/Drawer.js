@@ -11,7 +11,11 @@ export default class Drawer {
   }
 
   // eslint-disable-next-line no-unused-vars
+   /*
+      METODI NON IMPLEMENTATI PER EVITARE VALORI ERRATI NELLE
+      RIGHE DI CODICE COPERTE DA TEST
   draw(dataset) {
     throw new Error('Metodo astratto');
   }
+  */
 }
