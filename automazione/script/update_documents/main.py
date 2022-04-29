@@ -43,8 +43,8 @@ PATH_DOCUMENTI = [
   os.path.join("src", "documenti", "esterni", "PdP", "PdP_V2.tex"),
   os.path.join("src", "documenti", "esterni", "PdQ", "PdQ_V2.tex"),
   os.path.join("src", "documenti", "esterni", "AdR", "AdR_V2.tex"),
-  os.path.join("src", "documenti", "esterni", "Specifica Architetturale", "specifica_architetturale_V1.tex"),
-  os.path.join("src", "documenti", "esterni", "Manuale Utente", "manuale_utente_V1.tex"),
+  os.path.join("src", "documenti", "esterni", "SA", "specifica_architetturale_V1.tex"),
+  os.path.join("src", "documenti", "esterni", "ManualeUtente", "manuale_utente_V1.tex"),
   os.path.join("src", "documenti", "interni", "NdP", "NdP_V2.tex")
 ]
 PATH_VERBALI_INTERNI = os.path.join("src", "documenti", "interni", "verbali")
