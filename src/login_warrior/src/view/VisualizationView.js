@@ -53,7 +53,6 @@ export default class VisualizationView {
       case 4:
         this.visualization = new Visualization('#visualization', null, new Sankey1());
         break;
-        
       default:
         break;
     }
