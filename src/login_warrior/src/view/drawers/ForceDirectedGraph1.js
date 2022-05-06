@@ -5,12 +5,13 @@ export default class ForceDirectedGraph1 {
     circlesRadius = 5;
     circlesRadiusGrowth = 6;
     circlesOpacity = 0.4;
-    simulation;
+    force;
     links;
     nodes;
+    svg;
 
     createSvg() {
-        d3.select('#visualization')
+        this.svg = d3.select('#visualization')
             .append('svg')
             .attr('width', this.width)
             .attr('height', this.height)
@@ -25,16 +26,245 @@ export default class ForceDirectedGraph1 {
 
     }
 
-    newSimulation(dataset) {
-        this.simulation = d3.forceSimulation(dataset)
-            .force("link", d3.forceLink().id(function (d) { return d.getId(); }))
+    createForce() {
+        return d3.forceSimulation()
+            .force("link", d3.forceLink().id(function (d) { return d.id; }))
             .force("charge", d3.forceManyBody())
             .force("center", d3.forceCenter())
-            //.on("tick", this.ticked);
+        //.on("tick", this.ticked);
     }
 
-    getLinks() {
-        var link = [
+
+    parseDati(dataset){
+        /*
+        Illuminazione divina (da rifare con map al posto di array!)
+        Reminder per il funzionamento:
+            - nel controllo inserire l'index del nodo per facilità di recupero nella creazione dei link
+            - aggiungere altre variabili di conta, che contano gli errori,login e logout degli orari e dei mesi, per facilitare il value dei link
+            - possibilità di portare il parser fuori dalla classe!
+        */   
+
+        let nodes = [];
+        let links = [];
+
+        //Variabili controllo presenza per creazione nodi, undefined se elemento non disponibile, valore dell'index altrimenti
+        let controlloTipologia =[]; //1-login, 2-error, 3-logout
+        let controlloOrario =[];    //1-orario d'ufficio, 2-orario non d'ufficio
+        let controlloMese =[];  //indice = numero del mese - 1
+        
+        //Variabili conteggio per assegnazione al value di links
+        let contaLoginOra = [0,0];
+        let contaLoginMese = [0,0,0,0,0,0,0,0,0,0,0,0];
+        let contaLogoutOra = [0,0];
+        let contaLogoutMese = [0,0,0,0,0,0,0,0,0,0,0,0];
+        let contaErrorOra = [0,0];
+        let contaErrorMese = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+        let orario;
+        //indice dei nodi
+        let index = 0;
+
+        
+
+        
+        //Scorre tutti i dati e crea un nodo per ogni tipologia esistente, andando a contare i collegamenti con gli orari e i mesi
+        for (let i = 0; i < dataset.length; i++) {
+            orario = new Date(dataset[i].getDate());
+
+            //Creazione nodi seconda colonna, login, errori, logout
+            switch(dataset[i].getEvent()){
+                case "login":
+                    if( (typeof controlloTipologia[0]) == "undefined"){
+                        nodes.push({"node":index,"name":"login"});
+                        controlloTipologia[0]=index;
+                        index++;
+                    }
+                    orario.getHours() > 8 && orario.getHours() < 17 ? contaLoginOra[0]++ : contaLoginOra[1]++;
+                    contaLoginMese[orario.getMonth()]++;
+                    break;
+                case "error":
+                    if((typeof controlloTipologia[1]) == "undefined"){
+                        nodes.push({"node":index,"name":"error"});
+                        controlloTipologia[1]=index;
+                        index++;
+                    }
+                    orario.getHours() > 8 && orario.getHours() < 17 ? contaErrorOra[0]++ : contaErrorOra[1]++;
+                    contaErrorMese[orario.getMonth()]++;
+                    break;
+                case "logout":
+                    if((typeof controlloTipologia[2]) == "undefined"){
+                        nodes.push({"node":index,"name":"logout"});
+                        controlloTipologia[2]=index;
+                        index++;
+                    }
+                    orario.getHours() > 8 && orario.getHours() < 17 ? contaLogoutOra[0]++ : contaLogoutOra[1]++;
+                    contaLogoutMese[orario.getMonth()]++;
+                    break;
+                default:
+                    throw new Error("Tipologia non valida");
+            }
+
+            
+
+            //Creazione nodi prima colonna, orario d'ufficio e orario non d'ufficio
+            if(orario.getHours() >= 8 && orario.getHours() <= 17 && (typeof controlloOrario[0]) == "undefined"){
+                nodes.push({"node":index,"name":"orario d'ufficio"});
+                controlloOrario[0]=index;
+                index++;
+            }else if( (typeof controlloOrario[1]) == "undefined" && ((orario.getHours() >= 0 && orario.getHours() <= 7) || (orario.getHours() >= 18 && orario.getHours() <= 24))){
+                nodes.push({"node":index,"name":"orario non d'ufficio"});
+                controlloOrario[1]=index;
+                index++;
+            }else if(orario.getHours() < 0 || orario.getHours() > 24){
+                throw new Error("Orario non valido");
+            }
+
+            //Creazione nodi terza colonna, mesi dell'anno
+            switch(orario.getMonth()){
+                case 0:
+                    if((typeof controlloMese[0]) == "undefined"){
+                        nodes.push({"node":index,"name":"Gennaio"});
+                        controlloMese[0]=index;
+                        index++;
+                    }
+                    break;
+                case 1:
+                    if((typeof controlloMese[1]) == "undefined"){
+                        nodes.push({"node":index,"name":"Febbraio"});
+                        controlloMese[1]=index;
+                        index++;
+                    }
+                    break;
+                case 2:
+                    if((typeof controlloMese[2]) == "undefined"){
+                        nodes.push({"node":index,"name":"Marzo"});
+                        controlloMese[2]=index;
+                        index++;
+                    }
+                    break;
+                case 3:
+                    if((typeof controlloMese[3]) == "undefined"){
+                        nodes.push({"node":index,"name":"Aprile"});
+                        controlloMese[3]=index;
+                        index++;
+                    }
+                    break;
+                case 4:
+                    if((typeof controlloMese[4]) == "undefined"){
+                        nodes.push({"node":index,"name":"Maggio"});
+                        controlloMese[4]=index;
+                        index++;
+                    }
+                    break;
+                case 5:
+                    if((typeof controlloMese[5]) == "undefined"){
+                        nodes.push({"node":index,"name":"Giugno"});
+                        controlloMese[5]=index;
+                        index++;
+                    }
+                    break;
+                case 6:
+                    if((typeof controlloMese[6]) == "undefined"){
+                        nodes.push({"node":index,"name":"Luglio"});
+                        controlloMese[6]=index;
+                        index++;
+                    }
+                    break;
+                case 7:
+                    if((typeof controlloMese[7]) == "undefined"){
+                        nodes.push({"node":index,"name":"Agosto"});
+                        controlloMese[7]=index;
+                        index++;
+                    }
+                    break;
+                case 8:
+                    if((typeof controlloMese[8]) == "undefined"){
+                        nodes.push({"node":index,"name":"Settembre"});
+                        controlloMese[8]=index;
+                        index++;
+                    }
+                    break;
+                case 9:
+                    if((typeof controlloMese[9]) == "undefined"){
+                        nodes.push({"node":index,"name":"Ottobre"});
+                        controlloMese[9]=index;
+                        index++;
+                    }
+                    break;
+                case 10:
+                    if((typeof controlloMese[10]) == "undefined"){
+                        nodes.push({"node":index,"name":"Novembre"});
+                        controlloMese[10]=index;
+                        index++;
+                    }
+                    break;
+                case 11:
+                    if((typeof controlloMese[11]) == "undefined"){
+                        nodes.push({"node":index,"name":"Dicembre"});
+                        controlloMese[11]=index;
+                        index++;
+                    }
+                    break;
+                default:
+                    throw new Error("Mese non valido");
+            }
+        }
+        //links
+        
+        if((typeof controlloTipologia[0]) != "undefined"){
+            if((typeof controlloOrario[0]) != "undefined" && contaLoginOra[0]!=0 ){
+                links.push({"source":controlloOrario[0],"target":controlloTipologia[0],"value":1});
+            }
+            
+            if((typeof controlloOrario[1]) != "undefined" && contaLoginOra[1]!=0 ){
+                links.push({"source":controlloOrario[1],"target":controlloTipologia[0],"value":1});
+            }
+            for(let i=0;i<=controlloMese.length;i++){
+                if((typeof controlloMese[i]) != "undefined" && contaLoginMese[i]!=0){
+                    links.push({"source":controlloTipologia[0],"target":controlloMese[i],"value":1});
+                }
+            }
+            
+            
+        }
+        
+        if((typeof controlloTipologia[1]) != "undefined"){
+            if((typeof controlloOrario[0]) != "undefined" && contaErrorOra[0]!=0){
+                links.push({"source":controlloOrario[0],"target":controlloTipologia[1],"value":1});
+            }
+            if((typeof controlloOrario[1]) != "undefined" && contaErrorOra[1]!=0){
+                links.push({"source":controlloOrario[1],"target":controlloTipologia[1],"value":1});
+            }
+            for(let i=0;i<=controlloMese.length;i++){
+                if((typeof controlloMese[i]) != "undefined" && contaErrorMese[i]!=0){
+                    links.push({"source":controlloTipologia[1],"target":controlloMese[i],"value":1});
+                }
+            }
+        }
+        if((typeof controlloTipologia[2]) != "undefined"){
+            if((typeof controlloOrario[0]) != "undefined" && contaLogoutOra[0]!=0){
+                links.push({"source":controlloOrario[0],"target":controlloTipologia[2],"value":1});
+            }
+            if((typeof controlloOrario[1]) != "undefined" && contaLogoutOra[1]!=0){
+                links.push({"source":controlloOrario[1],"target":controlloTipologia[2],"value":1});
+            }
+            for(let i=0;i<=controlloMese.length;i++){
+                if((typeof controlloMese[i]) != "undefined" && contaLogoutMese[i]!=0){
+                    links.push({"source":controlloTipologia[2],"target":controlloMese[i],"value":1});
+                }
+            }
+        }
+        
+        return [nodes, links];
+    }
+
+
+    getNodesLinks(dataset, width, height, circlesRadius, force) {
+        [this.nodes , this.links] = this.parseDati(dataset);
+        
+        
+
+        let link = [
             { "source": 1, "target": 0, "value": 1 },
             { "source": 2, "target": 0, "value": 8 },
             { "source": 3, "target": 0, "value": 10 },
@@ -339,24 +569,28 @@ export default class ForceDirectedGraph1 {
             { "source": 119, "target": 55, "value": 1 }
         ];
 
-        this.links = d3.select('svg g').append("g")
+        this.links = link;
+
+        //console.log(this.svg);
+
+        let links2 = this.svg.append("g")
             .attr("class", "links")
             .selectAll("line")
-            .data(link)
+            .data(this.links)
             .enter()
             .append("line")
             .attr("stroke-width", function (d) { return Math.sqrt(d.value); });
-    }
 
-    getNodes(dataset) {
-        this.nodes = d3.select('svg g').append("g")
+
+
+        let nodes2 = this.svg.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
-            .data(dataset, (d) => d.getId())
+            .data(this.nodes /*(d) => d.getId()*/)
             .enter()
             .append("circle")
             .attr("r", 4)
-            .style('fill', (d) => {
+            /*.style('fill', (d) => {
                 switch (d.getEvent()) {
                     case 'login':
                         return 'green';
@@ -367,51 +601,63 @@ export default class ForceDirectedGraph1 {
                     default:
                         return 'blu';
                 }
-            })
+            })*/
             .call(d3.drag()
-                .on("start", this.dragstarted)
-                .on("drag", this.dragged)
-                .on("end", this.dragended));
-            /*.call(drag(simulation));*/
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+        /*.call(drag(simulation));*/
+
+        
+        /*console.log(links2);
+        console.log(nodes2);
+        console.log(this.links);
+        console.log(this.nodes);*/
+
+        this.force.nodes(this.nodes)
+            .on("tick", ticked);
+
+        this.force.force("link")
+            .links(links2);
+            
+            
+        function ticked() {
+            links2
+                .attr("x1", function (d) { return d.source.x; })
+                .attr("y1", function (d) { return d.source.y; })
+                .attr("x2", function (d) { return d.target.x; })
+                .attr("y2", function (d) { return d.target.y; });
+
+            //console.log(circlesRadius);
+            //console.log(width);
+            //console.log(height);
+            nodes2
+                .attr("cx", function (d) { return d.x = Math.max(circlesRadius, Math.min(width - circlesRadius, d.x)); })
+                .attr("cy", function (d) { return d.y = Math.max(circlesRadius, Math.min(height - circlesRadius, d.y)); });
+        }
+
+        function dragstarted(d) {
+            if (!d3.event.active) force.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(d) {
+            d.fx = d3.event.x;
+            d.fy = d3.event.y;
+        }
+
+        function dragended(d) {
+            if (!d3.event.active) force.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+
+        console.log(links2);
+        console.log(nodes2);
     }
 
-    startSimulation(dataset) {
-        this.simulation.nodes(dataset)
-            .on("tick", this.ticked);
-
-        this.simulation.force("link")
-            .links(this.links);
-    }
-
-    
-    ticked() {
-        this.links
-            .attr("x1", function (d) { return d.source.x; })
-            .attr("y1", function (d) { return d.source.y; })
-            .attr("x2", function (d) { return d.target.x; })
-            .attr("y2", function (d) { return d.target.y; });
-
-        this.nodes
-            .attr("cx", function (d) { return d.x = Math.max(this.circlesRadius, Math.min(this.width - this.circlesRadius, d.x)); })
-            .attr("cy", function (d) { return d.y = Math.max(this.circlesRadius, Math.min(this.height - this.circlesRadius, d.y)); });
-    }
-
-    dragstarted(d) {
-        if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-    }
-
-    dragged(d) {
-        d.fx = d3.event.x;
-        d.fy = d3.event.y;
-    }
-
-    dragended(d) {
-        if (!d3.event.active) simulation.alphaTarget(0);
-        d.fx = null;
-        d.fy = null;
-    }
 
 
     /*drag(simulation) {
@@ -440,16 +686,22 @@ export default class ForceDirectedGraph1 {
 
 
     draw(dataset) {
-        d3.select('#visualization').html('');
+        //d3.select('#visualization').html('');
+
+        //console.log(dataset[1].getId());
 
         this.createSvg();
-        this.newSimulation(dataset);
-        this.getLinks();
-        this.getNodes(dataset);
+        this.force = this.createForce();
+
+
+
+        //this.newSimulation(dataset);
+        //this.getLinks();
+        this.getNodesLinks(dataset, this.width, this.height, this.circlesRadius, this.force);
 
         //console.log(this.nodes);
         //console.log(this.links);
 
-        this.startSimulation(dataset);
+        //this.startSimulation(dataset);
     }
 }
