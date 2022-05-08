@@ -81,3 +81,18 @@ button {
 #filtro-app{
   text-transform: uppercase;
 }
+
+#loading_screen
+{  
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  color: #FFF;  
+  text-align: center;
+  padding: 80px;
+  background-color: #000;
+  box-sizing: border-box;
+} 

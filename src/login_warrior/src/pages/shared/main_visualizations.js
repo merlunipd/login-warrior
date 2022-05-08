@@ -1,7 +1,7 @@
 import VisualizationsController from '../../controller/VisualizationsController.js';
 
 /* eslint-disable-next-line no-unused-vars */
-const visualizationsController = new VisualizationsController();
+let visualizationsController;
 
 /*
  Firefox: quando si naviga tra le pagine con i comandi del browser,
@@ -10,3 +10,16 @@ const visualizationsController = new VisualizationsController();
 */
 /* eslint-disable-next-line func-names */
 window.onunload = function () {};
+
+async function nascondiLoadingScreen() {
+  visualizationsController = await new VisualizationsController().setup();
+  document.getElementById('loading_screen').style.display = 'none';
+}
+// eslint-disable-next-line func-names
+(function () {
+  if (window.addEventListener) {
+    window.addEventListener('load', nascondiLoadingScreen, false);
+  } else {
+    window.attachEvent('onload', nascondiLoadingScreen);
+  }
+}());
