@@ -82,7 +82,7 @@ export default class VisualizationsController {
         this.visualizationIndex = 4;
         break;
       case 'sankey_02':
-        this.samplesLimit = 200;
+        this.samplesLimit = 10;
         this.visualizationIndex = 5;
         break;
       default:
