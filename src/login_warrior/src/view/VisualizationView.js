@@ -1,6 +1,6 @@
 import ScatterPlot1 from './drawers/ScatterPlot1.js';
 import Sankey1 from './drawers/Sankey1.js';
-import Sankey1 from './drawers/Sankey2.js';
+import Sankey2 from './drawers/Sankey2.js';
 import ParallelCoordinates from './drawers/ParallelCoordinates.js';
 import ScatterPlot2 from './drawers/ScatterPlot2.js';
 
@@ -16,7 +16,6 @@ import SaveButton from './SaveButton.js';
 import SampleDatasetButton from './SampleDatasetButton.js';
 import FilterButton from './FilterButton.js';
 import ResetFilterButton from './ResetFilterButton.js';
-import Sankey2 from './drawers/Sankey2.js';
 
 export default class VisualizationView {
   visualization;
