@@ -81,7 +81,10 @@ export default class VisualizationsController {
         this.samplesLimit = 200;
         this.visualizationIndex = 4;
         break;
-
+      case 'sankey_02':
+        this.samplesLimit = 200;
+        this.visualizationIndex = 5;
+        break;
       default:
         window.location.href = '../home';
         break;
