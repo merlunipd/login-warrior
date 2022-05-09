@@ -112,6 +112,8 @@ export default class HomeController {
 
   loadDatasetFunction() {
     document.querySelector('#datasetInput').addEventListener('change', async () => {
+      document.getElementById('error-message').style.display = 'none';
+      this.view.list.show(false);
       const file = document.querySelector('#datasetInput').files[0];
       if (file !== undefined) {
         // Leggi file
@@ -123,13 +125,17 @@ export default class HomeController {
         // Crea modello
         const csv = new CSV(text);
         const filters = new Filters(null, null, null, null, null);
-        this.model = new Dataset(csv, filters);
+        try {
+          this.model = new Dataset(csv, filters);
 
-        // Salva il modello su IndexedDB
-        await this.db.saveDataset(this.model);
+          // Salva il modello su IndexedDB
+          await this.db.saveDataset(this.model);
 
-        // Mostra la lista
-        this.view.list.show(true);
+          // Mostra la lista
+          this.view.list.show(true);
+        } catch (error) {
+          document.getElementById('error-message').style.display = 'block';
+        }
       }
     });
   }
@@ -161,6 +167,8 @@ export default class HomeController {
 
   loadSessionFunction() {
     document.querySelector('#load-session-input').addEventListener('change', async () => {
+      document.getElementById('error-message').style.display = 'none';
+      this.view.list.show(false);
       const file = document.querySelector('#load-session-input').files[0];
       if (file !== undefined) {
         // Leggi file
@@ -169,12 +177,16 @@ export default class HomeController {
         // Pulisci input
         document.querySelector('#load-session-input').value = null;
 
-        // Carica modello
-        this.model = Dataset.newDatasetFromObject(JSON.parse(text).data);
-        await this.db.saveDataset(this.model);
+        try {
+          // Carica modello
+          this.model = Dataset.newDatasetFromObject(JSON.parse(text).data);
+          await this.db.saveDataset(this.model);
 
-        // Reindirizza alla pagina corretta
-        window.location.href = `../${JSON.parse(text).path}`;
+          // Reindirizza alla pagina corretta
+          window.location.href = `../${JSON.parse(text).path}`;
+        } catch (error) {
+          document.getElementById('error-message').style.display = 'block';
+        }
       }
     });
   }
