@@ -68,15 +68,12 @@ export default class Sankey1 {
         //indice dei nodi
         let index = 0;
 
-        
-
-        
         //Scorre tutti i dati e crea un nodo per ogni tipologia esistente, andando a contare i collegamenti con gli orari e i mesi
         for (let i = 0; i < dataset.length; i++) {
             orario = new Date(dataset[i].getDate());
             let mese = mesi[orario.getMonth()]; //mese in stringa
 
-            //Creazione nodi terza colonna, mesi dell'anno
+            //Creazione nodi terza colonna: mesi dell'anno
             if (controlloMese.has(mese) === false) {
                 nodes.push({ "node": index, "name": mese });
                 controlloMese.set(mese, index);
@@ -118,10 +115,7 @@ export default class Sankey1 {
                 default:
                     throw new Error("Tipologia non valida");
             }
-
-            
-
-            //Creazione nodi prima colonna, orario d'ufficio e orario non d'ufficio
+            //Creazione nodi prima colonna: orario d'ufficio e orario non d'ufficio
             if(orario.getHours() >= 8 && orario.getHours() <= 17 && (typeof controlloOrario[0]) == "undefined"){
                 nodes.push({"node":index,"name":"orario d'ufficio"});
                 controlloOrario[0]=index;
@@ -133,18 +127,20 @@ export default class Sankey1 {
             }else if(orario.getHours() < 0 || orario.getHours() > 24){
                 throw new Error("Orario non valido");
             }
-
         }
         //links
-        
+
+        //link login
         if((typeof controlloTipologia[0]) != "undefined"){
+            //link orario d'ufficio
             if((typeof controlloOrario[0]) != "undefined" && contaLoginOra[0]!=0 ){
                 links.push({"source":controlloOrario[0],"target":controlloTipologia[0],"value":contaLoginOra[0]});
             }
-            
+            //link orario non d'ufficio
             if((typeof controlloOrario[1]) != "undefined" && contaLoginOra[1]!=0 ){
                 links.push({"source":controlloOrario[1],"target":controlloTipologia[0],"value":contaLoginOra[1]});
             }
+            //link mese
             for (const [key, value] of contaLoginMese) {
                 if (value > 0) {
                     links.push({ "source": controlloTipologia[0], "target": key, "value": value });
@@ -152,34 +148,40 @@ export default class Sankey1 {
             }
             
         }
-        
+        //link error
         if((typeof controlloTipologia[1]) != "undefined"){
+            //link orario d'ufficio
             if((typeof controlloOrario[0]) != "undefined" && contaErrorOra[0]!=0){
                 links.push({"source":controlloOrario[0],"target":controlloTipologia[1],"value":contaErrorOra[0]});
             }
+            //link orario non d'ufficio
             if((typeof controlloOrario[1]) != "undefined" && contaErrorOra[1]!=0){
                 links.push({"source":controlloOrario[1],"target":controlloTipologia[1],"value":contaErrorOra[1]});
             }
+            //link mese
             for (const [key, value] of contaErrorMese) {
                 if (value > 0) {
                     links.push({ "source": controlloTipologia[1], "target": key, "value": value });
                 }
             }
         }
+        //link logout
         if((typeof controlloTipologia[2]) != "undefined"){
+            //link orario d'ufficio
             if((typeof controlloOrario[0]) != "undefined" && contaLogoutOra[0]!=0){
                 links.push({"source":controlloOrario[0],"target":controlloTipologia[2],"value":contaLogoutOra[0]});
             }
+            //link orario non d'ufficio    
             if((typeof controlloOrario[1]) != "undefined" && contaLogoutOra[1]!=0){
                 links.push({"source":controlloOrario[1],"target":controlloTipologia[2],"value":contaLogoutOra[1]});
             }
+            //link mese
             for (const [key, value] of contaLogoutMese) {
                 if (value > 0) {
                     links.push({ "source": controlloTipologia[2], "target": key, "value": value });
                 }
             }
         }
-        
         return [nodes, links];
     }
     
