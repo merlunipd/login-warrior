@@ -30,7 +30,7 @@ export default class ForceDirectedGraph1 {
         return d3.forceSimulation()
             .force("link", d3.forceLink().id(function (d) { return d.id; }))
             .force("charge", d3.forceManyBody())
-            .force("center", d3.forceCenter())
+            .force("center", d3.forceCenter(this.width / 2, this.height / 2))
         //.on("tick", this.ticked);
     }
 
@@ -75,7 +75,7 @@ export default class ForceDirectedGraph1 {
             switch(dataset[i].getEvent()){
                 case "login":
                     if( (typeof controlloTipologia[0]) == "undefined"){
-                        nodes.push({"node":index,"name":"login"});
+                        nodes.push({"id":index,"name":"login"});
                         controlloTipologia[0]=index;
                         index++;
                     }
@@ -84,7 +84,7 @@ export default class ForceDirectedGraph1 {
                     break;
                 case "error":
                     if((typeof controlloTipologia[1]) == "undefined"){
-                        nodes.push({"node":index,"name":"error"});
+                        nodes.push({"id":index,"name":"error"});
                         controlloTipologia[1]=index;
                         index++;
                     }
@@ -93,7 +93,7 @@ export default class ForceDirectedGraph1 {
                     break;
                 case "logout":
                     if((typeof controlloTipologia[2]) == "undefined"){
-                        nodes.push({"node":index,"name":"logout"});
+                        nodes.push({"id":index,"name":"logout"});
                         controlloTipologia[2]=index;
                         index++;
                     }
@@ -108,11 +108,11 @@ export default class ForceDirectedGraph1 {
 
             //Creazione nodi prima colonna, orario d'ufficio e orario non d'ufficio
             if(orario.getHours() >= 8 && orario.getHours() <= 17 && (typeof controlloOrario[0]) == "undefined"){
-                nodes.push({"node":index,"name":"orario d'ufficio"});
+                nodes.push({"id":index,"name":"orario d'ufficio"});
                 controlloOrario[0]=index;
                 index++;
             }else if( (typeof controlloOrario[1]) == "undefined" && ((orario.getHours() >= 0 && orario.getHours() <= 7) || (orario.getHours() >= 18 && orario.getHours() <= 24))){
-                nodes.push({"node":index,"name":"orario non d'ufficio"});
+                nodes.push({"id":index,"name":"orario non d'ufficio"});
                 controlloOrario[1]=index;
                 index++;
             }else if(orario.getHours() < 0 || orario.getHours() > 24){
@@ -123,84 +123,84 @@ export default class ForceDirectedGraph1 {
             switch(orario.getMonth()){
                 case 0:
                     if((typeof controlloMese[0]) == "undefined"){
-                        nodes.push({"node":index,"name":"Gennaio"});
+                        nodes.push({"id":index,"name":"Gennaio"});
                         controlloMese[0]=index;
                         index++;
                     }
                     break;
                 case 1:
                     if((typeof controlloMese[1]) == "undefined"){
-                        nodes.push({"node":index,"name":"Febbraio"});
+                        nodes.push({"id":index,"name":"Febbraio"});
                         controlloMese[1]=index;
                         index++;
                     }
                     break;
                 case 2:
                     if((typeof controlloMese[2]) == "undefined"){
-                        nodes.push({"node":index,"name":"Marzo"});
+                        nodes.push({"id":index,"name":"Marzo"});
                         controlloMese[2]=index;
                         index++;
                     }
                     break;
                 case 3:
                     if((typeof controlloMese[3]) == "undefined"){
-                        nodes.push({"node":index,"name":"Aprile"});
+                        nodes.push({"id":index,"name":"Aprile"});
                         controlloMese[3]=index;
                         index++;
                     }
                     break;
                 case 4:
                     if((typeof controlloMese[4]) == "undefined"){
-                        nodes.push({"node":index,"name":"Maggio"});
+                        nodes.push({"id":index,"name":"Maggio"});
                         controlloMese[4]=index;
                         index++;
                     }
                     break;
                 case 5:
                     if((typeof controlloMese[5]) == "undefined"){
-                        nodes.push({"node":index,"name":"Giugno"});
+                        nodes.push({"id":index,"name":"Giugno"});
                         controlloMese[5]=index;
                         index++;
                     }
                     break;
                 case 6:
                     if((typeof controlloMese[6]) == "undefined"){
-                        nodes.push({"node":index,"name":"Luglio"});
+                        nodes.push({"id":index,"name":"Luglio"});
                         controlloMese[6]=index;
                         index++;
                     }
                     break;
                 case 7:
                     if((typeof controlloMese[7]) == "undefined"){
-                        nodes.push({"node":index,"name":"Agosto"});
+                        nodes.push({"id":index,"name":"Agosto"});
                         controlloMese[7]=index;
                         index++;
                     }
                     break;
                 case 8:
                     if((typeof controlloMese[8]) == "undefined"){
-                        nodes.push({"node":index,"name":"Settembre"});
+                        nodes.push({"id":index,"name":"Settembre"});
                         controlloMese[8]=index;
                         index++;
                     }
                     break;
                 case 9:
                     if((typeof controlloMese[9]) == "undefined"){
-                        nodes.push({"node":index,"name":"Ottobre"});
+                        nodes.push({"id":index,"name":"Ottobre"});
                         controlloMese[9]=index;
                         index++;
                     }
                     break;
                 case 10:
                     if((typeof controlloMese[10]) == "undefined"){
-                        nodes.push({"node":index,"name":"Novembre"});
+                        nodes.push({"id":index,"name":"Novembre"});
                         controlloMese[10]=index;
                         index++;
                     }
                     break;
                 case 11:
                     if((typeof controlloMese[11]) == "undefined"){
-                        nodes.push({"node":index,"name":"Dicembre"});
+                        nodes.push({"id":index,"name":"Dicembre"});
                         controlloMese[11]=index;
                         index++;
                     }
@@ -262,6 +262,22 @@ export default class ForceDirectedGraph1 {
     getNodesLinks(dataset, width, height, circlesRadius, force) {
         [this.nodes , this.links] = this.parseDati(dataset);
         
+        /*this.nodes = [
+            { "id": 0, "utente": 'utente1', "event": 'login'},
+            { "id": 1, "utente": 'utente2', "event": 'error'},
+            { "id": 2, "utente": 'utente3', "event": 'logout'},
+            { "id": 3, "utente": 'utente4', "event": 'login'},
+            { "id": 4, "utente": 'utente5', "event": 'error'},
+        ];
+
+        this.links = [
+            { "source": 1, "target": 0, "value": 1 },
+            { "source": 2, "target": 1, "value": 3 },
+            { "source": 3, "target": 2, "value": 2 },
+            { "source": 4, "target": 3, "value": 4 },
+            { "source": 3, "target": 2, "value": 2 },
+        ];*/
+
         
 
         let link = [
@@ -569,11 +585,11 @@ export default class ForceDirectedGraph1 {
             { "source": 119, "target": 55, "value": 1 }
         ];
 
-        this.links = link;
+        //this.links = link;
 
         //console.log(this.svg);
 
-        let links2 = this.svg.append("g")
+        var links2 = this.svg.append("g")
             .attr("class", "links")
             .selectAll("line")
             .data(this.links)
@@ -583,15 +599,15 @@ export default class ForceDirectedGraph1 {
 
 
 
-        let nodes2 = this.svg.append("g")
+        var nodes2 = this.svg.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
-            .data(this.nodes /*(d) => d.getId()*/)
+            .data(this.nodes, (d) => d.id)
             .enter()
             .append("circle")
             .attr("r", 4)
-            /*.style('fill', (d) => {
-                switch (d.getEvent()) {
+            .style('fill', (d) => {
+                switch (d.event) {
                     case 'login':
                         return 'green';
                     case 'error':
@@ -601,12 +617,24 @@ export default class ForceDirectedGraph1 {
                     default:
                         return 'blu';
                 }
-            })*/
+            })
             .call(d3.drag()
                 .on("start", dragstarted)
                 .on("drag", dragged)
                 .on("end", dragended));
         /*.call(drag(simulation));*/
+
+
+
+        console.log(this.nodes);
+        console.log(this.links);
+
+        console.log("ciao");
+
+        console.log(nodes2);
+        console.log(links2);
+
+
 
         
         /*console.log(links2);
@@ -618,7 +646,7 @@ export default class ForceDirectedGraph1 {
             .on("tick", ticked);
 
         this.force.force("link")
-            .links(links2);
+            .links(this.links);
             
             
         function ticked() {
@@ -654,8 +682,8 @@ export default class ForceDirectedGraph1 {
         }
 
 
-        console.log(links2);
-        console.log(nodes2);
+        //console.log(links2);
+        //console.log(nodes2);
     }
 
 
