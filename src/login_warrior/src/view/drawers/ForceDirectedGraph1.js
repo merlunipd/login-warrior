@@ -1,6 +1,6 @@
 export default class ForceDirectedGraph1 {
-    width = 1500;
-    height = 800;
+    width = 1000;
+    height = 600;
     spacing = 100;
     circlesRadius = 5;
     circlesRadiusGrowth = 6;
@@ -16,14 +16,7 @@ export default class ForceDirectedGraph1 {
             .attr('width', this.width)
             .attr('height', this.height)
             .append('g')
-            .attr('transform', `translate(${this.spacing / 2},${this.spacing / 2})`);
-
-        /*this.simulation = d3.forceSimulation()
-            .force("link", d3.forceLink().id(function (d) { return d.getId(); }))
-            .force("charge", d3.forceManyBody())
-            .force("center", d3.forceCenter(this.width / 2, this.height / 2));*/
-
-
+            //.attr('transform', `translate(${this.spacing / 2},${this.spacing / 2})`);
     }
 
     createForce() {
@@ -31,7 +24,6 @@ export default class ForceDirectedGraph1 {
             .force("link", d3.forceLink().id(function (d) { return d.id; }))
             .force("charge", d3.forceManyBody())
             .force("center", d3.forceCenter(this.width / 2, this.height / 2))
-        //.on("tick", this.ticked);
     }
 
 
@@ -64,6 +56,104 @@ export default class ForceDirectedGraph1 {
         //indice dei nodi
         let index = 0;
 
+
+
+
+        
+
+        /*let id1 = dataset[0].getId();
+        let e1 = dataset[0].getEvent();
+        let contaE1 = [0,0];
+        if (e1 === "login") {
+            contaE1[0]++;
+        } else if (e1 === "error") {
+            contaE1[1]++;
+        }
+        let id2;
+        let e2;
+        let ratio;
+
+
+        //viene creato un nodo per ogni utente del dataset
+        for (let i = 1; i < dataset.length; i++) {
+            id2 = dataset[i].getId();
+            if (id1 == id2) {
+                e2 = dataset[i].getEvent();
+                if (e2 === "login") {
+                    contaE1[0]++;
+                } else if (e2 === "error") {
+                    contaE1[1]++;
+                }
+            } else {
+                ratio = contaE1[1] ? contaE1[0]/(contaE1[0]+contaE1[1])*100 : 100;
+                nodes.push({"id": id1, "ratio": ratio});
+                id1 = id2;
+                console.log(contaE1);
+                contaE1 = [0,0];
+            }
+        }*/
+
+
+
+        let id;
+        let e;
+        let log = 0;
+        let err = 0;
+        let ratio;
+        let b = false;
+        for (let i = 0; i < dataset.length; i++) {
+            id = dataset[i].getId();
+            e = dataset[i].getEvent();
+            //console.log(id + " " + e);
+            for (let j = 0; j < nodes.length; j++) {
+                /*console.log(id);
+                console.log(nodes[j].id);*/
+                if (id == nodes[j].id) {
+                    b = true;
+                    if (e === "login") {
+                        nodes[j].login++;
+                        //console.log(nodes[j].login)
+                    } else if (e === "error") {
+                        nodes[j].error++;
+                    }
+                    nodes[j].ratio = nodes[j].error ? nodes[j].login/(nodes[j].login+nodes[j].error)*100 : 100;
+                }
+            }
+            if (!b) {
+                log = 0; err = 0;
+                if (e === "login") {
+                    log++;
+                } else if (e === "error") {
+                    err++;
+                }
+                ratio = err ? 0 : 100;
+                nodes.push({"id": id, "login": log, "error": err, "ratio": ratio});
+            }
+            b = false;
+
+            console.log(nodes.length);
+
+
+            /*if (id1 == id2) {
+                e2 = dataset[i].getEvent();
+                if (e2 === "login") {
+                    contaE1[0]++;
+                } else if (e2 === "error") {
+                    contaE1[1]++;
+                }
+            } else {
+                ratio = contaE1[1] ? contaE1[0]/(contaE1[0]+contaE1[1])*100 : 100;
+                nodes.push({"id": id1, "ratio": ratio});
+                id1 = id2;
+                console.log(contaE1);
+                contaE1 = [0,0];
+            }*/
+        }
+
+        console.log(nodes);
+
+
+
         
 
         
@@ -75,7 +165,7 @@ export default class ForceDirectedGraph1 {
             switch(dataset[i].getEvent()){
                 case "login":
                     if( (typeof controlloTipologia[0]) == "undefined"){
-                        nodes.push({"id":index,"name":"login"});
+                        //nodes.push({"id":index,"name":"login"});
                         controlloTipologia[0]=index;
                         index++;
                     }
@@ -84,7 +174,7 @@ export default class ForceDirectedGraph1 {
                     break;
                 case "error":
                     if((typeof controlloTipologia[1]) == "undefined"){
-                        nodes.push({"id":index,"name":"error"});
+                        //nodes.push({"id":index,"name":"error"});
                         controlloTipologia[1]=index;
                         index++;
                     }
@@ -93,7 +183,7 @@ export default class ForceDirectedGraph1 {
                     break;
                 case "logout":
                     if((typeof controlloTipologia[2]) == "undefined"){
-                        nodes.push({"id":index,"name":"logout"});
+                        //nodes.push({"id":index,"name":"logout"});
                         controlloTipologia[2]=index;
                         index++;
                     }
@@ -108,11 +198,11 @@ export default class ForceDirectedGraph1 {
 
             //Creazione nodi prima colonna, orario d'ufficio e orario non d'ufficio
             if(orario.getHours() >= 8 && orario.getHours() <= 17 && (typeof controlloOrario[0]) == "undefined"){
-                nodes.push({"id":index,"name":"orario d'ufficio"});
+                //nodes.push({"id":index,"name":"orario d'ufficio"});
                 controlloOrario[0]=index;
                 index++;
             }else if( (typeof controlloOrario[1]) == "undefined" && ((orario.getHours() >= 0 && orario.getHours() <= 7) || (orario.getHours() >= 18 && orario.getHours() <= 24))){
-                nodes.push({"id":index,"name":"orario non d'ufficio"});
+                //nodes.push({"id":index,"name":"orario non d'ufficio"});
                 controlloOrario[1]=index;
                 index++;
             }else if(orario.getHours() < 0 || orario.getHours() > 24){
@@ -120,7 +210,7 @@ export default class ForceDirectedGraph1 {
             }
 
             //Creazione nodi terza colonna, mesi dell'anno
-            switch(orario.getMonth()){
+            /*switch(orario.getMonth()){
                 case 0:
                     if((typeof controlloMese[0]) == "undefined"){
                         nodes.push({"id":index,"name":"Gennaio"});
@@ -207,21 +297,21 @@ export default class ForceDirectedGraph1 {
                     break;
                 default:
                     throw new Error("Mese non valido");
-            }
+            }*/
         }
         //links
         
         if((typeof controlloTipologia[0]) != "undefined"){
             if((typeof controlloOrario[0]) != "undefined" && contaLoginOra[0]!=0 ){
-                links.push({"source":controlloOrario[0],"target":controlloTipologia[0],"value":1});
+                //links.push({"source":controlloOrario[0],"target":controlloTipologia[0],"value":1});
             }
             
             if((typeof controlloOrario[1]) != "undefined" && contaLoginOra[1]!=0 ){
-                links.push({"source":controlloOrario[1],"target":controlloTipologia[0],"value":1});
+                //links.push({"source":controlloOrario[1],"target":controlloTipologia[0],"value":1});
             }
             for(let i=0;i<=controlloMese.length;i++){
                 if((typeof controlloMese[i]) != "undefined" && contaLoginMese[i]!=0){
-                    links.push({"source":controlloTipologia[0],"target":controlloMese[i],"value":1});
+                    //links.push({"source":controlloTipologia[0],"target":controlloMese[i],"value":1});
                 }
             }
             
@@ -230,27 +320,27 @@ export default class ForceDirectedGraph1 {
         
         if((typeof controlloTipologia[1]) != "undefined"){
             if((typeof controlloOrario[0]) != "undefined" && contaErrorOra[0]!=0){
-                links.push({"source":controlloOrario[0],"target":controlloTipologia[1],"value":1});
+                //links.push({"source":controlloOrario[0],"target":controlloTipologia[1],"value":1});
             }
             if((typeof controlloOrario[1]) != "undefined" && contaErrorOra[1]!=0){
-                links.push({"source":controlloOrario[1],"target":controlloTipologia[1],"value":1});
+                //links.push({"source":controlloOrario[1],"target":controlloTipologia[1],"value":1});
             }
             for(let i=0;i<=controlloMese.length;i++){
                 if((typeof controlloMese[i]) != "undefined" && contaErrorMese[i]!=0){
-                    links.push({"source":controlloTipologia[1],"target":controlloMese[i],"value":1});
+                    //links.push({"source":controlloTipologia[1],"target":controlloMese[i],"value":1});
                 }
             }
         }
         if((typeof controlloTipologia[2]) != "undefined"){
             if((typeof controlloOrario[0]) != "undefined" && contaLogoutOra[0]!=0){
-                links.push({"source":controlloOrario[0],"target":controlloTipologia[2],"value":1});
+                //links.push({"source":controlloOrario[0],"target":controlloTipologia[2],"value":1});
             }
             if((typeof controlloOrario[1]) != "undefined" && contaLogoutOra[1]!=0){
-                links.push({"source":controlloOrario[1],"target":controlloTipologia[2],"value":1});
+                //links.push({"source":controlloOrario[1],"target":controlloTipologia[2],"value":1});
             }
             for(let i=0;i<=controlloMese.length;i++){
                 if((typeof controlloMese[i]) != "undefined" && contaLogoutMese[i]!=0){
-                    links.push({"source":controlloTipologia[2],"target":controlloMese[i],"value":1});
+                    //links.push({"source":controlloTipologia[2],"target":controlloMese[i],"value":1});
                 }
             }
         }
@@ -626,13 +716,13 @@ export default class ForceDirectedGraph1 {
 
 
 
-        console.log(this.nodes);
+        /*console.log(this.nodes);
         console.log(this.links);
 
         console.log("ciao");
 
         console.log(nodes2);
-        console.log(links2);
+        console.log(links2);*/
 
 
 
@@ -656,9 +746,9 @@ export default class ForceDirectedGraph1 {
                 .attr("x2", function (d) { return d.target.x; })
                 .attr("y2", function (d) { return d.target.y; });
 
-            //console.log(circlesRadius);
-            //console.log(width);
-            //console.log(height);
+            /*console.log(circlesRadius);
+            console.log(width);
+            console.log(height);*/
             nodes2
                 .attr("cx", function (d) { return d.x = Math.max(circlesRadius, Math.min(width - circlesRadius, d.x)); })
                 .attr("cy", function (d) { return d.y = Math.max(circlesRadius, Math.min(height - circlesRadius, d.y)); });
