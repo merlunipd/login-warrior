@@ -32,9 +32,9 @@ export default class HomeController {
   /**
    * Costruttore a zero parametri
    */
-  constructor() {
+  /* constructor() {
     this.setup();
-  }
+  } */
 
   async setup() {
     this.setupStorage();
@@ -113,6 +113,7 @@ export default class HomeController {
   loadDatasetFunction() {
     document.querySelector('#datasetInput').addEventListener('change', async () => {
       document.getElementById('error-message').style.display = 'none';
+      document.getElementById('loading_screen').style.display = 'block';
       this.view.list.show(false);
       const file = document.querySelector('#datasetInput').files[0];
       if (file !== undefined) {
@@ -136,6 +137,7 @@ export default class HomeController {
         } catch (error) {
           document.getElementById('error-message').style.display = 'block';
         }
+        document.getElementById('loading_screen').style.display = 'none';
       }
     });
   }
@@ -168,6 +170,7 @@ export default class HomeController {
   loadSessionFunction() {
     document.querySelector('#load-session-input').addEventListener('change', async () => {
       document.getElementById('error-message').style.display = 'none';
+      document.getElementById('loading_screen').style.display = 'block';
       this.view.list.show(false);
       const file = document.querySelector('#load-session-input').files[0];
       if (file !== undefined) {
@@ -187,6 +190,7 @@ export default class HomeController {
         } catch (error) {
           document.getElementById('error-message').style.display = 'block';
         }
+        document.getElementById('loading_screen').style.display = 'none';
       }
     });
   }

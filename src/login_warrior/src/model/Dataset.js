@@ -136,7 +136,7 @@ export default class Dataset {
         if (applicationFilter === null) {
           return true;
         }
-        return dataPoint.getApplication() === applicationFilter;
+        return dataPoint.getApplication() === applicationFilter.toUpperCase();
       });
   }
 
