@@ -81,6 +81,17 @@ button {
   text-decoration: underline;
 }
 
+
+#error-message {
+  display: none;
+  color: red;
+  border: 2px solid black;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  border-radius: 5px;
+}
+
 #loading_screen
 {  
   display: block;
