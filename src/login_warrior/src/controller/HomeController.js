@@ -32,9 +32,9 @@ export default class HomeController {
   /**
    * Costruttore a zero parametri
    */
-  constructor() {
+  /* constructor() {
     this.setup();
-  }
+  } */
 
   async setup() {
     this.setupStorage();
@@ -112,6 +112,8 @@ export default class HomeController {
 
   loadDatasetFunction() {
     document.querySelector('#datasetInput').addEventListener('change', async () => {
+      document.getElementById('loading_screen').style.display = 'block';
+      this.view.list.show(false);
       const file = document.querySelector('#datasetInput').files[0];
       if (file !== undefined) {
         // Leggi file
@@ -130,6 +132,7 @@ export default class HomeController {
 
         // Mostra la lista
         this.view.list.show(true);
+        document.getElementById('loading_screen').style.display = 'none';
       }
     });
   }
@@ -161,6 +164,8 @@ export default class HomeController {
 
   loadSessionFunction() {
     document.querySelector('#load-session-input').addEventListener('change', async () => {
+      document.getElementById('loading_screen').style.display = 'block';
+      this.view.list.show(false);
       const file = document.querySelector('#load-session-input').files[0];
       if (file !== undefined) {
         // Leggi file
@@ -175,6 +180,7 @@ export default class HomeController {
 
         // Reindirizza alla pagina corretta
         window.location.href = `../${JSON.parse(text).path}`;
+        document.getElementById('loading_screen').style.display = 'none';
       }
     });
   }
