@@ -20,9 +20,9 @@ export default class VisualizationsController {
 
   samplesLimit;
 
-  constructor() {
+  /* constructor() {
     this.setup();
-  }
+  } */
 
   async setup() {
     this.setupStorage();
