@@ -137,7 +137,7 @@ export default class HomeController {
         } catch (error) {
           document.getElementById('error-message').style.display = 'block';
         }
-        document.getElementById('loading_screen').style.display = 'none';
+        setTimeout(() => { document.getElementById('loading_screen').style.display = 'none'; }, 1000);
       }
     });
   }
@@ -190,7 +190,7 @@ export default class HomeController {
         } catch (error) {
           document.getElementById('error-message').style.display = 'block';
         }
-        document.getElementById('loading_screen').style.display = 'none';
+        setTimeout(() => { document.getElementById('loading_screen').style.display = 'none'; }, 1000);
       }
     });
   }
