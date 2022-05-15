@@ -37,6 +37,7 @@ export default class ForceDirectedGraph1 {
         */   
 
         let nodes = [];
+        let nodes2 = [];
         let links = [];
 
         //Variabili controllo presenza per creazione nodi, undefined se elemento non disponibile, valore dell'index altrimenti
@@ -101,6 +102,7 @@ export default class ForceDirectedGraph1 {
         let err = 0;
         let ratio;
         let b = false;
+        //console.log(dataset.length);
         for (let i = 0; i < dataset.length; i++) {
             id = dataset[i].getId();
             e = dataset[i].getEvent();
@@ -131,7 +133,7 @@ export default class ForceDirectedGraph1 {
             }
             b = false;
 
-            console.log(nodes.length);
+            //console.log(nodes.length);
 
 
             /*if (id1 == id2) {
@@ -150,7 +152,13 @@ export default class ForceDirectedGraph1 {
             }*/
         }
 
-        console.log(nodes);
+        for (let i = 0; i < 100; i++) {
+            console.log(nodes[i].log);
+            nodes2.push({"id": nodes[i].id, "login": nodes[i].login, "error": nodes[i].error, "ratio": nodes[i].ratio});
+        }
+
+        console.log(nodes2.length);
+        console.log(nodes2);
 
 
 
@@ -158,7 +166,7 @@ export default class ForceDirectedGraph1 {
 
         
         //Scorre tutti i dati e crea un nodo per ogni tipologia esistente, andando a contare i collegamenti con gli orari e i mesi
-        for (let i = 0; i < dataset.length; i++) {
+        /*for (let i = 0; i < dataset.length; i++) {
             orario = new Date(dataset[i].getDate());
 
             //Creazione nodi seconda colonna, login, errori, logout
@@ -210,7 +218,7 @@ export default class ForceDirectedGraph1 {
             }
 
             //Creazione nodi terza colonna, mesi dell'anno
-            /*switch(orario.getMonth()){
+            switch(orario.getMonth()){
                 case 0:
                     if((typeof controlloMese[0]) == "undefined"){
                         nodes.push({"id":index,"name":"Gennaio"});
@@ -297,11 +305,30 @@ export default class ForceDirectedGraph1 {
                     break;
                 default:
                     throw new Error("Mese non valido");
-            }*/
-        }
+            }
+        }*/
         //links
+        //console.log(nodes.length);
+        //console.log(Math.floor(15/10));
+
+        let count = 0;
+        let r1;
+        let r2;
+        for (let i = 0; i < nodes2.length; i++) {
+            for (let j = i; j < nodes2.length && count < 5; j++) {
+                r1 = nodes2[i].ratio;
+                r2 = nodes2[j].ratio;
+                if (Math.abs(r1-r2) < 2/*&& Math.floor(nodes2[i].ratio/10) == Math.floor(nodes2[j].ratio/10)*/) {
+                    count++;
+                    links.push({"source":nodes2[i].id,"target":nodes2[j].id,"value":5-Math.abs(r1-r2)});
+                }
+            }
+            count = 0;
+        }
+
+        console.log(links);
         
-        if((typeof controlloTipologia[0]) != "undefined"){
+        /*if((typeof controlloTipologia[0]) != "undefined"){
             if((typeof controlloOrario[0]) != "undefined" && contaLoginOra[0]!=0 ){
                 //links.push({"source":controlloOrario[0],"target":controlloTipologia[0],"value":1});
             }
@@ -343,14 +370,16 @@ export default class ForceDirectedGraph1 {
                     //links.push({"source":controlloTipologia[2],"target":controlloMese[i],"value":1});
                 }
             }
-        }
+        }*/
         
-        return [nodes, links];
+        return [nodes2, links];
     }
 
 
     getNodesLinks(dataset, width, height, circlesRadius, force) {
         [this.nodes , this.links] = this.parseDati(dataset);
+
+        console.log(this.nodes.length);
         
         /*this.nodes = [
             { "id": 0, "utente": 'utente1', "event": 'login'},
@@ -688,7 +717,6 @@ export default class ForceDirectedGraph1 {
             .attr("stroke-width", function (d) { return Math.sqrt(d.value); });
 
 
-
         var nodes2 = this.svg.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
@@ -697,15 +725,12 @@ export default class ForceDirectedGraph1 {
             .append("circle")
             .attr("r", 4)
             .style('fill', (d) => {
-                switch (d.event) {
-                    case 'login':
-                        return 'green';
-                    case 'error':
-                        return 'red';
-                    case 'logout':
-                        return 'grey';
-                    default:
-                        return 'blu';
+                if (d.ratio > 66) {
+                    return "green";
+                } else if (d.ratio < 33) {
+                    return "red";
+                } else {
+                    return "yellow";
                 }
             })
             .call(d3.drag()

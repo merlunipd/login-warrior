@@ -70,7 +70,7 @@ export default class VisualizationsController {
         this.visualizationIndex = 1;
         break;
       case 'forcedirectedgraph_1':
-        this.samplesLimit = 100;
+        this.samplesLimit = 50000;
         this.visualizationIndex = 2;
         break;
 
