@@ -269,16 +269,16 @@ export default class ForceDirectedGraph1 {
                 r2 = nodes2[j].ratio;
 
                 if (Math.abs(r1-r2) < 2) {
-                    if (r1 > 50 && r2 > 50 && Math.floor(nodes2[i].login/5) == Math.floor(nodes2[j].login/10)) {
+                    if (r1 > 50 && r2 > 50 && Math.floor(nodes2[i].login/10) == Math.floor(nodes2[j].login/10)) {
                         count++;
                         links.push({"source":nodes2[i].id,"target":nodes2[j].id,"value":5-Math.abs(r1-r2)});
-                    } else if (r1 < 50 && r2 < 50 && Math.floor(nodes2[i].error/5) == Math.floor(nodes2[j].error/10)) {
+                    } else if (r1 < 50 && r2 < 50 && Math.floor(nodes2[i].error/10) == Math.floor(nodes2[j].error/10)) {
                         count++;
                         links.push({"source":nodes2[i].id,"target":nodes2[j].id,"value":5-Math.abs(r1-r2)});
                     }
                 }
                 
-/*
+                /*
                 if (Math.abs(r1-r2) < 2 && Math.floor(nodes2[i].login/5) == Math.floor(nodes2[j].login/10)) {
                     count++;
                     links.push({"source":nodes2[i].id,"target":nodes2[j].id,"value":5-Math.abs(r1-r2)});
