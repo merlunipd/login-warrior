@@ -1,11 +1,8 @@
 import ScatterPlot1 from './drawers/ScatterPlot1.js';
-<<<<<<< HEAD
-import ForceDirectedGraph1 from './drawers/ForceDirectedGraph1.js';
-=======
 import Sankey1 from './drawers/Sankey1.js';
 import ParallelCoordinates from './drawers/ParallelCoordinates.js';
 import ScatterPlot2 from './drawers/ScatterPlot2.js';
->>>>>>> main
+import ForceDirectedGraph1 from './drawers/ForceDirectedGraph1.js';
 
 import FilterId from './filters/FilterId.js';
 import FilterIp from './filters/FilterIp.js';
