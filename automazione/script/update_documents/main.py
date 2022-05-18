@@ -40,11 +40,12 @@ from time import localtime, strftime
 PATH_DOCUMENTI = [
   os.path.join("src", "documenti", "candidatura", "capitolato", "capitolato.tex"),
   os.path.join("src", "documenti", "candidatura", "impegni", "impegni.tex"),
-  os.path.join("src", "documenti", "esterni", "PdP", "PdP_V1.tex"),
-  os.path.join("src", "documenti", "esterni", "PdQ", "PdQ_V1.tex"),
-  os.path.join("src", "documenti", "esterni", "AdR", "AdR_V1.tex"),
-  os.path.join("src", "documenti", "esterni", "manuale_sviluppatore", "manuale_sviluppatore.tex"),
-  os.path.join("src", "documenti", "interni", "NdP", "NdP_V1.tex")
+  os.path.join("src", "documenti", "esterni", "PdP", "PdP_V2.tex"),
+  os.path.join("src", "documenti", "esterni", "PdQ", "PdQ_V2.tex"),
+  os.path.join("src", "documenti", "esterni", "AdR", "AdR_V2.tex"),
+  os.path.join("src", "documenti", "esterni", "SA", "specifica_architetturale_V1.tex"),
+  os.path.join("src", "documenti", "esterni", "ManualeUtente", "manuale_utente_V1.tex"),
+  os.path.join("src", "documenti", "interni", "NdP", "NdP_V2.tex")
 ]
 PATH_VERBALI_INTERNI = os.path.join("src", "documenti", "interni", "verbali")
 PATH_VERBALI_ESTERNI = os.path.join("src", "documenti", "esterni", "verbali")
@@ -128,7 +129,7 @@ def update_verbali(file_content):
     file = open(os.path.join(PATH_WEBSITE_DIRECTORY, "partials", "verbale.html"), "r")
     html_template_verbale = file.read()
     file_verbali_list = os.listdir(os.path.join("output_documenti", "interni", "verbali"))
-    for file_verbale in file_verbali_list:
+    for file_verbale in reversed(file_verbali_list):
       html_verbali_interni += html_template_verbale.replace(
         "<placeholder_link_verbale/>", "output_documenti/interni/verbali/" + file_verbale
       ).replace(
@@ -136,7 +137,7 @@ def update_verbali(file_content):
       ) + "\n"
 
     file_verbali_list = os.listdir(os.path.join("output_documenti", "esterni", "verbali"))
-    for file_verbale in file_verbali_list:
+    for file_verbale in reversed(file_verbali_list):
       html_verbali_esterni += html_template_verbale.replace(
         "<placeholder_link_verbale/>", "output_documenti/esterni/verbali/" + file_verbale
       ).replace(

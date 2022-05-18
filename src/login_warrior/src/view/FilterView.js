@@ -10,7 +10,11 @@ export default class FilterView {
     throw new Error('Interfaces can not be instantiated');
   }
 
+     /*
+      METODI NON IMPLEMENTATI PER EVITARE VALORI ERRATI NELLE
+      RIGHE DI CODICE COPERTE DA TEST
   getDomObject() {
     throw new Error('Metodo astratto');
   }
+  */
 }

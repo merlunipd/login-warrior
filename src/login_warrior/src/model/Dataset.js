@@ -50,8 +50,8 @@ export default class Dataset {
    * @param {number} samplesLimit Numero massimo di punti del dataset da campionare
    * @returns {DataPoint[]} Punti del dataset
    */
-  getDataset(samplesLimit) {
-    return this.sampleDataset(this.filterDataset(), samplesLimit);
+  getDataset(samplesLimit, visualizationIndex) {
+    return this.sampleDataset(this.filterDataset(), samplesLimit, visualizationIndex);
   }
 
   /**
@@ -59,8 +59,8 @@ export default class Dataset {
    * @param {number} samplesLimit Numero massimo di punti del dataset da campionare
    * @returns {DataPoint[]} Punti del dataset
    */
-  getDatasetUnfiltered(samplesLimit) {
-    return this.sampleDataset(this.dataset, samplesLimit);
+  getDatasetUnfiltered(samplesLimit, visualizationIndex) {
+    return this.sampleDataset(this.dataset, samplesLimit, visualizationIndex);
   }
 
   /**
@@ -136,7 +136,7 @@ export default class Dataset {
         if (applicationFilter === null) {
           return true;
         }
-        return dataPoint.getApplication() === applicationFilter;
+        return dataPoint.getApplication() === applicationFilter.toUpperCase();
       });
   }
 
@@ -147,16 +147,39 @@ export default class Dataset {
    * ritorna una copia del dataset stesso, altrimenti effettua un campionamento casuale dei dati.
    * @param {DataPoint[]} dataset Dataset da campionare
    * @param {number} samplesLimit Numero massimo di punti che ritorna la funzione di campionamento
+   * @param {number} visualizationIndex indice del grafico da visualizzare
    * @returns {DataPoint[]} Dataset campionato
    */
   /* eslint-disable class-methods-use-this */
-  sampleDataset(dataset, samplesLimit) {
-    if (dataset.length <= samplesLimit) {
-      return [...dataset];
-    }
+  sampleDataset(dataset, samplesLimit, visualizationIndex) {
     const datasetCopy = [...dataset];
     const shuffledDataset = datasetCopy.sort(() => 0.5 - Math.random());
-    const sampledDataset = shuffledDataset.slice(0, samplesLimit);
+    let sampledDataset = [];
+
+    if (visualizationIndex === 2 || visualizationIndex === 3) {
+      const utenti = [];
+      let i = 0;
+      for (let index = 0; index < shuffledDataset.length && i < 50; index += 1) {
+        if (utenti.includes(shuffledDataset[index].getId()) === false) {
+          utenti[i] = shuffledDataset[index].getId();
+          i += 1;
+        }
+      }
+      i = 0;
+      for (let index = 0; index < shuffledDataset.length && i < samplesLimit; index += 1) {
+        if (utenti.includes(shuffledDataset[index].getId())) {
+          sampledDataset[i] = shuffledDataset[index];
+          i += 1;
+        }
+      }
+    } else {
+      if (dataset.length <= samplesLimit) {
+        return [...dataset];
+      }
+
+      sampledDataset = shuffledDataset.slice(0, samplesLimit);
+    }
+
     return sampledDataset;
   }
   /* eslint-enable class-methods-use-this */

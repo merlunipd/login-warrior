@@ -20,9 +20,9 @@ export default class VisualizationsController {
 
   samplesLimit;
 
-  constructor() {
+  /* constructor() {
     this.setup();
-  }
+  } */
 
   async setup() {
     this.setupStorage();
@@ -69,11 +69,22 @@ export default class VisualizationsController {
         this.samplesLimit = 1000;
         this.visualizationIndex = 1;
         break;
-      case 'forcedirectedgraph_1':
-        this.samplesLimit = 50000;
+      case 'scatterplot_02':
+        this.samplesLimit = 1500;
         this.visualizationIndex = 2;
         break;
-
+      case 'parallelcoordinates_01':
+        this.samplesLimit = 1200;
+        this.visualizationIndex = 3;
+        break;
+      case 'sankey_01':
+        this.samplesLimit = 200;
+        this.visualizationIndex = 4;
+        break;
+      case 'forcedirectedgraph_1':
+        this.samplesLimit = 50000;
+        this.visualizationIndex = 5;
+        break;
       default:
         window.location.href = '../home';
         break;
@@ -87,7 +98,7 @@ export default class VisualizationsController {
 
   setupViewsInitialState() {
     // Visualizzazione
-    this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+    this.view.visualization.draw(this.model.getDataset(this.samplesLimit, this.visualizationIndex));
 
     // Filtri
     this.setupFiltersInitialState();
@@ -139,7 +150,8 @@ export default class VisualizationsController {
 
   eventListenerSampleDatasetButton() {
     this.view.sampleDatasetButton.setClick(() => {
-      this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+      // eslint-disable-next-line max-len
+      this.view.visualization.draw(this.model.getDataset(this.samplesLimit, this.visualizationIndex));
     });
   }
 
@@ -190,7 +202,8 @@ export default class VisualizationsController {
 
       // Imposta i filtri e aggiorna la visualizzazione
       this.model.setFilters(filters);
-      this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+      // eslint-disable-next-line max-len
+      this.view.visualization.draw(this.model.getDataset(this.samplesLimit, this.visualizationIndex));
     });
 
     this.view.resetFilterButton.setClick(() => {
@@ -206,7 +219,8 @@ export default class VisualizationsController {
       this.model.setFilters(filters);
 
       // Aggiornamento visualizzazione
-      this.view.visualization.draw(this.model.getDataset(this.samplesLimit));
+      // eslint-disable-next-line max-len
+      this.view.visualization.draw(this.model.getDataset(this.samplesLimit, this.visualizationIndex));
     });
   }
 }
