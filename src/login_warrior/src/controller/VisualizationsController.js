@@ -101,7 +101,9 @@ export default class VisualizationsController {
     this.view.visualization.draw(this.model.getDataset(this.samplesLimit, this.visualizationIndex));
 
     // Filtri
-    this.setupFiltersInitialState();
+    if (!this.visualizationIndex == 5) {
+      this.setupFiltersInitialState();
+    }
   }
 
   setupFiltersInitialState() {
@@ -139,7 +141,9 @@ export default class VisualizationsController {
     this.eventListenerHomeButton();
     this.eventListenerSampleDatasetButton();
     this.eventListenerSaveButton();
-    this.eventListenerFilters();
+    if (!this.visualizationIndex == 5) {
+      this.eventListenerFilters();
+    }
   }
 
   eventListenerHomeButton() {

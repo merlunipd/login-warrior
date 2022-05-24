@@ -95,4 +95,58 @@ button {
   padding: 80px;
   background-color: #000;
   box-sizing: border-box;
-} 
+}
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.cat circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+table{
+  text-align: center;
+  margin: 1em;
+}
+
+table th, table td {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+}
+
+#black {
+  background-color: black;
+}
+
+#limegreen {
+  background-color: limegreen;
+}
+
+#green {
+  background-color: green;
+}
+
+#olive {
+  background-color: olive;
+}
+
+#coral {
+  background-color: coral;
+}
+
+#orange {
+  background-color: orange;
+}
+
+#red {
+  background-color: red;
+}

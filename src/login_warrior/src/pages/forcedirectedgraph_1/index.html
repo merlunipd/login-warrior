@@ -19,25 +19,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 
-  <style>
-
-    .links line {
-      stroke: #999;
-      stroke-opacity: 0.6;
-    }
-  
-    .nodes circle {
-      stroke: #fff;
-      stroke-width: 1.5px;
-    }
-
-    .cat circle {
-      stroke: #fff;
-      stroke-width: 1.5px;
-    }
-  
-    </style>
-
 </head>
 
 <body>
@@ -58,45 +39,40 @@
 
   <div id="visualization"></div>
 
-  <div class="plot-controls">
-    <div>
-      <label for="filtro-utente"><strong>Utente</strong>:</label>
-      <input type="text" id="filtro-utente" name="filtro-utente">
-    </div>
-
-    <div>
-      <label for="filtro-ip"><strong>IP</strong>:</label>
-      <input type="text" id="filtro-ip" name="filtro-ip">
-    </div>
-
-    <div id="filtro-evento">
-      <span><strong>Evento</strong>:</span>
-      <input type="radio" id="all-events-radio" name="event" value="all" checked>
-      <label for="all-events-radio">All</label>
-      <input type="radio" id="login-radio" name="event" value="login">
-      <label for="login-radio">Login</label>
-      <input type="radio" id="error-radio" name="event" value="error">
-      <label for="error-radio">Errore</label>
-      <input type="radio" id="logout-radio" name="event" value="logout">
-      <label for="logout-radio">Logout</label>
-    </div>
-
-    <div>
-      <label for="filtro-app"><strong>Applicazione</strong>:</label>
-      <input type="text" id="filtro-app" name="filtro-app">
-    </div>
-
-    <div>
-      <label for="date-input"><strong>Data</strong>:</label>
-      <input type="date" id="date-input">
-    </div>
-
-    <div>
-      <button id="filter-button">Filtra</button>
-      <button id="reset-button">Reset</button>
-    </div>
-
-  </div>
+  <table>
+    <tr>
+      <th>Colore</th>
+      <th>Info</th>
+    </tr>
+    <tr>
+      <td id="black"></td>
+      <td>Label Percentuale</td>
+    </tr>
+    <tr>
+      <td id="limegreen"></td>
+      <td>90% - 100%</td>
+    </tr>
+    <tr>
+      <td id="green"></td>
+      <td>70% - 90%</td>
+    </tr>
+    <tr>
+      <td id="olive"></td>
+      <td>50% - 70%</td>
+    </tr>
+    <tr>
+      <td id="coral"></td>
+      <td>30% - 50%</td>
+    </tr>
+    <tr>
+      <td id="orange"></td>
+      <td>10% - 30%</td>
+    </tr>
+    <tr>
+      <td id="red"></td>
+      <td>0% - 10%</td>
+    </tr>
+  </table>
 
   <script type="module" src="../shared/main_visualizations.js"></script>
 </body>

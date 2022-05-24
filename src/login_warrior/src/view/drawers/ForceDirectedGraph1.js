@@ -1,5 +1,5 @@
 export default class ForceDirectedGraph1 {
-    width = 1000;
+    width = 1300;
     height = 600;
     spacing = 100;
     circlesRadius = 6;
@@ -17,29 +17,19 @@ export default class ForceDirectedGraph1 {
             .attr('width', this.width)
             .attr('height', this.height)
             .append('g')
-        //.attr('transform', `translate(${this.spacing / 2},${this.spacing / 2})`);
     }
 
     createForce() {
         return d3.forceSimulation()
             .force("link", d3.forceLink().id(function (d) { return d.id; }))
             .force("charge", d3.forceManyBody())
-            .force("center", d3.forceCenter(this.width / 2, this.height / 2))
+            .force("center", d3.forceCenter(this.width / 3, this.height / 2))
     }
 
 
     parseDati(dataset) {
-        /*
-        Illuminazione divina (da rifare con map al posto di array!)
-        Reminder per il funzionamento:
-            - nel controllo inserire l'index del nodo per facilità di recupero nella creazione dei link
-            - aggiungere altre variabili di conta, che contano gli errori,login e logout degli orari e dei mesi, per facilitare il value dei link
-            - possibilità di portare il parser fuori dalla classe!
-        */
-
         let nodes = [];
         let links = [];
-
 
         let id;
         let e;
@@ -48,6 +38,7 @@ export default class ForceDirectedGraph1 {
         let ratio;
         let b = false;
 
+        // nodes
         nodes.push({ "id": "p100", "fPerc": 90, "sPerc": 100 });
         nodes.push({ "id": "p80", "fPerc": 70, "sPerc": 90 });
         nodes.push({ "id": "p60", "fPerc": 50, "sPerc": 70 });
@@ -55,8 +46,6 @@ export default class ForceDirectedGraph1 {
         nodes.push({ "id": "p20", "fPerc": 10, "sPerc": 30 });
         nodes.push({ "id": "p0", "fPerc": 0, "sPerc": 10 });
 
-        //console.log(dataset.length);
-        //console.log(dataset);
         for (let i = 0; i < dataset.length; i++) {
             id = dataset[i].getId();
             e = dataset[i].getEvent();
@@ -84,83 +73,29 @@ export default class ForceDirectedGraph1 {
             b = false;
         }
 
-        //console.log(nodes.length);
-        //console.log(nodes);
 
-
-        //links
-
+        // links
         let r1;
-
-        //console.log(typeof(dataset[0].getId()));
-        //console.log(typeof(nodes[0].id));
-
         for (let i = 0; i < nodes.length; i++) {
             if (i < 5) {
-                links.push({ "source": nodes[i].id, "target": nodes[i + 1].id, "value": 10});
+                links.push({ "source": nodes[i].id, "target": nodes[i + 1].id, "value": 5});
             } else {
                 r1 = nodes[i].ratio;
                 if (r1 >= 90) {
-                    links.push({ "source": nodes[i].id, "target": nodes[0].id, "value": 5/*, "distance": 1 */ });
+                    links.push({ "source": nodes[i].id, "target": nodes[0].id, "value": 2});
                 } else if (r1 >= 70 && r1 < 90) {
-                    links.push({ "source": nodes[i].id, "target": nodes[1].id, "value": 5/*, "distance": 1 */ });
+                    links.push({ "source": nodes[i].id, "target": nodes[1].id, "value": 2});
                 } else if (r1 >= 50 && r1 < 70) {
-                    links.push({ "source": nodes[i].id, "target": nodes[2].id, "value": 5/*, "distance": 1 */ });
+                    links.push({ "source": nodes[i].id, "target": nodes[2].id, "value": 2});
                 } else if (r1 >= 30 && r1 < 50) {
-                    links.push({ "source": nodes[i].id, "target": nodes[3].id, "value": 5/*, "distance": 1 */ });
+                    links.push({ "source": nodes[i].id, "target": nodes[3].id, "value": 2});
                 } else if (r1 >= 10 && r1 < 30) {
-                    links.push({ "source": nodes[i].id, "target": nodes[4].id, "value": 5/*, "distance": 1 */ });
+                    links.push({ "source": nodes[i].id, "target": nodes[4].id, "value": 2});
                 } else {
-                    links.push({ "source": nodes[i].id, "target": nodes[5].id, "value": 5/*, "distance": 1 */ });
+                    links.push({ "source": nodes[i].id, "target": nodes[5].id, "value": 2});
                 }
             }
         }
-
-
-
-        /*for (let i = 0; i < nodes.length; i++) {
-            r1 = nodes[i].ratio;
-            for (let j = i + 1; j < nodes.length && count < 15; j++) {
-                r2 = nodes[j].ratio;
-
-                if (r1 == r2) {
-                    count++;
-                    links.push({ "source": nodes[i].id, "target": nodes[j].id, "value": 5, "distance": 1 });
-                } else if (Math.abs(r1 - r2) < 5) {
-                    count++;
-                links.push({ "source": nodes[i].id, "target": nodes[j].id, "value": 4, "distance": 10 });
-                } else if (Math.abs(r1 - r2) < 20) {
-                    count++;
-                links.push({ "source": nodes[i].id, "target": nodes[j].id, "value": 3, "distance": 1000 });
-                } else if (Math.abs(r1 - r2) < 50) {
-                    count++;
-                links.push({ "source": nodes[i].id, "target": nodes[j].id, "value": 2, "distance": 1500 });
-                } else if (Math.abs(r1 - r2) < 70) {
-                    count++;
-                links.push({ "source": nodes[i].id, "target": nodes[j].id, "value": 1, "distance": 10000 });
-                }
-
-
-
-                /*if (c) {
-                    if (r1 > 50 && r2 > 50 /*&& Math.floor(nodes[i].login/10) == Math.floor(nodes[j].login/10)*///) {
-        /*count++;
-        links.push({ "source": nodes[i].id, "target": nodes[j].id, "value": 5 - Math.abs(r1 - r2) });
-    } else if (r1 < 50 && r2 < 50 /*&& Math.floor(nodes[i].error/10) == Math.floor(nodes[j].error/10)*///) {
-        /*count++;
-        links.push({ "source": nodes[i].id, "target": nodes[j].id, "value": 5 - Math.abs(r1 - r2) });
-    }
-}*/
-
-
-        /*if (Math.abs(r1-r2) < 2 && Math.floor(nodes[i].login/5) == Math.floor(nodes[j].login/10)) {
-            count++;
-            links.push({"source":nodes[i].id,"target":nodes[j].id,"value":5-Math.abs(r1-r2)});
-        }*/
-        /*}
-        count = 0;
-    }*/
-
 
         return [nodes, links];
     }
@@ -168,14 +103,6 @@ export default class ForceDirectedGraph1 {
 
     getNodesLinks(dataset, width, height, circlesRadius, circlesRadiusGrowth, force) {
         [this.nodes, this.links] = this.parseDati(dataset);
-
-        console.log(this.nodes.length);
-        console.log(this.nodes);
-        console.log(this.links);
-        console.log(this.cat);
-
-
-        //console.log(this.svg);
 
         var links2 = this.svg.append("g")
             .attr("class", "links")
@@ -194,19 +121,21 @@ export default class ForceDirectedGraph1 {
             .attr("r", circlesRadius)
             .on('mouseover', mouseover)
             .on('mouseout', mouseout)
-            /*.on('mouseover', (e) => this.mouseover(e))
-            .on('mouseout', (e) => this.mouseout(e))*/
             .style('fill', (d) => {
-                if (d.ratio >= 80) {
-                    return "rgb(0, " + d.ratio * 255 / 100 + ", 0)";
-                } else if (d.ratio >= 60 && d.ratio < 80) {
-                    return "rgb(" + (204 - d.ratio * 255 / 100) + ", " + d.ratio * 255 / 100 + ", 0)";
-                } else if (d.ratio >= 40 && d.ratio < 60) {
-                    return "rgb(" + (255 - d.ratio * 255 / 100) + ", " + d.ratio * 255 / 100 + ", 0)";
-                } else if (d.ratio >= 20 && d.ratio < 40) {
-                    return "rgb(" + (255 - d.ratio * 255 / 100) + ", " + (102 + d.ratio * 255 / 100) + ", 0)";
+                if (d.ratio >= 90) {
+                    return "limegreen";
+                } else if (d.ratio >= 70 && d.ratio < 90) {
+                    return "green";
+                } else if (d.ratio >= 50 && d.ratio < 70) {
+                    return "olive";
+                } else if (d.ratio >= 30 && d.ratio < 50) {
+                    return "coral";
+                } else if (d.ratio >= 10 && d.ratio < 30) {
+                    return "orange";
+                } else if (d.ratio < 10){
+                    return "red";
                 } else {
-                    return "rgb(" + (255 - d.ratio * 255 / 100) + ", 0, 0)";
+                    return "black";
                 }
             })
             .call(d3.drag()
@@ -215,7 +144,7 @@ export default class ForceDirectedGraph1 {
                 .on("end", dragended));
 
         nodes2.append('title')
-            .text((d) => d.id.substring(0, 1) === "p" ? `Percentuale Ratio: ${d.fPerc}% - ${d.sPerc}%` : `ID: ${d.id}\nLOGIN: ${d.login}\nERRORI: ${d.error}\nRATIO: ${d.ratio}`);
+            .text((d) => d.id.substring(0, 1) === "p" ? `Percentuale Ratio: ${d.fPerc}% - ${d.sPerc}%` : `ID: ${d.id}\nLOGIN: ${d.login}\nERRORI: ${d.error}\nSUCCESSI: ${d.ratio.toFixed(1)}%`);
 
 
         this.force.nodes(this.nodes)
@@ -271,6 +200,8 @@ export default class ForceDirectedGraph1 {
     }
 
     draw(dataset) {
+        d3.select('#visualization').html('');
+
         this.createSvg();
         this.force = this.createForce();
 
