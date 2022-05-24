@@ -6,4 +6,8 @@ describe('Unit Testing FilterId', () => {
       const filterId = new FilterId('css');
       expect(filterId).toStrictEqual(obj);
     });
+
+    test('Test getDomObject()', () => {
+      expect(obj.getDomObject()).toBeNull();
+     });
 });

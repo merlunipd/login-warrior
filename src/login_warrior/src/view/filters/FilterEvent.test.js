@@ -6,4 +6,8 @@ describe('Unit Testing FilterEvent', () => {
       const filterEvent = new FilterEvent('css');
       expect(filterEvent).toStrictEqual(obj);
     });
+
+    test('Test getDomObject()', () => {
+      expect(obj.getDomObject()).toBeNull();
+     });
 });

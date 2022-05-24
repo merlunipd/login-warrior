@@ -6,4 +6,8 @@ describe('Unit Testing FilterDate', () => {
       const filterDate = new FilterDate('css');
       expect(filterDate).toStrictEqual(obj);
     });
+
+    test('Test getDomObject()', () => {
+      expect(obj.getDomObject()).toBeNull();
+     });
 });

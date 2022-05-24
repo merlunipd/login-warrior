@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Button from './Button.js';
+import JsDom from './JsDomImport.js';
 /* eslint-enable no-unused-vars */
 
 /**
@@ -16,6 +17,6 @@ export default class HomeButton {
   }
 
   setClick(f) {
-    document.querySelector(this.cssSelector).addEventListener('click', f);
+      document.querySelector(this.cssSelector).addEventListener('click', f);
   }
 }

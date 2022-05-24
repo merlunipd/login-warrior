@@ -1,10 +1,7 @@
 /* eslint-disable no-unused-vars */
 import Button from './Button.js';
-import { JSDOM } from "jsdom"
-const dom = new JSDOM()
-global.document = dom.window.document
-global.window = dom.window
-/* eslint-enable no-unused-vars */
+import JsDom from './JsDomImport.js';
+/* eslint-enable no-unused-vars 
 
 /**
  * @implements {Button}
@@ -20,6 +17,6 @@ export default class FilterButton {
   }
 
   setClick(f) {
-    document.querySelector(this.cssSelector).addEventListener('click', f);
+      document.querySelector(this.cssSelector).addEventListener('click', f);
   }
 }

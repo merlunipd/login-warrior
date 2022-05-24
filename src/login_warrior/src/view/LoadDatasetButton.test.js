@@ -6,4 +6,14 @@ describe('Unit Testing LoadDatasetButton', () => {
       const loadDatasetButton = new LoadDatasetButton('css');
       expect(loadDatasetButton).toStrictEqual(obj);
     });
+
+    test('Test setClick()', () => {
+      let thrownError;
+      try {
+        (obj.setClick(""));
+      } catch (error) {
+        thrownError = error;
+      }
+      expect(String(thrownError)).toMatch('TypeError: Cannot read properties of null (reading \'addEventListener\')');
+     });
 });

@@ -8,7 +8,13 @@ describe('Unit Testing FilterButton', () => {
       expect(filterButton).toStrictEqual(obj);
     });
 
-    test('Test doc', () => {
-     expect(obj.setClick("click")).toBeCalled();;
-    });
+    test('Test setClick()', () => {
+      let thrownError;
+      try {
+        (obj.setClick(""));
+      } catch (error) {
+        thrownError = error;
+      }
+      expect(String(thrownError)).toMatch('TypeError: Cannot read properties of null (reading \'addEventListener\')');
+     });
 }); 

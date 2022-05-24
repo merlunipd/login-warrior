@@ -6,4 +6,8 @@ describe('Unit Testing FilterIp', () => {
       const filterIp = new FilterIp('css');
       expect(filterIp).toStrictEqual(obj);
     });
+
+    test('Test getDomObject()', () => {
+      expect(obj.getDomObject()).toBeNull();
+     });
 });

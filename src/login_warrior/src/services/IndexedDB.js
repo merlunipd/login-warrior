@@ -1,7 +1,7 @@
 // import { Storage } from "./Storage";
 /* eslint-disable-next-line no-unused-vars, import/no-unresolved */
-import * as DexieLibrary from 'https://unpkg.com/dexie/dist/dexie.js';
-// import Dexie from 'dexie';
+//import * as DexieLibrary from 'https://unpkg.com/dexie/dist/dexie.js';
+ import Dexie from 'dexie';
 
 /*
     ISTRUZIONI:

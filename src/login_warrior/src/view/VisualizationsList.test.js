@@ -6,11 +6,29 @@ describe('Unit Testing VisualizationsList', () => {
       const visual = new VisualizationsList('css');
       expect(visual).toStrictEqual(obj);
     });
-    /* NON SI PUO' TESTARE POICHE' IN QUESTO CASO DOCUMENT (è all'interno del metodo show()) NON È ANCORA DEFINITO?
-        ReferenceError: document is not defined
+
+
 
     test('show(booleanValues), booleanValues = true', () => {
-    const boolean = true;
-    expect(visualizasionsList.show(boolean)).toBe('block');
-  }); */
+      let thrownError;
+      try {
+        const boolean = true;
+        obj.show(boolean);
+      } catch (error) {
+        thrownError = error;
+      }
+      expect(String(thrownError)).toMatch('TypeError: Cannot read properties of null (reading \'style\')');
+     });
+
+     test('show(booleanValues), booleanValues = false', () => {
+      let thrownError;
+      try {
+        const boolean = false;
+        obj.show(boolean);
+      } catch (error) {
+        thrownError = error;
+      }
+      expect(String(thrownError)).toMatch('TypeError: Cannot read properties of null (reading \'style\')');
+     });
+
 });

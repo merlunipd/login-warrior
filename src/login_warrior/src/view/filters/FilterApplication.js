@@ -1,7 +1,9 @@
+import JsDom from '../JsDomImport.js';
 /**
  * @implements
  * Classe FilterId per la gestione del filtro sull'applicazione.
  */
+
 export default class FilterApplication {
   cssSelector;
 
