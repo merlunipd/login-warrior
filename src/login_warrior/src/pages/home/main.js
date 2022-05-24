@@ -13,7 +13,7 @@ window.onunload = function () { };
 
 async function nascondiLoadingScreen() {
   homeController = await new HomeController().setup();
-  document.getElementById('loading_screen').style.display = 'none';
+  setTimeout(() => { document.getElementById('loading_screen').style.display = 'none'; }, 1000);
 }
 // eslint-disable-next-line func-names
 (function () {
