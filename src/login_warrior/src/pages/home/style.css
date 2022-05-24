@@ -106,3 +106,7 @@ button {
   background-color: #000;
   box-sizing: border-box;
 }
+
+#loading_screen p{
+  display: none;
+}
