@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Force-Directed Graph</title>
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="../shared/style_visualizations.css">
+
+  <link rel="shortcut icon" href="#">
+
+  <!--<script src="https://d3js.org/d3.v7.min.js"></script>-->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <header>
+    <h1>Login Warrior</h1>
+  </header>
+
+  <div id="loading_screen">
+    <h1>Loading...</h1> 
+    <p>Caricamento del grafico in corso!</p>
+  </div>
+
+  <div>
+    <button id="home-button">Home</button>
+    <button id="sample-dataset-button">Nuovo Campionamento</button>
+    <button id="save-session-button">Salva Sessione</button>
+  </div>
+
+  <div id="visualization"></div>
+
+  <table>
+    <tr>
+      <th>Colore</th>
+      <th>Info</th>
+    </tr>
+    <tr>
+      <td id="black"></td>
+      <td>Label Percentuale</td>
+    </tr>
+    <tr>
+      <td id="limegreen"></td>
+      <td>90% - 100%</td>
+    </tr>
+    <tr>
+      <td id="green"></td>
+      <td>70% - 90%</td>
+    </tr>
+    <tr>
+      <td id="olive"></td>
+      <td>50% - 70%</td>
+    </tr>
+    <tr>
+      <td id="coral"></td>
+      <td>30% - 50%</td>
+    </tr>
+    <tr>
+      <td id="orange"></td>
+      <td>10% - 30%</td>
+    </tr>
+    <tr>
+      <td id="red"></td>
+      <td>0% - 10%</td>
+    </tr>
+  </table>
+
+  <script type="module" src="../shared/main_visualizations.js"></script>
+</body>
+
+</html>

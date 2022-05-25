@@ -81,7 +81,10 @@ export default class VisualizationsController {
         this.samplesLimit = 200;
         this.visualizationIndex = 4;
         break;
-
+      case 'forcedirectedgraph_1':
+        this.samplesLimit = 1000;
+        this.visualizationIndex = 5;
+        break;
       default:
         window.location.href = '../home';
         break;
@@ -98,7 +101,9 @@ export default class VisualizationsController {
     this.view.visualization.draw(this.model.getDataset(this.samplesLimit, this.visualizationIndex));
 
     // Filtri
-    this.setupFiltersInitialState();
+    if (this.visualizationIndex != 5) {
+      this.setupFiltersInitialState();
+    }
   }
 
   setupFiltersInitialState() {
@@ -136,7 +141,9 @@ export default class VisualizationsController {
     this.eventListenerHomeButton();
     this.eventListenerSampleDatasetButton();
     this.eventListenerSaveButton();
-    this.eventListenerFilters();
+    if (this.visualizationIndex != 5) {
+      this.eventListenerFilters();
+    }
   }
 
   eventListenerHomeButton() {

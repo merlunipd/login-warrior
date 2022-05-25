@@ -129,7 +129,7 @@ def update_verbali(file_content):
     file = open(os.path.join(PATH_WEBSITE_DIRECTORY, "partials", "verbale.html"), "r")
     html_template_verbale = file.read()
     file_verbali_list = os.listdir(os.path.join("output_documenti", "interni", "verbali"))
-    for file_verbale in file_verbali_list:
+    for file_verbale in reversed(file_verbali_list):
       html_verbali_interni += html_template_verbale.replace(
         "<placeholder_link_verbale/>", "output_documenti/interni/verbali/" + file_verbale
       ).replace(
@@ -137,7 +137,7 @@ def update_verbali(file_content):
       ) + "\n"
 
     file_verbali_list = os.listdir(os.path.join("output_documenti", "esterni", "verbali"))
-    for file_verbale in file_verbali_list:
+    for file_verbale in reversed(file_verbali_list):
       html_verbali_esterni += html_template_verbale.replace(
         "<placeholder_link_verbale/>", "output_documenti/esterni/verbali/" + file_verbale
       ).replace(
