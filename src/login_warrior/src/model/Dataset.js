@@ -156,10 +156,10 @@ export default class Dataset {
     const shuffledDataset = datasetCopy.sort(() => 0.5 - Math.random());
     let sampledDataset = [];
 
-    if (visualizationIndex === 2 || visualizationIndex === 3) {
+    if (visualizationIndex === 2 || visualizationIndex === 3 || visualizationIndex === 5) {
       const utenti = [];
       let i = 0;
-      for (let index = 0; index < shuffledDataset.length && i < 50; index += 1) {
+      for (let index = 0; index < shuffledDataset.length && (visualizationIndex === 5 ? i < 100 : i < 50); index += 1) {
         if (utenti.includes(shuffledDataset[index].getId()) === false) {
           utenti[i] = shuffledDataset[index].getId();
           i += 1;
