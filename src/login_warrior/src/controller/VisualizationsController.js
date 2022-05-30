@@ -82,7 +82,7 @@ export default class VisualizationsController {
         this.visualizationIndex = 4;
         break;
       case 'forcedirectedgraph_1':
-        this.samplesLimit = 20000;
+        this.samplesLimit = 200000;
         this.visualizationIndex = 5;
         break;
       default:

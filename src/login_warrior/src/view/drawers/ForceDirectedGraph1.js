@@ -144,7 +144,7 @@ export default class ForceDirectedGraph1 {
                 .on("end", dragended));
 
         nodes2.append('title')
-            .text((d) => d.id.substring(0, 1) === "p" ? `Percentuale Ratio: ${d.fPerc}% - ${d.sPerc}%` : `ID: ${d.id}\nLOGIN: ${d.login}\nERRORI: ${d.error}\nSUCCESSI: ${d.ratio.toFixed(1)}%`);
+            .text((d) => d.id.substring(0, 1) === "p" ? `Percentuale Successi: ${d.fPerc}% - ${d.sPerc}%` : `ID: ${d.id}\nLOGIN: ${d.login}\nERRORI: ${d.error}\nSUCCESSI: ${d.ratio.toFixed(1)}%`);
 
 
         this.force.nodes(this.nodes)
