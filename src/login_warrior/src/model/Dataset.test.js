@@ -16,7 +16,6 @@ describe('Unit Testing Dataset', () => {
   const filters = new Filters('18684', '92.223.250.4', new Date('2020-01-31 14:34:30.000'), 'error', 'ERM');
   const dataSetFilter = new Dataset(csv, filters);
 
-
   // Dataset vuoto
   test('Creazione Dataset vuoto', () => {
     /* eslint-disable-next-line no-new */
@@ -32,19 +31,35 @@ describe('Unit Testing Dataset', () => {
   // Dataset con dati e no filtri
 
   test('Getter Dataset lenght, samplesLimit = 10, filtri vuoti', () => {
-    const set = dataSetNoFilter.getDataset(samplesLimitTen);
+    const set = dataSetNoFilter.getDataset(samplesLimitTen, 1);
     expect(set.length).toBe(4);
   });
   test('Getter DatasetUnfiltered lenght, samplesLimit = 10, filtri vuoti', () => {
-    const set = dataSetNoFilter.getDatasetUnfiltered(samplesLimitTen);
+    const set = dataSetNoFilter.getDatasetUnfiltered(samplesLimitTen, 1);
     expect(set.length).toBe(4);
   });
   test('Getter Dataset lenght, samplesLimit = 2, filtri vuoti', () => {
-    const set = dataSetNoFilter.getDataset(samplesLimitTwo);
+    const set = dataSetNoFilter.getDataset(samplesLimitTwo, 1);
     expect(set.length).toBe(samplesLimitTwo);
   });
   test('Getter DatasetUnfiltered lenght, samplesLimit = 2, filtri vuoti', () => {
-    const set = dataSetNoFilter.getDatasetUnfiltered(samplesLimitTwo);
+    const set = dataSetNoFilter.getDatasetUnfiltered(samplesLimitTwo, 1);
+    expect(set.length).toBe(samplesLimitTwo);
+  });
+  test('Getter Dataset lenght, samplesLimit = 10, filtri vuoti', () => {
+    const set = dataSetNoFilter.getDataset(samplesLimitTen, 2);
+    expect(set.length).toBe(4);
+  });
+  test('Getter DatasetUnfiltered lenght, samplesLimit = 10, filtri vuoti', () => {
+    const set = dataSetNoFilter.getDatasetUnfiltered(samplesLimitTen, 2);
+    expect(set.length).toBe(4);
+  });
+  test('Getter Dataset lenght, samplesLimit = 2, filtri vuoti', () => {
+    const set = dataSetNoFilter.getDataset(samplesLimitTwo, 2);
+    expect(set.length).toBe(samplesLimitTwo);
+  });
+  test('Getter DatasetUnfiltered lenght, samplesLimit = 2, filtri vuoti', () => {
+    const set = dataSetNoFilter.getDatasetUnfiltered(samplesLimitTwo, 2);
     expect(set.length).toBe(samplesLimitTwo);
   });
   test('Getter DatasetUnfilteredUnsampled lenght, filtri vuoti', () => {
@@ -105,12 +120,4 @@ describe('Unit Testing Dataset', () => {
     dataSetFilter.setFilters(noFilters);
     expect(Dataset.newDatasetFromObject(dataSetFilter)).toStrictEqual(dataSetFilter);
   });
-
-  /*
-  test('test dataset, ', () => {
-    const dataPoint = new DataPoint('18682', '92.223.250.4', new Date('2021-01-12 13:31:33.000'), 'login', 'ERM');   
-    const set = dataSetFilter.sampleDataset(dataPoint, 10, 2);
-    expect(set.length).toBe(1);
-  });*/
-
 });
