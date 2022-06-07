@@ -1,4 +1,5 @@
 import CSV from './CSV.js';
+import DataPoint from './DataPoint.js';
 import Dataset from './Dataset.js';
 import Filters from './Filters.js';
 
@@ -68,6 +69,7 @@ describe('Unit Testing Dataset', () => {
     const set = dataSetFilter.getDataset(samplesLimitTen);
     expect(set.length).toBe(1);
   });
+
   test('Getter DatasetUnfiltered lenght, samplesLimit = 10', () => {
     const set = dataSetFilter.getDatasetUnfiltered(samplesLimitTen);
     expect(set.length).toBe(4);
@@ -103,5 +105,12 @@ describe('Unit Testing Dataset', () => {
     dataSetFilter.setFilters(noFilters);
     expect(Dataset.newDatasetFromObject(dataSetFilter)).toStrictEqual(dataSetFilter);
   });
+
+  /*
+  test('test dataset, ', () => {
+    const dataPoint = new DataPoint('18682', '92.223.250.4', new Date('2021-01-12 13:31:33.000'), 'login', 'ERM');   
+    const set = dataSetFilter.sampleDataset(dataPoint, 10, 2);
+    expect(set.length).toBe(1);
+  });*/
 
 });
