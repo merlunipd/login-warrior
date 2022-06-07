@@ -2,7 +2,7 @@
  * @implements
  * Classe FilterId per la gestione del filtro sull'evento.
  */
- import JsDom from '../JsDomImport.js';
+
 export default class FilterEvent {
   cssSelector;
 

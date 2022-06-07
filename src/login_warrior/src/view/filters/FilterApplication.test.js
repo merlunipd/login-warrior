@@ -1,4 +1,5 @@
 import FilterApplication from './FilterApplication.js';
+import JsDom from '../JsDomImport.js';
 describe('Unit Testing FilterApplication', () => {
     const obj = new FilterApplication('css');
 

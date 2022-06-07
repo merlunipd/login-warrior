@@ -2,7 +2,7 @@
  * @implements
  * Classe FilterId per la gestione del filtro sulla data.
  */
- import JsDom from '../JsDomImport.js';
+
 export default class FilterDate {
   cssSelector;
 

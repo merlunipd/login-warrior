@@ -1,4 +1,5 @@
 import FilterButton from './FilterButton.js';
+import JsDom from './JsDomImport.js';
 
 describe('Unit Testing FilterButton', () => {
     const obj = new FilterButton('css');

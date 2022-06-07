@@ -1,4 +1,5 @@
 import FilterIp from './FilterIp.js';
+import JsDom from '../JsDomImport.js';
 describe('Unit Testing FilterIp', () => {
     const obj = new FilterIp('css');
 

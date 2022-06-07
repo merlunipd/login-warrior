@@ -1,4 +1,5 @@
 import ResetFilterButton from './ResetFilterButton.js';
+import JsDom from './JsDomImport.js';
 describe('Unit Testing ResetFilterButton', () => {
     const obj = new ResetFilterButton('css');
 

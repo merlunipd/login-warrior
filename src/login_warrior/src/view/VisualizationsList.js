@@ -1,5 +1,4 @@
 
-import JsDom from './JsDomImport.js';
 export default class VisualizationsList {
   cssSelector;
 

@@ -1,4 +1,5 @@
 import LoadSessionButton from './LoadSessionButton.js';
+import JsDom from './JsDomImport.js';
 describe('Unit Testing LoadSessionButton', () => {
     const obj = new LoadSessionButton('css');
 

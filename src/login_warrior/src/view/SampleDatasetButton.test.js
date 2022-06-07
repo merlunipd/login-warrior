@@ -1,4 +1,5 @@
 import SampleDatasetButton from './SampleDatasetButton.js';
+import JsDom from './JsDomImport.js';
 describe('Unit Testing SampleDatasetButton', () => {
     const obj = new SampleDatasetButton('css');
 

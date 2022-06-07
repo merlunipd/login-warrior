@@ -1,4 +1,5 @@
 import VisualizationsList from './VisualizationsList.js';
+import JsDom from './JsDomImport.js';
 describe('Unit Testing VisualizationsList', () => {
     const obj = new VisualizationsList('css');
 

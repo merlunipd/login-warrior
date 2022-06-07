@@ -1,4 +1,5 @@
 import FilterEvent from './FilterEvent.js';
+import JsDom from '../JsDomImport.js';
 describe('Unit Testing FilterEvent', () => {
     const obj = new FilterEvent('css');
 

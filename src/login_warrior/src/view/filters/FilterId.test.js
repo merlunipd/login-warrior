@@ -1,4 +1,5 @@
 import FilterId from './FilterId.js';
+import JsDom from '../JsDomImport.js';
 describe('Unit Testing FilterId', () => {
     const obj = new FilterId('css');
 
