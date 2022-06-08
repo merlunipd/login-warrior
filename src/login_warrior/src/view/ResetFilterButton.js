@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Button from './Button.js';
+
 /* eslint-enable no-unused-vars */
 
 /**
@@ -16,6 +17,7 @@ export default class ResetFilterButton {
   }
 
   setClick(f) {
-    document.querySelector(this.cssSelector).addEventListener('click', f);
+      document.querySelector(this.cssSelector).addEventListener('click', f);
   }
+
 }

@@ -10,10 +10,26 @@ describe('Unit Testing Visualization', () => {
         expect(() => { new Visualization('cssSelector', new Customizations(), new Drawer()); }).toThrowError(new Error('Interfaces can not be instantiated'));
       });
 
-      /* HA SENSO?
       test('Getter customizations', () => {
         const variable = emptyVisualization.getCustomizations();
         expect(variable).toBeUndefined();
-      });*/
+      });
+
+      test('Setter customizations', () => {
+        const visualization = new Visualization();
+        visualization.setCustomizations("custo");
+        expect(visualization.getCustomizations()).toBe("custo");
+      });
+      
+      test('Test drawer()', () => {
+        let thrownError;
+        try {
+          (emptyVisualization.draw());
+        } catch (error) {
+          thrownError = error;
+        }
+        expect(String(thrownError)).toMatch('Cannot read properties of undefined (reading \'draw\')');
+       });
+
 
 });

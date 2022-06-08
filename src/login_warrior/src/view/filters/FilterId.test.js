@@ -1,4 +1,5 @@
 import FilterId from './FilterId.js';
+import JsDom from '../JsDomImport.js';
 describe('Unit Testing FilterId', () => {
     const obj = new FilterId('css');
 
@@ -6,4 +7,8 @@ describe('Unit Testing FilterId', () => {
       const filterId = new FilterId('css');
       expect(filterId).toStrictEqual(obj);
     });
+
+    test('Test getDomObject()', () => {
+      expect(obj.getDomObject()).toBeNull();
+     });
 });
