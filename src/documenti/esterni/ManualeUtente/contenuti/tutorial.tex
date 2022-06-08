@@ -12,7 +12,8 @@ Questa prima tipologia di \textit{Scatter Plot} permette di individuare degli ac
 	\centering
 	\includegraphics[width=1.0\textwidth]{scatter1anom.png}
 	\caption{Accessi sospetti Scatter Plot 1}
-  \end{figure}
+\end{figure}
+
 \section{Scatter Plot 2}
 \begin{figure}[H]
 	\centering
@@ -24,19 +25,21 @@ Questa seconda tipologia di \textit{Scatter Plot} permette di individuare un ute
 	\centering
 	\includegraphics[width=1.0\textwidth]{scatter2anom.png}
 	\caption{Utente sospetto Scatter Plot 2}
-  \end{figure}
+\end{figure}
+
 \section{Parallel Coordinates}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{parallelcoordinates.png}
-	\caption{Informazioni Parallell Coordinates}
+	\caption{Informazioni Parallel Coordinates}
   \end{figure}
 Questa tipologia di grafico offre una visione su tutte le dimensioni, infatti ogni asse verticale ne rappresenta una. È un grafico molto utile se si filtra per tipo di evento, in particolare login errato, perchè così facendo possiamo vedere il periodo in cui ne sono stati effettuati maggiormente e anche il tipo di applicazione dalla quale sono stati fatti.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{parallelanom.png}
 	\caption{Tipo di applicazione dalla quale vengono effettuati tanti errori di accesso}
-  \end{figure}
+\end{figure}
+
 \section{Sankey Diagram}
 \begin{figure}[H]
 	\centering
@@ -48,5 +51,18 @@ Questa tipologia di grafico è formata da barre dalle quali escono dei fasci. Si
 	\centering
 	\includegraphics[width=1.0\textwidth]{sankeyutente21518.png}
 	\caption{Accessi dell'utente 21518}
+\end{figure}
+
+\section{Force-Directed Graph}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{Force.png}
+	\caption{Informazioni Force-Directed Graph}
   \end{figure}
-\section{Force Directed Graph}
+Questa tipologia di grafico mostra quali utenti sono più sospetti nelle loro azioni. Risulta molto utile ad identificare gli utenti con un rapporto Login/Errori basso, individuati dai colori tendenti al rosso, che indica un elevato numero di login errati rispetto ai login corretti. Grazie a questo grafico possiamo individuare in modo immediato gli utenti sospetti e questo ci permette poi di andare a controllare negli altri grafici più nel dettaglio le azioni di questi utenti.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{Force-DirectedSospetti.png}
+	\caption{Utenti sospetti}
+\end{figure}

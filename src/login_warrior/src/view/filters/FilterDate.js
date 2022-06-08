@@ -2,6 +2,7 @@
  * @implements
  * Classe FilterId per la gestione del filtro sulla data.
  */
+
 export default class FilterDate {
   cssSelector;
 

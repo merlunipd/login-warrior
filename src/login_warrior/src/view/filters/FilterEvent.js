@@ -2,6 +2,7 @@
  * @implements
  * Classe FilterId per la gestione del filtro sull'evento.
  */
+
 export default class FilterEvent {
   cssSelector;
 
