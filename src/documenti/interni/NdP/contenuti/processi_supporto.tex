@@ -274,17 +274,25 @@ Per ogni periodo pianificato e per cui si è fatto un preventivo si vuole indica
   \end{itemize}
 
   \subsection{Testing}
-  All'interno del \textit{Piano di Qualifica V2.0.0} troviamo gli obiettivi di qualità del processo e del prodotto, con le relative metriche per verificarne l'accettabilità, successivamente abbiamo dei test$_G$ che garantiscono la qualità generale del nostro software, che appartengono alle seguenti categorie:
+  All'interno del \textit{Piano di Qualifica V3.0.0} troviamo gli obiettivi di qualità del processo e del prodotto, con le relative metriche per verificarne l'accettabilità, successivamente abbiamo dei test$_G$ che garantiscono la qualità generale del nostro software, che appartengono alle seguenti categorie:
   \begin{itemize}
-      \item Test di unità;
-      \item Test d'integrazione;
-      \item Test di regressione;
-      \item Test di sistema;
-      \item Test di accettazione.
+      \item Test di unità: attività di testing di singole unità. Si tratta del collaudo dei minimi componenti di un programma, ossia del funzionamento delle funzioni e dei loro algoritmi;
+      \item Test d'integrazione: attività di testing del modo in cui interagiscono le singole componenti. Si tratta di controllare che i componenti (già testati singolarmente) si comportino in modo adeguato anche quando devono collaborare tra di loro;
+      \item Test di regressione: attività di testing che consiste nella verifica del corretto funzionamento del prodotto. In particolare l'obiettivo è quello di testare le nuove funzionalità e garantire che quelle già integrate continuino a comportarsi nel modo aspettato;
+      \item Test di sistema: attività di testing mirata a verificare il comportamento dell'intero sistema. In sostanza l'obiettivo è quello di valutare la sua conformità con i requisiti specificati e controllare che riesca a soddisfarli a pieno;
+      \item Test di accettazione: attività di testing finale attuata dopo aver eseguito tutte le tipologie di test e dopo aver quindi risolto ogni problema legato al prodotto. Mira a testare il prodotto dal punto di vista strettamente funzionale.
   \end{itemize}
   Per questi ultimi test verrà indicato se sono stati implementati o meno.
   \newline
   Infine troviamo un resoconto che contiene i risultati dei test della qualità di processo, della qualità di prodotto e del software, in cui, grazie a opportuni grafici, abbiamo una rappresentazione dei vari indici nel corso del tempo. Per svolgere al meglio questo lavoro è possibile affidarsi alla sottosezione \underline{\ref{sec:Metriche} \nameref{sec:Metriche}}, in cui è presente la descrizione e le formule delle varie metriche.
+  \subsubsection{Attuazione}
+  L'attività di testing ha ricoperto in gran parte il prodotto realizzato.
+  \newline
+  L'unica nota di rilievo risiede nella fase di test dei \textit{Drawer} dei grafici. Essendo, i grafici, visualizzazioni di dati risulta molto complicato testare le singole unità che vanno a disegnarli e per questo la percentuale di codice testata di quelle classi risulta estremamente bassa.
+  \newline
+  La discussione è stata affrontata con il proponente che, in accordo con la nostra visione, ha ritenuto adeguato non testare ulteriormente le classi prese in esame.
+  \newline
+  Prendendo in considerazione le percentuali finali notiamo che queste classi hanno un impatto sulle percentuali di righe testate, tuttavia considerando tutto il codice senza queste determinate classi la percentuale si avvicina al 100\%.
 
 
   \subsection{Metriche}\label{sec:Metriche}
