@@ -40,12 +40,13 @@ from time import localtime, strftime
 PATH_DOCUMENTI = [
   os.path.join("src", "documenti", "candidatura", "capitolato", "capitolato.tex"),
   os.path.join("src", "documenti", "candidatura", "impegni", "impegni.tex"),
-  os.path.join("src", "documenti", "esterni", "PdP", "PdP_V2.tex"),
-  os.path.join("src", "documenti", "esterni", "PdQ", "PdQ_V2.tex"),
+  os.path.join("src", "documenti", "esterni", "PdP", "PdP_V3.tex"),
+  os.path.join("src", "documenti", "esterni", "PdQ", "PdQ_V3.tex"),
   os.path.join("src", "documenti", "esterni", "AdR", "AdR_V2.tex"),
   os.path.join("src", "documenti", "esterni", "SA", "specifica_architetturale_V1.tex"),
-  os.path.join("src", "documenti", "esterni", "ManualeUtente", "manuale_utente_V1.tex"),
-  os.path.join("src", "documenti", "interni", "NdP", "NdP_V2.tex")
+  os.path.join("src", "documenti", "esterni", "ManualeUtente", "manuale_utente_V2.tex"),
+  os.path.join("src", "documenti", "esterni", "manuale_sviluppatore", "manuale_sviluppatore_V1.tex"),
+  os.path.join("src", "documenti", "interni", "NdP", "NdP_V3.tex")
 ]
 PATH_VERBALI_INTERNI = os.path.join("src", "documenti", "interni", "verbali")
 PATH_VERBALI_ESTERNI = os.path.join("src", "documenti", "esterni", "verbali")
